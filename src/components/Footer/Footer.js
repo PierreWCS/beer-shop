@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footerMainContainer">
-      <div className="footerSmallContainer">
+      <div className="footerSmallContainer footerNb1">
         <h1 className="footerBigTitle">Wild Beers</h1>
         <h4 className="footerBigTitleSubtitle">Since 2019</h4>
         <img
@@ -14,13 +14,13 @@ const Footer = () => {
           alt="logo"
         />
       </div>
-      <div className="footerSmallContainer">
+      <div className="footerSmallContainer footerNb2">
         <h2 className="footerSubtitle">Site navigation</h2>
         <Link to="/" className="linkFooter" >Home</Link>
-        <Link to="/" className="linkFooter" >About</Link>
-        <Link to="/" className="linkFooter" >Beers</Link>
+        <Link to="/about" className="linkFooter" >About</Link>
+        <Link to="/admin" className="linkFooter" >Admin</Link>
       </div>
-      <div className="footerSmallContainer">
+      <div className="footerSmallContainer footerNb3">
         <h2 className="footerSubtitle">Find us</h2>
         <p className="footerInformation">At our store:</p>
         <p className="footerInformation">1214 Alcohol ST</p>

@@ -34,3 +34,9 @@
 .productCardButton {
     color: whitesmoke;
 }
+
+@media (max-width: 1060px) {
+    .itemProductCardContainer {
+        margin: 15px;
+    }
+}

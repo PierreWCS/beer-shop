@@ -78,6 +78,7 @@ const About = () => {
             <input placeholder="message..." className="messageInputAbout" type="text" id="message" />
           </label>
         </form>
+        <button className="aboutUsButton formButton">Send</button>
       </div>
       <Footer />
     </div>

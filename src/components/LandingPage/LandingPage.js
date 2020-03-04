@@ -43,9 +43,7 @@ const LandingPage = () => {
               <h1 className="aboutUsTitle">MASTER BREW</h1>
               <p className="textAboutUs">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a
-                risus at ante imperdiet ullamcorper fringilla eu est. Morbi id
-                nibh ex. Integer vel eros gravida, euismod purus in, faucibus
-                sapien
+                risus at ante imperdiet ullamcorper fringilla eu est.
               </p>
               <button className="aboutUsButton">DISCOVER MORE</button>
             </div>

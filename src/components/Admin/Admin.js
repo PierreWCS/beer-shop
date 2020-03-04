@@ -99,9 +99,9 @@ const Admin = () => {
                       />
                       <p>Delete this product</p>
                     </div>
-                    <h3>Name: {product.name}</h3>
-                    <p>Price: {product.price} €</p>
-                    <p>Description:</p>
+                    <h3 className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{product.name}</span></h3>
+                    <p className="itemMessageCardAdmin">Price: <span className="contentMessageAdmin">{product.price} €</span></p>
+                    <p className="itemMessageCardAdmin">Description:</p>
                     <p>{product.description}</p>
                     <img
                       className="imageProductAdmin"
@@ -129,7 +129,7 @@ const Admin = () => {
                     <p className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{message.name}</span></p>
                     <p className="itemMessageCardAdmin">Firstname : <span className="contentMessageAdmin">{message.firstname}</span></p>
                     <p className="itemMessageCardAdmin">Message :</p>
-                    <p className="itemMessageCardAdmin">{message.body}</p>
+                    <p className="contentMessageAdmin">{message.body}</p>
                   </div>
                 )
               })
