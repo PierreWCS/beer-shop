@@ -89,9 +89,9 @@ const LandingPage = () => {
               </div>
               <div className="statsSmallContainer">
                 <FontAwesomeIcon icon={faFlask} className="iconStatsLandingPage fa-4x" />
-                <p className="numberStatsLandingPage">140</p>
+                <p className="numberStatsLandingPage">65</p>
                 <hr className="separatorStatsLandingPage" />
-                <p className="textStatsLandingPage">FLAVOURS</p>
+                <p className="textStatsLandingPage">HOURS UNTIL NEW ONE</p>
               </div>
             </div>
           </div>

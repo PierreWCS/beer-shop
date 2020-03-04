@@ -44,6 +44,23 @@ const Admin = () => {
     }
   };
 
+  const deleteMessage = (messageId) => {
+    if (window.confirm('Do you really wanna delete this message ?')) {
+      Axios.delete(`http://localhost:8000/api/messages/:${messageId}`)
+        .then(res => {
+          if (res.status === 200) {
+            alert("Message has been deleted")
+          } else {
+            alert("Error")
+          }
+          console.log(res);
+        })
+        .then(response => {
+          console.log(response)
+        });
+    }
+  };
+
   const getMessages = () => {
     Axios.get("http://localhost:8000/api/messages")
       .then(result => result.data)
@@ -61,6 +78,10 @@ const Admin = () => {
         <h2 onClick={() => setDisplayChoice('products')} className={`itemNavBarAdmin ${displayChoice === 'products' ? 'activeItemAdmin' : null}`}>Products</h2>
         <h2 onClick={() => setDisplayChoice('messages')} className={`itemNavBarAdmin ${displayChoice === 'messages' ? 'activeItemAdmin' : null}`}>Messages</h2>
       </div>
+
+      {
+        displayChoice === 'products' ? <h1 className="manageAdmin">Manage your products</h1> : <h1 className="manageAdmin">New messages</h1>
+      }
 
       <div className="productsAdmin">
         {/*     I am displaying products by default and on click on messages i'm changing the content     */}
@@ -96,11 +117,19 @@ const Admin = () => {
               messages.map((message) => {
                 return (
                   <div className="messageCardAdmin">
-                    <h2>{message.title}</h2>
-                    <p>{message.mail}</p>
-                    <p>{message.name}</p>
-                    <p>{message.firstname}</p>
-                    <p>{message.body}</p>
+                    <div onClick={() => deleteMessage(message.id)} className="deleteProductAdmin">
+                      <FontAwesomeIcon
+                        icon={faWindowClose}
+                        className="closeIconAdmin fa-2x"
+                      />
+                      <p>Delete this message</p>
+                    </div>
+                    <h2>Title: <span className="contentMessageAdmin">{message.title}</span></h2>
+                    <p className="itemMessageCardAdmin">Mail: <span className="contentMessageAdmin">{message.mail}</span></p>
+                    <p className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{message.name}</span></p>
+                    <p className="itemMessageCardAdmin">Firstname : <span className="contentMessageAdmin">{message.firstname}</span></p>
+                    <p className="itemMessageCardAdmin">Message :</p>
+                    <p className="itemMessageCardAdmin">{message.body}</p>
                   </div>
                 )
               })
