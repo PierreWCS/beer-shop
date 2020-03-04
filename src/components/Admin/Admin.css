@@ -1,0 +1,69 @@
+.adminMainContainer {
+    width: 100%;
+    background-color: #282c34;
+    height: 100vh;
+}
+
+/*          Admin nav bar           */
+
+.adminNavBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #CAB381;
+}
+
+.itemNavBarAdmin {
+    background-color: white;
+    margin: 15px 50px 15px 50px;
+    padding: 15px;
+}
+
+.activeItemAdmin {
+    background-color: lightgray;
+    color: white;
+}
+
+/*          admin page         */
+
+.titleAdminPage {
+    padding: 150px 0 50px 0;
+    margin: 0;
+}
+
+/*              Products            */
+
+.productsAdmin {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.productCardAdmin {
+    background-color: white;
+    margin: 15px;
+    width: 300px;
+    height: 400px;
+}
+
+.imageProductAdmin {
+    height: 150px;
+}
+
+.deleteProductAdmin {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color: red;
+}
+
+/*          Messages            */
+
+.messageCardAdmin {
+    background-color: white;
+    margin: 15px;
+    padding: 15px;
+}

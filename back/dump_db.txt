@@ -8,8 +8,17 @@ CREATE TABLE products (
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
 	price FLOAT NOT NULL,
-	image VARCHAR(150),
-	description TEXT
+	image VARCHAR(150)NOT NULL,
+	description TEXT NOT NULL
+);
+
+CREATE TABLE messages (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	title VARCHAR(100) NOT NULL,
+	mail VARCHAR(150) NOT NULL,
+	name VARCHAR(100) NOT NULL,
+	firstname VARCHAR(100) NOT NULL,
+	body TEXT NOT NULL
 );
 
 insert into products (name, price, image, description) values ('Celebrator', 2.89, 'celebrator.png', 'Very appreciated by the Professor');
@@ -23,3 +32,5 @@ insert into products (name, price, image, description) values ('Kingfisher', 2.4
 insert into products (name, price, image, description) values ('Sapporo',3.29, 'sapporo.png', 'Traditional japanese beer, small touch of gingember');
 
 insert into products (name, price, image, description) values ('Tuborg', 3.29, 'tuborg.png', 'Dark lager from Finland');
+
+insert into messages (title, mail, name, firstname, body) values ('I love your beers', 'pierre@gmail.com', 'Legrain', 'Pierre', 'Hi, i really love your beers !');

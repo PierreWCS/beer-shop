@@ -8,7 +8,7 @@ import {
   faBoxOpen,
   faFlask,
   faWineBottle
-} from '@fortawesome/free-solid-svg-icons'
+} from '@fortawesome/free-solid-svg-icons';
 import Footer from "../Footer/Footer";
 
 const LandingPage = () => {
