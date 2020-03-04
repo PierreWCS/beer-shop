@@ -9,8 +9,9 @@ const NavBar = () => {
           <img className="logoNavBar" src={require('../images/logoBeer.png')} alt="logo"/>
         </Link>
         <div className="navLinkContainer">
-          <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/about">About</NavLink>
-          <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/admin">Admin</NavLink>
+          <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/products">BEERS</NavLink>
+          <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/about">ABOUT US</NavLink>
+          <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/admin">ADMIN</NavLink>
         </div>
       </div>
   )
