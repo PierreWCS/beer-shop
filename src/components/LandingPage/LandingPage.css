@@ -190,6 +190,7 @@
     .aboutUsTextContainer {
         position: initial;
         height: 300px;
+        width: 100%;
     }
 
     .aboutUsTitle {
