@@ -10,7 +10,7 @@ const Footer = () => {
         <h4 className="footerBigTitleSubtitle">Since 2019</h4>
         <img
           className="logoNavBar"
-          src={require("../images/logo.png")}
+          src={require("../images/logoBeer.png")}
           alt="logo"
         />
       </div>

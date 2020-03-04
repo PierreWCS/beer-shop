@@ -135,3 +135,36 @@
 .formButton {
     color: #282c34;
 }
+
+@media (max-width: 1060px) {
+    .aboutUsContentContainer {
+        height: 70vh;
+    }
+
+    .firstColumnAbout, .secondColumnAbout {
+        width: 25%;
+        height: 350px;
+        font-size: 12px;
+    }
+    .smallTextAbout {
+        display: none;
+    }
+    .brownBeerAbout {
+        height: 175px;
+    }
+
+    .nameFirstNameContainer {
+        justify-content: center;
+    }
+    .nameAndFirstNameInput {
+        width: 150px;
+    }
+
+    .messageInputAbout {
+        width: 350px;
+    }
+
+    .mailInputAbout {
+        width: 350px;
+    }
+}

@@ -6,8 +6,7 @@ const NavBar = () => {
   return (
       <div className="navBarContainer">
         <Link to="/" className="logoAndNameNavBar">
-          <img className="logoNavBar" src={require('../images/logo.png')} alt="logo"/>
-          <h1 className="shopTitle">Wild Beers</h1>
+          <img className="logoNavBar" src={require('../images/logoBeer.png')} alt="logo"/>
         </Link>
         <div className="navLinkContainer">
           <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/about">About</NavLink>
