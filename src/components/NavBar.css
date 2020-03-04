@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+
+.navBarContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(200,200,200,0.8);
+    width: 100%;
+    height: 10vh;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.shopTitle {
+    font-size: 46px;
+    color: white;
+}
+
+.navLinkContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.itemNavBar {
+    color: #282c34;
+    font-size: 26px;
+    letter-spacing: 0.1em;
+    margin: 0 15px 0 15px;
+    text-decoration: none;
+}
+
+.activeItemNavBar {
+    border-bottom: solid 3px #282c34;
+}

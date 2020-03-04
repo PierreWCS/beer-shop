@@ -1,0 +1,23 @@
+DROP database IF EXISTS beershop_db;
+
+CREATE database beershop_db;
+
+USE beershop_db;
+
+CREATE TABLE products (
+	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+	name VARCHAR(100) NOT NULL,
+	price FLOAT NOT NULL,
+	image VARCHAR(150),
+	description TEXT
+);
+
+insert into products (name, price, image, description) values ('Duff', 4.69, './images/beers_products/duff.png', 'The very famous beer from The Simpsons! To share with friends in a baseball stadium. Doh !');
+
+insert into products (name, price, image, description) values ('Guinness', 3.89, './images/beers_products/guinness.png', 'The original Guinness beer, brewed in Ireland since 1759');
+
+insert into products (name, price, image, description) values ('Kingfisher', 2.49, './images/beers_products/kingfisher.png', 'A sweet blond beer with a smooth taste of lime');
+
+insert into products (name, price, image, description) values ('Sapporo',3.29, './images/beers_products/sapporo.png', 'Traditional japanese beer, small touch of gingember');
+
+insert into products (name, price, image, description) values ('Tuborg', 3.29, './images/beers_products/tuborg.png', 'Dark lager from Finland');
