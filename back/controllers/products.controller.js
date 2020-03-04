@@ -13,7 +13,9 @@ exports.create = (request, response) => {
     id: request.body.id,
     name: request.body.name || null,
     price: request.body.price || null,
-    image: request.body.image || null
+    image: request.body.image || null,
+    description: request.body.description || null,
+    alcohol: request.body.alcohol || null
   });
 
   // Save product in database
