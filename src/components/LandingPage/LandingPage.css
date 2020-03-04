@@ -4,6 +4,22 @@
     height: 100%;
 }
 
+.logoLoading {
+    height: 100px;
+    animation: spin infinite;
+    position: absolute;
+    top: 15%;
+}
+
+@keyframes spin {
+    from {
+        rotation: 0;
+    }
+    to {
+        rotation: 360deg;
+    }
+}
+
 /*          Slider          */
 
 .sliderLandingPage {
@@ -89,15 +105,17 @@
 .ourProductsMainContainer {
     width: 100%;
     height: 80vh;
-    background-color: lightgray;
+    background-image: url('../images/background_bar_greyscale.jpg');
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .titleOurProducts {
     font-family: 'Abril Fatface', cursive;
     letter-spacing: 0.1em;
-    color: #1C1D1F;
+    color: white;
     margin: 0;
-    padding: 25px 0 45px 0;
+    padding: 100px 0 45px 0;
 }
 
 .ourProductCardContainer {
@@ -107,6 +125,14 @@
     justify-content: space-around;
 }
 
+/*          Stats           */
+
+.statsContainerLandingPage {
+    background-color: #1C1D1F;
+    width: 100%;
+    height: 30vh;
+}
+
 
 /*          Footer              */
 
@@ -114,4 +140,14 @@
     width: 100%;
     height: 40vh;
     background-color: #1C1D1F;
+    display: flex;
+    justify-content: center;
+}
+
+.footerSmallContainer {
+    height: 400px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }

@@ -2,7 +2,7 @@
 
 .itemProductCardContainer {
     width: 300px;
-    height: 350px;
+    height: 380px;
     background-color: white;
     display: flex;
     flex-direction: column;
@@ -13,6 +13,7 @@
 
 .productNameProductCard {
     font-family: Pacifico;
+    font-size: 28px;
 }
 
 .productDescriptionProductCard {
@@ -28,4 +29,8 @@
 
 .productImageProductCard {
     height: 100px;
+}
+
+.productCardButton {
+    color: whitesmoke;
 }

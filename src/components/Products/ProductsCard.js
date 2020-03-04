@@ -8,7 +8,7 @@ const ProductCard = ({ product }) => {
       <img className="productImageProductCard" src={require(`../images/beers_products/${product.image}`)} alt={product.name} />
       <p className="productDescriptionProductCard">{product.description}</p>
       <p className="productPriceProductCard">{product.price} €</p>
-      <button className="aboutUsButton">Add to cart</button>
+      <button className="aboutUsButton productCardButton">Add to cart</button>
     </div>
   )
 };
