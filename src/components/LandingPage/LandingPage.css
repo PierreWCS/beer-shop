@@ -24,7 +24,8 @@
 
 .sliderLandingPage {
     background-image: url('../images/beerHomePage.jpg');
-    background-size: cover;
+    background-size: 100%;
+    background-position: 10% 40%;
     background-repeat: no-repeat;
     height: 80vh;
     width: 100%;
@@ -121,6 +122,7 @@
 .ourProductCardContainer {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-around;
 }
@@ -128,9 +130,50 @@
 /*          Stats           */
 
 .statsContainerLandingPage {
-    background-color: #1C1D1F;
+    background-color: #282c34;
     width: 100%;
-    height: 30vh;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.statsLandingPageContentContainer {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.statsSmallContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconStatsLandingPage {
+    color: #CAB381;
+}
+
+.numberStatsLandingPage {
+    color: whitesmoke;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 46px;
+    margin: 10px 0 15px 0;
+}
+
+.separatorStatsLandingPage {
+    width: 35px;
+    color: #CAB381;
+    margin: 0 0 15px 0;
+}
+
+.textStatsLandingPage {
+    color: whitesmoke;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 20px;
+    margin: 0;
 }
 
 
@@ -142,12 +185,47 @@
     background-color: #1C1D1F;
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 25px;
+    box-sizing: border-box;
 }
 
 .footerSmallContainer {
-    height: 400px;
-    width: 250px;
+    height: 300px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    margin: 0 25px 0 25px;
+}
+
+.footerBigTitle {
+    font-family: 'Abril Fatface', cursive;
+    color: #CAB381;
+    font-size: 36px;
+    margin: 15px 0 5px 0;
+}
+
+.footerBigTitleSubtitle {
+    font-family: 'Abril Fatface', cursive;
+    color: whitesmoke;
+    margin: 0 0 25px 0;
+}
+
+.footerSubtitle {
+    color: whitesmoke;
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.linkFooter {
+    font-family: Roboto;
+    color: #CAB381;
+    margin: 15px 0 15px 0;
+    text-decoration: none;
+}
+
+.footerInformation {
+    color: #CAB381;
+    margin: 15px 0 15px 0;
 }

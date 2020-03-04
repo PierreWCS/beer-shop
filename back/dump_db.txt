@@ -12,6 +12,8 @@ CREATE TABLE products (
 	description TEXT
 );
 
+insert into products (name, price, image, description) values ('Celebrator', 2.89, 'celebrator.png', 'Very appreciated by the Professor');
+
 insert into products (name, price, image, description) values ('Duff', 4.69, 'duff.png', 'The very famous beer from The Simpsons! To share with friends in a baseball stadium. Doh !');
 
 insert into products (name, price, image, description) values ('Guinness', 3.89, 'guinness.png', 'The original Guinness beer, brewed in Ireland since 1759');
