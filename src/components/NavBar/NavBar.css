@@ -6,15 +6,29 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(200,200,200,0.8);
+    background-color: whitesmoke;
     width: 100%;
     height: 10vh;
+    z-index: 1;
     font-family: 'Abril Fatface', cursive;
+}
+
+.logoAndNameNavBar {
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logoNavBar {
+    width: 80px;
+    height: 80px;
 }
 
 .shopTitle {
     font-size: 46px;
-    color: white;
+    color: #CAB381;
 }
 
 .navLinkContainer {
