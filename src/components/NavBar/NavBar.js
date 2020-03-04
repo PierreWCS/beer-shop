@@ -1,18 +1,17 @@
 import React from 'react';
-import {NavLink} from "react-router-dom";
+import {Link, NavLink} from "react-router-dom";
 import './NavBar.css';
 
 const NavBar = () => {
   return (
     <div className="navBarContainer">
-      <div className="logoAndNameNavBar">
+      <Link to="/" className="logoAndNameNavBar">
         <img className="logoNavBar" src={require('../images/logo.png')} alt="logo"/>
         <h1 className="shopTitle">Wild Beers</h1>
-      </div>
+      </Link>
       <div className="navLinkContainer">
-        <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/">Home</NavLink>
-        <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/cc">About</NavLink>
-        <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/cc">Beers</NavLink>
+        <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/about">About</NavLink>
+        <NavLink activeClassName="activeItemNavBar" className="itemNavBar" to="/admin">Admin</NavLink>
       </div>
     </div>
   )

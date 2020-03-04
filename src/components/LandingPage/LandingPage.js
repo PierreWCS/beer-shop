@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./LandingPage.css";
 import Axios from "axios";
 import ProductCard from "../Products/ProductsCard";
-import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBirthdayCake,
@@ -10,6 +9,7 @@ import {
   faFlask,
   faWineBottle
 } from '@fortawesome/free-solid-svg-icons'
+import Footer from "../Footer/Footer";
 
 const LandingPage = () => {
   const [products, setProducts] = useState(null);
@@ -96,32 +96,9 @@ const LandingPage = () => {
             </div>
           </div>
 
-          {/*       Footer      */}
+        {/*         Footer          */}
 
-          <div className="footerMainContainer">
-            <div className="footerSmallContainer">
-              <h1 className="footerBigTitle">Wild Beers</h1>
-              <h4 className="footerBigTitleSubtitle">Since 2019</h4>
-              <img
-                className="logoNavBar"
-                src={require("../images/logo.png")}
-                alt="logo"
-              />
-            </div>
-            <div className="footerSmallContainer">
-              <h2 className="footerSubtitle">Site navigation</h2>
-              <Link to="/" className="linkFooter" >Home</Link>
-              <Link to="/" className="linkFooter" >About</Link>
-              <Link to="/" className="linkFooter" >Beers</Link>
-            </div>
-            <div className="footerSmallContainer">
-              <h2 className="footerSubtitle">Find us</h2>
-              <p className="footerInformation">At our store:</p>
-              <p className="footerInformation">1214 Alcohol ST</p>
-              <p className="footerInformation">Chicago</p>
-              <p className="footerInformation">From 9:00 to 20:00</p>
-            </div>
-          </div>
+        <Footer />
         </div>
       ) : (
         // Showing a loading image during the products fetch
