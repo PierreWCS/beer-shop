@@ -50,6 +50,10 @@
     border-bottom: solid 3px #CAB381;
 }
 
+.cartIconNavBar {
+    color: #282c34;
+}
+
 .closeCartIcon {
     color: #CAB381;
     cursor: pointer;
