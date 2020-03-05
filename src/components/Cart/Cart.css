@@ -1,0 +1,29 @@
+.cartContainerMobile {
+    width: 100%;
+    height: 100vh;
+    background-color: #282c34;
+}
+
+.cartTitleMobile {
+    margin: 0;
+    padding: 25px;
+    color: #CAB381;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 0.1em;
+}
+
+.productsContainerCartMobile {
+    margin: 15px 0 15px 0;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+}
+
+.productCardCartMobile {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px 50px 5px 50px;
+    margin: 5px 0 5px 0;
+    background-color: whitesmoke;
+}

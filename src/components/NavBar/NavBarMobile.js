@@ -22,9 +22,9 @@ const NavBarMobile = () => {
         {
           toggle ?
             <div className="listNavBarMobile">
-              <NavLink activeClassName="activeItemNavBar" className="itemNavBarMobile" to="/products">BEERS</NavLink>
               <NavLink activeClassName="activeItemNavBar" className="itemNavBarMobile" to="/about">ABOUT US</NavLink>
               <NavLink activeClassName="activeItemNavBar" className="itemNavBarMobile" to="/admin">ADMIN</NavLink>
+              <NavLink activeClassName="activeItemNavBar" className="itemNavBarMobile" to="/cart">CART</NavLink>
             </div>
             : null
         }

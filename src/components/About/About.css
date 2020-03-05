@@ -11,6 +11,13 @@
     background-image: url('../images/aboutBackground.jpg');
 }
 
+.aboutUsTitlePage {
+    font-family: 'Abril Fatface', cursive;
+    color: #CAB381;
+    letter-spacing: 0.1em;
+    padding: 25px;
+}
+
 /*          About us text           */
 
 .aboutUsContainerText {
@@ -22,7 +29,7 @@
     background-color: #D4CFD3;
     width: 100%;
     background-image: url('../images/backoundAboutUsText.jpg');
-    background-size: 60%;
+    background-size: 100%;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: right;

@@ -7,6 +7,7 @@ import About from "./components/About/About";
 import Admin from "./components/Admin/Admin";
 import useWindowDimensions from "./components/services/useWindowDimensions";
 import NavBarMobile from "./components/NavBar/NavBarMobile";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   const { width } = useWindowDimensions();
@@ -20,6 +21,7 @@ function App() {
           <Route exact path="/" component={LandingPage} />
           <Route path="/about" component={About} />
           <Route path="/admin" component={Admin} />
+          <Route path="/cart" component={Cart} />
         </Switch>
       </div>
     </Router>

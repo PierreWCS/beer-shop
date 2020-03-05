@@ -69,6 +69,9 @@ const About = () => {
   return (
     <div className="aboutMainContainer">
       <div className="headerAbout" />
+      <div>
+        <h1 className="aboutUsTitlePage">ABOUT US</h1>
+      </div>
       <div className="aboutUsContainerText">
         <img
           className="breweryAboutUs"
