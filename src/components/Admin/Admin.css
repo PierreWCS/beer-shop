@@ -123,3 +123,43 @@
 .contentMessageAdmin {
     font-weight: normal;
 }
+
+.backtoHomeAdminContainer {
+    display: none;
+}
+
+@media (max-width: 1060px) {
+
+    .titleAdminPage {
+        padding: 150px 0 25px 0;
+    }
+    .fakeShopFormContainer {
+        padding-bottom: 150px;
+    }
+    .adminNavBar {
+        flex-direction: row;
+        height: auto;
+        top: 0;
+        z-index: 2;
+    }
+    .addAProductTitle {
+        text-align: center;
+    }
+
+    .logoBackToHome {
+        height: 150px;
+    }
+    .backtoHomeAdminContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        text-decoration: none;
+        color: #CAB381;
+        border: solid 2px #CAB381;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+    }
+}
