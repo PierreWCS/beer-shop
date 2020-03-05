@@ -40,6 +40,71 @@
     background-color: #1C1D1F;
 }
 
+
+.beerOfTheMonth {
+    font-size: 38px;
+    color: #CAB381;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.aboutUsContentContainer {
+    height: 70vh;
+    width: 100%;
+    background-color: #DCD9D0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brownBeerAbout {
+    margin-top: 75px;
+    height: 350px;
+    background-image: url('../images/compass.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.containerAboutAroundTheBeer {
+    display: flex;
+    flex-direction: row;
+}
+
+.beerNameAbout {
+    color: #282c34;
+}
+
+.firstColumnAbout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 400px;
+}
+
+.secondColumnAbout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 400px;
+}
+
+.titleTextAbout {
+    color: #282c34;
+}
+
+.leftText {
+    text-align: end;
+}
+
+.rightText {
+    text-align: start;
+}
+
+.smallTextAbout {
+    color: grey;
+}
 .aboutUsTextContainer {
     position: relative;
     top: 15%;

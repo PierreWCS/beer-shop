@@ -11,71 +11,50 @@
     background-image: url('../images/aboutBackground.jpg');
 }
 
-.beerOfTheMonth {
-    font-size: 38px;
-    color: #CAB381;
-    font-family: 'Abril Fatface', cursive;
-}
+/*          About us text           */
 
-.aboutUsContentContainer {
-    height: 70vh;
-    width: 100%;
-    background-color: #DCD9D0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.brownBeerAbout {
-    margin-top: 75px;
-    height: 350px;
-    background-image: url('../images/compass.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.containerAboutAroundTheBeer {
+.aboutUsContainerText {
     display: flex;
     flex-direction: row;
-}
-
-.beerNameAbout {
-    color: #282c34;
-}
-
-.firstColumnAbout {
-    display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-around;
-    height: 500px;
-    width: 400px;
+    height: 70vh;
+    background-color: #D4CFD3;
+    width: 100%;
+    background-image: url('../images/backoundAboutUsText.jpg');
+    background-size: 60%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: right;
 }
 
-.secondColumnAbout {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 500px;
-    width: 400px;
+.breweryAboutUs {
+    border: solid 3px #CAB381;
+    box-sizing: border-box;
+    width: 700px;
 }
 
-.titleTextAbout {
-    color: #282c34;
-}
-
-.leftText {
-    text-align: end;
-}
-
-.rightText {
+.textHistoryAbout {
     text-align: start;
+    width: 600px;
 }
 
-.smallTextAbout {
-    color: grey;
+.textAboutUsSmallContainer {
+    display: flex;
+    background-color: whitesmoke;
+    flex-direction: column;
+    padding: 35px;
+    box-sizing: border-box;
+    align-items: flex-start;
 }
 
+.titleAboutUsText {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 48px;
+    color: #282c34;
+    margin: 10px;
+    letter-spacing: 0.1em;
+}
 
 /*          Form            */
 
@@ -99,7 +78,7 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 300px;
+    height: 350px;
 }
 
 .nameFirstNameContainer {
@@ -114,6 +93,14 @@
     box-sizing: border-box;
     border: solid 2px #1C1D1F;
     padding: 25px;
+}
+
+.titleInput {
+    width: 520px;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 25px;
+    border: solid 2px #1C1D1F;
 }
 
 .messageInputAbout {
@@ -141,6 +128,24 @@
         height: 70vh;
     }
 
+    .aboutUsContainerText {
+        flex-direction: column;
+        height: 120vh;
+        width: 100%;
+    }
+
+    .textHistoryAbout {
+        width: 80%;
+    }
+
+    .breweryAboutUs {
+        width: 80%;
+    }
+    .formSectionAbout {
+        height: 75vh;
+        padding: 15px 0 25px 0;
+    }
+
     .firstColumnAbout, .secondColumnAbout {
         width: 25%;
         height: 350px;
@@ -153,11 +158,19 @@
         height: 175px;
     }
 
+    .formContainerAbout {
+        height: 550px;
+    }
+
     .nameFirstNameContainer {
         justify-content: center;
     }
     .nameAndFirstNameInput {
         width: 150px;
+    }
+
+    .titleInput {
+        width: 350px;
     }
 
     .messageInputAbout {

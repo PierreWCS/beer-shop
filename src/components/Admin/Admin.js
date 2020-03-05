@@ -42,6 +42,7 @@ const Admin = () => {
         .then(response => {
           console.log(response)
         });
+      document.location.reload();
     }
   };
 
@@ -59,6 +60,7 @@ const Admin = () => {
         .then(response => {
           console.log(response)
         });
+      document.location.reload();
     }
   };
 
