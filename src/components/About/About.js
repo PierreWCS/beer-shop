@@ -97,13 +97,14 @@ const About = () => {
 
       <div className="formSectionAbout">
         <h1 className="contactUsTitle">Contact us</h1>
+        <hr className="separatorCart separatorFormAbout" />
         <form className="formContainerAbout">
           <label htmlFor="title">
             <input
               onChange={handleChangeTitle}
               required
               placeholder="title..."
-              className="titleInput"
+              className="titleInput inputAboutAll"
               type="text"
               id="title"
             />
@@ -114,7 +115,7 @@ const About = () => {
                 onChange={handleChangeName}
                 required
                 placeholder="name..."
-                className="nameAndFirstNameInput"
+                className="nameAndFirstNameInput inputAboutAll"
                 type="text"
                 id="name"
               />
@@ -124,7 +125,7 @@ const About = () => {
                 onChange={handleChangeFirstName}
                 required
                 placeholder="firstname..."
-                className="nameAndFirstNameInput"
+                className="nameAndFirstNameInput inputAboutAll"
                 type="text"
                 id="firstName"
               />
@@ -135,7 +136,7 @@ const About = () => {
               onChange={handleChangeMail}
               required
               placeholder="email..."
-              className="mailInputAbout"
+              className="mailInputAbout inputAboutAll"
               type="mail"
               id="email"
             />
@@ -145,7 +146,7 @@ const About = () => {
               onChange={handleChangeBody}
               required
               placeholder="message..."
-              className="messageInputAbout"
+              className="messageInputAbout inputAboutAll"
               type="text"
               id="message"
             />

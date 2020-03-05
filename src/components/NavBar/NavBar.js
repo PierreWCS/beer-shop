@@ -10,14 +10,21 @@ import "./NavBar.css";
 const NavBar = () => {
   const [displayCart, setDisplayCart] = useState(false);
   const [clientCart, setClientCart] = useState(null);
+  const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
     getClientCart();
+    // getTotalCart();
   }, []);
 
   const getClientCart = () => {
     let stockCart = JSON.parse(localStorage.getItem("clientCart"));
     console.log(stockCart);
+    let count = 0;
+    let total = stockCart.filter((product) => {
+      return count = count + product.price;
+    });
+    setTotalCart(count);
     setClientCart(stockCart);
   };
 
@@ -60,13 +67,14 @@ const NavBar = () => {
             />
           </div>
         ) : (
-          <div className="itemNavBar cartIconAndNumber" onClick={() => setDisplayCart(true)}>
+          <div
+            className="itemNavBar cartIconAndNumber"
+            onClick={() => setDisplayCart(true)}
+          >
             <FontAwesomeIcon icon={faShoppingCart} className="cartIconNavBar" />
-            {
-              clientCart ?
-                <p className="numberCartNavBar">{clientCart.length}</p>
-                : null
-            }
+            {clientCart ? (
+              <p className="numberCartNavBar">{clientCart.length}</p>
+            ) : null}
           </div>
         )}
       </div>
@@ -76,6 +84,7 @@ const NavBar = () => {
       {displayCart ? (
         <div className="cartContainerNavBar">
           <h2>Your cart</h2>
+          <hr className="separatorCart" />
           {clientCart
             ? clientCart.map(product => {
                 return (
@@ -87,7 +96,7 @@ const NavBar = () => {
                       </p>
                       <FontAwesomeIcon
                         onClick={() => deleteProduct(product)}
-                        className="deleteItemFromCart"
+                        className="deleteItemFromCart fa-2x"
                         icon={faWindowClose}
                       />
                     </div>
@@ -96,7 +105,10 @@ const NavBar = () => {
               })
             : null}
           {clientCart.length ? (
-            <button className="aboutUsButton navBarButtonCart">Payment</button>
+            <div>
+              <p>Total price: {totalCart} €</p>
+              <button className="aboutUsButton navBarButtonCart">Payment</button>
+            </div>
           ) : (
             <p>Your cart is empty</p>
           )}
