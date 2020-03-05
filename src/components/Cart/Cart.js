@@ -2,9 +2,11 @@ import React, {useEffect, useState} from 'react';
 import './Cart.css';
 import {faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {Link} from "react-router-dom";
 
 const Cart = () => {
   const [clientCart, setClientCart] = useState(null);
+  const [totalCart, setTotalCart] = useState(0);
 
   useEffect(() => {
     getClientCart();
@@ -15,6 +17,8 @@ const Cart = () => {
     console.log(stockCart);
     setClientCart(stockCart);
   };
+
+  let stock = 0;
 
   const deleteProduct = product => {
     let removedProduct = clientCart.filter(e => e.id !== product.id);
@@ -28,13 +32,14 @@ const Cart = () => {
         {
           clientCart ?
             clientCart.map((product) => {
+              stock += product.price;
               return (
                 <div className="productCardCartMobile">
-                  <p>{product.name}</p>
-                  <p>{product.price}</p>
+                  <p className="productNameCartMobile">{product.name}</p>
+                  <p className="productPriceCartMobile">{product.price}</p>
                   <FontAwesomeIcon
                     onClick={() => deleteProduct(product)}
-                    className="deleteItemFromCart"
+                    className="deleteItemFromCart deleteCartMobile fa-2x"
                     icon={faWindowClose}
                   />
                 </div>
@@ -46,7 +51,11 @@ const Cart = () => {
           clientCart ?
             <div>
               <p>Total quantity: {clientCart.length}</p>
-              <p>Total price: </p>
+              <p>Total price: {stock} €</p>
+              <div className="buttonContainerCart">
+                <button className="aboutUsButton buttonCartMobile">Payment</button>
+                <Link to="/" className="aboutUsButton buttonBackToSiteCart">Back to the site</Link>
+              </div>
             </div>
             : null
         }

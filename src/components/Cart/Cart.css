@@ -19,11 +19,45 @@
     flex-direction: column;
 }
 
+.productNameCartMobile {
+    font-family: Pacifico;
+    width: 200px;
+}
+
+.productPriceCartMobile {
+    width: 200px;
+}
+
+.deleteCartMobile {
+    width: 200px;
+}
+
 .productCardCartMobile {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 5px 50px 5px 50px;
     margin: 5px 0 5px 0;
     background-color: whitesmoke;
+}
+
+.buttonCartMobile {
+    margin: 25px;
+}
+
+.buttonBackToSiteCart {
+    background-color: #282c34;
+    border-color: #CAB381;
+    color: #CAB381;
+    margin-bottom: 25px;
+    text-decoration: none;
+    box-sizing: border-box;
+    width: 250px;
+}
+
+.buttonContainerCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
