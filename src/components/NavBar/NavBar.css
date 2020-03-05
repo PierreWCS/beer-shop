@@ -35,6 +35,7 @@
     margin: 0 15px 0 15px;
     text-decoration: none;
     cursor: pointer;
+    text-shadow: #CAB381 1px 1px;
 }
 .itemNavBar:hover {
     transform: scale(1.1);
@@ -47,10 +48,6 @@
 .activeItemNavBar {
     color: #CAB381;
     border-bottom: solid 3px #CAB381;
-}
-
-.cartIconNavBar {
-
 }
 
 .closeCartIcon {
