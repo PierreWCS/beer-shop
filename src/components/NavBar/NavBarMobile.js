@@ -31,6 +31,7 @@ const NavBarMobile = () => {
                 alt="logo"
               />
             </Link>
+            <hr className="separatorCart separatorNavBar" />
             <NavLink
               activeClassName="activeItemNavBar"
               className="itemNavBarMobile"

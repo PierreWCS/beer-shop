@@ -15,10 +15,10 @@
 
 .closedMenuBurger {
     position: fixed;
-    padding: 10px;
-    top: 5%;
-    right: 2%;
+    top: 8%;
+    right: 5%;
     display: flex;
+    z-index: 3;
     flex-direction: column;
     align-items: flex-end;
 }
@@ -30,6 +30,11 @@
     width: 100%;
 }
 
+.separatorNavBar {
+    width: 50%;
+    margin: 5px 0 5px 0;
+}
+
 .itemNavBarMobile {
     color: #1C1D1F;
     padding: 10px;
@@ -39,6 +44,11 @@
     letter-spacing: 0.1em;
     font-family: 'Abril Fatface', cursive;
     background-color: rgba(255,255,255,0.8);
+}
+.itemNavBarMobile:active, .itemNavBarMobile:focus, .logoAndNameNavBar:active, .logoAndNameNavBar:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
 }
 
 .itemListNavBar:active, .itemListNavBar:focus {
@@ -73,6 +83,7 @@
     background-color: white;
     margin: 6px 0;
     transition: 0.4s;
+    box-shadow: 1px 1px 1px grey;
 }
 
 .change .bar1 {

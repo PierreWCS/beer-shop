@@ -39,6 +39,10 @@
 .itemNavBar:hover {
     transform: scale(1.1);
 }
+.itemNavBar:active, .itemNavBar:focus {
+    outline: 0;
+    -moz-outline-style: none;
+}
 
 .activeItemNavBar {
     color: #CAB381;

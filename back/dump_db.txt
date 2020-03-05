@@ -35,4 +35,6 @@ insert into products (name, price, image, description, alcohol, quantity) values
 
 insert into products (name, price, image, description, alcohol, quantity) values ('Tuborg', 3.29, 'tuborg.png', 'Dark lager from Finland', 8.6, 1);
 
-insert into messages (title, mail, name, firstname, body) values ('I love your beers', 'pierre@gmail.com', 'Legrain', 'Pierre', 'Hi, i really love your beers !');
+insert into messages (title, mail, name, firstname, body) values ('Do you sell Heineken ?', 'jean-random@gmail.com', 'Random', 'Jean', 'Where is Heineken ?');
+
+insert into messages (title, mail, name, firstname, body) values ('I love React', 'kamoulox@gmail.com', 'Balou', 'Anton', 'Hi, i really love your beers !');
