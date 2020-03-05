@@ -43,6 +43,10 @@
     letter-spacing: 0.1em;
     margin: 0 15px 0 15px;
     text-decoration: none;
+    cursor: pointer;
+}
+.itemNavBar:hover {
+    transform: scale(1.1);
 }
 
 .activeItemNavBar {
@@ -101,6 +105,27 @@
 
 .navBarButtonCart {
     margin: 15px;
+}
+
+.cartIconAndNumber:hover .numberCartNavBar {
+    display: none;
+}
+
+.numberCartNavBar {
+    position: absolute;
+    margin: 0;
+    right: 13%;
+    top: 25%;
+    height: 30px;
+    width: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: indianred;
+    border-radius: 50%;
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 @media (max-width: 1060px) {

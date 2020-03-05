@@ -10,6 +10,7 @@ import {
   faWineBottle
 } from '@fortawesome/free-solid-svg-icons';
 import Footer from "../Footer/Footer";
+import {Link} from "react-router-dom";
 
 const LandingPage = () => {
   const [products, setProducts] = useState(null);
@@ -45,12 +46,10 @@ const LandingPage = () => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a
                 risus at ante imperdiet ullamcorper fringilla eu est.
               </p>
-              <button className="aboutUsButton">DISCOVER MORE</button>
+              <Link to="/about" className="aboutUsButton aboutButtonLandingPage">DISCOVER MORE</Link>
             </div>
             <div className="imageContainerAboutUs" />
           </div>
-
-          {/*       Beer of the month       */}
 
           {/*       Beer of the month       */}
 

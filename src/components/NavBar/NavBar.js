@@ -40,13 +40,6 @@ const NavBar = () => {
         <NavLink
           activeClassName="activeItemNavBar"
           className="itemNavBar"
-          to="/products"
-        >
-          BEERS
-        </NavLink>
-        <NavLink
-          activeClassName="activeItemNavBar"
-          className="itemNavBar"
           to="/about"
         >
           ABOUT US
@@ -67,8 +60,13 @@ const NavBar = () => {
             />
           </div>
         ) : (
-          <div className="itemNavBar" onClick={() => setDisplayCart(true)}>
+          <div className="itemNavBar cartIconAndNumber" onClick={() => setDisplayCart(true)}>
             <FontAwesomeIcon icon={faShoppingCart} className="cartIconNavBar" />
+            {
+              clientCart ?
+                <p className="numberCartNavBar">{clientCart.length}</p>
+                : null
+            }
           </div>
         )}
       </div>

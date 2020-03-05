@@ -118,6 +118,11 @@
     box-sizing: border-box;
 }
 
+.aboutButtonLandingPage {
+    text-decoration: none;
+    text-align: center;
+}
+
 .imageContainerAboutUs {
     position: relative;
     bottom: 50%;
