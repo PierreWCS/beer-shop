@@ -43,6 +43,7 @@
 
 .beerOfTheMonth {
     font-size: 38px;
+    text-shadow: 1px 1px #1C1D1F;
     color: #CAB381;
     font-family: 'Abril Fatface', cursive;
 }
@@ -185,6 +186,7 @@
 
 .titleOurProducts {
     font-family: 'Abril Fatface', cursive;
+    text-shadow: 1px 1px #1C1D1F;
     letter-spacing: 0.1em;
     color: white;
     margin: 0;
