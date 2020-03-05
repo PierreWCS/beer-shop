@@ -7,6 +7,7 @@ import {
   faCross,
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
+import NewProduct from "./NewProduct";
 
 const Admin = () => {
   const [products, setProducts] = useState(null);
@@ -49,7 +50,7 @@ const Admin = () => {
       Axios.delete(`http://localhost:8000/api/messages/:${messageId}`)
         .then(res => {
           if (res.status === 200) {
-            alert("Message has been deleted")
+            alert("Message has been deleted, please refresh the page to see the changes")
           } else {
             alert("Error")
           }
@@ -79,60 +80,71 @@ const Admin = () => {
         <h2 onClick={() => setDisplayChoice('messages')} className={`itemNavBarAdmin ${displayChoice === 'messages' ? 'activeItemAdmin' : null}`}>Messages</h2>
       </div>
 
-      {
-        displayChoice === 'products' ? <h1 className="manageAdmin">Manage your products</h1> : <h1 className="manageAdmin">New messages</h1>
-      }
-
       <div className="productsAdmin">
         {/*     I am displaying products by default and on click on messages i'm changing the content     */}
         {products && messages
           ?
           displayChoice === 'products' ?
             (
-              products.map(product => {
-                return (
-                  <div className="productCardAdmin">
-                    <div onClick={() => deleteProduct(product.id)} className="deleteProductAdmin">
-                      <FontAwesomeIcon
-                        icon={faWindowClose}
-                        className="closeIconAdmin fa-2x"
-                      />
-                      <p>Delete this product</p>
-                    </div>
-                    <h3 className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{product.name}</span></h3>
-                    <p className="itemMessageCardAdmin">Price: <span className="contentMessageAdmin">{product.price} €</span></p>
-                    <p className="itemMessageCardAdmin">Description:</p>
-                    <p>{product.description}</p>
-                    <img
-                      className="imageProductAdmin"
-                      src={require(`../images/beers_products/${product.image}`)}
-                      alt="product"
-                    />
-                  </div>
-                );
-              })
+              <div>
+                <NewProduct />
+                {
+                  displayChoice === 'products' ? <h1 className="manageAdmin">Manage your products</h1> : <h1 className="manageAdmin">New messages</h1>
+                }
+                <div className="productsContainerAdmin">
+                  {products.map(product => {
+                    return (
+                      <div className="productCardAdmin">
+                        <div onClick={() => deleteProduct(product.id)} className="deleteProductAdmin">
+                          <FontAwesomeIcon
+                            icon={faWindowClose}
+                            className="closeIconAdmin fa-2x"
+                          />
+                          <p>Delete this product</p>
+                        </div>
+                        <h3 className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{product.name}</span></h3>
+                        <p className="itemMessageCardAdmin">Price: <span className="contentMessageAdmin">{product.price} €</span></p>
+                        <p className="itemMessageCardAdmin">Description:</p>
+                        <p>{product.description}</p>
+                        <img
+                          className="imageProductAdmin"
+                          src={require(`../images/beers_products/${product.image}`)}
+                          alt="product"
+                        />
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
             )
             :
             (
-              messages.map((message) => {
-                return (
-                  <div className="messageCardAdmin">
-                    <div onClick={() => deleteMessage(message.id)} className="deleteProductAdmin">
-                      <FontAwesomeIcon
-                        icon={faWindowClose}
-                        className="closeIconAdmin fa-2x"
-                      />
-                      <p>Delete this message</p>
-                    </div>
-                    <h2>Title: <span className="contentMessageAdmin">{message.title}</span></h2>
-                    <p className="itemMessageCardAdmin">Mail: <span className="contentMessageAdmin">{message.mail}</span></p>
-                    <p className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{message.name}</span></p>
-                    <p className="itemMessageCardAdmin">Firstname : <span className="contentMessageAdmin">{message.firstname}</span></p>
-                    <p className="itemMessageCardAdmin">Message :</p>
-                    <p className="contentMessageAdmin">{message.body}</p>
-                  </div>
-                )
-              })
+              <div className="messagesMainContainerAdmin">
+                {
+                  displayChoice === 'products' ? <h1 className="manageAdmin">Manage your products</h1> : <h1 className="manageAdmin">New messages</h1>
+                }
+                <div className="messagesContainerAdmin">
+                  {messages.map((message) => {
+                    return (
+                      <div className="messageCardAdmin">
+                        <div onClick={() => deleteMessage(message.id)} className="deleteProductAdmin">
+                          <FontAwesomeIcon
+                            icon={faWindowClose}
+                            className="closeIconAdmin fa-2x"
+                          />
+                          <p>Delete this message</p>
+                        </div>
+                        <h2>Title: <span className="contentMessageAdmin">{message.title}</span></h2>
+                        <p className="itemMessageCardAdmin">Mail: <span className="contentMessageAdmin">{message.mail}</span></p>
+                        <p className="itemMessageCardAdmin">Name: <span className="contentMessageAdmin">{message.name}</span></p>
+                        <p className="itemMessageCardAdmin">Firstname : <span className="contentMessageAdmin">{message.firstname}</span></p>
+                        <p className="itemMessageCardAdmin">Message :</p>
+                        <p className="contentMessageAdmin">{message.body}</p>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
             )
           : null}
       </div>

@@ -5,12 +5,17 @@ import NavBar from "./components/NavBar/NavBar";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./components/About/About";
 import Admin from "./components/Admin/Admin";
+import useWindowDimensions from "./components/services/useWindowDimensions";
+import NavBarMobile from "./components/NavBar/NavBarMobile";
 
 function App() {
+  const { width } = useWindowDimensions();
   return (
     <Router>
       <div className="App">
-        <NavBar />
+        {
+          width > 1060 ? <NavBar /> : <NavBarMobile />
+        }
         <Switch>
           <Route exact path="/" component={LandingPage} />
           <Route path="/about" component={About} />

@@ -1,0 +1,69 @@
+.fakeShopFormContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #444444;
+}
+
+.adminOfTheShopContainer {
+    background-color: #282c34;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 20vh;
+    color: white;
+}
+
+.formFakeShop {
+    height: 66vh;
+    width: 85%;
+}
+
+.labelNewProduct {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.addAProductTitle {
+    margin-top: 50px;
+    color: #CAB381;
+}
+
+.inputShopForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 22px;
+    align-items: center;
+    margin: 15px;
+    border: none;
+    background-color: #282c34;
+    border-radius: 5px;
+    color: white;
+    width: 90%;
+    height: 60px;
+}
+
+.addNewProductButton {
+    background-color: whitesmoke;
+    color: black;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 120px;
+    height: 40px;
+}
+
+.modifyContainer {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}

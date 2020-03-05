@@ -11,8 +11,8 @@
     flex-direction: column;
     background-color: white;
     position: fixed;
-    top: 10%;
-    height: 90vh;
+    top: 15%;
+    height: 85vh;
     padding: 10px;
 }
 
@@ -35,7 +35,10 @@
 /*          admin page         */
 
 .titleAdminPage {
-    padding: 150px 0 50px 0;
+    padding: 190px 0 50px 0;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 0.1em;
+    font-size: 36px;
     margin: 0;
     color: white;
 }
@@ -55,6 +58,20 @@
     text-align: start;
     flex-wrap: wrap;
     width: 60%;
+    min-height: 70vh;
+}
+
+.productsContainerAdmin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manageAdmin {
+    color: white;
+    margin: 75px 0 25px 0;
+    text-align: center;
 }
 
 .productCardAdmin {
@@ -80,6 +97,13 @@
 }
 
 /*          Messages            */
+
+.messagesContainerAdmin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
 .messageCardAdmin {
     background-color: white;
