@@ -25,7 +25,7 @@
 }
 
 .footerBigTitleSubtitle {
-    font-family: 'Abril Fatface', cursive;
+    font-family: Pacifico;
     color: whitesmoke;
     margin: 0 0 25px 0;
 }
@@ -41,6 +41,11 @@
     color: #CAB381;
     margin: 15px 0 15px 0;
     text-decoration: none;
+    box-sizing: border-box;
+    border: transparent 2px solid;
+}
+.linkFooter:hover {
+    border-bottom: #CAB381 2px solid;
 }
 
 .footerInformation {

@@ -122,6 +122,7 @@
 .aboutButtonLandingPage {
     text-decoration: none;
     text-align: center;
+    box-shadow: 1px 1px 1px #282c34;
 }
 
 .imageContainerAboutUs {

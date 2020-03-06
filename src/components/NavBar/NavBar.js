@@ -14,7 +14,6 @@ const NavBar = () => {
 
   useEffect(() => {
     getClientCart();
-    // getTotalCart();
   }, []);
 
   const getClientCart = () => {
@@ -32,6 +31,11 @@ const NavBar = () => {
     let removedProduct = clientCart.filter(e => e.id !== product.id);
     localStorage.setItem("clientCart", JSON.stringify(removedProduct));
     setClientCart(removedProduct);
+    let count = 0;
+    let total = removedProduct.filter((product) => {
+      return count = count + product.price * product.quantity;
+    });
+    setTotalCart(count.toFixed(2));
   };
 
   return (
