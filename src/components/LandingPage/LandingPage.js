@@ -24,7 +24,6 @@ const LandingPage = () => {
       .then(result => result.data)
       .then(data => {
         let stockProducts = data;
-        console.log(stockProducts);
         setProducts(stockProducts);
       });
   };

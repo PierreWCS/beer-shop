@@ -93,7 +93,7 @@ const NavBar = () => {
                     <p className="productPriceAndNameCart">{product.name}</p>
                     <div className="closeAndPriceCart">
                       <p className="productPriceAndNameCart">
-                        {product.price} €
+                        {(product.price * product.quantity).toFixed(2)} €
                       </p>
                       <FontAwesomeIcon
                         onClick={() => deleteProduct(product)}
