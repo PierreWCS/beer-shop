@@ -44,6 +44,7 @@
 
 .buttonCartMobile {
     margin: 25px;
+    cursor: pointer;
 }
 
 .buttonBackToSiteCart {

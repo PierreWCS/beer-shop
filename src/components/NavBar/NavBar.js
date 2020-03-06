@@ -22,9 +22,9 @@ const NavBar = () => {
     console.log(stockCart);
     let count = 0;
     let total = stockCart.filter((product) => {
-      return count = count + product.price;
+      return count = count + product.price * product.quantity;
     });
-    setTotalCart(count);
+    setTotalCart(count.toFixed(2));
     setClientCart(stockCart);
   };
 
@@ -89,6 +89,7 @@ const NavBar = () => {
             ? clientCart.map(product => {
                 return (
                   <div className="cartProductCard">
+                    <p>{product.quantity}x</p>
                     <p className="productPriceAndNameCart">{product.name}</p>
                     <div className="closeAndPriceCart">
                       <p className="productPriceAndNameCart">

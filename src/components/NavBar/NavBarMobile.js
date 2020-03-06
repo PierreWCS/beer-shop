@@ -24,7 +24,7 @@ const NavBarMobile = () => {
         </div>
         {toggle ? (
           <div className="listNavBarMobile">
-            <Link to="/" className="logoAndNameNavBar">
+            <Link to="/" className="logoAndNameNavBar" onClick={closeMenu}>
               <img
                 className="logoNavBar"
                 src={require("../images/logoBeer.png")}
@@ -33,6 +33,7 @@ const NavBarMobile = () => {
             </Link>
             <hr className="separatorCart separatorNavBar" />
             <NavLink
+              onClick={closeMenu}
               activeClassName="activeItemNavBar"
               className="itemNavBarMobile"
               to="/about"
@@ -40,6 +41,7 @@ const NavBarMobile = () => {
               ABOUT US
             </NavLink>
             <NavLink
+              onClick={closeMenu}
               activeClassName="activeItemNavBar"
               className="itemNavBarMobile"
               to="/admin"
@@ -47,6 +49,7 @@ const NavBarMobile = () => {
               ADMIN
             </NavLink>
             <NavLink
+              onClick={closeMenu}
               activeClassName="activeItemNavBar"
               className="itemNavBarMobile"
               to="/cart"

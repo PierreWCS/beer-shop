@@ -154,7 +154,7 @@ const LandingPage = () => {
         // Showing a loading image during the products fetch
         <img
           className="logoLoading"
-          src={require("../images/logo.png")}
+          src={require("../images/logoBeer.png")}
           alt="loading"
         />
       )}

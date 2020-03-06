@@ -32,7 +32,7 @@ const Cart = () => {
         {
           clientCart ?
             clientCart.map((product) => {
-              stock += product.price;
+              stock += (product.price * product.quantity);
               return (
                 <div className="productCardCartMobile">
                   <p className="productNameCartMobile">{product.name}</p>
@@ -51,7 +51,7 @@ const Cart = () => {
           clientCart ?
             <div>
               <p>Total quantity: {clientCart.length}</p>
-              <p>Total price: {stock} €</p>
+              <p>Total price: {stock.toFixed(2)} €</p>
               <div className="buttonContainerCart">
                 <button className="aboutUsButton buttonCartMobile">Payment</button>
                 <Link to="/" className="aboutUsButton buttonBackToSiteCart">Back to the site</Link>
