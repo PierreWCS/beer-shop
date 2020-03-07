@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./Admin.css";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import {faEdit, faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import NewProduct from "./NewProduct";
 import useWindowDimensions from "../services/useWindowDimensions";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
   const { width } = useWindowDimensions();
@@ -24,6 +24,19 @@ const Admin = () => {
       .then(data => {
         let stockProducts = data;
         setProducts(stockProducts);
+      });
+  };
+
+  const modifyProduct = product => {
+    let url = `http://localhost:8000/api/products${product.id}`;
+    Axios({
+      method: "put",
+      url: url,
+      data: product
+    })
+      .then(response => console.log(response))
+      .catch(error => {
+        console.log(error);
       });
   };
 
@@ -96,7 +109,12 @@ const Admin = () => {
         </h2>
       </div>
       <Link className="backtoHomeAdminContainer" to="/">
-        <img src={require('../images/logoBeer.png')} className="logoBackToHome" alt=""/>Back to the site
+        <img
+          src={require("../images/logoBeer.png")}
+          className="logoBackToHome"
+          alt=""
+        />
+        Back to the site
       </Link>
 
       <div className="productsAdmin">
@@ -114,16 +132,6 @@ const Admin = () => {
                 {products.map(product => {
                   return (
                     <div className="productCardAdmin">
-                      <div
-                        onClick={() => deleteProduct(product.id)}
-                        className="deleteProductAdmin"
-                      >
-                        <FontAwesomeIcon
-                          icon={faWindowClose}
-                          className="closeIconAdmin fa-2x"
-                        />
-                        <p>Delete this product</p>
-                      </div>
                       <h3 className="itemMessageCardAdmin">
                         Name:{" "}
                         <span className="contentMessageAdmin">
@@ -143,6 +151,28 @@ const Admin = () => {
                         src={require(`../images/beers_products/${product.image}`)}
                         alt="product"
                       />
+                      <div className="buttonsAdminContainer">
+                        <div
+                          onClick={() => deleteProduct(product.id)}
+                          className="deleteProductAdmin"
+                        >
+                          <p>Delete</p>
+                          <FontAwesomeIcon
+                            icon={faWindowClose}
+                            className="closeIconAdmin"
+                          />
+                        </div>
+                        <div
+                          onClick={() => deleteProduct(product.id)}
+                          className="editProductAdmin"
+                        >
+                          <p>Edit</p>
+                          <FontAwesomeIcon
+                            icon={faEdit}
+                            className="closeIconAdmin"
+                          />
+                        </div>
+                      </div>
                     </div>
                   );
                 })}
@@ -161,7 +191,7 @@ const Admin = () => {
                     <div className="messageCardAdmin">
                       <div
                         onClick={() => deleteMessage(message.id)}
-                        className="deleteProductAdmin"
+                        className="deleteMessageAdmin"
                       >
                         <FontAwesomeIcon
                           icon={faWindowClose}
