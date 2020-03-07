@@ -42,7 +42,7 @@ const Signin = () => {
       password: inputsRef.password.current.value,
       passwordVerification: inputsRef.password_verification.current.value,
       phone: inputsRef.phone.current.value,
-      role: "part"
+      role: "visitor"
     };
 
     // Connexion (ref: signFetch.js)

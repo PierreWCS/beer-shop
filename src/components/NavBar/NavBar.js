@@ -1,140 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faShoppingCart,
-  faWindowClose
-} from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
+import useGlobalState from "../../hooks/useGlobalState";
+import NavBarAdmin from "./NavBarAdmin";
+import DefaultNavBar from "./DefaultNavBar";
 
 const NavBar = () => {
-  const [displayCart, setDisplayCart] = useState(false);
-  const [clientCart, setClientCart] = useState(null);
-  const [totalCart, setTotalCart] = useState(0);
+  const { user } = useGlobalState();
 
-  useEffect(() => {
-    getClientCart();
-  }, []);
-
-  const getClientCart = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
-    console.log(stockCart);
-    let count = 0;
-    let total = stockCart.filter((product) => {
-      return count = count + product.price * product.quantity;
-    });
-    setTotalCart(count.toFixed(2));
-    setClientCart(stockCart);
-  };
-
-  const deleteProduct = product => {
-    let removedProduct = clientCart.filter(e => e.id !== product.id);
-    localStorage.setItem("clientCart", JSON.stringify(removedProduct));
-    setClientCart(removedProduct);
-    let count = 0;
-    let total = removedProduct.filter((product) => {
-      return count = count + product.price * product.quantity;
-    });
-    setTotalCart(count.toFixed(2));
-  };
-
-  return (
-    <div className="navBarContainer">
-      <Link to="/" className="logoAndNameNavBar">
-        <img
-          className="logoNavBar"
-          src={require("../images/logoBeer.png")}
-          alt="logo"
-        />
-      </Link>
-      <div className="navLinkContainer">
-        <NavLink
-          activeClassName="activeItemNavBar"
-          className="itemNavBar"
-          to="/about"
-        >
-          ABOUT US
-        </NavLink>
-        <NavLink
-          activeClassName="activeItemNavBar"
-          className="itemNavBar"
-          to="/admin"
-        >
-          ADMIN
-        </NavLink>
-        <NavLink
-          activeClassName="activeItemNavBar"
-          className="itemNavBar"
-          to="/sign-in"
-        >
-          SIGN-IN
-        </NavLink>
-        <NavLink
-          activeClassName="activeItemNavBar"
-          className="itemNavBar"
-          to="/sign-up"
-        >
-          SIGN-UP
-        </NavLink>
-        {displayCart ? (
-          <div className="itemNavBar">
-            <FontAwesomeIcon
-              onClick={() => setDisplayCart(false)}
-              icon={faWindowClose}
-              className="closeCartIcon"
-            />
-          </div>
-        ) : (
-          <div
-            className="itemNavBar cartIconAndNumber"
-            onClick={() => setDisplayCart(true)}
+  if (user && user.role === "admin") {
+    return <NavBarAdmin />;
+  } else if (user) {
+    return (
+      <div className="navBarContainer">
+        <Link to="/" className="logoAndNameNavBar">
+          <img
+            className="logoNavBar"
+            src={require("../images/logoBeer.png")}
+            alt="logo"
+          />
+        </Link>
+        <div className="navLinkContainer">
+          <NavLink
+            activeClassName="activeItemNavBar"
+            className="itemNavBar"
+            to="/about"
           >
-            <FontAwesomeIcon icon={faShoppingCart} className="cartIconNavBar" />
-            {clientCart ? (
-              <p className="numberCartNavBar">{clientCart.length}</p>
-            ) : null}
-          </div>
-        )}
-      </div>
-
-      {/*       Client cart       */}
-
-      {displayCart ? (
-        <div className="cartContainerNavBar">
-          <h2>Your cart</h2>
-          <hr className="separatorCart" />
-          {clientCart
-            ? clientCart.map(product => {
-                return (
-                  <div className="cartProductCard">
-                    <p>{product.quantity}x</p>
-                    <p className="productPriceAndNameCart">{product.name}</p>
-                    <div className="closeAndPriceCart">
-                      <p className="productPriceAndNameCart">
-                        {(product.price * product.quantity).toFixed(2)} €
-                      </p>
-                      <FontAwesomeIcon
-                        onClick={() => deleteProduct(product)}
-                        className="deleteItemFromCart fa-2x"
-                        icon={faWindowClose}
-                      />
-                    </div>
-                  </div>
-                );
-              })
-            : null}
-          {clientCart.length ? (
-            <div>
-              <p>Total price: {totalCart} €</p>
-              <button className="aboutUsButton navBarButtonCart">Payment</button>
-            </div>
-          ) : (
-            <p>Your cart is empty</p>
-          )}
+            ABOUT US
+          </NavLink>
         </div>
-      ) : null}
-    </div>
-  );
+      </div>
+    );
+  } else return <DefaultNavBar />;
 };
 
 export default NavBar;

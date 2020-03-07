@@ -41,9 +41,18 @@
 .itemNavBar:hover {
     transform: scale(1.1);
 }
-.itemNavBar:active, .itemNavBar:focus {
+.itemNavBar:active, .itemNavBar:focus, .itemNavBarCart:active, .itemNavBarCart:focus {
     outline: 0;
     -moz-outline-style: none;
+}
+
+.itemNavBarCart {
+    color: #282c34;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    margin: 0 15px 0 15px;
+    text-decoration: none;
+    text-shadow: #CAB381 1px 1px;
 }
 
 .activeItemNavBar {
@@ -51,71 +60,11 @@
     border-bottom: solid 3px #CAB381;
 }
 
-.cartIconNavBar {
-    color: #CAB381;
-}
-
-.closeCartIcon {
-    color: #CAB381;
-    cursor: pointer;
-}
-.closeCartIcon:hover {
-    transform: scale(1.1);
-}
-
-.closeAndPriceCart {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.deleteItemFromCart {
-    color: indianred;
-    cursor: pointer;
-}
-.deleteItemFromCart:hover {
-    transform: scale(1.1);
-}
-
-.cartContainerNavBar {
-    position: absolute;
-    top: 100%;
-    right: 10%;
-    width: 400px;
-    background-color: rgba(230,230,230, 0.9);
-    box-sizing: border-box;
-    border-top: solid 3px #CAB381;
-}
-
-.separatorCart {
-    width: 40%;
-    height: 3px;
-    margin: 0 auto 25px auto;
-    border: none;
-    background-color: #CAB381;
-}
-
-.cartProductCard {
-    padding: 15px 25px 15px 25px;
-    margin: 5px 10px 5px 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: whitesmoke;
-    align-items: center;
-}
-
-.productPriceAndNameCart {
-    font-size: 18px;
-    margin: 5px;
-    padding: 5px;
-}
-
-.navBarButtonCart {
-    margin: 15px;
-}
-
 .cartIconAndNumber:hover .numberCartNavBar {
+    display: none;
+}
+
+.cartIconAndNumber:hover .defaultNumberCart {
     display: none;
 }
 
@@ -133,6 +82,18 @@
     background-color: indianred;
     border-radius: 50%;
     box-sizing: border-box;
+}
+
+.defaultNumberCart {
+    right: 16%;
+}
+
+.closeCartIcon {
+    color: #CAB381;
+    cursor: pointer;
+}
+.closeCartIcon:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 1060px) {
