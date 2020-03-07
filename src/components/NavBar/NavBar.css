@@ -39,7 +39,7 @@
     text-shadow: #CAB381 1px 1px;
 }
 .itemNavBar:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 .itemNavBar:active, .itemNavBar:focus {
     outline: 0;
