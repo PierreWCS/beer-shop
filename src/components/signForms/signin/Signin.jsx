@@ -4,7 +4,6 @@ import "./Signin.css";
 import { Redirect } from "react-router-dom";
 import { faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import NavBar from "../../NavBar/NavBar";
 import Input from "../../formElements/Input";
 import signIn from "../signInFetch";
 
@@ -59,15 +58,13 @@ const Signin = () => {
           });
         }
       } else if (status === "SUCCESS") {
-        setTimeout(() => setRedirection(<Redirect to="/signup" />), 2500);
+        setTimeout(() => setRedirection(<Redirect to="/sign-up" />), 2500);
       }
     });
   };
 
   return (
     <>
-      <NavBar />
-
       <div className="sign-ctn">
         {redirection}
         <h1>Inscription</h1>

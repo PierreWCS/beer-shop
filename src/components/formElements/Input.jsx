@@ -4,7 +4,7 @@ function Input({ label = {}, attributes, reference }) {
 
     const userTyping = function detectUserTyping (event) {
         event.currentTarget.classList.remove('error');
-    }
+    };
 
     return (
         <>

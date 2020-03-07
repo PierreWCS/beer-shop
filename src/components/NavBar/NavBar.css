@@ -31,7 +31,7 @@
 
 .itemNavBar {
     color: #282c34;
-    font-size: 26px;
+    font-size: 22px;
     letter-spacing: 0.1em;
     margin: 0 15px 0 15px;
     text-decoration: none;
@@ -52,7 +52,7 @@
 }
 
 .cartIconNavBar {
-    color: #282c34;
+    color: #CAB381;
 }
 
 .closeCartIcon {
@@ -122,7 +122,7 @@
 .numberCartNavBar {
     position: absolute;
     margin: 0;
-    right: 17.5%;
+    right: 14.5%;
     top: 25%;
     height: 30px;
     width: 30px;
@@ -133,7 +133,6 @@
     background-color: indianred;
     border-radius: 50%;
     box-sizing: border-box;
-    padding: 5px;
 }
 
 @media (max-width: 1060px) {

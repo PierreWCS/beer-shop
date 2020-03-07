@@ -24,8 +24,8 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/admin" component={Admin} />
           <Route path="/cart" component={Cart} />
-          <Route path="/sign-in" component={Signin} />
-          <Route path="/sign-up" component={Signup} />
+          <Route path="/sign-in" component={Signup} />
+          <Route path="/sign-up" component={Signin} />
         </Switch>
       </div>
     </Router>

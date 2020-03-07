@@ -69,6 +69,13 @@ const NavBar = () => {
         >
           SIGN-IN
         </NavLink>
+        <NavLink
+          activeClassName="activeItemNavBar"
+          className="itemNavBar"
+          to="/sign-up"
+        >
+          SIGN-UP
+        </NavLink>
         {displayCart ? (
           <div className="itemNavBar">
             <FontAwesomeIcon
