@@ -1,0 +1,17 @@
+.cartIconNavBar:hover .defaultNumberCart {
+    display: none;
+}
+
+.cartIconAndNumberDefault {
+    box-sizing: border-box;
+}
+
+.cartIconAndNumberDefault:hover .defaultNumberCart {
+    display: none;
+}
+
+.defaultNumberCart {
+    position: absolute;
+    right: 16%;
+    background-color: indianred;
+}

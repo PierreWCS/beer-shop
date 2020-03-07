@@ -4,6 +4,17 @@ import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import './Cart.css';
 
 const Cart = ({ clientCart, setClientCart, totalCart, setTotalCart }) => {
+
+  const minusQuantity = ( product ) => {
+    let stockCart = clientCart;
+    stockCart.map((element) => {
+      if (element.id === product.id) {
+        element.quantity = element.quantity - 1;
+      }
+    });
+    setClientCart(stockCart);
+  };
+
   const deleteProduct = product => {
     let removedProduct = clientCart.filter(e => e.id !== product.id);
     localStorage.setItem("clientCart", JSON.stringify(removedProduct));
@@ -24,7 +35,11 @@ const Cart = ({ clientCart, setClientCart, totalCart, setTotalCart }) => {
           ? clientCart.map(product => {
             return (
               <div className="cartProductCard">
-                <p>{product.quantity}x</p>
+                <div className="quantityContainer">
+                  <p className="minusAndPlusCart minusCart">-</p>
+                  <p>{product.quantity}x</p>
+                  <p className="minusAndPlusCart plusCart">+</p>
+                </div>
                 <p className="productPriceAndNameCart">{product.name}</p>
                 <div className="closeAndPriceCart">
                   <p className="productPriceAndNameCart">

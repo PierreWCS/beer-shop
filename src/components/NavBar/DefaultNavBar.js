@@ -6,6 +6,7 @@ import {
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
 import Cart from "./Cart/Cart";
+import './DefaultNavBar.css';
 
 const DefaultNavBar = () => {
   const [displayCart, setDisplayCart] = useState(false);

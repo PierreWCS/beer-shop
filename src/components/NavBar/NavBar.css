@@ -64,10 +64,6 @@
     display: none;
 }
 
-.cartIconAndNumber:hover .defaultNumberCart {
-    display: none;
-}
-
 .numberCartNavBar {
     position: absolute;
     margin: 0;
@@ -82,10 +78,6 @@
     background-color: indianred;
     border-radius: 50%;
     box-sizing: border-box;
-}
-
-.defaultNumberCart {
-    right: 16%;
 }
 
 .closeCartIcon {
