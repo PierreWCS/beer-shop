@@ -30,17 +30,18 @@ const EditProduct = ({ product, setDisplayEdit }) => {
 
       <div className="formContainerEditProduct">
           <div className="imgContainerEdit">
+            <h1>Edit {product.name}</h1>
             <img
               className="productImageEdit"
               src={require(`../images/beers_products/${product.image}`)}
               alt="product"
             />
           </div>
-          <div>
+          <div className="nameAndDescriptionEdit">
             {/*     Name      */}
             <label htmlFor="productNameEdit">
               <p className="productTitleEditProduct">
-                Product name:{" "}
+                Name:{" "}
                 <span className="valueEditProduct">{product.name}</span>
               </p>
               <input
@@ -54,7 +55,7 @@ const EditProduct = ({ product, setDisplayEdit }) => {
 
             <label htmlFor="productNameEdit">
               <p className="productTitleEditProduct">
-                Product description:{" "}
+                Description:{" "}
                 <span className="valueEditProduct">{product.description}</span>
               </p>
               <textarea
@@ -66,15 +67,16 @@ const EditProduct = ({ product, setDisplayEdit }) => {
           </div>
 
 
-          <div>
+          <div className="priceAndAlcohol">
             {/*     Price     */}
 
             <label htmlFor="productNameEdit">
               <p className="productTitleEditProduct">
-                Product price:{" "}
+                Price:{" "}
                 <span className="valueEditProduct">{product.price} €</span>
               </p>
               <input
+                placeholder="2.50..."
                 className="inputEditProduct"
                 type="text"
                 id="productNameEdit"
@@ -85,7 +87,7 @@ const EditProduct = ({ product, setDisplayEdit }) => {
 
             <label htmlFor="productNameEdit">
               <p className="productTitleEditProduct">
-                Product alcohol:{" "}
+                Alcohol:{" "}
                 <span className="valueEditProduct">{product.alcohol}°</span>
               </p>
               <input
