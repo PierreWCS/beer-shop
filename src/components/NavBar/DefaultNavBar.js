@@ -59,7 +59,7 @@ const DefaultNavBar = () => {
         >
           SIGN-UP
         </NavLink>
-        {displayCart ? (
+        {displayCart && clientCart ? (
           <div className="itemNavBarCart">
             <FontAwesomeIcon
               onClick={() => setDisplayCart(false)}

@@ -18,8 +18,7 @@ const ProductCard = ({ product }) => {
         stockCart.push(product);
       }
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
-      // eslint-disable-next-line no-restricted-globals
-      location.reload();
+      document.location.reload();
     } else {
       let cartInit = [];
       cartInit.push(product);
