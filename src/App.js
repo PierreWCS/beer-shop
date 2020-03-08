@@ -10,6 +10,7 @@ import NavBarMobile from "./components/NavBar/NavBarMobile";
 import Cart from "./components/Cart/Cart";
 import Signup from "./components/signForms/signup/Signup";
 import Signin from "./components/signForms/signin/Signin";
+import EditProduct from "./components/Admin/EditProduct";
 
 function App() {
   const { width } = useWindowDimensions();

@@ -6,11 +6,14 @@ import {faEdit, faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import NewProduct from "./NewProduct";
 import useWindowDimensions from "../services/useWindowDimensions";
 import { Link } from "react-router-dom";
+import EditProduct from "./EditProduct";
 
 const Admin = () => {
   const { width } = useWindowDimensions();
   const [products, setProducts] = useState(null);
   const [messages, setMessages] = useState(null);
+  const [displayEdit, setDisplayEdit] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const [displayChoice, setDisplayChoice] = useState("products");
 
   useEffect(() => {
@@ -118,7 +121,9 @@ const Admin = () => {
       </Link>
 
       <div className="productsAdmin">
+
         {/*     I am displaying products by default and on click on messages i'm changing the content     */}
+
         {products && messages ? (
           displayChoice === "products" ? (
             <div>
@@ -129,7 +134,7 @@ const Admin = () => {
                 <h1 className="manageAdmin">New messages</h1>
               )}
               <div className="productsContainerAdmin">
-                {products.map(product => {
+                {products.map((product, index) => {
                   return (
                     <div className="productCardAdmin">
                       <h3 className="itemMessageCardAdmin">
@@ -163,7 +168,10 @@ const Admin = () => {
                           />
                         </div>
                         <div
-                          onClick={() => deleteProduct(product.id)}
+                          onClick={() => {
+                            setSelectedProduct(products[index]);
+                            setDisplayEdit(true);
+                          }}
                           className="editProductAdmin"
                         >
                           <p>Edit</p>
@@ -233,6 +241,11 @@ const Admin = () => {
           )
         ) : null}
       </div>
+      {
+        displayEdit ?
+          <EditProduct setDisplayEdit={setDisplayEdit} product={selectedProduct}/>
+          : null
+      }
     </div>
   );
 };
