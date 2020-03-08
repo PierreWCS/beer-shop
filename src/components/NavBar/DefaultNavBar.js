@@ -20,12 +20,16 @@ const DefaultNavBar = () => {
   const getClientCart = () => {
     let stockCart = JSON.parse(localStorage.getItem("clientCart"));
     console.log(stockCart);
-    let count = 0;
-    let total = stockCart.filter(product => {
-      return (count = count + product.price * product.quantity);
-    });
-    setTotalCart(count.toFixed(2));
-    setClientCart(stockCart);
+    if (stockCart && stockCart.length > 0) {
+      let count = 0;
+      let total = stockCart.filter(product => {
+        return (count = count + product.price * product.quantity);
+      });
+      setTotalCart(count.toFixed(2));
+      setClientCart(stockCart);
+    } else {
+      return 0;
+    }
   };
 
   return (
