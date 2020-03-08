@@ -30,19 +30,6 @@ const Admin = () => {
       });
   };
 
-  const modifyProduct = product => {
-    let url = `http://localhost:8000/api/products${product.id}`;
-    Axios({
-      method: "put",
-      url: url,
-      data: product
-    })
-      .then(response => console.log(response))
-      .catch(error => {
-        console.log(error);
-      });
-  };
-
   const deleteProduct = productId => {
     if (window.confirm("Do you really wanna delete this product ?")) {
       Axios.delete(`http://localhost:8000/api/products/:${productId}`)
