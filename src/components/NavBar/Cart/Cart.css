@@ -6,7 +6,7 @@
     position: absolute;
     top: 15vh;
     right: 5%;
-    width: 500px;
+    width: 700px;
     height: 720px;
     background-color: rgba(230,230,230, 0.9);
     box-sizing: border-box;
@@ -39,6 +39,7 @@
     margin: 0 10px;
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 
 .plusCart {
@@ -48,6 +49,11 @@
 .minusCart {
     background-color: transparent;
     border: solid #CAB381 1px;
+}
+
+.disabledMinus {
+    cursor: not-allowed;
+    background-color: lightgray;
 }
 
 .closeAndPriceCart {
