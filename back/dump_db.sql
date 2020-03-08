@@ -4,6 +4,16 @@ CREATE database beershop_db;
 
 USE beershop_db;
 
+CREATE TABLE users (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    lastname VARCHAR(100) NOT NULL,
+    firstname VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(200) NOT NULL,
+    phone VARCHAR(45) NOT NULL,
+    role VARCHAR(45) NOT NULL
+);
+
 CREATE TABLE products (
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
