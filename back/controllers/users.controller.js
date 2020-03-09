@@ -53,7 +53,7 @@ exports.create = function createUser(request, response) {
   }
 
   // Verification que le numéro de téléphone soit correctement écrit
-  const phoneErrorHandler = verifyPhoneNumber(phone, 9);
+  const phoneErrorHandler = verifyPhoneNumber(phone, 10);
   if (phoneErrorHandler) {
     return response.status(400).send(phoneErrorHandler);
   }

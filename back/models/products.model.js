@@ -7,6 +7,7 @@ const Product = function(product) {
   this.image = product.image;
   this.description = product.description;
   this.alcohol = product.alcohol;
+  this.quantity = product.quantity;
 };
 
 Product.create = (newProduct, result) => {

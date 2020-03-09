@@ -18,7 +18,7 @@ CREATE TABLE products (
 	id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100) NOT NULL,
 	price FLOAT NOT NULL,
-	image VARCHAR(150)NOT NULL,
+	image VARCHAR(150),
 	description TEXT NOT NULL,
 	alcohol FLOAT NOT NULL,
 	quantity INT

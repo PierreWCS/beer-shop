@@ -45,10 +45,16 @@
 .plusCart {
     color: white;
 }
+.plusCart:active {
+    transform: scale(0.95);
+}
 
 .minusCart {
     background-color: transparent;
     border: solid #CAB381 1px;
+}
+.minusCart:active {
+    transform: scale(0.95);
 }
 
 .disabledMinus {

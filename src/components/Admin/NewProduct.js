@@ -5,7 +5,7 @@ import Axios from "axios";
 const NewProduct = () => {
   const [productName, setProductName] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
-  const [productImage, setProductImage] = useState(null);
+  // const [productImage, setProductImage] = useState(null);
   const [productDescription, setProductDescription] = useState(null);
   const [productAlcohol, setProductAlcohol] = useState(null);
 
@@ -19,10 +19,10 @@ const NewProduct = () => {
     console.log(event.target.value);
   };
 
-  const handleChangeImage = event => {
-    setProductImage(event.target.value);
-    console.log(event.target.value);
-  };
+  // const handleChangeImage = event => {
+  //   setProductImage(event.target.value);
+  //   console.log(event.target.value);
+  // };
 
   const handleChangeDescription = event => {
     setProductDescription(event.target.value);
@@ -42,9 +42,10 @@ const NewProduct = () => {
       data: {
         name: productName,
         price: productPrice,
-        image: productImage,
+        // image: productImage,
         description: productDescription,
-        alcohol: productAlcohol
+        alcohol: productAlcohol,
+        quantity: 1
       }
     })
       .then(response => {
@@ -84,18 +85,18 @@ const NewProduct = () => {
             id="addProductFakeShopPrice"
           />
         </label>
-        <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
-          Image url :
-          <input
-            onChange={handleChangeImage}
-            required
-            size="30"
-            className="inputShopForm"
-            placeholder="asahi.png"
-            type="text"
-            id="addProductFakeShopPrice"
-          />
-        </label>
+        {/*<label className="labelNewProduct" htmlFor="addProductFakeShopImage">*/}
+        {/*  Image url :*/}
+        {/*  <input*/}
+        {/*    onChange={handleChangeImage}*/}
+        {/*    required*/}
+        {/*    size="30"*/}
+        {/*    className="inputShopForm"*/}
+        {/*    placeholder="asahi.png"*/}
+        {/*    type="text"*/}
+        {/*    id="addProductFakeShopPrice"*/}
+        {/*  />*/}
+        {/*</label>*/}
         <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
           Description
           <input

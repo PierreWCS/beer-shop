@@ -4,12 +4,10 @@ import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faEdit, faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import NewProduct from "./NewProduct";
-import useWindowDimensions from "../services/useWindowDimensions";
 import { Link } from "react-router-dom";
 import EditProduct from "./EditProduct";
 
 const Admin = () => {
-  const { width } = useWindowDimensions();
   const [products, setProducts] = useState(null);
   const [messages, setMessages] = useState(null);
   const [displayEdit, setDisplayEdit] = useState(false);
@@ -79,7 +77,6 @@ const Admin = () => {
 
   return (
     <div className="adminMainContainer">
-      <h1 className="titleAdminPage">Admin panel</h1>
       <div className="adminNavBar">
         <h2
           onClick={() => setDisplayChoice("products")}
@@ -114,6 +111,7 @@ const Admin = () => {
         {products && messages ? (
           displayChoice === "products" ? (
             <div>
+              <h1 className="titleAdminPage">Admin panel</h1>
               <NewProduct />
               {displayChoice === "products" ? (
                 <h1 className="manageAdmin">Manage your products</h1>
@@ -138,11 +136,15 @@ const Admin = () => {
                       </p>
                       <p className="itemMessageCardAdmin">Description:</p>
                       <p>{product.description}</p>
-                      <img
-                        className="imageProductAdmin"
-                        src={require(`../images/beers_products/${product.image}`)}
-                        alt="product"
-                      />
+                      {
+                        product.image ?
+                          <img
+                            className="imageProductAdmin"
+                            src={require(`../images/beers_products/${product.image}`)}
+                            alt="product"
+                          />
+                          : <p>No image</p>
+                      }
                       <div className="buttonsAdminContainer">
                         <div
                           onClick={() => deleteProduct(product.id)}
