@@ -10,7 +10,6 @@ const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
       if (element.id === product.id) {
         if (element.quantity > 1) {
           element.quantity -= 1;
-          console.log("ez");
         } else {
           console.log("no");
         }

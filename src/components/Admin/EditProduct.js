@@ -62,7 +62,10 @@ const EditProduct = ({ product, setDisplayEdit }) => {
       {/*       Close button        */}
       <div
         className="closeWindowEditContainer"
-        onClick={() => setDisplayEdit(false)}
+        onClick={() => {
+          setDisplayEdit(false);
+          document.body.style.overflow = "auto";
+        }}
       >
         <p className="closeWindowTextEdit">Close</p>
         <FontAwesomeIcon

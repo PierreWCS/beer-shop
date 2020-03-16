@@ -1,0 +1,85 @@
+.productsAdmin {
+    position: relative;
+    left: 20%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-height: 70vh;
+    background-color: #282c34;
+}
+
+.productsAdminContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.productsContainerAdmin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.manageAdminProducts {
+    color: white;
+    text-align: center;
+}
+
+.productCardAdmin {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 15px;
+    padding: 15px;
+    width: 400px;
+    height: 550px;
+}
+
+.imageProductAdmin {
+    height: 150px;
+}
+
+.descriptionProductAdmin {
+    text-align: start;
+}
+
+.buttonsAdminContainer {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.deleteProductAdmin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color: red;
+    width: 130px;
+    height: 55px;
+    cursor: pointer;
+}
+.deleteProductAdmin:hover {
+    transform: scale(1.1);
+}
+
+.editProductAdmin {
+    border: solid 1px #282c34;
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 55px;
+    width: 130px;
+    color: #282c34;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.editProductAdmin:hover {
+    transform: scale(1.1);
+}

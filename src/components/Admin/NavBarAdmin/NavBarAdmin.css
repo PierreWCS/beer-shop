@@ -1,0 +1,44 @@
+.navBarAdminContainer {
+    position: fixed;
+    left: 0;
+    top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 20%;
+    height: 85%;
+    background-color: whitesmoke;
+}
+
+.itemListNavBarAdmin {
+    text-decoration: none;
+    color: #282c34;
+    font-size: 28px;
+    font-family: 'Abril Fatface', cursive;
+    padding: 15px;
+    margin: 15px;
+    border-bottom: #CAB381 solid 2px;
+}
+.itemListNavBarAdmin:hover {
+    background-color: rgba(230,230,230, 0.8);
+}
+
+.activeItemListNavBarAdmin {
+    background-color: rgba(230,230,230, 0.8);
+}
+
+.messageNumberAdminNavBar {
+    position: absolute;
+    color: #CAB381;
+    top: 27%;
+    left: 70%;
+    font-size: 18px;
+    background-color: indianred;
+    box-sizing: border-box;
+    height: 35px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}

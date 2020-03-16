@@ -1,0 +1,59 @@
+.messagesMainContainerAdmin {
+    height: 100vh;
+    width: 100%;
+    background-color: #282c34;
+}
+
+.adminMessagesContainer {
+    position: absolute;
+    left: 20%;
+    top: 15%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.manageAdminMessages {
+    margin: 50px;
+    font-family: 'Abril Fatface', cursive;
+    color: whitesmoke;
+}
+
+.messagesContainerAdmin {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.messageCardAdmin {
+    background-color: white;
+    text-align: start;
+    width: 300px;
+    height: 400px;
+    margin: 15px;
+    padding: 15px;
+}
+
+.deleteMessageAdmin {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    background-color: red;
+    width: 250px;
+    height: 55px;
+}
+
+.itemMessageCardAdmin {
+    font-size: 16px;
+    font-family: Arial;
+    font-weight: bold;
+}
+
+.contentMessageAdmin {
+    font-weight: normal;
+}

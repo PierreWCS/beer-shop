@@ -25,6 +25,7 @@ const Cart = () => {
     localStorage.setItem("clientCart", JSON.stringify(removedProduct));
     setClientCart(removedProduct);
   };
+
   return (
     <div className="cartContainerMobile">
       <h1 className="cartTitleMobile">CART</h1>

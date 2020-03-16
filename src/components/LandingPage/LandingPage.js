@@ -151,11 +151,11 @@ const LandingPage = () => {
         </div>
       ) : (
         // Showing a loading image during the products fetch
-        <img
-          className="logoLoading"
-          src={require("../images/logoBeer.png")}
-          alt="loading"
-        />
+          <img
+            className="logoLoading"
+            src={require("../images/logoBeer.png")}
+            alt="loading"
+          />
       )}
 
       {/*         End of the landing page        */}
