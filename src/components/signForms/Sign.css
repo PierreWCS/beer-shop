@@ -12,7 +12,7 @@
 
 .sign-ctn .info--message {
     position: absolute;
-    top: 35%;
+    top: 20%;
     display: flex;
     align-items: flex-start;
     max-width: 250px;

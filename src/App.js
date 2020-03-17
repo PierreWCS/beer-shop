@@ -12,6 +12,7 @@ import Signup from "./components/signForms/signup/Signup";
 import Signin from "./components/signForms/signin/Signin";
 import AdminMessages from "./components/Admin/AdminMessages/AdminMessages";
 import AdminProducts from "./components/Admin/AdminProducts/AdminProducts";
+import ProductPage from "./components/Products/ProductPage";
 
 function App() {
   const { width } = useWindowDimensions();
@@ -28,6 +29,7 @@ function App() {
           <Route path="/sign-up" component={Signin} />
           <Route path="/admin-products" component={AdminProducts} />
           <Route path="/admin-messages" component={AdminMessages} />
+          <Route path="/product-page" component={ProductPage} />
         </Switch>
       </div>
     </Router>

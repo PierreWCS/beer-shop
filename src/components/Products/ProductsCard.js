@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import "./ProductsCard.css";
+import {Link} from "react-router-dom";
 
 const ProductCard = ({ product }) => {
   const addProductToCart = () => {
@@ -36,6 +37,11 @@ const ProductCard = ({ product }) => {
       />
       <p className="productDescriptionProductCard">{product.description}</p>
       <p className="productPriceProductCard">{product.price} €</p>
+      <Link to={{
+        pathname: "/product-page",
+        state: product
+      }}
+      >See more</Link>
       <button
         onClick={addProductToCart}
         className="aboutUsButton productCardButton"
