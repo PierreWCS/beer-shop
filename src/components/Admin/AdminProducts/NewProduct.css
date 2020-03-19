@@ -1,23 +1,18 @@
 .fakeShopFormContainer {
-    width: 70%;
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 10%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background-color: #444444;
-}
-
-.adminOfTheShopContainer {
-    background-color: #282c34;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 20vh;
-    color: white;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .formFakeShop {
-    height: 66vh;
     width: 85%;
 }
 
@@ -59,11 +54,4 @@
     border-radius: 5px;
     width: 120px;
     height: 40px;
-}
-
-.modifyContainer {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
 }

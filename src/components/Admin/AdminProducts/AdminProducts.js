@@ -11,6 +11,7 @@ const AdminProducts = () => {
   const [products, setProducts] = useState(null);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [displayEdit, setDisplayEdit] = useState(false);
+  const [displayNewProduct, setDisplayNewProduct] = useState(false);
 
   useEffect(() => {
     getProducts();
@@ -48,8 +49,16 @@ const AdminProducts = () => {
       <NavBarAdmin />
       {products ? (
         <div className="productsAdminContainer">
-          <h1 className="titleAdminPage">Admin panel</h1>
-          <NewProduct />
+          <h1 className="manageAdminProducts">Manage your products</h1>
+          <button
+            className="addNewProductButtonAdmin"
+            onClick={() => {
+              setDisplayNewProduct(true);
+              document.body.style.overflow = "hidden";
+            }}
+          >
+            New product
+          </button>
           <div className="productsContainerAdmin">
             {products.map((product, index) => {
               return (
@@ -71,7 +80,9 @@ const AdminProducts = () => {
                     </span>
                   </p>
                   <p className="itemMessageCardAdmin">Description:</p>
-                  <p className="descriptionProductAdmin">{product.description}</p>
+                  <p className="descriptionProductAdmin">
+                    {product.description}
+                  </p>
                   {product.image ? (
                     <img
                       className="imageProductAdmin"
@@ -120,6 +131,9 @@ const AdminProducts = () => {
           setDisplayEdit={setDisplayEdit}
           product={selectedProduct}
         />
+      ) : null}
+      {displayNewProduct ? (
+        <NewProduct setDisplay={setDisplayNewProduct} />
       ) : null}
     </div>
   );

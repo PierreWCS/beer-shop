@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import "./NewProduct.css";
 import Axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 
-const NewProduct = () => {
+const NewProduct = ({ setDisplay }) => {
   const [productName, setProductName] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
   // const [productImage, setProductImage] = useState(null);
@@ -62,6 +64,21 @@ const NewProduct = () => {
   return (
     <div className="fakeShopFormContainer">
       <h1 className="addAProductTitle">Add a product to the shop</h1>
+      {/*       Close button        */}
+      <div
+        className="closeWindowEditContainer"
+        onClick={() => {
+          setDisplay(false);
+          document.body.style.overflow = "auto";
+        }}
+      >
+        <p className="closeWindowTextEdit">Close</p>
+        <FontAwesomeIcon
+          icon={faWindowClose}
+          className="closeWindowEditProduct fa-2x"
+        />
+      </div>
+
       <form className="formFakeShop">
         <label className="labelNewProduct" htmlFor="addProductFakeShopName">
           Name of the product :
@@ -85,18 +102,6 @@ const NewProduct = () => {
             id="addProductFakeShopPrice"
           />
         </label>
-        {/*<label className="labelNewProduct" htmlFor="addProductFakeShopImage">*/}
-        {/*  Image url :*/}
-        {/*  <input*/}
-        {/*    onChange={handleChangeImage}*/}
-        {/*    required*/}
-        {/*    size="30"*/}
-        {/*    className="inputShopForm"*/}
-        {/*    placeholder="asahi.png"*/}
-        {/*    type="text"*/}
-        {/*    id="addProductFakeShopPrice"*/}
-        {/*  />*/}
-        {/*</label>*/}
         <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
           Description
           <input

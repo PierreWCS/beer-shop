@@ -1,7 +1,7 @@
 .messagesMainContainerAdmin {
     height: 100vh;
     width: 100%;
-    background-color: #282c34;
+    background-color: #fafafa;
 }
 
 .adminMessagesContainer {
@@ -14,9 +14,10 @@
 }
 
 .manageAdminMessages {
+    text-align: start;
     margin: 50px;
     font-family: 'Abril Fatface', cursive;
-    color: whitesmoke;
+    color: black;
 }
 
 .messagesContainerAdmin {
@@ -33,6 +34,7 @@
     height: 400px;
     margin: 15px;
     padding: 15px;
+    box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
 }
 
 .deleteMessageAdmin {

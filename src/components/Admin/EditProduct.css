@@ -1,14 +1,15 @@
 .editProductContainer {
     position: fixed;
     top: 20%;
-    left: 15%;
+    left: 25%;
     height: 75vh;
-    width: 80%;
-    background-color: white;
+    width: 70%;
+    background-color: lightgray;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .closeWindowEditContainer {
@@ -42,6 +43,7 @@
     justify-content: space-around;
     background-color: dodgerblue;
     height: 60px;
+    color: whitesmoke;
     width: 200px;
     cursor: pointer;
 }
@@ -95,7 +97,6 @@
     font-weight: bold;
     font-size: 18px;
     width: 300px;
-    font-family: 'Abril Fatface', cursive;
 }
 
 .inputEditProduct {

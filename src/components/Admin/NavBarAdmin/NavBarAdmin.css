@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
 .navBarAdminContainer {
     position: fixed;
     left: 0;
@@ -7,31 +9,37 @@
     justify-content: start;
     width: 20%;
     height: 85%;
-    background-color: whitesmoke;
+    background-color: #1C2431;
 }
 
 .itemListNavBarAdmin {
     text-decoration: none;
-    color: #282c34;
-    font-size: 28px;
-    font-family: 'Abril Fatface', cursive;
+    color: whitesmoke;
+    font-size: 22px;
     padding: 15px;
-    margin: 15px;
-    border-bottom: #CAB381 solid 2px;
+    margin: 15px 0 15px 0;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    text-align: start;
+    font-family: 'Montserrat', sans-serif;
 }
 .itemListNavBarAdmin:hover {
-    background-color: rgba(230,230,230, 0.8);
+    background-color: #1C1D1F;
 }
 
 .activeItemListNavBarAdmin {
-    background-color: rgba(230,230,230, 0.8);
+    background-color: #10151B;
+}
+
+.iconNavBarAdmin {
+    padding: 0 35px 0 15px;
 }
 
 .messageNumberAdminNavBar {
     position: absolute;
     color: #CAB381;
-    top: 27%;
-    left: 70%;
+    left: 80%;
     font-size: 18px;
     background-color: indianred;
     box-sizing: border-box;

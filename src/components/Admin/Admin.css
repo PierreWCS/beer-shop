@@ -1,6 +1,6 @@
 .adminMainContainer {
     width: 100%;
-    background-color: #282c34;
+    background-color: #fafafa;
     height: 100vh;
 }
 
@@ -35,14 +35,15 @@
 /*          admin page         */
 
 .titleAdminPage {
-    padding: 190px 0 50px 0;
+    padding: 190px 0 50px 25%;
+    box-sizing: border-box;
     width: 100%;
-    text-align: center;
+    text-align: start;
     font-family: 'Abril Fatface', cursive;
     letter-spacing: 0.1em;
     font-size: 36px;
     margin: 0;
-    color: white;
+    color: black;
 }
 
 .backtoHomeAdminContainer {
