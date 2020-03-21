@@ -27,10 +27,19 @@
     align-items: center;
 }
 
+.namePriceContainerProductPage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 25px;
+    height: 70%;
+}
+
 .quantitySelectorProductPage {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 400px;
     height: 100px;
     font-size: 24px;
@@ -40,9 +49,37 @@
 .minusPlusProductPage {
     font-size: 24px;
     background-color: lightgray;
+    width: 90px;
     height: 60px;
-    width: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.minusProductPage {
+
+}
+.minusProductPage:active {
+    transform: scale(0.95);
+}
+
+.plusProductPage {
+    border: #CAB381 solid 2px;
+    box-sizing: border-box;
+    background-color: transparent;
+}
+.plusProductPage:active {
+    transform: scale(0.95);
+}
+
+.addToCartButtonProductPage {
+    padding: 15px;
+    background-color: #CAB381;
+    border: #424242 solid 2px;
+    font-size: 24px;
+    color: #444444;
+    width: 240px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }

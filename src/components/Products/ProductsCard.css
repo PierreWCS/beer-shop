@@ -38,6 +38,20 @@
     color: #1C1D1F;
 }
 
+.linkToProductPage {
+    text-decoration: none;
+    border: solid 1px #CAB381;
+    padding: 15px;
+    color: #CAB381;
+    width: 250px;
+    box-sizing: border-box;
+    margin: 10px;
+    font-family: 'Abril Fatface', cursive;
+}
+.linkToProductPage:hover {
+    transform: scale(1.05);
+}
+
 @media (max-width: 1060px) {
     .itemProductCardContainer {
         margin: 15px;

@@ -37,7 +37,7 @@ const ProductCard = ({ product }) => {
       />
       <p className="productDescriptionProductCard">{product.description}</p>
       <p className="productPriceProductCard">{product.price} €</p>
-      <Link to={{
+      <Link className="linkToProductPage" to={{
         pathname: "/product-page",
         state: product
       }}

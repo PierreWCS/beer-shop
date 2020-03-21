@@ -92,16 +92,6 @@ const NewProduct = ({ setDisplay }) => {
             id="addProductFakeShopName"
           />
         </label>
-        <label className="labelNewProduct" htmlFor="addProductFakeShopPrice">
-          Price :
-          <input
-            onChange={handleChangePrice}
-            required
-            className="inputShopForm"
-            placeholder="3.10"
-            id="addProductFakeShopPrice"
-          />
-        </label>
         <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
           Description
           <input
@@ -111,6 +101,16 @@ const NewProduct = ({ setDisplay }) => {
             className="inputShopForm"
             placeholder="Very smooth beer"
             type="text"
+            id="addProductFakeShopPrice"
+          />
+        </label>
+        <label className="labelNewProduct" htmlFor="addProductFakeShopPrice">
+          Price :
+          <input
+            onChange={handleChangePrice}
+            required
+            className="inputShopForm"
+            placeholder="3.10"
             id="addProductFakeShopPrice"
           />
         </label>

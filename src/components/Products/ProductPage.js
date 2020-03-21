@@ -14,16 +14,31 @@ const ProductPage = props => {
             alt="product"
           />
         </div>
-        <div>
+        <div className="namePriceContainerProductPage">
           <h1>{product.name}</h1>
           {/*     Quantity picker     */}
+          <h3>Quantity</h3>
           <div className="quantitySelectorProductPage">
-            <p onClick={() => setProductQuantity(productQuantity - 1)} className="minusPlusProductPage">-</p>
+            <p
+              onClick={() => {
+                if (productQuantity > 1) {
+                  setProductQuantity(productQuantity - 1);
+                }
+              }}
+              className="minusPlusProductPage minusProductPage"
+            >
+              -
+            </p>
             <p>{productQuantity}</p>
-            <p onClick={() => setProductQuantity(productQuantity + 1)} className="minusPlusProductPage">+</p>
+            <p
+              onClick={() => setProductQuantity(productQuantity + 1)}
+              className="minusPlusProductPage plusProductPage"
+            >
+              +
+            </p>
           </div>
           <div>
-            <button>ADD TO CART</button>
+            <button className="addToCartButtonProductPage">ADD TO CART</button>
             <h2>{product.price}€</h2>
           </div>
         </div>
