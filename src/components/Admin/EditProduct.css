@@ -1,6 +1,6 @@
 .editProductContainer {
-    position: absolute;
-    top: 9%;
+    position: fixed;
+    top: 15%;
     height: 85vh;
     width: 100%;
     background-color: lightgray;
@@ -22,8 +22,9 @@
 
 .closeWindowEditContainer {
     position: absolute;
-    right: 5%;
+    z-index: 5;
     top: 5%;
+    left: 70%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -43,7 +44,7 @@
 
 .saveContainerEdit {
     position: absolute;
-    right: 5%;
+    left: 67%;
     bottom: 5%;
     display: flex;
     flex-direction: row;

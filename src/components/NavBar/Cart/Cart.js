@@ -3,7 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
 
-const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
+const Cart = ({
+  totalCart,
+  setTotalCart,
+  clientCart,
+  setClientCart,
+  totalArticles,
+  setTotalArticles
+}) => {
   const minusQuantity = product => {
     let stockCart = clientCart;
     stockCart.map((element, index) => {
@@ -17,6 +24,7 @@ const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
       setClientCart([...stockCart]);
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
       getTotalPrice();
+      getTotalArticle();
     });
   };
 
@@ -31,15 +39,24 @@ const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
       setClientCart([...stockCart]);
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
       getTotalPrice();
+      getTotalArticle();
     });
   };
 
   const getTotalPrice = () => {
     let count = 0;
-    let total = clientCart.filter(product => {
+    clientCart.filter(product => {
       return (count = count + product.price * product.quantity);
     });
     setTotalCart(count.toFixed(2));
+  };
+
+  const getTotalArticle = () => {
+    let count = 0;
+    clientCart.filter(product => {
+      return (count = count + product.quantity);
+    });
+    setTotalArticles(count);
   };
 
   const deleteProduct = product => {
@@ -47,7 +64,7 @@ const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
     localStorage.setItem("clientCart", JSON.stringify(removedProduct));
     setClientCart(removedProduct);
     let count = 0;
-    let total = removedProduct.filter(product => {
+    removedProduct.filter(product => {
       return (count = count + product.price * product.quantity);
     });
     setTotalCart(count.toFixed(2));
@@ -55,9 +72,9 @@ const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
 
   return (
     <div className="cartContainerNavBar">
-      <h2>Your cart</h2>
+      <h4>Your cart</h4>
       <hr className="separatorCart" />
-      <div className="productsContainerCart">
+      <div className={clientCart ? "productsContainerCart" : null}>
         {clientCart
           ? clientCart.map((product, key) => {
               return (
@@ -97,7 +114,8 @@ const Cart = ({ totalCart, setTotalCart, clientCart, setClientCart }) => {
       </div>
       {clientCart && clientCart.length ? (
         <div>
-          <p>Total price: {totalCart} €</p>
+          <p className="totalCartCounter">Total price: {totalCart} €</p>
+          <p className="totalCartCounter">Total of articles: {totalArticles}</p>
           <button className="aboutUsButton navBarButtonCart">Payment</button>
         </div>
       ) : (

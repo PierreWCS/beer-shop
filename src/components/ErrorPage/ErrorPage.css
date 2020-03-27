@@ -1,0 +1,24 @@
+.errorPageMainContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.oopsErrorPage {
+    font-size: 124px;
+    color: #CAB381;
+    margin: 10px;
+}
+
+.backToHomeErrorPage {
+    color: white;
+    border-radius: 5px;
+    background-color: #CAB381;
+    padding: 15px;
+    margin: 25px;
+    box-shadow: 2px 2px 2px lightgray;
+    text-decoration: none;
+}

@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./ProductsCard.css";
-import {Link} from "react-router-dom";
+import ProductPage from "./ProductPage";
 
-const ProductCard = ({ product }) => {
+const ProductCard = ({ product, products, index }) => {
+  const [moreDetails, setMoreDetails] = useState(false);
   const addProductToCart = () => {
     let stockCart = JSON.parse(localStorage.getItem("clientCart"));
     if (stockCart && stockCart.length > 0) {
@@ -14,8 +15,9 @@ const ProductCard = ({ product }) => {
             stockCart[i].quantity += 1;
           }
         }
-      }
-      else {
+      } else {
+        console.log(product);
+        product.quantity = 1;
         stockCart.push(product);
       }
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
@@ -37,17 +39,22 @@ const ProductCard = ({ product }) => {
       />
       <p className="productDescriptionProductCard">{product.description}</p>
       <p className="productPriceProductCard">{product.price} €</p>
-      <Link className="linkToProductPage" to={{
-        pathname: "/product-page",
-        state: product
+      <button onClick={() => {
+        setMoreDetails(true);
+        document.body.style.overflow = "hidden";
       }}
-      >See more</Link>
+              className="linkToProductPage">See more</button>
       <button
         onClick={addProductToCart}
         className="aboutUsButton productCardButton"
       >
         Add to cart
       </button>
+      {
+        moreDetails ?
+          <ProductPage index={index} products={products} product={product} setMoreDetails={setMoreDetails} />
+          : null
+      }
     </div>
   );
 };

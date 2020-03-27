@@ -51,10 +51,8 @@ exports.connect = function userConnectToTheWebsite(request, response) {
       const { status } = err.status;
       return sendResponse(status, errorScheme);
     }
-
     // Génération du jsonWebToken
     const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
-
     return sendResponse(200, {
       text: 'Vous êtes connecté.',
       data,

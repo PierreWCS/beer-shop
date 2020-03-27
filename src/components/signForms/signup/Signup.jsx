@@ -37,6 +37,8 @@ function Signup() {
         // Initialisation du global state (user)
         if (data) {
           const { id, firstname, lastname, role } = data;
+          const userData = { id, firstname, lastname, role };
+          localStorage.setItem('userStorage', JSON.stringify(userData));
           userStateConnect({ id, firstname, lastname, role });
         }
 

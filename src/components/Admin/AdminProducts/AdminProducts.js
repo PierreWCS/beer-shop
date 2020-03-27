@@ -79,6 +79,12 @@ const AdminProducts = () => {
                       {product.alcohol}°
                     </span>
                   </p>
+                  <p className="itemMessageCardAdmin">
+                    Stock:{" "}
+                    <span className="contentMessageAdmin">
+                      {product.quantity}
+                    </span>
+                  </p>
                   <p className="itemMessageCardAdmin">Description:</p>
                   <p className="descriptionProductAdmin">
                     {product.description}

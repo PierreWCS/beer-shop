@@ -12,6 +12,7 @@
 
 .defaultNumberCart {
     position: absolute;
-    right: 16%;
+    right: 15%;
     background-color: indianred;
+    color: white;
 }

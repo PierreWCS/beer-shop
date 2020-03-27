@@ -9,6 +9,7 @@ const EditProduct = ({ product, setDisplayEdit }) => {
   const [productPrice, setProductPrice] = useState(product.price);
   const [productDescription, setProductDescription] = useState(product.description);
   const [productAlcohol, setProductAlcohol] = useState(product.alcohol);
+  const [productStock, setProductStock] = useState(product.quantity);
 
   const handleChangeName = event => {
     setProductName(event.target.value);
@@ -30,6 +31,11 @@ const EditProduct = ({ product, setDisplayEdit }) => {
     console.log(event.target.value);
   };
 
+  const handleChangeStock = event => {
+    setProductStock(event.target.value);
+    console.log(event.target.value);
+  };
+
   const modifyProduct = product => {
     let url = `http://localhost:8000/api/products/${product.id}`;
     Axios({
@@ -40,7 +46,8 @@ const EditProduct = ({ product, setDisplayEdit }) => {
         price: productPrice,
         image: product.image,
         description: productDescription,
-        alcohol: productAlcohol
+        alcohol: productAlcohol,
+        quantity: productStock
       }
     })
       .then(response =>  {
@@ -54,8 +61,6 @@ const EditProduct = ({ product, setDisplayEdit }) => {
         console.log(error);
       });
   };
-
-  console.log(product);
 
   return (
     <div className="editProductContainer">
@@ -152,6 +157,21 @@ const EditProduct = ({ product, setDisplayEdit }) => {
                 onChange={handleChangeAlcohol}
                 className="inputEditProduct"
                 type="text"
+                id="productNameEdit"
+              />
+            </label>
+
+          {/*       Stock       */}
+            <label htmlFor="productNameEdit">
+              <p className="productTitleEditProduct">
+                Stock:{" "}
+                <span className="valueEditProduct">{product.quantity}</span>
+              </p>
+              <input
+                placeholder="Modify the stock"
+                onChange={handleChangeStock}
+                className="inputEditProduct"
+                type="number"
                 id="productNameEdit"
               />
             </label>

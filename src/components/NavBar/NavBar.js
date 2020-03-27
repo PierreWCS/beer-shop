@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import useGlobalState from "../../hooks/useGlobalState";
 import NavBarAdmin from "./NavBarAdmin";
 import DefaultNavBar from "./DefaultNavBar";
+import LogOut from "./LogOut";
 
 const NavBar = () => {
   const { user } = useGlobalState();
@@ -28,6 +29,14 @@ const NavBar = () => {
           >
             ABOUT US
           </NavLink>
+          <NavLink
+            activeClassName="activeItemNavBar"
+            className="itemNavBar"
+            to="/products"
+          >
+            PRODUCTS
+          </NavLink>
+          <LogOut />
         </div>
       </div>
     );
