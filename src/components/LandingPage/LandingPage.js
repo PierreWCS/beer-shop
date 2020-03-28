@@ -104,14 +104,15 @@ const LandingPage = () => {
           {/*         Our products      */}
 
           <div className="ourProductsMainContainer">
-            <h1 className="titleOurProducts">Discover our beers</h1>
+            <h1 className="titleOurProducts">DISCOVER OUR BEST BEERS</h1>
             <div className="ourProductCardContainer">
               {products.map((product, key) => {
-                if (key < 4) {
-                  return <ProductCard key={key} product={product} />;
+                if (key < 3) {
+                  return <ProductCard products={products} index={key} product={product} />;
                 } else return null;
               })}
             </div>
+            <Link className="linkToProductsLandingPage" to="/products">ALL PRODUCTS</Link>
           </div>
 
           {/*       Stats       */}
@@ -151,11 +152,11 @@ const LandingPage = () => {
         </div>
       ) : (
         // Showing a loading image during the products fetch
-        <img
-          className="logoLoading"
-          src={require("../images/logoBeer.png")}
-          alt="loading"
-        />
+          <img
+            className="logoLoading"
+            src={require("../images/logoBeer.png")}
+            alt="loading"
+          />
       )}
 
       {/*         End of the landing page        */}

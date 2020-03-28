@@ -1,0 +1,15 @@
+.disconnectIcon {
+    margin-left: 25px;
+    cursor: pointer;
+}
+
+.logOutContainer:hover .disconnectMessage{
+    display: block;
+    position: absolute;
+    margin: 10px;
+}
+
+.disconnectMessage {
+    display: none;
+    color: #282c34;
+}

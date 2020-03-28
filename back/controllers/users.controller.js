@@ -53,7 +53,7 @@ exports.create = function createUser(request, response) {
   }
 
   // Verification que le numéro de téléphone soit correctement écrit
-  const phoneErrorHandler = verifyPhoneNumber(phone, 9);
+  const phoneErrorHandler = verifyPhoneNumber(phone, 10);
   if (phoneErrorHandler) {
     return response.status(400).send(phoneErrorHandler);
   }
@@ -71,7 +71,7 @@ exports.create = function createUser(request, response) {
       inputs: ['password_verification'],
       alert: {
         type: 'error',
-        text: 'Mot de passe non identique'
+        text: "Passwords doesn't match"
       }
     });
   }
@@ -90,7 +90,7 @@ exports.create = function createUser(request, response) {
     return response.status(201).send({
       alert: {
         type: 'success',
-        text: 'Vous êtes inscrit.'
+        text: 'You are now registered'
       },
       data
     });

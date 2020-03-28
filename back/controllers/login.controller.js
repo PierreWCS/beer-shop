@@ -10,7 +10,7 @@ exports.connect = function userConnectToTheWebsite(request, response) {
 
   // Schéma d'erreur
   const errorScheme = {
-    text: 'Email ou mot de passe incorrect',
+    text: 'Your email or your password is wrong',
     errorTarget: 'INPUT',
     alertType: 'error',
     inputs: ['email', 'password']
@@ -51,12 +51,10 @@ exports.connect = function userConnectToTheWebsite(request, response) {
       const { status } = err.status;
       return sendResponse(status, errorScheme);
     }
-
     // Génération du jsonWebToken
     const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
-
     return sendResponse(200, {
-      text: 'Vous êtes connecté.',
+      text: 'You are connected.',
       data,
       token,
       alertType: 'success'

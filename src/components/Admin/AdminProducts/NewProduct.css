@@ -1,0 +1,76 @@
+.fakeShopFormContainer {
+    position: fixed;
+    width: 100%;
+    top: 16%;
+    height: 85vh;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: start;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+    animation: fade-in 0.6s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+.formFakeShop {
+    width: 85%;
+    text-align: start;
+}
+
+.labelNewProduct {
+    color: #424242;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.addAProductTitle {
+    color: black;
+}
+
+.inputShopForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 22px;
+    align-items: center;
+    margin: 15px;
+    border: solid lightgray 1px;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #9E9E9E;
+    width: 90%;
+    height: 60px;
+}
+
+.addNewProductButton {
+    background-color: #CAB381;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 220px;
+    height: 50px;
+    cursor: pointer;
+}
+.addNewProductButton:hover {
+    opacity: 0.9;
+}

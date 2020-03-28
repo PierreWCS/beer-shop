@@ -5,7 +5,7 @@ module.exports = function verifyPassword(phone, validLength) {
   const regexError = regexValidity({ phone }, regex);
   if (regexError) return regexError;
 
-  if (phone.length !== validLength || !['6', '7'].includes(phone[0])) {
+  if (phone.length !== validLength || !['6', '7'].includes(phone[1])) {
     return {
       type: 'INPUT',
       inputs: ['phone'],

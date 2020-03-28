@@ -142,7 +142,7 @@ const About = () => {
             />
           </label>
           <label htmlFor="message">
-            <input
+            <textarea
               onChange={handleChangeBody}
               required
               placeholder="message..."

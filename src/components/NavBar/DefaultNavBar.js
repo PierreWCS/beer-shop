@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,28 +6,18 @@ import {
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
 import Cart from "./Cart/Cart";
-import './DefaultNavBar.css';
+import "./DefaultNavBar.css";
 
-const DefaultNavBar = () => {
-  const [displayCart, setDisplayCart] = useState(false);
-  const [clientCart, setClientCart] = useState(null);
-  const [totalCart, setTotalCart] = useState(0);
-
-  useEffect(() => {
-    getClientCart();
-  }, []);
-
-  const getClientCart = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
-    console.log(stockCart);
-    let count = 0;
-    let total = stockCart.filter(product => {
-      return (count = count + product.price * product.quantity);
-    });
-    setTotalCart(count.toFixed(2));
-    setClientCart(stockCart);
-  };
-
+const DefaultNavBar = ({
+  totalCart,
+  setTotalCart,
+  clientCart,
+  setClientCart,
+  totalArticles,
+  setTotalArticles,
+  displayCart,
+  setDisplayCart
+}) => {
   return (
     <div className="navBarContainer">
       <Link to="/" className="logoAndNameNavBar">
@@ -48,19 +38,19 @@ const DefaultNavBar = () => {
         <NavLink
           activeClassName="activeItemNavBar"
           className="itemNavBar"
-          to="/sign-in"
+          to="/products"
         >
-          SIGN-IN
+          PRODUCTS
         </NavLink>
         <NavLink
           activeClassName="activeItemNavBar"
           className="itemNavBar"
-          to="/sign-up"
+          to="/login"
         >
-          SIGN-UP
+          LOGIN
         </NavLink>
-        {displayCart && clientCart ? (
-          <div className="itemNavBarCart">
+        {displayCart ? (
+          <div className="itemNavBarCart itemNavBar">
             <FontAwesomeIcon
               onClick={() => setDisplayCart(false)}
               icon={faWindowClose}
@@ -71,6 +61,8 @@ const DefaultNavBar = () => {
               setClientCart={setClientCart}
               totalCart={totalCart}
               setTotalCart={setTotalCart}
+              totalArticles={totalArticles}
+              setTotalArticles={setTotalArticles}
             />
           </div>
         ) : (
@@ -78,9 +70,14 @@ const DefaultNavBar = () => {
             className="itemNavBar cartIconAndNumberDefault"
             onClick={() => setDisplayCart(true)}
           >
-            <FontAwesomeIcon icon={faShoppingCart} className="cartIconNavBar" />
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              className="cartIconNavBar fa-2x"
+            />
             {clientCart ? (
-              <p className="numberCartNavBar defaultNumberCart">{clientCart.length}</p>
+              <p className="numberCartNavBar defaultNumberCart">
+                {clientCart.length}
+              </p>
             ) : null}
           </div>
         )}

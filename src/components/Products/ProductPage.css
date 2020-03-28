@@ -1,0 +1,142 @@
+/*          Product page style          */
+
+.productPageMainContainer {
+    background-color: whitesmoke;
+    box-sizing: border-box;
+    height: 85vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    top: 15vh;
+}
+
+.productPageImagePriceContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: whitesmoke;
+    width: 70%;
+}
+
+.imageContainerProductPage {
+    width: 60%;
+}
+
+.imageProductPage {
+    padding: 50px;
+    height: 550px;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+.namePriceContainerProductPage {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px;
+    height: 85%;
+}
+
+.productNameProductPage {
+    font-family: Pacifico;
+}
+
+.quantitySelectorProductPage {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 150px;
+    font-size: 24px;
+    font-family: 'Abril Fatface', cursive;
+    background-color: lightgray;
+}
+
+.minusPlusProductPage {
+    font-size: 24px;
+    background-color: lightgray;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    user-select: none;
+    margin: 0;
+}
+
+.minusProductPage {
+    background-color: gray;
+    color: black;
+    border: solid 2px #CAB381;
+    box-sizing: border-box;
+}
+.minusProductPage:active {
+    transform: scale(0.95);
+}
+
+.plusProductPage {
+    border: #CAB381 solid 2px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    box-sizing: border-box;
+}
+.plusProductPage:active {
+    transform: scale(0.95);
+}
+
+.addToCartButtonProductPage {
+    padding: 10px;
+    margin: 35px 0 15px 0;
+    background-color: #CAB381;
+    border: #424242 solid 2px;
+    font-size: 20px;
+    color: #444444;
+    width: 200px;
+    cursor: pointer;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+
+.descriptionProductPage {
+    text-align: start;
+    margin: 25px 0 15px 0;
+}
+
+.closeButtonProductPage {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    background-color: indianred;
+    color: white;
+    height: 45px;
+    width: 95px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.closeButtonProductPage:active {
+    transform: scale(0.95);
+}
+
+.nextProductContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 350px;
+    position: relative;
+    top: 15%;
+    left: 70%;
+    flex-direction: row;
+    border: solid 1px #CAB381;
+    padding: 15px;
+}
+
+.nextProductImage {
+    height: 120px;
+}
