@@ -3,10 +3,10 @@ import useGlobalState from "../../hooks/useGlobalState";
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Redirect } from "react-router-dom";
+import './LogOut.css';
 
 const LogOut = () => {
   const { userStateDisconnect, user } = useGlobalState();
-
   const [redirection, setRedirection] = useState(null);
 
   const disconnect = () => {
@@ -20,7 +20,10 @@ const LogOut = () => {
       {redirection}
 
       {user ? (
-        <FontAwesomeIcon onClick={disconnect} color={'indianred'} icon={faSignOutAlt} className="fa-2x disconnectIcon" />
+        <div className="logOutContainer">
+          <FontAwesomeIcon onClick={disconnect} color={'#282c34'} icon={faSignOutAlt} className="fa-2x disconnectIcon" />
+          <p className="disconnectMessage">Log out</p>
+        </div>
       ) : null}
     </div>
   );

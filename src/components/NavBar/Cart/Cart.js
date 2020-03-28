@@ -25,6 +25,7 @@ const Cart = ({
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
       getTotalPrice();
       getTotalArticle();
+      return 0;
     });
   };
 
@@ -40,6 +41,7 @@ const Cart = ({
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
       getTotalPrice();
       getTotalArticle();
+      return 0;
     });
   };
 

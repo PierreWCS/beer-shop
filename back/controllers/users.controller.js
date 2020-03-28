@@ -71,7 +71,7 @@ exports.create = function createUser(request, response) {
       inputs: ['password_verification'],
       alert: {
         type: 'error',
-        text: 'Mot de passe non identique'
+        text: "Passwords doesn't match"
       }
     });
   }
@@ -90,7 +90,7 @@ exports.create = function createUser(request, response) {
     return response.status(201).send({
       alert: {
         type: 'success',
-        text: 'Vous êtes inscrit.'
+        text: 'You are now registered'
       },
       data
     });

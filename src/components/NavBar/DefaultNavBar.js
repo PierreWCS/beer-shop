@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,36 +6,18 @@ import {
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
 import Cart from "./Cart/Cart";
-import './DefaultNavBar.css';
+import "./DefaultNavBar.css";
 
-const DefaultNavBar = () => {
-  const [displayCart, setDisplayCart] = useState(false);
-  const [clientCart, setClientCart] = useState(null);
-  const [totalCart, setTotalCart] = useState(0);
-  const [totalArticles, setTotalArticles] = useState(0);
-
-  useEffect(() => {
-    getClientCart();
-  }, []);
-
-  const getClientCart = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
-    console.log(stockCart);
-    if (stockCart && stockCart.length > 0) {
-      let countPrice = 0;
-      let countArticles = 0;
-      stockCart.filter(product => {
-        countPrice = countPrice + product.price * product.quantity;
-        countArticles = countArticles + product.quantity;
-      });
-      setTotalCart(countPrice.toFixed(2));
-      setTotalArticles(countArticles);
-      setClientCart(stockCart);
-    } else {
-      return 0;
-    }
-  };
-
+const DefaultNavBar = ({
+  totalCart,
+  setTotalCart,
+  clientCart,
+  setClientCart,
+  totalArticles,
+  setTotalArticles,
+  displayCart,
+  setDisplayCart
+}) => {
   return (
     <div className="navBarContainer">
       <Link to="/" className="logoAndNameNavBar">
@@ -63,16 +45,9 @@ const DefaultNavBar = () => {
         <NavLink
           activeClassName="activeItemNavBar"
           className="itemNavBar"
-          to="/sign-in"
+          to="/login"
         >
-          SIGN-IN
-        </NavLink>
-        <NavLink
-          activeClassName="activeItemNavBar"
-          className="itemNavBar"
-          to="/sign-up"
-        >
-          SIGN-UP
+          LOGIN
         </NavLink>
         {displayCart ? (
           <div className="itemNavBarCart itemNavBar">
@@ -95,9 +70,14 @@ const DefaultNavBar = () => {
             className="itemNavBar cartIconAndNumberDefault"
             onClick={() => setDisplayCart(true)}
           >
-            <FontAwesomeIcon icon={faShoppingCart} className="cartIconNavBar fa-2x" />
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              className="cartIconNavBar fa-2x"
+            />
             {clientCart ? (
-              <p className="numberCartNavBar defaultNumberCart">{clientCart.length}</p>
+              <p className="numberCartNavBar defaultNumberCart">
+                {clientCart.length}
+              </p>
             ) : null}
           </div>
         )}

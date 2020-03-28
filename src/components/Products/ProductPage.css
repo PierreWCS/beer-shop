@@ -17,7 +17,7 @@
 .productPageImagePriceContainer {
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: flex-start;
     background-color: whitesmoke;
     width: 70%;
 }

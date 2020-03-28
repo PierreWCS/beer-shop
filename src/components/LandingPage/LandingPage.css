@@ -171,7 +171,7 @@
 }
 .aboutUsButton:hover {
     cursor: pointer;
-    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 
@@ -209,11 +209,19 @@
 .linkToProductsLandingPage {
     text-decoration: none;
     color: black;
-    background-color: #CAB381;
+    background-color: white;
     padding: 20px;
     margin: 15px 0 25px 0;
+    border: solid 2px #424242;
+    cursor: pointer;
     width: 180px;
     font-family: 'Montserrat', sans-serif;
+}
+.linkToProductsLandingPage:hover {
+    opacity: 0.8;
+}
+.linkToProductsLandingPage:active {
+    transform: scale(0.95);
 }
 
 /*          Stats           */

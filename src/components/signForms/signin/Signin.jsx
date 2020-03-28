@@ -67,7 +67,6 @@ const Signin = () => {
     <>
       <div className="sign-ctn">
         {redirection}
-        <h1>Inscription</h1>
         {infoMessage && (
           <div className={`info--message ${infoMessage.type}`}>
             <FontAwesomeIcon icon={faInfoCircle} className="icon" />
@@ -85,60 +84,92 @@ const Signin = () => {
           onChange={checkSamePassword}
         >
           <Input
-            label={{ for: "signin-lastname", text: "Nom :" }}
+            label={{
+              for: "signin-lastname",
+              text: "Name:",
+              className: "signInLabel"
+            }}
             attributes={{
               type: "text",
               id: "signin-lastname",
-              name: "lastname"
+              name: "lastname",
+              placeholder: "Hoe"
             }}
             reference={inputsRef.lastname}
           />
           <Input
-            label={{ for: "signin-firstname", text: "Prénom :" }}
+            label={{
+              for: "signin-firstname",
+              text: "Firstname:",
+              className: "signInLabel"
+            }}
             attributes={{
               type: "text",
               id: "signin-firstname",
-              name: "firstname"
+              name: "firstname",
+              placeholder: "John"
             }}
             reference={inputsRef.firstname}
           />
           <Input
-            label={{ for: "signin-email", text: "Email :" }}
-            attributes={{ type: "email", id: "signin-email", name: "email" }}
+            label={{
+              for: "signin-email",
+              text: "Email:",
+              className: "signInLabel"
+            }}
+            attributes={{
+              type: "email",
+              id: "signin-email",
+              name: "email",
+              placeholder: "johnhoe@gmail.com"
+            }}
             reference={inputsRef.email}
           />
           <Input
-            label={{ for: "signin-telephone", text: "Téléphone :" }}
+            label={{
+              for: "signin-telephone",
+              text: "Phone :",
+              className: "signInLabel"
+            }}
             attributes={{
               type: "tel",
               id: "signin-telephone",
-              name: "telephone"
+              name: "telephone",
+              placeholder: "0612345678"
             }}
             reference={inputsRef.phone}
           />
           <Input
-            label={{ for: "signin-password", text: "Mot de passe :" }}
+            label={{
+              for: "signin-password",
+              text: "Password:",
+              className: "signInLabel"
+            }}
             attributes={{
               type: "password",
               id: "signin-password",
-              name: "password"
+              name: "password",
+              placeholder: "min 6 characters"
             }}
             reference={inputsRef.password}
           />
           <Input
             label={{
               for: "signin-password-verification",
-              text: "Confirmer le mot de passe :"
+              text: "Confirm the password:",
+              className: "signInLabel"
             }}
             attributes={{
               type: "password",
               id: "signin-password-verification",
-              name: "password-verification"
+              name: "password-verification",
+              className: "signInLabel",
+              placeholder: "passwords must be the same"
             }}
             reference={inputsRef.password_verification}
           />
           <button type="submit" className="btn">
-            S'inscrire
+            Register
           </button>
         </form>
       </div>
