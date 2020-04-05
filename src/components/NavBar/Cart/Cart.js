@@ -45,6 +45,22 @@ const Cart = ({
     });
   };
 
+  const deleteProduct = product => {
+    let removedProduct = clientCart.filter(e => e.id !== product.id);
+    setClientCart([...removedProduct]);
+    localStorage.setItem("clientCart", JSON.stringify(removedProduct));
+    let countPrice = 0;
+    removedProduct.filter(product => {
+      return (countPrice = countPrice + product.price * product.quantity);
+    });
+    setTotalCart(countPrice.toFixed(2));
+    let countArticles = 0;
+    removedProduct.filter(product => {
+      return (countArticles = countArticles + product.quantity);
+    });
+    setTotalArticles(countArticles);
+  };
+
   const getTotalPrice = () => {
     let count = 0;
     clientCart.filter(product => {
@@ -59,17 +75,6 @@ const Cart = ({
       return (count = count + product.quantity);
     });
     setTotalArticles(count);
-  };
-
-  const deleteProduct = product => {
-    let removedProduct = clientCart.filter(e => e.id !== product.id);
-    localStorage.setItem("clientCart", JSON.stringify(removedProduct));
-    setClientCart(removedProduct);
-    let count = 0;
-    removedProduct.filter(product => {
-      return (count = count + product.price * product.quantity);
-    });
-    setTotalCart(count.toFixed(2));
   };
 
   return (
@@ -116,8 +121,8 @@ const Cart = ({
       </div>
       {clientCart && clientCart.length ? (
         <div>
-          <p className="totalCartCounter">Total price: {totalCart} €</p>
-          <p className="totalCartCounter">Total of articles: {totalArticles}</p>
+          <p className="totalCartCounter">Total price: <span className="totalCounterNumberCart">{totalCart}</span> €</p>
+          <p className="totalCartCounter">Total of articles: <span className="totalCounterNumberCart">{totalArticles}</span></p>
           <button className="aboutUsButton navBarButtonCart">Payment</button>
         </div>
       ) : (

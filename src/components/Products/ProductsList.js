@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import Axios from "axios";
 import ProductCard from "./ProductsCard";
 import './ProductsList.css';
+import Footer from "../Footer/Footer";
 
 const ProductsList = () => {
   const [products, setProducts] = useState(null);
@@ -31,6 +32,7 @@ const ProductsList = () => {
           </div>
           : null
       }
+      <Footer />
     </div>
   )
 };

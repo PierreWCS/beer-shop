@@ -1,12 +1,10 @@
 import React from 'react';
 
-function Input({ label = {}, attributes, reference, className }) {
+function Input({ label = {}, attributes, reference }) {
 
     const userTyping = function detectUserTyping (event) {
         event.currentTarget.classList.remove('error');
     };
-    console.log(label);
-    console.log(className);
 
     return (
         <>

@@ -21,7 +21,6 @@ const ProductCard = ({ product, products, index }) => {
         stockCart.push(product);
       }
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
-      document.location.reload();
     } else {
       let cartInit = [];
       cartInit.push(product);

@@ -94,7 +94,7 @@ function Signup() {
             }}
             reference={inputsRef.password}
           />
-          <button type="submit" className="btn">
+          <button type="submit" className="btn signupButton">
             Login
           </button>
         </form>

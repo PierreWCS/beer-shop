@@ -71,6 +71,10 @@
     border: solid var(--error) 1px;
 }
 
+.sign-form input:focus {
+    border-bottom: solid 1px indianred;
+}
+
 .sign-form .btn {
     margin: 10px 5px 5px 5px;
     border: none;
@@ -79,6 +83,11 @@
     color: #282c34;
     cursor: pointer;
     font-size: 1rem;
+}
+
+.sign-form .signupButton {
+    margin-top: 35px;
+    padding: 1rem 2rem;
 }
 
 .signUpLabel {

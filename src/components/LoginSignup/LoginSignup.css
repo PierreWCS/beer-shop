@@ -10,9 +10,9 @@
 }
 
 .signupAndLoginContainer {
-  padding-top: 12vh;
-  width: 80%;
-  height: 90vh;
+  padding-top: 10vh;
+  width: 65%;
+  height: 95vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,12 +38,14 @@
 
 .titleLogin {
   color: white;
+  font-family: "Abril Fatface";
   text-shadow: 2px 2px black;
   font-size: 76px;
 }
 
 .subTitleLogin {
-  font-size: 22px;
+  font-family: Pacifico;
+  font-size: 32px;
   text-shadow: 2px 2px black;
   color: white;
 }
@@ -57,7 +59,7 @@
   justify-content: center;
   width: 50%;
   height: 85%;
-  background-color: #282c34;
+  background-color: #1C1D1F;
 }
 
 .displaySelectorContainer {
@@ -80,5 +82,5 @@
   border-bottom: solid 2px #cab381;
   box-sizing: border-box;
   font-size: 32px;
-  color: white;
+  color: #cab381;
 }

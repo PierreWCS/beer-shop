@@ -22,7 +22,7 @@ const NavBar = () => {
 
   const getClientCart = () => {
     let stockCart = JSON.parse(localStorage.getItem("clientCart"));
-    console.log(stockCart);
+    console.log("Client cart:", stockCart);
     if (stockCart && stockCart.length > 0) {
       let countPrice = 0;
       let countArticles = 0;

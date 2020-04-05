@@ -1,34 +1,121 @@
-import React from 'react';
-import './Footer.css';
-import {Link} from "react-router-dom";
+import React, { useState } from "react";
+import "./Footer.css";
+import { Link } from "react-router-dom";
+import Axios from "axios";
+import PopUp from "../Popups/PopUp";
 
 const Footer = () => {
+  const [clientEmail, setClientEmail] = useState(null);
+  const [displayPopUp, setDisplayPopUp] = useState(false);
+  const [popUpType, setPopUpType] = useState(null);
+
+  const handleChangeNewsletter = event => {
+    setClientEmail(event.target.value);
+  };
+
+  const validateClientEmail = e => {
+    e.preventDefault();
+    let url = "http://localhost:8000/api/emails";
+
+    function validateEmail(email) {
+      let re = /\S+@\S+\.\S+/;
+      return re.test(email);
+    }
+    if (validateEmail(clientEmail)) {
+      Axios({
+        method: "post",
+        url: url,
+        data: {
+          mail: clientEmail
+        }
+      })
+        .then(response => {
+          console.log(response);
+          setClientEmail(null);
+          setPopUpType("success");
+          setDisplayPopUp(true);
+          document.body.style.overflow = "hidden";
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    } else {
+      setPopUpType("error");
+      setDisplayPopUp(true);
+      document.body.style.overflow = "hidden";
+    }
+  };
+
   return (
     <div className="footerMainContainer">
-      <div className="footerSmallContainer footerNb1">
-        <h1 className="footerBigTitle">Wild Beers</h1>
-        <h4 className="footerBigTitleSubtitle">Since 2019</h4>
-        <img
-          className="logoNavBar"
-          src={require("../images/logoBeer.png")}
-          alt="logo"
-        />
+      <div className="footerContentContainer">
+        <div className="footerSmallContainer footerNb1">
+          <h1 className="footerBigTitle">Wild Beers</h1>
+          <h4 className="footerBigTitleSubtitle">Since 2019</h4>
+          <img
+            className="logoNavBar"
+            src={require("../images/logoBeer.png")}
+            alt="logo"
+          />
+        </div>
+        <div className="footerSmallContainer footerNb2">
+          <h2 className="footerSubtitle">Site navigation</h2>
+          <hr className="separatorFooter" />
+          <Link to="/" className="linkFooter">
+            Home
+          </Link>
+          <Link to="/about" className="linkFooter">
+            About us
+          </Link>
+          <Link to="/products" className="linkFooter">
+            Our beers
+          </Link>
+          <Link to="/login" className="linkFooter">
+            Login / Register
+          </Link>
+        </div>
+        <div className="footerSmallContainer footerNb3">
+          <h2 className="footerSubtitle">Find us</h2>
+          <hr className="separatorFooter" />
+          <p className="footerInformation">At our store:</p>
+          <p className="footerInformation">1214 Alcohol ST</p>
+          <p className="footerInformation">Chicago</p>
+          <h2 className="footerSubtitle">Stay aware</h2>
+          <hr className="separatorFooter" />
+          <p className="footerInformation">Receive special offers</p>
+          <form
+            className="newsletterContainerFooter"
+            onSubmit={validateClientEmail}
+          >
+            <input
+              className="newsletterInputFooter"
+              type="text"
+              placeholder="E-mail"
+              onChange={handleChangeNewsletter}
+            />
+            <button className="subscribeButtonFooter">Subscribe</button>
+          </form>
+        </div>
       </div>
-      <div className="footerSmallContainer footerNb2">
-        <h2 className="footerSubtitle">Site navigation</h2>
-        <Link to="/" className="linkFooter" >Home</Link>
-        <Link to="/about" className="linkFooter" >About</Link>
-        <Link to="/admin" className="linkFooter" >Admin</Link>
-      </div>
-      <div className="footerSmallContainer footerNb3">
-        <h2 className="footerSubtitle">Find us</h2>
-        <p className="footerInformation">At our store:</p>
-        <p className="footerInformation">1214 Alcohol ST</p>
-        <p className="footerInformation">Switzerland</p>
-        <p className="footerInformation">From 9:00 to 20:00</p>
-      </div>
+      {displayPopUp ? (
+        popUpType === "success" ? (
+          <PopUp
+            setDisplay={setDisplayPopUp}
+            message="You are successfully subscribed to our newsletter !"
+            type="success"
+            timeout="3000"
+          />
+        ) : (
+          <PopUp
+            setDisplay={setDisplayPopUp}
+            message="Your email is not correct"
+            type="error"
+            timeout="5000"
+          />
+        )
+      ) : null}
     </div>
-  )
+  );
 };
 
 export default Footer;

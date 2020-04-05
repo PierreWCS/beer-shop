@@ -8,10 +8,20 @@
     right: 5%;
     width: 700px;
     height: 720px;
-    background-color: rgba(230,230,230, 0.9);
+    background-color: rgba(230,230,230, 0.98);
     box-sizing: border-box;
     border-top: solid 3px #CAB381;
     cursor: auto;
+    animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
 }
 
 .productsContainerCart {
@@ -105,4 +115,8 @@
 
 .navBarButtonCart {
     margin: 15px;
+}
+
+.totalCounterNumberCart {
+    font-weight: bold;
 }
