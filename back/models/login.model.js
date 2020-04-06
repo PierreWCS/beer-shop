@@ -11,6 +11,7 @@ Login.connect = function userConnect(email, result) {
       return result({ err, status: 500 }, null);
     }
     if (!dbResult.length) {
+      console.log("no email addresses found");
       return result({ status: 404 }, null);
     }
     return result(null, dbResult[0]);

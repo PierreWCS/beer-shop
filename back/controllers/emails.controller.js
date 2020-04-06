@@ -9,7 +9,6 @@ exports.create = (request, response) => {
   }
 
   // Create a mail
-  console.log(request.body);
   const message = new Email({
     id: request.body.id,
     mail: request.body.mail || null,

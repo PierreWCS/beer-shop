@@ -1,15 +1,13 @@
 import React, { useState, useRef } from "react";
 import "../Sign.css";
 import "./Signin.css";
-import { Redirect } from "react-router-dom";
 import { faInfoCircle, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Input from "../../formElements/Input";
 import signIn from "../signInFetch";
 
-const Signin = () => {
+const Signin = ({ setDisplayUi }) => {
   const [infoMessage, setInfoMessage] = useState(null);
-  const [redirection, setRedirection] = useState(null);
   const inputsRef = {
     lastname: useRef(null),
     firstname: useRef(null),
@@ -58,7 +56,7 @@ const Signin = () => {
           });
         }
       } else if (status === "SUCCESS") {
-        setTimeout(() => setRedirection(<Redirect to="/sign-up" />), 2500);
+        setTimeout(() => setDisplayUi('login'), 2500);
       }
     });
   };
@@ -66,7 +64,6 @@ const Signin = () => {
   return (
     <>
       <div className="sign-ctn">
-        {redirection}
         {infoMessage && (
           <div className={`info--message ${infoMessage.type}`}>
             <FontAwesomeIcon icon={faInfoCircle} className="icon" />

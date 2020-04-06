@@ -44,20 +44,20 @@ exports.connect = function userConnectToTheWebsite(request, response) {
 
   return Login.connect(email, (err, data) => {
     // Decryptage du mot de passe en base de données et verification d'une correspondance avec celui que l'utilisateur a rentrer
-    const samePassword = bcrypt.compareSync(password, data.password);
-    if (!samePassword) return sendResponse(400, errorScheme);
-
     if (err) {
-      const { status } = err.status;
-      return sendResponse(status, errorScheme);
+      return sendResponse(400, errorScheme);
+    } else {
+      const samePassword = bcrypt.compareSync(password, data.password);
+      if (!samePassword) return sendResponse(400, errorScheme);
+
+      // Génération du jsonWebToken
+      const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
+      return sendResponse(200, {
+        text: 'You are connected.',
+        data,
+        token,
+        alertType: 'success'
+      });
     }
-    // Génération du jsonWebToken
-    const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
-    return sendResponse(200, {
-      text: 'You are connected.',
-      data,
-      token,
-      alertType: 'success'
-    });
   });
 };

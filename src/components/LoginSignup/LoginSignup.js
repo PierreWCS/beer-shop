@@ -21,7 +21,7 @@ const LoginSignup = () => {
             </div>
             {
               displayUi === 'register' ?
-                <Signin />
+                <Signin setDisplayUi={setDisplayUi} />
                 :
                 <Signup />
             }
