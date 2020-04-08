@@ -9,7 +9,6 @@ Demo available here (without database, so no authentication):
 
 [Try it on netlify (no database, features can be missing)](https://beer-shop-wcs.netlify.com/)
 
-
 ### FEATURES:
 
 - The user can add products to his cart, saved in the localstorage. 
@@ -23,8 +22,6 @@ Demo available here (without database, so no authentication):
 - He can manage the products, stocks, and add new products from the website. 
 
 - He can see the messages from the contact form and people who registered to the newsletter.
-
-
 
 ## USE:
 
