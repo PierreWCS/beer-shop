@@ -9,7 +9,7 @@
     "quantity": 1
   },
   {
-    "id": 1,
+    "id": 2,
     "name": "Duff",
     "price": 3.79,
     "image": "duff.png",
@@ -18,7 +18,7 @@
     "quantity": 1
   },
   {
-    "id": 1,
+    "id": 3,
     "name": "Guinness",
     "price": 1.25,
     "image": "guinness.png",
@@ -27,7 +27,7 @@
     "quantity": 1
   },
   {
-    "id": 1,
+    "id": 4,
     "name": "Sapporo",
     "price": 2.89,
     "image": "sapporo.png",
@@ -36,7 +36,7 @@
     "quantity": 1
   },
   {
-    "id": 1,
+    "id": 5,
     "name": "Tuborg",
     "price": 2.29,
     "image": "tuborg.png",
