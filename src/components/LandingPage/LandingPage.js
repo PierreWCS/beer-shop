@@ -25,7 +25,15 @@ const LandingPage = () => {
       .then(data => {
         let stockProducts = data;
         setProducts(stockProducts);
-      });
+      })
+      .catch(function (error) {
+      // handle error
+      console.log(error);
+      const stockProducts = require('../fakeDb/fakeDb.json');
+      console.log(stockProducts);
+      setProducts(stockProducts);
+      // setProducts(fakeDb[0]);
+    })
   };
 
   return (

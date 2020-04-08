@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Celebrator",
+    "price": 2.89,
+    "image": "celebrator.png",
+    "description": "Very appreciated by the Professor",
+    "alcohol": 5.1,
+    "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "Duff",
+    "price": 2.89,
+    "image": "celebrator.png",
+    "description": "Very appreciated by the Professor",
+    "alcohol": 5.1,
+    "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "Guinness",
+    "price": 2.89,
+    "image": "celebrator.png",
+    "description": "Very appreciated by the Professor",
+    "alcohol": 5.1,
+    "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "Sapporo",
+    "price": 2.89,
+    "image": "celebrator.png",
+    "description": "Very appreciated by the Professor",
+    "alcohol": 5.1,
+    "quantity": 1
+  },
+  {
+    "id": 1,
+    "name": "Tuborg",
+    "price": 2.89,
+    "image": "celebrator.png",
+    "description": "Very appreciated by the Professor",
+    "alcohol": 5.1,
+    "quantity": 1
+  }
+]
