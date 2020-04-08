@@ -32,7 +32,6 @@ const LandingPage = () => {
       const stockProducts = require('../fakeDb/fakeDb.json');
       console.log(stockProducts);
       setProducts(stockProducts);
-      // setProducts(fakeDb[0]);
     })
   };
 

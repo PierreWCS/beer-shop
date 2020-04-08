@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import ProductCard from "./ProductsCard";
-import './ProductsList.css';
+import "./ProductsList.css";
 import Footer from "../Footer/Footer";
 
 const ProductsList = () => {
@@ -17,24 +17,31 @@ const ProductsList = () => {
       .then(data => {
         let stockProducts = data;
         setProducts(stockProducts);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+        const stockProducts = require("../fakeDb/fakeDb.json");
+        console.log(stockProducts);
+        setProducts(stockProducts);
       });
   };
 
   return (
     <div className="productsMainContainer">
       <h1 className="productsListTitle">ALL THE BEERS</h1>
-      {
-        products ?
-          <div className="productsListContainer">
-            {products.map((product, key) => {
-              return <ProductCard products={products} product={product} index={key} />
-            })}
-          </div>
-          : null
-      }
+      {products ? (
+        <div className="productsListContainer">
+          {products.map((product, key) => {
+            return (
+              <ProductCard products={products} product={product} index={key} />
+            );
+          })}
+        </div>
+      ) : null}
       <Footer />
     </div>
-  )
+  );
 };
 
 export default ProductsList;

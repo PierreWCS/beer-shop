@@ -11,37 +11,37 @@
   {
     "id": 1,
     "name": "Duff",
-    "price": 2.89,
-    "image": "celebrator.png",
-    "description": "Very appreciated by the Professor",
-    "alcohol": 5.1,
+    "price": 3.79,
+    "image": "duff.png",
+    "description": "D'oh",
+    "alcohol": 6.5,
     "quantity": 1
   },
   {
     "id": 1,
     "name": "Guinness",
-    "price": 2.89,
-    "image": "celebrator.png",
-    "description": "Very appreciated by the Professor",
-    "alcohol": 5.1,
+    "price": 1.25,
+    "image": "guinness.png",
+    "description": "Since 1729",
+    "alcohol": 8.1,
     "quantity": 1
   },
   {
     "id": 1,
     "name": "Sapporo",
     "price": 2.89,
-    "image": "celebrator.png",
-    "description": "Very appreciated by the Professor",
-    "alcohol": 5.1,
+    "image": "sapporo.png",
+    "description": "Japanese beer",
+    "alcohol": 4.7,
     "quantity": 1
   },
   {
     "id": 1,
     "name": "Tuborg",
-    "price": 2.89,
-    "image": "celebrator.png",
-    "description": "Very appreciated by the Professor",
-    "alcohol": 5.1,
+    "price": 2.29,
+    "image": "tuborg.png",
+    "description": "Finnish beer",
+    "alcohol": 3.1,
     "quantity": 1
   }
 ]
