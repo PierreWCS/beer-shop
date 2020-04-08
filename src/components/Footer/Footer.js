@@ -114,6 +114,7 @@ const Footer = () => {
           />
         )
       ) : null}
+      <p className="madeWithLove">Made with &#9829; by Pierre LEGRAIN ! <a className="linkToGithub" rel="noopener noreferrer" href="https://github.com/PierreWCS/beer-shop" target="_blank">Code here</a></p>
     </div>
   );
 };
