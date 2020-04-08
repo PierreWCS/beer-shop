@@ -9,7 +9,7 @@ Demo available here:
 
 > Netlify doesn't work with databse so there is no authentication on the demo and products are from a JSON.
 
-[Try it on netlify (no database, features can be missing)](https://beer-shop-wcs.netlify.com/)
+[Try it on netlify](https://beer-shop-wcs.netlify.com/)
 
 ### FEATURES:
 
