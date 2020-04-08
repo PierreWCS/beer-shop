@@ -1,14 +1,17 @@
-BEER SHOP, 
+# BEER SHOP 
 
-Demo available here (without database): 
-
-https://beer-shop-wcs.netlify.com/
-
-
-
+Fake beer shop, started during a 48hours website challenge.
 With MySQL, Node.JS, Express, JWT and React.
 
-FEATURES:
+## DEMO:
+
+Demo available here:
+
+> Netlify doesn't work with databse so there is no authentication on the demo and products are from a JSON.
+
+[Try it on netlify](https://beer-shop-wcs.netlify.com/)
+
+### FEATURES:
 
 - The user can add products to his cart, saved in the localstorage. 
 
@@ -22,9 +25,7 @@ FEATURES:
 
 - He can see the messages from the contact form and people who registered to the newsletter.
 
-
-
-USE:
+## USE:
 
 Use dumb.sql code to create the database, then use insert.sql to fill the database.
 
