@@ -1,4 +1,8 @@
-BEER SHOP, 
+# BEER SHOP 
+
+With MySQL, Node.JS, Express, JWT and React.
+
+## DEMO:
 
 Demo available here (without database, so no authentication): 
 
@@ -6,9 +10,7 @@ https://beer-shop-wcs.netlify.com/
 
 
 
-With MySQL, Node.JS, Express, JWT and React.
-
-FEATURES:
+## FEATURES:
 
 - The user can add products to his cart, saved in the localstorage. 
 
@@ -24,7 +26,7 @@ FEATURES:
 
 
 
-USE:
+## USE:
 
 Use dumb.sql code to create the database, then use insert.sql to fill the database.
 
