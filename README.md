@@ -1,14 +1,13 @@
-## BEER SHOP 
+# BEER SHOP 
 
 Fake beer shop, started during a 48hours website challenge.
 With MySQL, Node.JS, Express, JWT and React.
 
-# DEMO:
+## DEMO:
 
 Demo available here (without database, so no authentication): 
 
-https://beer-shop-wcs.netlify.com/
-
+[Try it on netlify (no database, features can be missing)](https://beer-shop-wcs.netlify.com/)
 
 
 ### FEATURES:
