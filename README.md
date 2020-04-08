@@ -5,7 +5,9 @@ With MySQL, Node.JS, Express, JWT and React.
 
 ## DEMO:
 
-Demo available here (without database, so no authentication): 
+Demo available here:
+
+> Netlify doesn't work with databse so there is no authentication on the demo and products are from a JSON.
 
 [Try it on netlify (no database, features can be missing)](https://beer-shop-wcs.netlify.com/)
 
