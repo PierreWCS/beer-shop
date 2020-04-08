@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBarMobile.css";
+import useGlobalState from "../../hooks/useGlobalState";
 
 const NavBarMobile = () => {
+  const { user } = useGlobalState();
   const [toggle, setToggle] = useState(false);
 
   const closeMenu = () => {
@@ -38,24 +40,49 @@ const NavBarMobile = () => {
               className="itemNavBarMobile"
               to="/about"
             >
-              ABOUT US
+              About us
             </NavLink>
             <NavLink
               onClick={closeMenu}
               activeClassName="activeItemNavBar"
               className="itemNavBarMobile"
-              to="/admin"
+              to="/products"
             >
-              ADMIN
+              Products
             </NavLink>
-            <NavLink
-              onClick={closeMenu}
-              activeClassName="activeItemNavBar"
-              className="itemNavBarMobile"
-              to="/cart"
-            >
-              CART
-            </NavLink>
+            {
+              user && user.role === "admin" ?
+                <NavLink
+                  onClick={closeMenu}
+                  activeClassName="activeItemNavBar"
+                  className="itemNavBarMobile"
+                  to="/admin"
+                >
+                  Admin panel
+                </NavLink>
+                :
+                <NavLink
+                  onClick={closeMenu}
+                  activeClassName="activeItemNavBar"
+                  className="itemNavBarMobile"
+                  to="/cart"
+                >
+                  Cart
+                </NavLink>
+            }
+            {
+              user ?
+                <p>Log out</p>
+                :
+                <NavLink
+                  onClick={closeMenu}
+                  activeClassName="activeItemNavBar"
+                  className="itemNavBarMobile"
+                  to="/login"
+                >
+                  Login / Register
+                </NavLink>
+            }
           </div>
         ) : null}
       </div>
