@@ -1,6 +1,6 @@
 BEER SHOP, 
 
-Demo available here (without database): 
+Demo available here (without database, so no authentication): 
 
 https://beer-shop-wcs.netlify.com/
 
