@@ -1,5 +1,11 @@
 BEER SHOP, 
 
+Demo available here (without database): 
+
+https://beer-shop-wcs.netlify.com/
+
+
+
 With MySQL, Node.JS, Express, JWT and React.
 
 FEATURES:
