@@ -103,6 +103,7 @@
 @media (max-width: 1060px) {
     .footerMainContainer {
         height: 130vh;
+        padding-bottom: 85px;
     }
 
     .footerContentContainer {
