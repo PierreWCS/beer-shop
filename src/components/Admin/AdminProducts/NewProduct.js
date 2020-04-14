@@ -7,7 +7,7 @@ import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 const NewProduct = ({ setDisplay }) => {
   const [productName, setProductName] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
-  // const [productImage, setProductImage] = useState(null);
+  const [productImage, setProductImage] = useState(null);
   const [productDescription, setProductDescription] = useState(null);
   const [productAlcohol, setProductAlcohol] = useState(null);
 
@@ -21,11 +21,6 @@ const NewProduct = ({ setDisplay }) => {
     console.log(event.target.value);
   };
 
-  // const handleChangeImage = event => {
-  //   setProductImage(event.target.value);
-  //   console.log(event.target.value);
-  // };
-
   const handleChangeDescription = event => {
     setProductDescription(event.target.value);
     console.log(event.target.value);
@@ -38,27 +33,38 @@ const NewProduct = ({ setDisplay }) => {
 
   const addNewProduct = () => {
     let url = "http://localhost:8000/api/products";
-    Axios({
-      method: "post",
-      url: url,
-      data: {
+    if (productName && productPrice && productImage && productDescription && productAlcohol && productImage) {
+      const fd = new FormData();
+      fd.append('image', productImage, productImage.name);
+      const data = {
         name: productName,
         price: productPrice,
-        // image: productImage,
+        image: fd,
         description: productDescription,
         alcohol: productAlcohol,
         quantity: 1
-      }
-    })
-      .then(response => {
-        console.log(response);
-        alert("The product has been added");
-        document.location.reload();
+      };
+      Axios.post(url, data, {
+        onUploadProgress: progressEvent => {
+          console.log('Upload progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+        },
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       })
-      .catch(error => {
-        console.log(error);
-        alert("Something has failed during creation of the product");
-      });
+        .then(response => {
+          console.log(response);
+          alert("The product has been added");
+          document.location.reload();
+        })
+        .catch(error => {
+          console.log(error);
+          alert("Something has failed during creation of the product");
+        });
+    } else {
+      alert("You need to fill all the inputs")
+    }
+
   };
 
   return (
@@ -128,6 +134,23 @@ const NewProduct = ({ setDisplay }) => {
           <p onClick={addNewProduct} className="addNewProductButton">
             Add
           </p>
+        </label>
+        <label htmlFor="imageNewProductAdmin">
+          <input
+            id="imageNewProductAdmin"
+            type="file"
+            accept="image/png, image/jpeg"
+            onChange={event => {
+              console.log(event.target.files[0]);
+              setProductImage(event.target.files[0]);
+            }}
+          />
+          {productImage ? <img src={productImage.name} alt="product" /> : null}
+          <button onClick={() => {
+            const fd = new FormData();
+            fd.append('image', productImage, productImage.name);
+            console.log(fd);
+          }}>Show</button>
         </label>
       </form>
     </div>

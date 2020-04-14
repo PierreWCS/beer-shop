@@ -1,5 +1,7 @@
+const fs = require('fs');
 const Product = require('../models/products.model');
 
+const filepath = "./uploads/";
 // Create a new product
 exports.create = (request, response) => {
   if (!request.body) {
@@ -13,7 +15,7 @@ exports.create = (request, response) => {
     id: request.body.id,
     name: request.body.name || null,
     price: request.body.price || null,
-    // image: request.body.image || null,
+    image: request.body.image || null,
     description: request.body.description || null,
     alcohol: request.body.alcohol || null,
     quantity: request.body.quantity || null
@@ -26,6 +28,10 @@ exports.create = (request, response) => {
         message: error.message || 'Some error occured while creating the Product.'
       });
     } else {
+      const imageFilePath = `${filepath}${product.name}`;
+      fs.writeFile(imageFilePath, product.image, err => {
+        console.log(err);
+      });
       return response.send(data);
     }
   });

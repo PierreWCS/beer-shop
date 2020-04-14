@@ -11,9 +11,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import Footer from "../Footer/Footer";
 import {Link} from "react-router-dom";
+import useGlobalState from "../../hooks/useGlobalState";
 
 const LandingPage = () => {
+  const { user, userCart } = useGlobalState();
   const [products, setProducts] = useState(null);
+  console.log(userCart());
+  console.log(user);
 
   useEffect(() => {
     getProducts();

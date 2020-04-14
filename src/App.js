@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import LandingPage from "./components/LandingPage/LandingPage";
 import NavBar from "./components/NavBar/NavBar";
@@ -14,6 +14,7 @@ import ProductsList from "./components/Products/ProductsList";
 import useGlobalState from "./hooks/useGlobalState";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
+import Newsletter from "./components/Admin/AdminNewsletter/Newsletter";
 
 function App() {
   const { width } = useWindowDimensions();
@@ -33,22 +34,23 @@ function App() {
       <div className="App">
         {width > 1060 ? <NavBar /> : <NavBarMobile />}
         <Switch>
-            <Route path="/" exact component={LandingPage} />
-            <Route path="/about" component={About} />
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/about" component={About} />
+          <Route path="/cart" component={Cart} />
+          <Route path="/products" component={ProductsList} />
+          <Route path="/login" component={LoginSignup} />
 
-            <Route path="/cart" component={Cart} />
-            {user && user.role === "admin" ? (
+          {/*     If the user is connected as an admin, these URL exists     */}
+          {user && user.role === "admin" ? (
+            <>
               <Route path="/admin" component={Admin} />
-            ) : null}
-            {user && user.role === "admin" ? (
               <Route path="/admin-products" component={AdminProducts} />
-            ) : null}
-            {user && user.role === "admin" ? (
               <Route path="/admin-messages" component={AdminMessages} />
-            ) : null}
-            <Route path="/products" component={ProductsList} />
-            <Route path="/login" component={LoginSignup} />
-            <Route component={ErrorPage} />
+              <Route path="/admin-subscribers" component={Newsletter} />
+            </>
+          ) : null}
+
+          <Route component={ErrorPage} />
         </Switch>
       </div>
     </Router>
