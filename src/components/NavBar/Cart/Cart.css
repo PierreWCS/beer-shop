@@ -12,16 +12,6 @@
     box-sizing: border-box;
     border-top: solid 3px #CAB381;
     cursor: auto;
-    animation: fade-in 1s;
-}
-
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 100%;
-    }
 }
 
 .productsContainerCart {
