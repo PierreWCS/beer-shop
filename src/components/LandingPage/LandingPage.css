@@ -273,6 +273,20 @@
     margin: 0;
 }
 
+@media (max-width: 1800px) {
+    .imageContainerAboutUs {
+        width: 450px;
+    }
+
+    .ourProductsMainContainer {
+        height: 100%;
+    }
+
+    .ourProductCardContainer {
+        align-items: center;
+    }
+}
+
 @media (max-width: 1060px) {
     .sliderLandingPage {
         background-position: initial;

@@ -17,8 +17,6 @@ const Cart = ({
       if (element.id === product.id) {
         if (element.quantity > 1) {
           element.quantity -= 1;
-        } else {
-          console.log("no");
         }
       }
       setClientCart([...stockCart]);
@@ -34,8 +32,6 @@ const Cart = ({
     stockCart.map(element => {
       if (element.id === product.id) {
         element.quantity += 1;
-      } else {
-        console.log("no");
       }
       setClientCart([...stockCart]);
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
@@ -121,8 +117,14 @@ const Cart = ({
       </div>
       {clientCart && clientCart.length ? (
         <div>
-          <p className="totalCartCounter">Total price: <span className="totalCounterNumberCart">{totalCart}</span> €</p>
-          <p className="totalCartCounter">Total of articles: <span className="totalCounterNumberCart">{totalArticles}</span></p>
+          <p className="totalCartCounter">
+            Total price:{" "}
+            <span className="totalCounterNumberCart">{totalCart}</span> €
+          </p>
+          <p className="totalCartCounter">
+            Total of articles:{" "}
+            <span className="totalCounterNumberCart">{totalArticles}</span>
+          </p>
           <button className="aboutUsButton navBarButtonCart">Payment</button>
         </div>
       ) : (

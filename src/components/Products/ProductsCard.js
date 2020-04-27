@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import "./ProductsCard.css";
 import ProductPage from "./ProductPage";
+import useGlobalState from "../../hooks/useGlobalState";
 
 const ProductCard = ({ product, products, index }) => {
   const [moreDetails, setMoreDetails] = useState(false);
+  const { userCart } = useGlobalState();
+
   const addProductToCart = () => {
     let stockCart = JSON.parse(localStorage.getItem("clientCart"));
     if (stockCart && stockCart.length > 0) {
@@ -19,6 +22,7 @@ const ProductCard = ({ product, products, index }) => {
         console.log(product);
         product.quantity = 1;
         stockCart.push(product);
+        userCart({stockCart})
       }
       localStorage.setItem("clientCart", JSON.stringify(stockCart));
     } else {

@@ -38,7 +38,7 @@
 
 .titleLogin {
   color: white;
-  font-family: "Abril Fatface";
+  font-family: 'Montserrat', sans-serif;
   text-shadow: 2px 2px black;
   font-size: 76px;
 }
@@ -83,4 +83,25 @@
   box-sizing: border-box;
   font-size: 32px;
   color: #cab381;
+}
+
+@media (max-width: 1060px) {
+  .signupAndLoginMainContainer {
+    height: 100%;
+  }
+  .imageContainerLoginPage {
+    display: none;
+  }
+  .loginContainerLoginPage {
+    width: 95%;
+    height: 85%;
+  }
+  .signupAndLoginContainer {
+    padding-top: 0;
+    width: 100%;
+  }
+  .activeButtonLogin {
+    font-size: 20px;
+  }
+
 }

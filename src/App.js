@@ -18,11 +18,14 @@ import Newsletter from "./components/Admin/AdminNewsletter/Newsletter";
 
 function App() {
   const { width } = useWindowDimensions();
-  const { userStateConnect, user } = useGlobalState();
+  const { userStateConnect, user, userCart } = useGlobalState();
   const [userStorage] = useState(localStorage.getItem("userStorage"));
+  const [userCartStorage] = useState(localStorage.getItem("clientCart"));
 
   useEffect(() => {
     const setGlobal = () => {
+      userCart(JSON.parse(userCartStorage));
+      console.log(JSON.parse(userCartStorage));
       userStateConnect(JSON.parse(userStorage));
     };
     setGlobal();

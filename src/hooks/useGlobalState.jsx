@@ -5,15 +5,6 @@ import { GlobalStateContext } from "../context/GlobalStateContext";
 const useGlobalState = () => {
   const [state, dispatch] = useContext(GlobalStateContext);
 
-  // Get the client Cart
-  const userCart = function (cart) {
-    dispatch({
-      payload: {
-        cart
-      }
-    })
-  };
-
   // Connection
   const userStateConnect = function connectTheUser(user) {
     dispatch({
@@ -29,7 +20,17 @@ const useGlobalState = () => {
     dispatch({ type: "USER_DISCONNECT" });
   };
 
-  return { userStateConnect, userStateDisconnect, user: state.user, userCart };
+  // Get the client Cart
+  const userCart = function (cart) {
+    dispatch({
+      type: "USER_MODIFY_CART",
+      payload: {
+        cart
+      }
+    })
+  };
+
+  return { userStateConnect, userStateDisconnect, user: state.user, userCart, cart: state.cart };
 };
 
 export default useGlobalState;
