@@ -6,7 +6,6 @@
     display: flex;
     padding: 20px;
     flex-direction: column;
-    justify-content: space-around;
     align-items: flex-start;
     text-align: start;
     background-color: white;
@@ -42,6 +41,7 @@
 
 .addAProductTitle {
     color: black;
+    margin: 15px 0 45px 0;
 }
 
 .inputShopForm {
@@ -50,17 +50,31 @@
     justify-content: space-around;
     font-size: 22px;
     align-items: center;
-    margin: 15px;
+    margin: 15px 5px;
     border: solid lightgray 1px;
     background-color: transparent;
     border-radius: 5px;
     color: #9E9E9E;
-    width: 90%;
-    height: 60px;
+    width: 50%;
+    height: 40px;
+}
+
+.descriptionTextArea {
+    height: 140px;
+}
+
+.imageUploadContainerProductsAdmin {
+    position: absolute;
+    left: 50%;
+    top: 20%;
 }
 
 .addNewProductButton {
     background-color: #CAB381;
+    position: absolute;
+    z-index: 3;
+    left: 65%;
+    top: 80%;
     color: white;
     font-size: 18px;
     display: flex;

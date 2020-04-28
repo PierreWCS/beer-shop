@@ -1,0 +1,32 @@
+.uploadImageContainer {
+    display: flex;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.sendButton {
+    background-color: dodgerblue;
+    border: solid 2px grey;
+    padding: 10px 20px;
+    color: whitesmoke;
+    border-radius: 5px;
+}
+
+.previewContainer {
+    border: solid 2px #dddddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: grey;
+    width: 450px;
+    margin-top: 25px;
+    min-height:200px;
+    max-height: 350px;
+}
+
+.imagePreview {
+    max-height: 300px;
+}

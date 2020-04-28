@@ -1,14 +1,16 @@
 const fs = require('fs');
 const Product = require('../models/products.model');
+const multer = require("multer");
 
-const filepath = "./uploads/";
 // Create a new product
 exports.create = (request, response) => {
+  console.log("Hello");
   if (!request.body) {
     return response.status(400).send({
       message: 'Content can not be empty!'
     })
   }
+  console.log(request.body);
 
   // Create a product
   const product = new Product({
@@ -23,15 +25,38 @@ exports.create = (request, response) => {
 
   // Save product in database
   Product.create(product, (error, data) => {
+    console.log(product);
     if (error) {
       return response.status(500).send({
         message: error.message || 'Some error occured while creating the Product.'
       });
     } else {
-      const imageFilePath = `${filepath}${product.name}`;
-      fs.writeFile(imageFilePath, product.image, err => {
-        console.log(err);
-      });
+      if (product.image !== null) {
+        const storage = multer.diskStorage({
+          destination: function(req, file, cb) {
+            cb(null, "uploads/");
+          },
+          filename: function(req, file, cb) {
+            cb(null, file.originalname);
+          }
+        });
+        const upload = multer({ storage: storage }).array("file");
+
+        upload(product.image, function(err) {
+          if (err instanceof multer.MulterError) {
+            console.log("Error when uploading")
+            // A Multer error occurred when uploading.
+          } else if (err) {
+            console.log("An unknown error has occured")
+            // An unknown error occurred when uploading.
+          }
+          console.log('Success !');
+          product.image = `./uploads/${product.name}`;
+          // Everything went fine.
+        });
+      } else console.log("no image");
+
+
       return response.send(data);
     }
   });
