@@ -47,7 +47,7 @@ const NewProduct = ({ setDisplay }) => {
       <h1 className="addAProductTitle">Add a product to the shop</h1>
       {/*       Close button        */}
       <div
-        className="closeWindowEditContainer"
+        className="closeWindowNewProduct"
         onClick={() => {
           setDisplay(false);
           document.body.style.overflow = "auto";

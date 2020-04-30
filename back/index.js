@@ -27,7 +27,8 @@ app.get("/uploads", function(req, res) {
     if (err) {
       return res.status(500).json(err);
     }
-    return res.status(200).send(items)
+    let correctFiles = items.filter(item => item.includes('.png') || item.includes('jpeg') || item.includes('jpg') );
+    return res.status(200).send(correctFiles)
   });
 });
 

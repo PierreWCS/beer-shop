@@ -26,18 +26,17 @@
 .addNewProductButtonAdmin {
     position: absolute;
     top: 15%;
-    left: 90%;
+    right: 6%;
     border: solid dodgerblue 1px;
     background-color: dodgerblue;
     color: whitesmoke;
-    padding: 15px;
+    padding: 15px 25px;
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
+    font-size: 20px;
 }
 .addNewProductButtonAdmin:hover {
     transform: scale(1.1);
-    background-color: transparent;
-    color: dodgerblue;
 }
 
 .manageAdminProducts {
@@ -82,8 +81,8 @@
     justify-content: space-around;
     color: white;
     background-color: red;
-    width: 130px;
-    height: 55px;
+    width: 110px;
+    height: 45px;
     cursor: pointer;
 }
 .deleteProductAdmin:hover {
@@ -94,8 +93,8 @@
     border: solid 1px #282c34;
     cursor: pointer;
     box-sizing: border-box;
-    height: 55px;
-    width: 130px;
+    height: 45px;
+    width: 110px;
     color: #282c34;
     display: flex;
     flex-direction: row;

@@ -58,7 +58,7 @@ const AdminProducts = () => {
               document.body.style.overflow = "hidden";
             }}
           >
-            New product
+            + Add new product
           </button>
           <div className="productsContainerAdmin">
             {products.map((product, index) => {
@@ -93,23 +93,13 @@ const AdminProducts = () => {
                   {product.image ? (
                     <img
                       className="imageProductAdmin"
-                      src={require(`../../images/beers_products/${product.image}`)}
+                      src={`/uploads/images/${product.image}`}
                       alt="product"
                     />
                   ) : (
                     <p>No image</p>
                   )}
                   <div className="buttonsAdminContainer">
-                    <div
-                      onClick={() => deleteProduct(product.id)}
-                      className="deleteProductAdmin"
-                    >
-                      <p>Delete</p>
-                      <FontAwesomeIcon
-                        icon={faWindowClose}
-                        className="closeIconAdmin"
-                      />
-                    </div>
                     <div
                       onClick={() => {
                         setSelectedProduct(products[index]);
@@ -121,6 +111,16 @@ const AdminProducts = () => {
                       <p>Edit</p>
                       <FontAwesomeIcon
                         icon={faEdit}
+                        className="closeIconAdmin"
+                      />
+                    </div>
+                    <div
+                      onClick={() => deleteProduct(product.id)}
+                      className="deleteProductAdmin"
+                    >
+                      <p>Delete</p>
+                      <FontAwesomeIcon
+                        icon={faWindowClose}
                         className="closeIconAdmin"
                       />
                     </div>

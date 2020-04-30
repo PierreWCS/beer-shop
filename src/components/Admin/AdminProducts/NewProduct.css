@@ -70,21 +70,38 @@
 }
 
 .addNewProductButton {
-    background-color: #CAB381;
+    background-color: dodgerblue;
     position: absolute;
     z-index: 3;
-    left: 65%;
+    right: 25%;
     top: 80%;
     color: white;
     font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
     width: 220px;
+    border: none;
     height: 50px;
     cursor: pointer;
 }
 .addNewProductButton:hover {
+    opacity: 0.9;
+}
+
+.closeWindowNewProduct {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    background-color: #282c34;
+    color: white;
+    align-items: center;
+    width: 150px;
+    z-index: 3;
+    top: 5%;
+    right: 25%;
+}
+.closeWindowNewProduct:hover {
     opacity: 0.9;
 }
