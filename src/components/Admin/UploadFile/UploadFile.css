@@ -10,6 +10,7 @@
 .sendButton {
     background-color: dodgerblue;
     border: solid 2px grey;
+    margin: 15px;
     padding: 10px 20px;
     color: whitesmoke;
     border-radius: 5px;
@@ -20,13 +21,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: grey;
+    color: black;
     width: 450px;
     margin-top: 25px;
-    min-height:200px;
-    max-height: 350px;
+    height: 350px;
 }
 
 .imagePreview {
-    max-height: 300px;
+    max-height: 100%;
 }

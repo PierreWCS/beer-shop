@@ -3,13 +3,11 @@ import "./NewProduct.css";
 import Axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
-import UploadFile from "../UploadFile/UploadFile";
 
 const NewProduct = ({ setDisplay }) => {
   const [productName, setProductName] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
   const [productStock, setProductStock] = useState(null);
-  const [productImage, setProductImage] = useState(null);
   const [productDescription, setProductDescription] = useState(null);
   const [productAlcohol, setProductAlcohol] = useState(null);
 
@@ -24,15 +22,12 @@ const NewProduct = ({ setDisplay }) => {
       const data = {
         name: productName,
         price: productPrice,
-        image: productImage,
         description: productDescription,
         alcohol: productAlcohol,
         quantity: productStock
       };
       console.log(data);
-      Axios.post(url,data, {
-        headers: "Access-Control-Allow-Origin"
-      })
+      Axios.post(url,data)
         .then(response => {
           console.log(response);
           alert("The product has been added");
@@ -121,11 +116,8 @@ const NewProduct = ({ setDisplay }) => {
             id="addProductFakeShopPrice"
           />
         </label>
-        <div className="imageUploadContainerProductsAdmin">
-          <UploadFile
-            productImage={productImage}
-            setProductImage={setProductImage}
-          />
+        <div>
+          <p>Select the image</p>
         </div>
         <button onClick={addNewProduct} className="addNewProductButton">
           Add the product
