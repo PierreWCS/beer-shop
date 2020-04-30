@@ -31,6 +31,7 @@ const NewProduct = ({ setDisplay }) => {
         .then(response => {
           console.log(response);
           alert("The product has been added");
+          setDisplay(false);
           // document.location.reload();
         })
         .catch(error => {
@@ -116,9 +117,6 @@ const NewProduct = ({ setDisplay }) => {
             id="addProductFakeShopPrice"
           />
         </label>
-        <div>
-          <p>Select the image</p>
-        </div>
         <button onClick={addNewProduct} className="addNewProductButton">
           Add the product
         </button>

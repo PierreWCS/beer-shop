@@ -79,7 +79,7 @@ const Footer = () => {
           <hr className="separatorFooter" />
           <p className="footerInformation">At our store:</p>
           <p className="footerInformation">1214 Alcohol ST</p>
-          <p className="footerInformation">Chicago</p>
+          <p className="footerInformation">Genève, Switzerland</p>
           <h2 className="footerSubtitle">Stay aware</h2>
           <hr className="separatorFooter" />
           <p className="footerInformation">Receive special offers</p>

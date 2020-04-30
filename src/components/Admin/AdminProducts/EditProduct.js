@@ -13,7 +13,6 @@ const EditProduct = ({ product, setDisplayEdit }) => {
   const [productImage, setProductImage] = useState(product.image);
   const [uploadedFiles, setUploadedFiles] = useState(null);
   const [displayImages, setDisplayImages] = useState(false);
-  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     getUploadedImages();

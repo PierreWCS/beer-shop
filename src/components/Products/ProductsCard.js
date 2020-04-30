@@ -35,11 +35,15 @@ const ProductCard = ({ product, products, index }) => {
   return (
     <div className="itemProductCardContainer">
       <h3 className="productNameProductCard">{product.name}</h3>
-      <img
-        className="productImageProductCard"
-        src={require(`../images/beers_products/${product.image}`)}
-        alt={product.name}
-      />
+      {
+        product.image ?
+          <img
+            className="productImageProductCard"
+            src={`uploads/images/${product.image}`}
+            alt={product.name}
+          />
+          : <p>No image for this product</p>
+      }
       <p className="productDescriptionProductCard">{product.description}</p>
       <p className="productPriceProductCard">{product.price} €</p>
       <button onClick={() => {

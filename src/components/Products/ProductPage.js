@@ -32,11 +32,13 @@ const ProductPage = ({ product, setMoreDetails, products, index }) => {
     <div className="productPageMainContainer">
       <div className="productPageImagePriceContainer">
         <div className="imageContainerProductPage">
-          <img
-            className="imageProductPage"
-            src={require(`../images/beers_products/${product.image}`)}
-            alt="product"
-          />
+          {product.image ? (
+            <img
+              className="imageProductPage"
+              src={`uploads/images/${product.image}`}
+              alt="product"
+            />
+          ) : <p>No image for this product</p>}
         </div>
         <div className="namePriceContainerProductPage">
           <h1 className="productNameProductPage">{product.name}</h1>
@@ -67,7 +69,12 @@ const ProductPage = ({ product, setMoreDetails, products, index }) => {
             </p>
           </div>
           <div>
-            <button onClick={addProductToCartPage} className="addToCartButtonProductPage">ADD TO CART</button>
+            <button
+              onClick={addProductToCartPage}
+              className="addToCartButtonProductPage"
+            >
+              ADD TO CART
+            </button>
           </div>
           <button
             className="closeButtonProductPage"
