@@ -7,64 +7,39 @@ import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 const NewProduct = ({ setDisplay }) => {
   const [productName, setProductName] = useState(null);
   const [productPrice, setProductPrice] = useState(null);
-  const [productImage, setProductImage] = useState(null);
+  const [productStock, setProductStock] = useState(null);
   const [productDescription, setProductDescription] = useState(null);
   const [productAlcohol, setProductAlcohol] = useState(null);
 
-  const handleChangeName = event => {
-    setProductName(event.target.value);
-    console.log(event.target.value);
-  };
-
-  const handleChangePrice = event => {
-    setProductPrice(event.target.value);
-    console.log(event.target.value);
-  };
-
-  const handleChangeDescription = event => {
-    setProductDescription(event.target.value);
-    console.log(event.target.value);
-  };
-
-  const handleChangeAlcohol = event => {
-    setProductAlcohol(event.target.value);
-    console.log(event.target.value);
-  };
-
   const addNewProduct = () => {
     let url = "http://localhost:8000/api/products";
-    if (productName && productPrice && productImage && productDescription && productAlcohol && productImage) {
-      const fd = new FormData();
-      fd.append('image', productImage, productImage.name);
+    if (
+      productName &&
+      productPrice &&
+      productDescription &&
+      productAlcohol
+    ) {
       const data = {
         name: productName,
         price: productPrice,
-        image: fd,
         description: productDescription,
         alcohol: productAlcohol,
-        quantity: 1
+        quantity: productStock
       };
-      Axios.post(url, data, {
-        onUploadProgress: progressEvent => {
-          console.log('Upload progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
-        },
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
-      })
+      console.log(data);
+      Axios.post(url,data)
         .then(response => {
           console.log(response);
           alert("The product has been added");
-          document.location.reload();
+          // document.location.reload();
         })
         .catch(error => {
           console.log(error);
           alert("Something has failed during creation of the product");
         });
     } else {
-      alert("You need to fill all the inputs")
+      alert("You need to fill all the inputs");
     }
-
   };
 
   return (
@@ -85,11 +60,11 @@ const NewProduct = ({ setDisplay }) => {
         />
       </div>
 
-      <form className="formFakeShop">
+      <div className="formFakeShop">
         <label className="labelNewProduct" htmlFor="addProductFakeShopName">
           Name of the product :
           <input
-            onChange={handleChangeName}
+            onChange={(event) => setProductName(event.target.value)}
             required
             pattern="[A-Z][A-Za-z' -]+"
             className="inputShopForm"
@@ -100,20 +75,18 @@ const NewProduct = ({ setDisplay }) => {
         </label>
         <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
           Description
-          <input
-            onChange={handleChangeDescription}
+          <textarea
+            onChange={(event) => setProductDescription(event.target.value)}
             required
-            size="90"
-            className="inputShopForm"
+            className="inputShopForm descriptionTextArea"
             placeholder="Very smooth beer"
-            type="text"
             id="addProductFakeShopPrice"
           />
         </label>
         <label className="labelNewProduct" htmlFor="addProductFakeShopPrice">
           Price :
           <input
-            onChange={handleChangePrice}
+            onChange={(event) => setProductPrice(event.target.value)}
             required
             className="inputShopForm"
             placeholder="3.10"
@@ -123,7 +96,7 @@ const NewProduct = ({ setDisplay }) => {
         <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
           Alcohol
           <input
-            onChange={handleChangeAlcohol}
+            onChange={(event) => setProductAlcohol(event.target.value)}
             required
             size="30"
             className="inputShopForm"
@@ -131,28 +104,25 @@ const NewProduct = ({ setDisplay }) => {
             type="text"
             id="addProductFakeShopPrice"
           />
-          <p onClick={addNewProduct} className="addNewProductButton">
-            Add
-          </p>
         </label>
-        <label htmlFor="imageNewProductAdmin">
+        <label className="labelNewProduct" htmlFor="addProductFakeShopImage">
+          Stock
           <input
-            id="imageNewProductAdmin"
-            type="file"
-            accept="image/png, image/jpeg"
-            onChange={event => {
-              console.log(event.target.files[0]);
-              setProductImage(event.target.files[0]);
-            }}
+            onChange={(event) => setProductStock(event.target.value)}
+            required
+            className="inputShopForm"
+            placeholder="50"
+            type="number"
+            id="addProductFakeShopPrice"
           />
-          {productImage ? <img src={productImage.name} alt="product" /> : null}
-          <button onClick={() => {
-            const fd = new FormData();
-            fd.append('image', productImage, productImage.name);
-            console.log(fd);
-          }}>Show</button>
         </label>
-      </form>
+        <div>
+          <p>Select the image</p>
+        </div>
+        <button onClick={addNewProduct} className="addNewProductButton">
+          Add the product
+        </button>
+      </div>
     </div>
   );
 };

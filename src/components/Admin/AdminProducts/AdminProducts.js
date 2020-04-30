@@ -3,7 +3,7 @@ import NewProduct from "./NewProduct";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
-import EditProduct from "../EditProduct";
+import EditProduct from "./EditProduct";
 import "./AdminProducts.css";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
 
@@ -23,6 +23,7 @@ const AdminProducts = () => {
       .then(data => {
         let stockProducts = data;
         setProducts([...stockProducts]);
+        console.log(stockProducts);
       });
   };
 

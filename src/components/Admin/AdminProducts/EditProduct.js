@@ -93,9 +93,10 @@ const EditProduct = ({ product, setDisplayEdit }) => {
             <h1>Edit {product.name}</h1>
             <img
               className="productImageEdit"
-              src={require(`../images/beers_products/${product.image}`)}
+              src={require(`../../images/beers_products/${product.image}`)}
               alt="product"
             />
+            <button>Change the image</button>
           </div>
           <div className="nameAndDescriptionEdit">
             {/*     Name      */}
