@@ -25,6 +25,8 @@ Demo available here:
 
 - He can see the messages from the contact form and people who registered to the newsletter.
 
+- He can upload images on the server and manage theses
+
 ## USE:
 
 Use dumb.sql code to create the database, then use insert.sql to fill the database.
