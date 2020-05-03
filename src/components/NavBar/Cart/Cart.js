@@ -13,7 +13,6 @@ const Cart = ({
   totalArticles,
   setTotalArticles
 }) => {
-  const [orderId, setOrderId] = useState(null);
   const { user } = useGlobalState();
   console.log(user);
   const minusQuantity = product => {
@@ -92,6 +91,7 @@ const Cart = ({
         orderData: {
           order_date: today,
           order_status: "waiting",
+          total_price: totalCart,
           user_id: user.id
         }
       };
@@ -104,7 +104,6 @@ const Cart = ({
         }).then(res => {
           console.log(res);
           newOrderId = res.data.id;
-          setOrderId(newOrderId);
         });
       } catch (e) {
         console.log(e);
@@ -137,25 +136,6 @@ const Cart = ({
         console.log(e);
       }
     } else alert("You must be connected to proceed to make the purchase");
-  };
-
-  const confirmOrder = () => {
-    const customerCart = JSON.parse(localStorage.getItem("clientCart"));
-    let products = [];
-    console.log(orderId);
-    for (let i = 0; i < customerCart.length; i++) {
-      products.push({
-        orders_id: orderId,
-        product_id: customerCart[i].id,
-        product_quantity: customerCart[i].quantity
-      });
-    }
-    console.log(products);
-    Axios({
-      url: "http://localhost:8000/api/orders/item",
-      data: products,
-      method: "post"
-    });
   };
 
   return (
@@ -213,7 +193,6 @@ const Cart = ({
           <button onClick={payment} className="aboutUsButton navBarButtonCart">
             Payment
           </button>
-          {orderId ? <button onClick={confirmOrder}>Confirm</button> : null}
         </div>
       ) : (
         <p>Your cart is empty</p>

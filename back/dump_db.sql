@@ -18,6 +18,7 @@ CREATE TABLE orders (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     order_date VARCHAR(100),
     order_status VARCHAR(10),
+    total_price FLOAT,
     user_id INT NOT NULL
 );
 

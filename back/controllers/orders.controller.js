@@ -14,6 +14,7 @@ exports.create = (request, response) => {
     id: orderData.id || null,
     order_date: orderData.order_date || null,
     order_status: orderData.order_status || null,
+    total_price: orderData.total_price || null,
     user_id: orderData.user_id || null
   });
 
@@ -55,5 +56,19 @@ exports.createItemOrder = (request, response) => {
       });
     }
     return response.status(200).send(data);
+  });
+};
+
+// Get all the orders (admin use)
+exports.findAll = (request, response) => {
+  Order.findAll((error, dbResult) => {
+    if (error) {
+      response.status(500).send({
+        message:
+          error.message || "Some error occurred while retrieving orders."
+      });
+    } else {
+      response.send(dbResult);
+    }
   });
 };

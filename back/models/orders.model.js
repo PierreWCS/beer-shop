@@ -4,6 +4,7 @@ const Order = function(order) {
   this.id = order.id;
   this.order_date = order.order_date;
   this.order_status = order.order_status;
+  this.total_price = order.total_price;
   this.user_id = order.user_id;
 };
 
@@ -14,6 +15,7 @@ const OrderItem = function(orderItem) {
   this.quantity = orderItem.product_quantity;
 };
 
+// Create orders
 Order.create = (newOrder, result) => {
   db.query("INSERT INTO orders SET ?", newOrder, (error, dbResult) => {
     if (error) {
@@ -24,6 +26,7 @@ Order.create = (newOrder, result) => {
   });
 };
 
+// Create orders items details
 Order.createItem = (newOrderItem, result) => {
   db.query("INSERT INTO order_items SET ?", newOrderItem, (error, dbResult) => {
     if (error) {
@@ -32,5 +35,15 @@ Order.createItem = (newOrderItem, result) => {
     return result(null, { message: "Success" });
   });
 };
+
+// Get all the orders (admin use)
+Order.findAll = result => {
+  db.query("SELECT * FROM orders", (error, dbResult) => {
+    if (error) return result(error, null);
+    return result(null, dbResult);
+  });
+};
+
+// Get all the customer orders
 
 module.exports = { Order, OrderItem };

@@ -1,0 +1,38 @@
+
+.ordersMainContainerAdmin {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.ordersTabContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    background-color: lightblue;
+}
+
+.headOrdersTab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ordersTabHeadCell {
+    width: 20%;
+}
+
+.ordersTabCellContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ordersTabCell {
+    background-color: lightsalmon;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 20%;
+}

@@ -9,7 +9,7 @@ router.post('/order', order.create);
 router.post('/item', order.createItemOrder);
 
 // Get all the orders
-// router.get('/', order.findAll);
+router.get('/', order.findAll);
 
 // Delete order from the base
 // router.delete('/:orderId', order.delete);

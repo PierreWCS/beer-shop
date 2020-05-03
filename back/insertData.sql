@@ -1,6 +1,6 @@
 ALTER TABLE products
     ADD CONSTRAINT FK_product_category
-    foreign key products(ccategory_id) references categories(id);
+    foreign key products(category_id) references categories(id);
 
 ALTER TABLE orders
     ADD CONSTRAINT FK_user_order

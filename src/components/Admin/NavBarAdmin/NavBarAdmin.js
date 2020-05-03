@@ -21,25 +21,28 @@ const NavBarAdmin = () => {
     getData();
   }, []);
 
+  const [orders, setOrders] = useState();
+
   const getData = () => {
     Axios.get("http://localhost:8000/api/messages")
       .then(result => result.data)
       .then(data => {
-        let stockMessages = data;
-        setMessages(stockMessages);
+        setMessages(data);
       });
     Axios.get("http://localhost:8000/api/products")
       .then(result => result.data)
       .then(data => {
-        let stockProducts = data;
-        setProducts(stockProducts);
+        setProducts(data);
       });
     Axios.get("http://localhost:8000/api/emails")
       .then(result => result.data)
       .then(data => {
-        let stockEmails = data;
-        console.log(stockEmails);
-        setEmails(stockEmails);
+        setEmails(data);
+      });
+    Axios.get("http://localhost:8000/api/orders")
+      .then(result => result.data)
+      .then(data => {
+        setOrders(data);
       });
   };
 
@@ -79,8 +82,8 @@ const NavBarAdmin = () => {
       >
         <FontAwesomeIcon className="iconNavBarAdmin" icon={faShoppingBag} />
         Sales
-        {messages && messages.length > 0 ? (
-          <p className="messageNumberAdminNavBar">{messages.length}</p>
+        {orders && orders.length > 0 ? (
+          <p className="messageNumberAdminNavBar">{orders.length}</p>
         ) : null}
       </NavLink>
       <NavLink
