@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
+import useGlobalState from "../../../hooks/useGlobalState";
+import Axios from "axios";
 
 const Cart = ({
   totalCart,
@@ -11,6 +13,9 @@ const Cart = ({
   totalArticles,
   setTotalArticles
 }) => {
+  const [orderId, setOrderId] = useState(null);
+  const { user } = useGlobalState();
+  console.log(user);
   const minusQuantity = product => {
     let stockCart = clientCart;
     stockCart.map((element, index) => {
@@ -73,6 +78,86 @@ const Cart = ({
     setTotalArticles(count);
   };
 
+  const payment = async () => {
+    if (user) {
+      // First request, send the order infos
+      // Get the current date
+      let today = new Date();
+      const dd = String(today.getDate()).padStart(2, "0");
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const yyyy = today.getFullYear();
+      today = mm + "/" + dd + "/" + yyyy;
+
+      const data = {
+        orderData: {
+          order_date: today,
+          order_status: "waiting",
+          user_id: user.id
+        }
+      };
+      let newOrderId = 0;
+      try {
+        await Axios({
+          url: "http://localhost:8000/api/orders/order",
+          method: "post",
+          data: data
+        }).then(res => {
+          console.log(res);
+          newOrderId = res.data.id;
+          setOrderId(newOrderId);
+        });
+      } catch (e) {
+        console.log(e);
+      }
+      try {
+        //  Second request, send the customer cart content
+        const customerCart = JSON.parse(localStorage.getItem("clientCart"));
+        let products = [];
+        console.log(newOrderId);
+        for (let i = 0; i < customerCart.length; i++) {
+          products.push({
+            orders_id: newOrderId,
+            product_id: customerCart[i].id,
+            product_quantity: customerCart[i].quantity,
+          })
+        }
+        console.log(products);
+        try {
+          for (let i = 0; i < products.length; i++) {
+            await Axios({
+              url: 'http://localhost:8000/api/orders/item',
+              data: products[i],
+              method: 'post'
+            })
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else alert("You must be connected to proceed to make the purchase");
+  };
+
+  const confirmOrder = () => {
+    const customerCart = JSON.parse(localStorage.getItem("clientCart"));
+    let products = [];
+    console.log(orderId);
+    for (let i = 0; i < customerCart.length; i++) {
+      products.push({
+        orders_id: orderId,
+        product_id: customerCart[i].id,
+        product_quantity: customerCart[i].quantity
+      });
+    }
+    console.log(products);
+    Axios({
+      url: "http://localhost:8000/api/orders/item",
+      data: products,
+      method: "post"
+    });
+  };
+
   return (
     <div className="cartContainerNavBar">
       <h4>Your cart</h4>
@@ -125,7 +210,10 @@ const Cart = ({
             Total of articles:{" "}
             <span className="totalCounterNumberCart">{totalArticles}</span>
           </p>
-          <button className="aboutUsButton navBarButtonCart">Payment</button>
+          <button onClick={payment} className="aboutUsButton navBarButtonCart">
+            Payment
+          </button>
+          {orderId ? <button onClick={confirmOrder}>Confirm</button> : null}
         </div>
       ) : (
         <p>Your cart is empty</p>

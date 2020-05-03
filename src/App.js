@@ -49,6 +49,7 @@ function App() {
             <>
               <Route path="/admin" component={Admin} />
               <Route path="/admin-products" component={AdminProducts} />
+              <Route path="/admin-sales" component={AdminProducts} />
               <Route path="/admin-messages" component={AdminMessages} />
               <Route path="/admin-medias" component={Medias} />
               <Route path="/admin-subscribers" component={Newsletter} />

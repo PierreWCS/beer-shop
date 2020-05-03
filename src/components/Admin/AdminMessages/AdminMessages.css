@@ -16,7 +16,7 @@
 .manageAdminMessages {
     text-align: start;
     margin: 50px;
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Montserrat', sans-serif;
     color: black;
 }
 
@@ -29,6 +29,7 @@
 
 .messageCardAdmin {
     background-color: white;
+    font-family: 'Montserrat', sans-serif;
     text-align: start;
     width: 300px;
     height: 400px;
@@ -52,7 +53,6 @@
 
 .itemMessageCardAdmin {
     font-size: 16px;
-    font-family: Arial;
     font-weight: bold;
 }
 

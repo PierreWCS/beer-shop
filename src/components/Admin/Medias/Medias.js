@@ -46,10 +46,8 @@ const Medias = () => {
   return (
     <div className="productsAdmin adminMediasContainer">
       <NavBarAdmin />
-      <div>
-        <UploadFile />
-      </div>
-      <h3>Uploaded files</h3>
+      <UploadFile />
+      <h2>Uploaded files</h2>
       {uploadedFiles ? (
         <div className="mediasUploadedContainer">
           {uploadedFiles.map((file, index) => {
@@ -74,11 +72,13 @@ const Medias = () => {
       ) : (
         <p>No images uploaded</p>
       )}
-      {
-        displayImageManagement ?
-          <ManageMedia deleteImage={deleteImage} imageFullSize={imageFullSize} setDisplayImageManagement={setDisplayImageManagement} />
-          : null
-      }
+      {displayImageManagement ? (
+        <ManageMedia
+          deleteImage={deleteImage}
+          imageFullSize={imageFullSize}
+          setDisplayImageManagement={setDisplayImageManagement}
+        />
+      ) : null}
     </div>
   );
 };

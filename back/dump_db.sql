@@ -14,6 +14,20 @@ CREATE TABLE users (
     role VARCHAR(45) NOT NULL
 );
 
+CREATE TABLE orders (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    order_date VARCHAR(100),
+    order_status VARCHAR(10),
+    user_id INT NOT NULL
+);
+
+CREATE TABLE order_items (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    orders_id INT NOT NULL,
+    product_id INT,
+    quantity INT
+);
+
 CREATE TABLE categories (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name VARCHAR(100)  NOT NULL
@@ -27,7 +41,7 @@ CREATE TABLE products (
 	description TEXT NOT NULL,
 	alcohol FLOAT NOT NULL,
 	quantity INT,
-	id_category INT
+	category_id INT
 );
 
 CREATE TABLE messages (

@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBarAdmin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHome, faWineBottle, faEnvelope, faMailBulk, faPhotoVideo} from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faEnvelope,
+  faMailBulk,
+  faPhotoVideo,
+  faStore,
+  faShoppingBag
+} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 
 const NavBarAdmin = () => {
@@ -59,10 +66,21 @@ const NavBarAdmin = () => {
         className="itemListNavBarAdmin"
         to="/admin-products"
       >
-        <FontAwesomeIcon className="iconNavBarAdmin" icon={faWineBottle} />
+        <FontAwesomeIcon className="iconNavBarAdmin" icon={faStore} />
         Products
         {products && products.length > 0 ? (
           <p className="messageNumberAdminNavBar">{products.length}</p>
+        ) : null}
+      </NavLink>
+      <NavLink
+        activeClassName="activeItemListNavBarAdmin"
+        className="itemListNavBarAdmin"
+        to="/admin-sales"
+      >
+        <FontAwesomeIcon className="iconNavBarAdmin" icon={faShoppingBag} />
+        Sales
+        {messages && messages.length > 0 ? (
+          <p className="messageNumberAdminNavBar">{messages.length}</p>
         ) : null}
       </NavLink>
       <NavLink

@@ -22,7 +22,7 @@ const Newsletter = () => {
     <div className="adminNewsletterContainer">
       <NavBarAdmin />
       <div className="subscribersEmailContainer">
-        <p className="newsletterTitle">People who subscribe to the newsletter:</p>
+        <p className="newsletterTitle">People who subscribed to the newsletter:</p>
         {emails
           ? emails.map(subscriber => {
               return <p>{subscriber.mail}</p>;

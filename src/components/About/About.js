@@ -75,7 +75,7 @@ const About = () => {
       <div className="aboutUsContainerText">
         <img
           className="breweryAboutUs"
-          src={require("../images/breweryAboutUsSince.jpg")}
+          src={require("../images/aboutUsEmployee.jpg")}
           alt=""
         />
         <div className="textAboutUsSmallContainer">

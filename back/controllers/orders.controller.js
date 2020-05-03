@@ -1,0 +1,59 @@
+const { Order, OrderItem } = require("../models/orders.model");
+
+// Create a new order
+exports.create = (request, response) => {
+  if (!request.body) {
+    return response.status(400).send({
+      message: "Content can not be empty"
+    });
+  }
+
+  const orderData = request.body.orderData;
+  //  Create order
+  const order = new Order({
+    id: orderData.id || null,
+    order_date: orderData.order_date || null,
+    order_status: orderData.order_status || null,
+    user_id: orderData.user_id || null
+  });
+
+  // Save order in DB
+  Order.create(order, (error, data) => {
+    if (error) {
+      return response.status(500).send({
+        message: "An error occurred while creating the order."
+      });
+    }
+    return response.status(200).send(data);
+  });
+};
+
+// Create order items
+exports.createItemOrder = (request, response) => {
+  if (!request.body) {
+    return response.status(400).send({
+      message: "Content can not be empty"
+    });
+  }
+
+  const product = request.body;
+  console.log(product);
+
+  //  Create order item
+  const orderItem = new OrderItem({
+    id: product.id || null,
+    orders_id: product.orders_id,
+    product_id: product.product_id,
+    product_quantity: product.product_quantity
+  });
+
+  //  Save order item in DB
+  Order.createItem(orderItem, (error, data) => {
+    if (error) {
+      return response.status(500).send({
+        message: "An error has occurred while creating the order item"
+      });
+    }
+    return response.status(200).send(data);
+  });
+};
