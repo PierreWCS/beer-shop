@@ -45,5 +45,15 @@ Order.findAll = result => {
 };
 
 // Get all the customer orders
+Order.detailsById = (orderId, result) => {
+  db.query(
+    'SELECT products.name, products.price, order_items.quantity, orders.order_date, orders.user_id, orders.order_status FROM order_items INNER JOIN orders on orders.id=order_items.orders_id INNER JOIN products on products.id=order_items.product_id where orders.user_id=?',
+    (orderId),
+    (error, dbResult) => {
+      if (error) return result(error, null);
+      return result(null, dbResult);
+    }
+  );
+};
 
 module.exports = { Order, OrderItem };

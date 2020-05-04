@@ -64,8 +64,22 @@ exports.findAll = (request, response) => {
   Order.findAll((error, dbResult) => {
     if (error) {
       response.status(500).send({
-        message:
-          error.message || "Some error occurred while retrieving orders."
+        message: error.message || "Some error occurred while retrieving orders."
+      });
+    } else {
+      response.send(dbResult);
+    }
+  });
+};
+
+// Get the order details (admin use)
+exports.detailsById = (request, response) => {
+  const { orderId } = request.params;
+
+  Order.detailsById(orderId, (error, dbResult) => {
+    if (error) {
+      response.status(500).send({
+        message: "Some error occurred while retrieving order details."
       });
     } else {
       response.send(dbResult);

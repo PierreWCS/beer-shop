@@ -1,0 +1,99 @@
+
+.orderDetailsContainer {
+    position: fixed;
+    height: 78%;
+    width: 78%;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px #282c34;
+    display: flex;
+}
+
+.orderDetailsSecondContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 45px;
+    box-sizing: border-box;
+}
+
+.closeOrderDetailsButton {
+    font-family: 'Montserrat', sans-serif;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    border: solid 2px #282c34;
+    background-color: transparent;
+    color: #282c34;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.closeOrderDetailsButton:hover {
+    transform: scale(1.1);
+}
+
+.orderDetailsTab {
+    width: 80%;
+}
+
+.orderDetailsHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #999999;
+}
+
+.orderDetailsHeadCell {
+    width: 15%;
+    font-weight: bold;
+}
+
+.orderDetailsContentTabHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #dddddd;
+
+}
+
+.orderDetailsContentCell {
+    width: 15%;
+}
+
+.totalPriceOrderDetailsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyContentTotalPrice {
+    background-color: #cab381;
+    width: 75%;
+    height: 35px;
+}
+
+.totalPriceOrderDetails {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444444;
+    height: 35px;
+    margin: 0;
+    color: #dddddd;
+    font-size: 18px;
+}
+
+.modifyStatusContainerOrderDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statusModifyOrderDetails {
+    display: flex;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+}

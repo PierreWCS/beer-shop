@@ -1,14 +1,17 @@
 
 .ordersMainContainerAdmin {
     width: 100%;
+    min-height: 79vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .ordersTabContainer {
     display: flex;
     flex-direction: column;
-    width: 60%;
+    margin-top: 35px;
+    width: 70%;
     background-color: lightblue;
 }
 
@@ -26,6 +29,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-items: center;
 }
 
 .ordersTabCell {
@@ -35,4 +39,17 @@
     justify-content: center;
     height: 35px;
     width: 20%;
+}
+
+.moreDetailsOrders {
+    height: 35px;
+    border-radius: 0;
+    border: solid 2px #282c34;
+    color: #282c34;
+    background-color: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.moreDetailsOrders:hover {
+    transform: scale(1.1);
 }
