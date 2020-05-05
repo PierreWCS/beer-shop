@@ -3,6 +3,7 @@
 Fake beer shop, started during a 48hours website challenge.
 With MySQL, Node.JS, Express, JWT and React.
 
+
 ## DEMO:
 
 Demo available here:
@@ -10,6 +11,7 @@ Demo available here:
 > Netlify doesn't work with databse so there is no authentication on the demo and products are from a JSON.
 
 [Try it on netlify](https://beer-shop-wcs.netlify.com/)
+
 
 ## FEATURES:
 
@@ -36,6 +38,7 @@ If the user is connected with an admin account, he can have an access to the url
 - See people who registered to the newsletter.
 
 - He can upload images on the server and manage theses
+
 
 ## USE:
 
