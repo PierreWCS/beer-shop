@@ -37,7 +37,7 @@ If the user is connected with an admin account, he can have an access to the url
 
 - He can upload images on the server and manage theses
 
-## USE:
+#### USE:
 
 Use dumb.sql code to create the database, then use insert.sql to fill the database.
 
