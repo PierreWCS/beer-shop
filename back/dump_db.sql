@@ -51,6 +51,7 @@ CREATE TABLE messages (
 	mail VARCHAR(150) NOT NULL,
 	name VARCHAR(100) NOT NULL,
 	firstname VARCHAR(100) NOT NULL,
+	date VARCHAR(30),
 	body TEXT NOT NULL
 );
 

@@ -34,6 +34,6 @@ insert into products (name, price, image, description, alcohol, quantity, catego
 
 insert into products (name, price, image, description, alcohol, quantity, category_id) values ('Tuborg', 3.29, 'tuborg.png', 'Dark lager from Finland', 8.6, 1, 3);
 
-insert into messages (title, mail, name, firstname, body) values ('Do you sell Heineken ?', 'jean-random@gmail.com', 'Random', 'Jean', 'Where is Heineken ?');
+insert into messages (title, mail, name, firstname, date, body) values ('Do you sell Heineken ?', 'jean-random@gmail.com', 'Random', 'Jean', "05/01/2020", 'Where is Heineken ?');
 
-insert into messages (title, mail, name, firstname, body) values ('I love React', 'kamoulox@gmail.com', 'Balou', 'Anton', 'Hi, i really love your beers !');
+insert into messages (title, mail, name, firstname, date, body) values ('I love React', 'kamoulox@gmail.com', 'Balou', 'Anton', "05/03/2020", 'Hi, i really love your beers !');

@@ -14,7 +14,6 @@ const OrderDetails = ({ order, setOrderDetails }) => {
       url: `http://localhost:8000/api/orders/${order.user_id}`
     })
       .then(res => {
-        console.log(res.data);
         setCurrentOrderDetails(res.data);
       })
       .catch(err => console.log(err));
@@ -47,7 +46,7 @@ const OrderDetails = ({ order, setOrderDetails }) => {
                   <p className="orderDetailsContentCell">{product.name}</p>
                   <p className="orderDetailsContentCell">{product.quantity}</p>
                   <p className="orderDetailsContentCell">{product.price} €</p>
-                  <p className="orderDetailsContentCell">{product.price * product.quantity} €</p>
+                  <p className="orderDetailsContentCell">{(product.price * product.quantity).toFixed(2)} €</p>
                 </div>
               );
             })}

@@ -128,6 +128,9 @@ const Cart = ({
               data: products[i],
               method: 'post'
             })
+              .then(() => {
+                alert("You order has been sent !")
+              })
           }
         } catch (e) {
           console.log(e);

@@ -21,7 +21,6 @@ const Orders = () => {
       .catch(e => console.log(e))
       .then((res) => {
         const stockOrders = res.data;
-        console.log(stockOrders);
         setOrders(stockOrders);
       })
   };

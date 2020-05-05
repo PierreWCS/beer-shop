@@ -7,6 +7,7 @@ const Message = function(message) {
   this.name = message.name;
   this.firstname = message.firstname;
   this.body = message.body;
+  this.date = message.date;
 };
 
 Message.create = (newMessage, result) => {

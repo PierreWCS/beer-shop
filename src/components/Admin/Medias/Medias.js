@@ -39,7 +39,6 @@ const Medias = () => {
       method: "get",
       url: "http://localhost:8000/uploads"
     }).then(res => {
-      console.log(res.data);
       setUploadedFiles(res.data);
     });
   };
@@ -50,14 +49,14 @@ const Medias = () => {
       <h2>Uploaded files</h2>
       {uploadedFiles ? (
         <div className="mediasUploadedContainer">
-          {uploadedFiles.map((file, index) => {
+          {uploadedFiles.map((file, key) => {
             return (
-              <div className="imageContainerMedias">
+              <div className="imageContainerMedias" key={key}>
                 <img
                   onClick={() => {
                     setImageFullSize({
                       image: file,
-                      index: index
+                      index: key
                     });
                     setDisplayImageManagement(true);
                   }}

@@ -15,6 +15,7 @@ exports.create = (request, response) => {
     mail: request.body.mail || null,
     name: request.body.name || null,
     firstname: request.body.firstname || null,
+    date: request.body.date || null,
     body: request.body.body || null
   });
 

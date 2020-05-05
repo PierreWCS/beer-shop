@@ -10,6 +10,7 @@ const About = () => {
   const [messageName, setMessageName] = useState(null);
   const [messageFirstName, setMessageFirstName] = useState(null);
   const [messageBody, setMessageBody] = useState(null);
+  const [messageDate, setMessageDate] = useState(null);
   const [redirection, setRedirection] = useState(false);
 
   const handleChangeTitle = event => {
@@ -37,14 +38,25 @@ const About = () => {
     console.log(event.target.value);
   };
 
+  const getMessageDate = () => {
+    let todayDate = new Date();
+    const dd = String(todayDate.getDate()).padStart(2, "0");
+    const mm = String(todayDate.getMonth() + 1).padStart(2, "0");
+    const yyyy = todayDate.getFullYear();
+    todayDate = mm + "/" + dd + "/" + yyyy;
+    setMessageDate(todayDate);
+  };
+
   const addNewMessage = () => {
     let url = "http://localhost:8000/api/messages";
+    getMessageDate();
     if (
       messageTitle &&
       messageMail &&
       messageName &&
       messageFirstName &&
-      messageBody
+      messageBody &&
+      messageDate
     ) {
       Axios({
         method: "post",
@@ -54,6 +66,7 @@ const About = () => {
           mail: messageMail,
           name: messageName,
           firstname: messageFirstName,
+          date: messageDate,
           body: messageBody
         }
       })
