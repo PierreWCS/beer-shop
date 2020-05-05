@@ -16,6 +16,7 @@ import ErrorPage from "./components/ErrorPage/ErrorPage";
 import LoginSignup from "./components/LoginSignup/LoginSignup";
 import Newsletter from "./components/Admin/AdminNewsletter/Newsletter";
 import Medias from "./components/Admin/Medias/Medias";
+import Orders from "./components/Admin/Orders/Orders";
 
 function App() {
   const { width } = useWindowDimensions();
@@ -49,6 +50,7 @@ function App() {
             <>
               <Route path="/admin" component={Admin} />
               <Route path="/admin-products" component={AdminProducts} />
+              <Route path="/admin-sales" component={Orders} />
               <Route path="/admin-messages" component={AdminMessages} />
               <Route path="/admin-medias" component={Medias} />
               <Route path="/admin-subscribers" component={Newsletter} />

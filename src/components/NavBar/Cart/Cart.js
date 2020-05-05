@@ -2,6 +2,8 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
+import useGlobalState from "../../../hooks/useGlobalState";
+import Axios from "axios";
 
 const Cart = ({
   totalCart,
@@ -11,6 +13,8 @@ const Cart = ({
   totalArticles,
   setTotalArticles
 }) => {
+  const { user } = useGlobalState();
+  console.log(user);
   const minusQuantity = product => {
     let stockCart = clientCart;
     stockCart.map((element, index) => {
@@ -73,6 +77,70 @@ const Cart = ({
     setTotalArticles(count);
   };
 
+  const payment = async () => {
+    if (user) {
+      // First request, send the order infos
+      // Get the current date
+      let today = new Date();
+      const dd = String(today.getDate()).padStart(2, "0");
+      const mm = String(today.getMonth() + 1).padStart(2, "0");
+      const yyyy = today.getFullYear();
+      today = mm + "/" + dd + "/" + yyyy;
+
+      const data = {
+        orderData: {
+          order_date: today,
+          order_status: "waiting",
+          total_price: totalCart,
+          user_id: user.id
+        }
+      };
+      let newOrderId = 0;
+      try {
+        await Axios({
+          url: "http://localhost:8000/api/orders/order",
+          method: "post",
+          data: data
+        }).then(res => {
+          console.log(res);
+          newOrderId = res.data.id;
+        });
+      } catch (e) {
+        console.log(e);
+      }
+      try {
+        //  Second request, send the customer cart content
+        const customerCart = JSON.parse(localStorage.getItem("clientCart"));
+        let products = [];
+        console.log(newOrderId);
+        for (let i = 0; i < customerCart.length; i++) {
+          products.push({
+            orders_id: newOrderId,
+            product_id: customerCart[i].id,
+            product_quantity: customerCart[i].quantity,
+          })
+        }
+        console.log(products);
+        try {
+          for (let i = 0; i < products.length; i++) {
+            await Axios({
+              url: 'http://localhost:8000/api/orders/item',
+              data: products[i],
+              method: 'post'
+            })
+              .then(() => {
+                alert("You order has been sent !")
+              })
+          }
+        } catch (e) {
+          console.log(e);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    } else alert("You must be connected to proceed to make the purchase");
+  };
+
   return (
     <div className="cartContainerNavBar">
       <h4>Your cart</h4>
@@ -125,7 +193,9 @@ const Cart = ({
             Total of articles:{" "}
             <span className="totalCounterNumberCart">{totalArticles}</span>
           </p>
-          <button className="aboutUsButton navBarButtonCart">Payment</button>
+          <button onClick={payment} className="aboutUsButton navBarButtonCart">
+            Payment
+          </button>
         </div>
       ) : (
         <p>Your cart is empty</p>

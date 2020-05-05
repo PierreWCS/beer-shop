@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 import NavBarAdmin from "../NavBarAdmin/NavBarAdmin";
-import './AdminMessages.css';
+import "./AdminMessages.css";
 
 const AdminMessages = () => {
   const [messages, setMessages] = useState(null);
+  const [displayFullMessage, setDisplayFullMessage] = useState(false);
+  const [selectedMessage, setSelectedMessage] = useState(false);
 
   useEffect(() => {
     getMessages();
@@ -23,69 +25,98 @@ const AdminMessages = () => {
 
   const deleteMessage = messageId => {
     if (window.confirm("Do you really wanna delete this message ?")) {
-      Axios.delete(`http://localhost:8000/api/messages/:${messageId}`)
+      Axios.delete(`http://localhost:8000/api/messages/:${messageId.id}`)
         .then(res => {
           if (res.status === 200) {
-            alert(
-              "Message has been deleted, please refresh the page to see the changes"
+            let indexDelete = messages.filter(
+              message => message.id === messageId.id
             );
+            let stockMessages = messages.splice(indexDelete, 1);
+            setMessages([...stockMessages]);
+            setDisplayFullMessage(false);
+            alert("The message has been deleted");
           } else {
             alert("Error");
           }
-          console.log(res);
         })
-        .then(response => {
-          console.log(response);
-        });
-      document.location.reload();
     }
   };
 
   return (
-    <div className="messagesMainContainerAdmin">
+    <div className="productsAdmin messagesMainContainerAdmin">
       <NavBarAdmin />
       <div className="adminMessagesContainer">
         <h1 className="manageAdminMessages">New messages</h1>
         <div className="messagesContainerAdmin">
-          { messages ?
-            messages.map(message => {
-              return (
-                <div className="messageCardAdmin">
+          <div className="messagesAdminHeadContainer">
+            <p className="messagesAdminHeadCell">TITLE</p>
+            <p className="messagesAdminHeadCell">E-MAIL</p>
+            <p className="messagesAdminHeadCell">DATE</p>
+          </div>
+          <div>
+            {messages ? (
+              messages.map((message, key) => {
+                return (
                   <div
-                    onClick={() => deleteMessage(message.id)}
-                    className="deleteMessageAdmin"
+                    key={key}
+                    className="messagesAdminContentContainer"
+                    onClick={() => {
+                      setDisplayFullMessage(true);
+                      setSelectedMessage(messages[key]);
+                    }}
                   >
-                    <FontAwesomeIcon
-                      icon={faWindowClose}
-                      className="closeIconAdmin fa-2x"
-                    />
-                    <p>Delete this message</p>
+                    <p className="messagesAdminContentCell">{message.title}</p>
+                    <p className="messagesAdminContentCell">{message.mail}</p>
+                    <div className="messagesAdminContentCell dateAdminMessageHead">
+                      <div className="dateAdminMessageCell">
+                        <p>{message.date}</p>
+                      </div>
+                    </div>
                   </div>
-                  <h2>
-                    Title:{" "}
-                    <span className="contentMessageAdmin">{message.title}</span>
-                  </h2>
-                  <p className="itemMessageCardAdmin">
-                    Mail:{" "}
-                    <span className="contentMessageAdmin">{message.mail}</span>
-                  </p>
-                  <p className="itemMessageCardAdmin">
-                    Name:{" "}
-                    <span className="contentMessageAdmin">{message.name}</span>
-                  </p>
-                  <p className="itemMessageCardAdmin">
-                    Firstname :{" "}
-                    <span className="contentMessageAdmin">{message.firstname}</span>
-                  </p>
-                  <p className="itemMessageCardAdmin">Message :</p>
-                  <p className="contentMessageAdmin">{message.body}</p>
-                </div>
-              );
-            })
-            : <h1>Coucou</h1>
-          }
+                );
+              })
+            ) : (
+              <p>No messages</p>
+            )}
+          </div>
         </div>
       </div>
+      {displayFullMessage ? (
+        <div className="selectedMessageContainer">
+          <FontAwesomeIcon
+            className="closeMessageButton fa-2x"
+            onClick={() => setDisplayFullMessage(false)}
+            icon={faWindowClose}
+          />
+          <div className="messageBodyContainer">
+            <div className="nameAndFirstNameAdminMessages">
+              <p className="fromAdminMessageDetails">From: </p>
+              <p>
+                {selectedMessage.name} {selectedMessage.firstname}
+              </p>
+            </div>
+            <div className="dateAdminMessagesContainer">
+              <p className="dateAdminMessage">The:</p>
+              <p>{selectedMessage.date}</p>
+            </div>
+            <div className="emailContainerAdminMessages">
+              <p className="emailAdminMessages">Email:</p>
+              <p id="#mail">{selectedMessage.mail}</p>
+            </div>
+            <div className="bodyAdminMessages">
+              <p className="messageMessageAdminMessages">Message:</p>
+              <p>{selectedMessage.body}</p>
+            </div>
+            <div
+              onClick={() => deleteMessage(selectedMessage)}
+              className="deleteMessageAdminButton"
+            >
+              <FontAwesomeIcon icon={faTrash} />
+              <p>Delete</p>
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 };

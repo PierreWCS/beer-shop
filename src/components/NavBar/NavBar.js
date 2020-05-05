@@ -42,7 +42,6 @@ const NavBar = () => {
   if (user && user.role === "admin") {
     return <NavBarAdmin />;
   } else if (user) {
-    console.log("i'm a basic user");
     return (
       <div className="navBarContainer">
         <Link to="/" className="logoAndNameNavBar">

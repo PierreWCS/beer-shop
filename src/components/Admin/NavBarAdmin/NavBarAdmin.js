@@ -2,7 +2,14 @@ import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBarAdmin.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faHome, faWineBottle, faEnvelope, faMailBulk, faPhotoVideo} from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faEnvelope,
+  faMailBulk,
+  faPhotoVideo,
+  faStore,
+  faShoppingBag
+} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 
 const NavBarAdmin = () => {
@@ -14,25 +21,28 @@ const NavBarAdmin = () => {
     getData();
   }, []);
 
+  const [orders, setOrders] = useState();
+
   const getData = () => {
     Axios.get("http://localhost:8000/api/messages")
       .then(result => result.data)
       .then(data => {
-        let stockMessages = data;
-        setMessages(stockMessages);
+        setMessages(data);
       });
     Axios.get("http://localhost:8000/api/products")
       .then(result => result.data)
       .then(data => {
-        let stockProducts = data;
-        setProducts(stockProducts);
+        setProducts(data);
       });
     Axios.get("http://localhost:8000/api/emails")
       .then(result => result.data)
       .then(data => {
-        let stockEmails = data;
-        console.log(stockEmails);
-        setEmails(stockEmails);
+        setEmails(data);
+      });
+    Axios.get("http://localhost:8000/api/orders")
+      .then(result => result.data)
+      .then(data => {
+        setOrders(data);
       });
   };
 
@@ -59,10 +69,21 @@ const NavBarAdmin = () => {
         className="itemListNavBarAdmin"
         to="/admin-products"
       >
-        <FontAwesomeIcon className="iconNavBarAdmin" icon={faWineBottle} />
+        <FontAwesomeIcon className="iconNavBarAdmin" icon={faStore} />
         Products
         {products && products.length > 0 ? (
           <p className="messageNumberAdminNavBar">{products.length}</p>
+        ) : null}
+      </NavLink>
+      <NavLink
+        activeClassName="activeItemListNavBarAdmin"
+        className="itemListNavBarAdmin"
+        to="/admin-sales"
+      >
+        <FontAwesomeIcon className="iconNavBarAdmin" icon={faShoppingBag} />
+        Sales
+        {orders && orders.length > 0 ? (
+          <p className="messageNumberAdminNavBar">{orders.length}</p>
         ) : null}
       </NavLink>
       <NavLink

@@ -23,7 +23,6 @@ const AdminProducts = () => {
       .then(data => {
         let stockProducts = data;
         setProducts([...stockProducts]);
-        console.log(stockProducts);
       });
   };
 
@@ -36,10 +35,6 @@ const AdminProducts = () => {
           } else {
             alert("Error");
           }
-          console.log(res);
-        })
-        .then(response => {
-          console.log(response);
         });
       document.location.reload();
     }
@@ -61,9 +56,9 @@ const AdminProducts = () => {
             + Add new product
           </button>
           <div className="productsContainerAdmin">
-            {products.map((product, index) => {
+            {products.map((product, key) => {
               return (
-                <div className="productCardAdmin">
+                <div className="productCardAdmin" key={key}>
                   <h3 className="itemMessageCardAdmin">
                     Name:{" "}
                     <span className="contentMessageAdmin">{product.name}</span>
@@ -102,7 +97,7 @@ const AdminProducts = () => {
                   <div className="buttonsAdminContainer">
                     <div
                       onClick={() => {
-                        setSelectedProduct(products[index]);
+                        setSelectedProduct(products[key]);
                         setDisplayEdit(true);
                         document.body.style.overflow = "hidden";
                       }}

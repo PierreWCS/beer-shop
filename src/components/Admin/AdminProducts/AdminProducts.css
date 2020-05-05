@@ -42,7 +42,7 @@
 .manageAdminProducts {
     text-align: start;
     margin: 50px;
-    font-family: 'Abril Fatface', cursive;
+    font-family: 'Montserrat', sans-serif;
     color: black;
 }
 
@@ -52,6 +52,7 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
     margin: 15px;
     padding: 15px;
     width: 400px;

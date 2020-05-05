@@ -1,30 +1,62 @@
 .uploadImageContainer {
     display: flex;
-    font-family: sans-serif;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
     box-sizing: border-box;
+    border: solid 1px #dddddd;
+    font-family: 'Montserrat', sans-serif;
+    width: 80%;
+    height: 65vh;
+}
+
+.browseMediaUploadInput {
+    display: none;
+}
+
+.labelInputMediaUpload {
+    color: white;
+    width: 220px;
+    border: 2px solid currentColor;
+    background-color: #282c34;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.labelInputMediaUpload:hover {
+    opacity: 0.6;
+}
+
+.uploadIconMedia {
+    width: 1em;
+    height: 1em;
+    fill: currentColor;
+    margin-right: 25px;
+    box-sizing: border-box;
 }
 
 .sendButton {
-    background-color: dodgerblue;
+    background-color: #cab381;
     border: solid 2px grey;
-    margin: 15px;
-    padding: 10px 20px;
-    color: whitesmoke;
-    border-radius: 5px;
+    margin: 0 0 0 75px;
+    font-size: 20px;
+    padding: 10px 25px;
+    color: #282c34;
+    cursor: pointer;
+}
+.sendButton:hover {
+    opacity: 0.8;
 }
 
 .previewContainer {
-    border: solid 2px #dddddd;
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
     width: 450px;
-    margin-top: 25px;
-    height: 350px;
+    margin-top: 20px;
+    height: 250px;
 }
 
 .imagePreview {
