@@ -13,27 +13,27 @@ Demo available here:
 
 ### FEATURES:
 
-USER:
+User can:
 
-- He can add products to his cart, saved in the localstorage. 
+- Add products to his cart, saved in the localstorage. 
 
-- He can make an order
+- Make an order
 
 - Create an account, login and subscribe to the shop newsletter.
 
 - Send a message with a contact form on the "about" page.
 
-ADMIN:
+ADMIN can:
 
 If the user is connected with an admin account, he can have an access to the url: /admin.
 
-- He can manage the products, stocks, and add new products from the website. 
+- Manage the products, stocks, and add new products from the website. 
 
-- He can manage the orders
+- Manage the orders
 
-- He can see the messages from the contact form 
+- See the messages from the contact form 
 
-- He can see people who registered to the newsletter.
+- See people who registered to the newsletter.
 
 - He can upload images on the server and manage theses
 
