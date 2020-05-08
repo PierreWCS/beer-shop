@@ -8,47 +8,43 @@ import Axios from "axios";
 const Cart = ({
   totalCart,
   setTotalCart,
-  clientCart,
-  setClientCart,
   totalArticles,
   setTotalArticles
 }) => {
   const { user } = useGlobalState();
-  console.log(user);
+  const { userCart, cart } = useGlobalState();
+  console.log(cart);
   const minusQuantity = product => {
-    let stockCart = clientCart;
+    let stockCart = cart;
     stockCart.map((element, index) => {
       if (element.id === product.id) {
         if (element.quantity > 1) {
           element.quantity -= 1;
         }
       }
-      setClientCart([...stockCart]);
-      localStorage.setItem("clientCart", JSON.stringify(stockCart));
       getTotalPrice();
       getTotalArticle();
+      userCart(stockCart);
       return 0;
     });
   };
 
   const plusQuantity = product => {
-    let stockCart = clientCart;
+    let stockCart = cart;
     stockCart.map(element => {
       if (element.id === product.id) {
         element.quantity += 1;
       }
-      setClientCart([...stockCart]);
-      localStorage.setItem("clientCart", JSON.stringify(stockCart));
       getTotalPrice();
       getTotalArticle();
+      userCart(stockCart);
       return 0;
     });
   };
 
   const deleteProduct = product => {
-    let removedProduct = clientCart.filter(e => e.id !== product.id);
-    setClientCart([...removedProduct]);
-    localStorage.setItem("clientCart", JSON.stringify(removedProduct));
+    let removedProduct = cart.filter(e => e.id !== product.id);
+    userCart(removedProduct);
     let countPrice = 0;
     removedProduct.filter(product => {
       return (countPrice = countPrice + product.price * product.quantity);
@@ -63,7 +59,7 @@ const Cart = ({
 
   const getTotalPrice = () => {
     let count = 0;
-    clientCart.filter(product => {
+    cart.filter(product => {
       return (count = count + product.price * product.quantity);
     });
     setTotalCart(count.toFixed(2));
@@ -71,7 +67,7 @@ const Cart = ({
 
   const getTotalArticle = () => {
     let count = 0;
-    clientCart.filter(product => {
+    cart.filter(product => {
       return (count = count + product.quantity);
     });
     setTotalArticles(count);
@@ -117,20 +113,19 @@ const Cart = ({
           products.push({
             orders_id: newOrderId,
             product_id: customerCart[i].id,
-            product_quantity: customerCart[i].quantity,
-          })
+            product_quantity: customerCart[i].quantity
+          });
         }
         console.log(products);
         try {
           for (let i = 0; i < products.length; i++) {
             await Axios({
-              url: 'http://localhost:8000/api/orders/item',
+              url: "http://localhost:8000/api/orders/item",
               data: products[i],
-              method: 'post'
-            })
-              .then(() => {
-                alert("You order has been sent !")
-              })
+              method: "post"
+            }).then(() => {
+              alert("You order has been sent !");
+            });
           }
         } catch (e) {
           console.log(e);
@@ -145,9 +140,9 @@ const Cart = ({
     <div className="cartContainerNavBar">
       <h4>Your cart</h4>
       <hr className="separatorCart" />
-      <div className={clientCart ? "productsContainerCart" : null}>
-        {clientCart
-          ? clientCart.map((product, key) => {
+      <div className={cart ? "productsContainerCart" : null}>
+        {cart
+          ? cart.map((product, key) => {
               return (
                 <div className="cartProductCard" key={key}>
                   <div className="quantityContainer">
@@ -183,7 +178,7 @@ const Cart = ({
             })
           : null}
       </div>
-      {clientCart && clientCart.length ? (
+      {cart && cart.length ? (
         <div>
           <p className="totalCartCounter">
             Total price:{" "}

@@ -20,24 +20,31 @@ import Orders from "./components/Admin/Orders/Orders";
 
 function App() {
   const { width } = useWindowDimensions();
-  const { userStateConnect, user, userCart } = useGlobalState();
+  const { userStateConnect, user, userCart, cart } = useGlobalState();
+  const [cartReceived, setCartReceived] = useState(false);
   const [userStorage] = useState(localStorage.getItem("userStorage"));
   const [userCartStorage] = useState(localStorage.getItem("clientCart"));
 
   useEffect(() => {
-    const setGlobal = () => {
-      userCart(JSON.parse(userCartStorage));
-      console.log(JSON.parse(userCartStorage));
-      userStateConnect(JSON.parse(userStorage));
-    };
-    setGlobal();
+    setGlobal().then(() => setCartReceived(true))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const setGlobal = async () => {
+    await userCart(JSON.parse(userCartStorage));
+    userStateConnect(JSON.parse(userStorage));
+  };
 
   return (
     <Router>
       <div className="App">
-        {width > 1060 ? <NavBar /> : <NavBarMobile />}
+        {
+          cartReceived ?
+            (
+              width > 1060 ? <NavBar /> : <NavBarMobile />
+          )
+          : null
+        }
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/about" component={About} />

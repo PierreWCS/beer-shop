@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import useGlobalState from "../../hooks/useGlobalState";
@@ -6,22 +6,24 @@ import NavBarAdmin from "./NavBarAdmin";
 import DefaultNavBar from "./DefaultNavBar";
 import LogOut from "./LogOut";
 import Cart from "./Cart/Cart";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faShoppingCart, faWindowClose} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faShoppingCart,
+  faWindowClose
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
-  const { user } = useGlobalState();
   const [displayCart, setDisplayCart] = useState(false);
-  const [clientCart, setClientCart] = useState(null);
   const [totalCart, setTotalCart] = useState(0);
   const [totalArticles, setTotalArticles] = useState(0);
+  const { user, cart } = useGlobalState();
 
   useEffect(() => {
     getClientCart();
   }, []);
 
   const getClientCart = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
+    let stockCart = cart;
     console.log("Client cart:", stockCart);
     if (stockCart && stockCart.length > 0) {
       let countPrice = 0;
@@ -33,7 +35,6 @@ const NavBar = () => {
       });
       setTotalCart(countPrice.toFixed(2));
       setTotalArticles(countArticles);
-      setClientCart(stockCart);
     } else {
       return 0;
     }
@@ -67,15 +68,13 @@ const NavBar = () => {
             PRODUCTS
           </NavLink>
           {displayCart ? (
-            <div className="itemNavBarCart itemNavBar">
+            <div className="itemNavBarCart">
               <FontAwesomeIcon
-                onClick={() => setDisplayCart(false)}
                 icon={faWindowClose}
                 className="closeCartIcon"
+                onClick={() => setDisplayCart(false)}
               />
               <Cart
-                clientCart={clientCart}
-                setClientCart={setClientCart}
                 totalCart={totalCart}
                 setTotalCart={setTotalCart}
                 totalArticles={totalArticles}
@@ -91,9 +90,9 @@ const NavBar = () => {
                 icon={faShoppingCart}
                 className="cartIconNavBar fa-2x"
               />
-              {clientCart ? (
+              {cart && cart.length ? (
                 <p className="numberCartNavBar defaultUserNumberCart">
-                  {clientCart.length}
+                  {cart.length}
                 </p>
               ) : null}
             </div>
@@ -102,16 +101,17 @@ const NavBar = () => {
         </div>
       </div>
     );
-  } else return <DefaultNavBar
-    clientCart={clientCart}
-    setClientCart={setClientCart}
-    totalCart={totalCart}
-    setTotalCart={setTotalCart}
-    totalArticles={totalArticles}
-    setTotalArticles={setTotalArticles}
-    displayCart={displayCart}
-    setDisplayCart={setDisplayCart}
-  />;
+  } else
+    return (
+      <DefaultNavBar
+        totalCart={totalCart}
+        setTotalCart={setTotalCart}
+        totalArticles={totalArticles}
+        setTotalArticles={setTotalArticles}
+        displayCart={displayCart}
+        setDisplayCart={setDisplayCart}
+      />
+    );
 };
 
 export default NavBar;

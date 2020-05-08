@@ -1,13 +1,13 @@
+import React, { createContext, useReducer } from "react";
 
-import React, {createContext, useReducer} from 'react';
-
-import GlobalStateReducer from '../reducers/GlobalStateReducer';
+import GlobalStateReducer from "../reducers/GlobalStateReducer";
 
 /* Define a context and a reducer for updating the context */
-export const GlobalStateContext = createContext();
+export const GlobalStateContext = createContext(null);
 
 const initialState = {
-  user: null
+  user: null,
+  cart: null
 };
 
 const GlobalStateProvider = ({ children }) => {

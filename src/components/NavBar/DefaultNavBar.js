@@ -7,17 +7,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Cart from "./Cart/Cart";
 import "./DefaultNavBar.css";
+import useGlobalState from "../../hooks/useGlobalState";
 
 const DefaultNavBar = ({
   totalCart,
   setTotalCart,
-  clientCart,
-  setClientCart,
   totalArticles,
   setTotalArticles,
   displayCart,
   setDisplayCart
 }) => {
+  const { cart } = useGlobalState();
   return (
     <div className="navBarContainer">
       <Link to="/" className="logoAndNameNavBar">
@@ -57,8 +57,6 @@ const DefaultNavBar = ({
               className="closeCartIcon"
             />
             <Cart
-              clientCart={clientCart}
-              setClientCart={setClientCart}
               totalCart={totalCart}
               setTotalCart={setTotalCart}
               totalArticles={totalArticles}
@@ -74,9 +72,9 @@ const DefaultNavBar = ({
               icon={faShoppingCart}
               className="cartIconNavBar fa-2x"
             />
-            {clientCart ? (
+            {cart && cart.length ? (
               <p className="numberCartNavBar defaultNumberCart">
-                {clientCart.length}
+                {cart.length}
               </p>
             ) : null}
           </div>
