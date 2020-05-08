@@ -13,7 +13,7 @@ const GlobalStateReducer = (state, action) => {
     case "USER_MODIFY_CART":
       return {
         ...state,
-        userCart: action.payload.userCart
+        cart: action.payload.cart
       };
     default:
       return state;

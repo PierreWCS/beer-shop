@@ -3,34 +3,25 @@ import "./Cart.css";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import useGlobalState from "../../hooks/useGlobalState";
 
 const Cart = () => {
-  const [clientCart, setClientCart] = useState(null);
-
-  useEffect(() => {
-    getClientCart();
-  }, []);
-
-  const getClientCart = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
-    console.log(stockCart);
-    setClientCart(stockCart);
-  };
+  const {userCart,cart} = useGlobalState();
 
   let stock = 0;
 
   const deleteProduct = product => {
-    let removedProduct = clientCart.filter(e => e.id !== product.id);
+    let removedProduct = cart.filter(e => e.id !== product.id);
     localStorage.setItem("clientCart", JSON.stringify(removedProduct));
-    setClientCart(removedProduct);
+    userCart(removedProduct);
   };
 
   return (
     <div className="cartContainerMobile">
       <h1 className="cartTitleMobile">CART</h1>
       <div className="productsContainerCartMobile">
-        {clientCart ? (
-          clientCart.map(product => {
+        {cart ? (
+          cart.map(product => {
             stock += product.price * product.quantity;
             return (
               <div className="productCardCartMobile">
@@ -47,10 +38,10 @@ const Cart = () => {
         ) : (
           <p>Your cart is empty</p>
         )}
-        {clientCart ? (
+        {cart && cart.length ? (
           <div>
             <p className="totalCartCounter">
-              Total quantity: {clientCart.length}
+              Total quantity: {cart.length}
             </p>
             <p className="totalCartCounter">
               Total price: {stock.toFixed(2)} €

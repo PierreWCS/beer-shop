@@ -5,13 +5,12 @@ import useGlobalState from "../../hooks/useGlobalState";
 
 const ProductCard = ({ product, products, index }) => {
   const [moreDetails, setMoreDetails] = useState(false);
-  const { userCart } = useGlobalState();
+  const { userCart, cart } = useGlobalState();
 
   const addProductToCart = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
+    let stockCart = cart;
     if (stockCart && stockCart.length > 0) {
       const idStockCart = stockCart.map(product => product.id);
-      console.log(stockCart);
       if (idStockCart.includes(product.id)) {
         for (let i = 0; i < stockCart.length; i++) {
           if (stockCart[i].id === product.id) {
@@ -19,16 +18,16 @@ const ProductCard = ({ product, products, index }) => {
           }
         }
       } else {
-        console.log(product);
         product.quantity = 1;
         stockCart.push(product);
-        userCart({stockCart})
+        userCart(stockCart)
       }
-      localStorage.setItem("clientCart", JSON.stringify(stockCart));
+      // localStorage.setItem("clientCart", JSON.stringify(stockCart));
     } else {
       let cartInit = [];
       cartInit.push(product);
-      localStorage.setItem("clientCart", JSON.stringify(cartInit));
+      // localStorage.setItem("clientCart", JSON.stringify(cartInit));
+      userCart(cartInit);
     }
   };
 
