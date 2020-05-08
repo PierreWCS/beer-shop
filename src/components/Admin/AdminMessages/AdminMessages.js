@@ -18,15 +18,14 @@ const AdminMessages = () => {
     Axios.get("http://localhost:8000/api/messages")
       .then(result => result.data)
       .then(data => {
-        let stockMessages = data;
-        setMessages(stockMessages);
+        setMessages(data);
       });
   };
 
   const deleteMessage = messageId => {
     if (window.confirm("Do you really wanna delete this message ?")) {
-      Axios.delete(`http://localhost:8000/api/messages/:${messageId.id}`)
-        .then(res => {
+      Axios.delete(`http://localhost:8000/api/messages/:${messageId.id}`).then(
+        res => {
           if (res.status === 200) {
             let indexDelete = messages.filter(
               message => message.id === messageId.id
@@ -38,7 +37,8 @@ const AdminMessages = () => {
           } else {
             alert("Error");
           }
-        })
+        }
+      );
     }
   };
 
@@ -53,6 +53,9 @@ const AdminMessages = () => {
             <p className="messagesAdminHeadCell">E-MAIL</p>
             <p className="messagesAdminHeadCell">DATE</p>
           </div>
+
+          {/*     Display the messages from the contact form      */}
+
           <div>
             {messages ? (
               messages.map((message, key) => {
@@ -81,13 +84,18 @@ const AdminMessages = () => {
           </div>
         </div>
       </div>
+
+      {/*     Display message details     */}
+
       {displayFullMessage ? (
         <div className="selectedMessageContainer">
-          <FontAwesomeIcon
-            className="closeMessageButton fa-2x"
+          <div
+            className="closeMessageButton"
             onClick={() => setDisplayFullMessage(false)}
-            icon={faWindowClose}
-          />
+          >
+            <FontAwesomeIcon className="fa-2x closeMessageIcon" icon={faWindowClose} />
+            <p>Close</p>
+          </div>
           <div className="messageBodyContainer">
             <div className="nameAndFirstNameAdminMessages">
               <p className="fromAdminMessageDetails">From: </p>

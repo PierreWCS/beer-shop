@@ -4,15 +4,18 @@ ALTER TABLE products
 
 ALTER TABLE orders
     ADD CONSTRAINT FK_user_order
-    foreign key orders(user_id) references users(id);
+    foreign key orders(user_id) references users(id)
+    ON DELETE CASCADE;
 
 ALTER TABLE order_items
     ADD CONSTRAINT FK_orders
-    foreign key order_items(orders_id) references orders(id);
+    foreign key order_items(orders_id) references orders(id)
+    ON DELETE CASCADE;
 
 ALTER TABLE order_items
     ADD CONSTRAINT FK_order_product
-    foreign key order_product(product_id) references products(id);
+    foreign key order_product(product_id) references products(id)
+    ON DELETE CASCADE;
 
 insert into categories (name) values ('Pale lager');
 

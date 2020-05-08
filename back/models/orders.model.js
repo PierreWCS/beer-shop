@@ -47,13 +47,43 @@ Order.findAll = result => {
 // Get all the customer orders
 Order.detailsById = (orderId, result) => {
   db.query(
-    'SELECT products.name, products.price, order_items.quantity, orders.order_date, orders.user_id, orders.order_status FROM order_items INNER JOIN orders on orders.id=order_items.orders_id INNER JOIN products on products.id=order_items.product_id where orders.user_id=?',
-    (orderId),
+    "SELECT products.name, products.price, order_items.quantity, orders.order_date, orders.user_id, orders.order_status FROM order_items INNER JOIN orders on orders.id=order_items.orders_id INNER JOIN products on products.id=order_items.product_id where orders.user_id=?",
+    orderId,
     (error, dbResult) => {
       if (error) return result(error, null);
       return result(null, dbResult);
     }
   );
+};
+
+Order.updateStatus = (id, order, result) => {
+  db.query(
+    "UPDATE orders SET ? WHERE id = ?",
+    [order, id],
+    (error, response) => {
+      if (error) {
+        return result(error, null);
+      }
+      if (response.affectedRows === 0) {
+        //  Not found product with the id
+        return result({ kind: "not_found" }, null);
+      }
+      return result(null, { id: Number(id), ...order });
+    }
+  );
+};
+
+Order.delete = (orderId, result) => {
+  db.query("DELETE FROM orders WHERE id = ?", orderId, (error, dbResult) => {
+    if (error) {
+      return result(error, null);
+    }
+    if (dbResult.affectedRows === 0) {
+      //  not found the orders with the id
+      return result({ kind: "not found" }, null);
+    }
+    return result(null, dbResult);
+  });
 };
 
 module.exports = { Order, OrderItem };

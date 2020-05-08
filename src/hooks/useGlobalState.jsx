@@ -21,18 +21,23 @@ const useGlobalState = () => {
   };
 
   // Get the client Cart
-  const userCart = function (cart) {
-    console.log(cart);
+  const userCart = function(cart) {
     dispatch({
       type: "USER_MODIFY_CART",
       payload: {
         cart
       }
-    })
+    });
     localStorage.setItem("clientCart", JSON.stringify(cart));
   };
 
-  return { userStateConnect, userStateDisconnect, user: state.user, userCart, cart: state.cart };
+  return {
+    userStateConnect,
+    userStateDisconnect,
+    user: state.user,
+    userCart,
+    cart: state.cart
+  };
 };
 
 export default useGlobalState;

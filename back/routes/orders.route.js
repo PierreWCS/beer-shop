@@ -13,7 +13,11 @@ router.get('/', order.findAll);
 
 // Get order with details by ID
 router.get('/:orderId', order.detailsById);
+
+// Update an order status
+router.patch('/:orderId', order.updateStatus);
+
 // Delete order from the base
-// router.delete('/:orderId', order.delete);
+router.delete('/:orderId', order.delete);
 
 module.exports = router;

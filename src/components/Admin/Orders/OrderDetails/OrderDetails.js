@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./OrderDetails.css";
 import axios from "axios";
+import Api from "../../../services/Api";
 
 const OrderDetails = ({ order, setOrderDetails }) => {
   const [currentOrderDetails, setCurrentOrderDetails] = useState(null);
+  const [newStatus, setNewStatus] = useState(null);
   useEffect(() => {
     getOrderDetails();
   }, []);
@@ -18,6 +20,18 @@ const OrderDetails = ({ order, setOrderDetails }) => {
       })
       .catch(err => console.log(err));
   };
+
+  const updateStatus = () => {
+    let stockOrder = order;
+    stockOrder.order_status = newStatus;
+    Api.update(`orders/${order.id}`, stockOrder)
+      .then(() => {
+        alert("Order has been updated");
+        setOrderDetails(false);
+      })
+      .catch(error => console.log(error))
+  };
+
   return (
     <div className="orderDetailsContainer">
       <button className="closeOrderDetailsButton" onClick={() => setOrderDetails(false)}>Close</button>
@@ -59,13 +73,13 @@ const OrderDetails = ({ order, setOrderDetails }) => {
             <p>Order status: {order.order_status}</p>
             <div className="statusModifyOrderDetails">
               <h4>Modify the status:</h4>
-              <select>
+              <select onChange={(event) => setNewStatus(event.target.value)}>
                 <option value="">--Please choose an option--</option>
                 <option value="waiting">Waiting</option>
                 <option value="treatment">Treatment</option>
                 <option value="completed">Completed</option>
               </select>
-              <button>Confirm</button>
+              <button onClick={() => updateStatus()}>Confirm</button>
             </div>
           </div>
         </div>

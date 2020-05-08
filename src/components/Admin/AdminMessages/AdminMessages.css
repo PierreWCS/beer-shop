@@ -104,12 +104,21 @@
 .closeMessageButton {
     position: absolute;
     right: 5%;
-    color: #282c34;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 120px;
     box-sizing: border-box;
     cursor: pointer;
+    background-color: #282c34;
+    color: whitesmoke;
 }
 .closeMessageButton:hover {
     transform: scale(1.1);
+}
+
+.closeMessageIcon {
+    color: whitesmoke;
 }
 
 .nameAndFirstNameAdminMessages, .dateAdminMessagesContainer, .emailContainerAdminMessages {

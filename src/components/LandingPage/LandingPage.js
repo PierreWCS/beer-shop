@@ -13,6 +13,7 @@ import Footer from "../Footer/Footer";
 import {Link} from "react-router-dom";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Api from "../services/Api";
 
 const LandingPage = () => {
   const [products, setProducts] = useState(null);
@@ -25,19 +26,15 @@ const LandingPage = () => {
   }, []);
 
   const getProducts = () => {
-    Axios.get("http://localhost:8000/api/products")
-      .then(result => result.data)
-      .then(data => {
-        let stockProducts = data;
-        setProducts(stockProducts);
+    Api.get('products')
+      .then((response) => {
+        setProducts(response.data);
       })
-      .catch(function (error) {
-      // handle error
-      console.log(error);
-      const stockProducts = require('../fakeDb/fakeDb.json');
-      console.log(stockProducts);
-      setProducts(stockProducts);
-    })
+      .catch(error => {
+        const stockFakeProducts = require('../fakeDb/fakeDb.json');
+        console.log("No database");
+        setProducts(stockFakeProducts);
+      });
   };
 
   return (
@@ -50,7 +47,7 @@ const LandingPage = () => {
           {/*       About us        */}
 
           <div className="aboutUsMainContainer">
-            <div className="aboutUsTextContainer" data-aos="fade-left">
+            <div className="aboutUsTextContainer">
               <h3 className="smallSubtitleAbout">How we create our</h3>
               <h1 className="aboutUsTitle">MASTER BREW</h1>
               <p className="textAboutUs">
@@ -59,16 +56,16 @@ const LandingPage = () => {
               </p>
               <Link to="/about" className="aboutUsButton aboutButtonLandingPage">DISCOVER MORE</Link>
             </div>
-            <div className="imageContainerAboutUs" data-aos="fade-right"/>
+            <div className="imageContainerAboutUs"/>
           </div>
 
           {/*       Beer of the month       */}
 
           <div className="aboutUsContentContainer">
-            <h1 className="beerOfTheMonth">BEER OF THE MONTH</h1>
+            <h1 className="beerOfTheMonth" data-aos="fade" data-aos-delay="150">BEER OF THE MONTH</h1>
             <div className="containerAboutAroundTheBeer">
               <div className="firstColumnAbout">
-                <div className="1stContainerAbout">
+                <div className="1stContainerAbout" data-aos="fade-up-right" data-aos-delay="200">
                   <h3 className="titleTextAbout leftText">
                     CREAMY BUT NOT TOO MUCH
                   </h3>
@@ -77,7 +74,7 @@ const LandingPage = () => {
                     nulla in mourix
                   </p>
                 </div>
-                <div className="2ndContainerAbout">
+                <div className="2ndContainerAbout" data-aos="fade-down-right" data-aos-delay="1400">
                   <h3 className="titleTextAbout leftText">MELLOW ON THE BOOZE</h3>
                   <p className="smallTextAbout leftText">
                     Lorem ipsum dolos sit amet, con sectur adiscing ejit. Aliter
@@ -91,9 +88,9 @@ const LandingPage = () => {
                   src={require("../images/StoutBeer.png")}
                   alt="beer"
                 />
-                <h2 className="beerNameAbout">THE WOOFLE BEER</h2>
+                <h2 className="beerNameAbout" data-aos="fade" data-aos-delay="3000">THE WOOFLE BEER</h2>
               </div>
-              <div className="secondColumnAbout">
+              <div className="secondColumnAbout" data-aos="fade-up-left" data-aos-delay="800">
                 <div className="3rdContainerAbout">
                   <h3 className="titleTextAbout rightText">HAS A DEEP WARMTH</h3>
                   <p className="smallTextAbout rightText">
@@ -101,7 +98,7 @@ const LandingPage = () => {
                     sectur adiscing con sectur adiscing ipsum dolos sit amet
                   </p>
                 </div>
-                <div className="4thContainerAbout">
+                <div className="4thContainerAbout" data-aos="fade-down-left" data-aos-delay="2000">
                   <h3 className="titleTextAbout rightText">A CHOCOLATE SMOOTH</h3>
                   <p className="smallTextAbout rightText">
                     Lorem ipsum dolos sit amet, con sectur adiscing ejit. Aliter

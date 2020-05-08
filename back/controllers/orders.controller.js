@@ -86,3 +86,50 @@ exports.detailsById = (request, response) => {
     }
   });
 };
+
+// Update order status
+exports.updateStatus = function(request, response) {
+  if (!request.body) {
+    response.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  const { orderId } = request.params;
+
+  Order.updateStatus(orderId, request.body, (error, data) => {
+    if (error) {
+      if (error.kind === "not_found") {
+        response.status(404).send({
+          message: `Not found order with id ${orderId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: "Error updating order with id " + orderId
+        });
+      }
+    } else {
+      response.send(data);
+    }
+  });
+};
+
+// Delete order
+exports.delete = (request, response) => {
+  const orderId = request.params.orderId.replace(":", "");
+  Order.delete(orderId, (error, dbResult) => {
+    if (error) {
+      if (error.kind === "not_found") {
+        response.status(404).send({
+          message: `Not found order with id ${orderId}.`
+        });
+      } else {
+        response.status(500).send({
+          message: "Could not delete order with id " + orderId
+        });
+      }
+    } else {
+      response.send({ message: `order was deleted successfully!` });
+    }
+  });
+};
