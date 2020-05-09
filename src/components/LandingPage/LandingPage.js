@@ -29,11 +29,14 @@ const LandingPage = () => {
     Api.get('products')
       .then((response) => {
         setProducts(response.data);
+        if (!response.data) {
+          const stockFakeProducts = require('../fakeDb/fakeDb.json');
+          setProducts(stockFakeProducts);
+          console.log("No database");
+        }
       })
       .catch(error => {
-        const stockFakeProducts = require('../fakeDb/fakeDb.json');
-        console.log("No database");
-        setProducts(stockFakeProducts);
+        console.log(error);
       });
   };
 
