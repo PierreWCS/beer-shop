@@ -11,11 +11,13 @@ import {
   faShoppingCart,
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
+import MyAccount from "./MyAccount";
 
 const NavBar = () => {
   const [displayCart, setDisplayCart] = useState(false);
   const [totalCart, setTotalCart] = useState(0);
   const [totalArticles, setTotalArticles] = useState(0);
+  const [toggleAccountMenu, setToggleAccountMenu] = useState(false);
   const { user, cart } = useGlobalState();
 
   useEffect(() => {
@@ -40,9 +42,14 @@ const NavBar = () => {
     }
   };
 
+  // If the user is an admin
+
   if (user && user.role === "admin") {
     return <NavBarAdmin />;
-  } else if (user) {
+  }
+
+  // If the user is connected with a visitor account
+  else if (user) {
     return (
       <div className="navBarContainer">
         <Link to="/" className="logoAndNameNavBar">
@@ -67,6 +74,20 @@ const NavBar = () => {
           >
             PRODUCTS
           </NavLink>
+
+          {/*     Account menu      */}
+
+          <div
+            className="itemNavBar"
+            onMouseEnter={() => setToggleAccountMenu(true)}
+            onMouseLeave={() => setToggleAccountMenu(false)}
+          >
+            ACCOUNT
+            {toggleAccountMenu ? <MyAccount /> : null}
+          </div>
+
+          {/*     Cart      */}
+
           {displayCart ? (
             <div className="itemNavBarCart">
               <FontAwesomeIcon
@@ -97,11 +118,13 @@ const NavBar = () => {
               ) : null}
             </div>
           )}
-          <LogOut />
         </div>
       </div>
     );
-  } else
+  }
+
+  // Default nav bar
+  else
     return (
       <DefaultNavBar
         totalCart={totalCart}

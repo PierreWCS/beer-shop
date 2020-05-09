@@ -1,15 +1,16 @@
+
+.logOutContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
 .disconnectIcon {
-    margin-left: 25px;
+    margin-right: 25px;
     cursor: pointer;
 }
 
-.logOutContainer:hover .disconnectMessage{
-    display: block;
-    position: absolute;
-    margin: 10px;
-}
-
 .disconnectMessage {
-    display: none;
     color: #282c34;
+    font-size: 18px;
 }

@@ -1,0 +1,38 @@
+.myAccountContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #dddddd;
+    height: 35vh;
+    width: 300px;
+    position: absolute;
+    top: 9vh;
+    right: 15%;
+    box-sizing: border-box;
+    padding: 15px;
+    cursor: auto;
+}
+
+.linkContainerAccountMenu {
+    background-color: #999999;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    margin: 15px;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-decoration: none;
+    color: #282c34;
+}
+.linkContainerAccountMenu:hover {
+    background-color: #828585;
+}
+
+
+.linkAccountMenu {
+    color: #282c34;
+    font-size: 18px;
+}
+

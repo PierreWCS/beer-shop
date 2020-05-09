@@ -20,8 +20,8 @@ const LogOut = () => {
       {redirection}
 
       {user ? (
-        <div className="logOutContainer">
-          <FontAwesomeIcon onClick={disconnect} color={'#282c34'} icon={faSignOutAlt} className="fa-2x disconnectIcon" />
+        <div className="logOutContainer" onClick={disconnect}>
+          <FontAwesomeIcon color={'#282c34'} icon={faSignOutAlt} className="fa-2x disconnectIcon" />
           <p className="disconnectMessage">Log out</p>
         </div>
       ) : null}

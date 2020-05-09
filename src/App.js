@@ -17,6 +17,7 @@ import LoginSignup from "./components/LoginSignup/LoginSignup";
 import Newsletter from "./components/Admin/AdminNewsletter/Newsletter";
 import Medias from "./components/Admin/Medias/Medias";
 import Orders from "./components/Admin/Orders/Orders";
+import MyOrders from "./components/NavBar/MyOrders";
 
 function App() {
   const { width } = useWindowDimensions();
@@ -26,7 +27,7 @@ function App() {
   const [userCartStorage] = useState(localStorage.getItem("clientCart"));
 
   useEffect(() => {
-    setGlobal().then(() => setCartReceived(true))
+    setGlobal().then(() => setCartReceived(true));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -38,13 +39,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {
-          cartReceived ?
-            (
-              width > 1060 ? <NavBar /> : <NavBarMobile />
-          )
-          : null
-        }
+        {cartReceived ? width > 1060 ? <NavBar /> : <NavBarMobile /> : null}
         <Switch>
           <Route path="/" exact component={LandingPage} />
           <Route path="/about" component={About} />
@@ -62,6 +57,9 @@ function App() {
               <Route path="/admin-medias" component={Medias} />
               <Route path="/admin-subscribers" component={Newsletter} />
             </>
+          ) : null}
+          {user && user.role === "visitor" ? (
+            <Route path="/my-orders" component={MyOrders} />
           ) : null}
 
           <Route component={ErrorPage} />
