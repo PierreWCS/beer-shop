@@ -38,7 +38,6 @@ exports.createItemOrder = (request, response) => {
   }
 
   const product = request.body;
-  console.log(product);
 
   //  Create order item
   const orderItem = new OrderItem({

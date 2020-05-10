@@ -13,7 +13,6 @@ const Cart = ({
 }) => {
   const { user } = useGlobalState();
   const { userCart, cart } = useGlobalState();
-  console.log(cart);
   const minusQuantity = product => {
     let stockCart = cart;
     stockCart.map((element, index) => {
@@ -108,7 +107,6 @@ const Cart = ({
         //  Second request, send the customer cart content
         const customerCart = JSON.parse(localStorage.getItem("clientCart"));
         let products = [];
-        console.log(newOrderId);
         for (let i = 0; i < customerCart.length; i++) {
           products.push({
             orders_id: newOrderId,
@@ -116,17 +114,16 @@ const Cart = ({
             product_quantity: customerCart[i].quantity
           });
         }
-        console.log(products);
         try {
           for (let i = 0; i < products.length; i++) {
             await Axios({
               url: "http://localhost:8000/api/orders/item",
               data: products[i],
               method: "post"
-            }).then(() => {
-              alert("You order has been sent !");
             });
           }
+          alert("Your order has been sent");
+          userCart(null);
         } catch (e) {
           console.log(e);
         }

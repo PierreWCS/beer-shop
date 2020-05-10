@@ -4,7 +4,6 @@ import "./NavBar.css";
 import useGlobalState from "../../hooks/useGlobalState";
 import NavBarAdmin from "./NavBarAdmin";
 import DefaultNavBar from "./DefaultNavBar";
-import LogOut from "./LogOut";
 import Cart from "./Cart/Cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -83,7 +82,7 @@ const NavBar = () => {
             onMouseLeave={() => setToggleAccountMenu(false)}
           >
             ACCOUNT
-            {toggleAccountMenu ? <MyAccount /> : null}
+            {toggleAccountMenu ? <MyAccount user={user} /> : null}
           </div>
 
           {/*     Cart      */}

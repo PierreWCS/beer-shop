@@ -16,12 +16,12 @@ const LogOut = () => {
     setTimeout(() => window.location.reload(), 700);
   };
   return (
-    <div>
+    <div className="logOutMainContainer">
       {redirection}
 
       {user ? (
         <div className="logOutContainer" onClick={disconnect}>
-          <FontAwesomeIcon color={'#282c34'} icon={faSignOutAlt} className="fa-2x disconnectIcon" />
+          <FontAwesomeIcon icon={faSignOutAlt} className="fa-2x disconnectIcon" />
           <p className="disconnectMessage">Log out</p>
         </div>
       ) : null}

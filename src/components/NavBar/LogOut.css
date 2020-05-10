@@ -1,13 +1,18 @@
 
+.logOutMainContainer {
+    width: 100%;
+}
+
 .logOutContainer {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .disconnectIcon {
-    margin-right: 25px;
+    margin: 0 15% 0 10%;
     cursor: pointer;
+    color: indianred;
 }
 
 .disconnectMessage {
