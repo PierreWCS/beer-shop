@@ -8,6 +8,7 @@ import Cart from "./Cart/Cart";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
+  faSortDown,
   faWindowClose
 } from "@fortawesome/free-solid-svg-icons";
 import MyAccount from "./MyAccount";
@@ -77,11 +78,12 @@ const NavBar = () => {
           {/*     Account menu      */}
 
           <div
-            className="itemNavBar"
+            className="itemNavBar accountAndIconContainer"
             onMouseEnter={() => setToggleAccountMenu(true)}
             onMouseLeave={() => setToggleAccountMenu(false)}
           >
             ACCOUNT
+            <FontAwesomeIcon className="arrowAccountIcon" icon={faSortDown} />
             {toggleAccountMenu ? <MyAccount user={user} /> : null}
           </div>
 

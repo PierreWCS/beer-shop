@@ -68,6 +68,14 @@
     display: none;
 }
 
+.accountAndIconContainer {
+    display: flex;
+}
+
+.arrowAccountIcon {
+    margin-left: 10px;
+}
+
 .numberCartNavBar {
     margin: 0;
     position: absolute;
