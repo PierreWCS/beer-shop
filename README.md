@@ -19,19 +19,22 @@ User can:
 
 - Add products to his cart, saved in the localstorage. 
 
-- Make an order
+- Make an order, and follow the evolution of the order
+
+- Have an order history
 
 - Create an account, login and subscribe to the shop newsletter.
 
 - Send a message with a contact form on the "about" page.
 
+
 ADMIN can:
 
-If the user is connected with an admin account, he can have an access to the url: /admin.
+If the user is connected with an admin account, he can have an access to the url: /admin, and he can:
 
 - Manage the products, stocks, and add new products from the website. 
 
-- Manage the orders
+- Manage the orders and modify the status
 
 - See the messages from the contact form 
 
