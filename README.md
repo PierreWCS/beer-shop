@@ -15,7 +15,7 @@ Demo available here:
 
 ## FEATURES:
 
-User can:
+### User can:
 
 - Add products to his cart, saved in the localstorage. 
 
@@ -28,7 +28,7 @@ User can:
 - Send a message with a contact form on the "about" page.
 
 
-ADMIN can:
+### ADMIN can:
 
 If the user is connected with an admin account, he can have an access to the url: /admin, and he can:
 
