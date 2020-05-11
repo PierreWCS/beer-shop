@@ -71,6 +71,9 @@
 .accountAndIconContainer {
     display: flex;
 }
+.accountAndIconContainer:hover .arrowAccountIcon {
+    transform: rotate(0.5turn);
+}
 
 .arrowAccountIcon {
     margin-left: 10px;

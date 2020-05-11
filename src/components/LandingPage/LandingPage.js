@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./LandingPage.css";
-import Axios from "axios";
 import ProductCard from "../Products/ProductsCard";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {

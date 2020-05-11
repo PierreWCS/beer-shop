@@ -22,6 +22,7 @@ const NavBar = () => {
 
   useEffect(() => {
     getClientCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getClientCart = () => {

@@ -12,6 +12,15 @@ export default {
       .catch(error => error);
   },
 
+  getByUserId(url, id) {
+    return axios({
+      method: "get",
+      url: apiUrl + url
+    })
+      .then(response => response)
+      .catch(error => error);
+  },
+
   post(url, data) {
     return axios({
       method: "post",
@@ -41,4 +50,4 @@ export default {
       .then(response => response)
       .catch(error => error);
   }
-}
+};

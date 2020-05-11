@@ -44,8 +44,18 @@ Order.findAll = result => {
   });
 };
 
+Order.findByUserId = (userId, result) => {
+  db.query(
+    "SELECT * from orders where user_id=?",
+    userId, (error, dbResult) => {
+      if (error) return result(error, null);
+      return result(null, dbResult);
+    }
+  )
+};
+
 // Get all the customer orders
-Order.detailsById = (orderId, result) => {
+Order.detailsByOrderId = (orderId, result) => {
   db.query(
     "SELECT products.name, products.price, order_items.quantity, orders.order_date, orders.user_id, orders.order_status FROM order_items INNER JOIN orders on orders.id=order_items.orders_id INNER JOIN products on products.id=order_items.product_id where orders.user_id=?",
     orderId,

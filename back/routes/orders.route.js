@@ -12,7 +12,10 @@ router.post('/item', order.createItemOrder);
 router.get('/', order.findAll);
 
 // Get order with details by ID
-router.get('/:orderId', order.detailsById);
+router.get('/:orderId', order.detailsByOrderId);
+
+// Get orders by user ID
+router.get('/:userId/orders', order.findByUserId);
 
 // Update an order status
 router.patch('/:orderId', order.updateStatus);

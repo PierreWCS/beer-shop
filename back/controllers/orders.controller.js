@@ -71,11 +71,25 @@ exports.findAll = (request, response) => {
   });
 };
 
+// Find orders by customer ID
+exports.findByUserId = (request, response) => {
+  const {userId} = request.params;
+  Order.findByUserId(userId, (error, dbResult) => {
+    if (error) {
+      response.status(500).send({
+        message: "An error occurred while retrieving orders."
+      });
+    } else {
+      response.send(dbResult);
+    }
+  })
+};
+
 // Get the order details (admin use)
-exports.detailsById = (request, response) => {
+exports.detailsByOrderId = (request, response) => {
   const { orderId } = request.params;
 
-  Order.detailsById(orderId, (error, dbResult) => {
+  Order.detailsByOrderId(orderId, (error, dbResult) => {
     if (error) {
       response.status(500).send({
         message: "Some error occurred while retrieving order details."

@@ -17,11 +17,11 @@ import LoginSignup from "./components/LoginSignup/LoginSignup";
 import Newsletter from "./components/Admin/AdminNewsletter/Newsletter";
 import Medias from "./components/Admin/Medias/Medias";
 import Orders from "./components/Admin/Orders/Orders";
-import MyOrders from "./components/NavBar/MyOrders";
+import MyOrders from "./components/NavBar/MyOrders/MyOrders";
 
 function App() {
   const { width } = useWindowDimensions();
-  const { userStateConnect, user, userCart, cart } = useGlobalState();
+  const { userStateConnect, user, userCart } = useGlobalState();
   const [cartReceived, setCartReceived] = useState(false);
   const [userStorage] = useState(localStorage.getItem("userStorage"));
   const [userCartStorage] = useState(localStorage.getItem("clientCart"));

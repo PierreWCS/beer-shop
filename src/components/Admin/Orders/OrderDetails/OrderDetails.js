@@ -8,6 +8,7 @@ const OrderDetails = ({ order, setOrderDetails }) => {
   const [newStatus, setNewStatus] = useState(null);
   useEffect(() => {
     getOrderDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getOrderDetails = () => {
