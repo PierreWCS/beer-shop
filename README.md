@@ -1,5 +1,7 @@
 # BEER SHOP 
 
+![Logo](https://github.com/PierreWCS/beer-shop/blob/master/public/uploads/images/logoBeer.png)
+
 Fake beer shop, started during a 48hours website challenge.
 With MySQL, Node.JS, Express, JWT and React.
 
