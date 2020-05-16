@@ -148,6 +148,34 @@ exports.update = (request, response) => {
   });
 };
 
+// Save token in DB
+exports.newToken = function(request, response) {
+  if (!request.body) {
+    response.status(400).send({
+      message: "Content can not be empty!"
+    });
+  }
+
+  const { userId } = request.params;
+  const { token } = request.body;
+
+  User.newToken(userId, token, (error) => {
+    if (error) {
+      if (error.kind === "not_found") {
+        response.status(404).send({
+          message: "Token can not be empty"
+        });
+      } else {
+        response.status(500).send({
+          message: "Error givin the token to the user " + userId
+        });
+      }
+    } else {
+      response.send(token);
+    }
+  });
+};
+
 // Supprime un utilisateur
 exports.delete = (request, response) => {
   User.delete(request.params.userId, error => {
@@ -164,59 +192,5 @@ exports.delete = (request, response) => {
     }
 
     return response.send({ message: `user was deleted successfully!` });
-  });
-};
-
-exports.findPartInfo = (request, response) => {
-  User.findPartInfo(request.params.userId, (error, dbResult) => {
-    if (error) {
-      if (error.kind === 'not_found') {
-        response.status(404).send({
-          message: `Pas d'info user id ${request.params.userId}.`
-        });
-      } else {
-        response.status(500).send({
-          message: `pas trouvé url user id ${request.params.userId}`
-        });
-      }
-    } else {
-      response.send(dbResult);
-    }
-  });
-};
-
-exports.findDeliverInfo = (request, response) => {
-  User.findDeliverInfo(request.params.userId, (error, dbResult) => {
-    if (error) {
-      if (error.kind === 'not_found') {
-        response.status(404).send({
-          message: `Pas d'info user id ${request.params.userId}.`
-        });
-      } else {
-        response.status(500).send({
-          message: `pas trouvé url user id ${request.params.userId}`
-        });
-      }
-    } else {
-      response.send(dbResult);
-    }
-  });
-};
-
-exports.findProfessionalInfo = (request, response) => {
-  User.findProfessionalInfo(request.params.userId, (error, dbResult) => {
-    if (error) {
-      if (error.kind === 'not_found') {
-        response.status(404).send({
-          message: `Pas d'info user id ${request.params.userId}.`
-        });
-      } else {
-        response.status(500).send({
-          message: `pas trouvé url user id ${request.params.userId}`
-        });
-      }
-    } else {
-      response.send(dbResult);
-    }
   });
 };

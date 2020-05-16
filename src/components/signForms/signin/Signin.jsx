@@ -48,6 +48,8 @@ const Signin = ({ setDisplayUi }) => {
       const { alert, status, inputs } = result;
 
       setInfoMessage(alert);
+      console.log(alert);
+      console.log(inputs);
 
       if (status === "ERROR") {
         if (inputs) {
@@ -56,7 +58,7 @@ const Signin = ({ setDisplayUi }) => {
           });
         }
       } else if (status === "SUCCESS") {
-        setTimeout(() => setDisplayUi('login'), 2500);
+        setTimeout(() => setDisplayUi("login"), 2500);
       }
     });
   };

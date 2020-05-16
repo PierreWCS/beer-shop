@@ -1,32 +1,29 @@
-
 const signUp = async function signUpFetching(myBody) {
   try {
-    // Envoi de la requête
     const response = await fetch(`http://localhost:8000/api/users/login`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(myBody),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     });
 
-    // Récupération du status de la requête
+    // Request status
     const { status } = response;
     const result = await response.json();
-    // Récupération des informations de réponse de la requête
-    const { inputs, alert, data } = result;
 
-    // Traitement de la réponse
+    // Result treatment
+    const { inputs, alert, data, token } = result;
+
+    // Response treatment
     if (status === 400 || status === 500) {
-      return { alert, type: 'INPUT', status: 'ERROR', inputs };
+      return { alert, type: "INPUT", status: "ERROR", inputs };
     }
-    // En cas de bonne création du compte
-    return { alert, data, status: 'SUCCESS' };
+    // If success
+    return { alert, data, status: "SUCCESS", token };
   } catch (e) {
     console.error(e);
   }
-
-  return 0;
 };
 
 export default signUp;

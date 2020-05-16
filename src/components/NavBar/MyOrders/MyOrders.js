@@ -43,7 +43,7 @@ const MyOrders = () => {
                   </div>
                 </div>
               );
-            } else return 0;
+            } else return <p>You have no orders</p>;
           })
           : null}
       </div>

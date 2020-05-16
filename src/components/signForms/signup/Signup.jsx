@@ -7,6 +7,7 @@ import signUp from "../signUpFetch";
 import useGlobalState from "../../../hooks/useGlobalState";
 import "./Signup.css";
 import "../Sign.css";
+import Api from "../../services/Api";
 
 function Signup() {
   const [infoMessage, setInfoMessage] = useState(null);
@@ -31,14 +32,14 @@ function Signup() {
     };
 
     signUp(myBody).then(result => {
-      const { alert, status, inputs, data } = result;
+      const { alert, status, inputs, data, token } = result;
 
       // Initialisation du global state (user)
       if (data) {
         const { id, firstname, lastname, role } = data;
-        const userData = { id, firstname, lastname, role };
+        const userData = { id, firstname, lastname, role, token };
         localStorage.setItem("userStorage", JSON.stringify(userData));
-        userStateConnect({ id, firstname, lastname, role });
+        userStateConnect({ id, firstname, lastname, role, token });
       }
 
       setInfoMessage(alert);
@@ -77,7 +78,7 @@ function Signup() {
               text: "Email",
               className: "signup-label"
             }}
-            attributes={{ type: "email", name: "email", id: "signup-email", placeholder: "ilovebeer@gmail.com" }}
+            attributes={{ type: "email", name: "email", id: "signup-email", placeholder: "ilovebeer@mail.com" }}
             reference={inputsRef.email}
           />
           <Input

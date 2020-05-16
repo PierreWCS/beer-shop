@@ -12,7 +12,7 @@ export default {
       .catch(error => error);
   },
 
-  getByUserId(url, id) {
+  getByUserId(url) {
     return axios({
       method: "get",
       url: apiUrl + url

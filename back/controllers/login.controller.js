@@ -1,25 +1,33 @@
-const bcrypt = require('bcrypt');
-const jwt = require('jsonwebtoken');
-const Login = require('../models/login.model');
-const regexValidity = require('../middlewares/formValidity/regexValidity');
-const clearNullProperty = require('../utils/clearNullObjectProperty');
-const regexList = require('../utils/regexList');
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const Login = require("../models/login.model");
+const User = require("../models/users.model");
+const regexValidity = require("../middlewares/formValidity/regexValidity");
+const clearNullProperty = require("../utils/clearNullObjectProperty");
+const regexList = require("../utils/regexList");
 
 exports.connect = function userConnectToTheWebsite(request, response) {
   const { email, password } = request.body;
 
-  // Schéma d'erreur
+  // Error scheme
   const errorScheme = {
-    text: 'Your email or your password is wrong',
-    errorTarget: 'INPUT',
-    alertType: 'error',
-    inputs: ['email', 'password']
+    text: "Your email or your password is wrong",
+    errorTarget: "INPUT",
+    alertType: "error",
+    inputs: ["email", "password"]
   };
 
-  // Fonction créant une erreur avec status et infos variables
+  // Creating an error and status
   const sendResponse = function responseSchemeForSending(
     status,
-    { text = null, errorTarget = null, alertType, data = null, inputs = null }
+    {
+      text = null,
+      errorTarget = null,
+      alertType,
+      data = null,
+      inputs = null,
+      token
+    }
   ) {
     return response.status(status).send(
       clearNullProperty({
@@ -30,12 +38,13 @@ exports.connect = function userConnectToTheWebsite(request, response) {
         status,
         type: errorTarget,
         data,
-        inputs
+        inputs,
+        token
       })
     );
   };
 
-  // Verification que des entrées n'ont que des lettres
+  // Entries has only letters
   const { emailRegex } = regexList;
   const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
   if (emailCharactersErrorHandler) {
@@ -43,20 +52,27 @@ exports.connect = function userConnectToTheWebsite(request, response) {
   }
 
   return Login.connect(email, (err, data) => {
-    // Decryptage du mot de passe en base de données et verification d'une correspondance avec celui que l'utilisateur a rentrer
     if (err) {
       return sendResponse(400, errorScheme);
     } else {
       const samePassword = bcrypt.compareSync(password, data.password);
       if (!samePassword) return sendResponse(400, errorScheme);
 
-      // Génération du jsonWebToken
+      console.log("Token content:", data);
+
+      // JWT generation
       const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
+
+      // Store the token in DB
+      User.newToken(data.id, token, result => {
+        // console.log(result);
+      });
+
       return sendResponse(200, {
-        text: 'You are connected.',
+        text: "You are connected.",
         data,
-        token,
-        alertType: 'success'
+        token: token,
+        alertType: "success"
       });
     }
   });
