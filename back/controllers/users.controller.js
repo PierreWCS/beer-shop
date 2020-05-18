@@ -1,10 +1,10 @@
-const bcrypt = require('bcrypt');
-const User = require('../models/users.model.js');
-const verifyPassword = require('../middlewares/formValidity/verifyPassword');
-const noEmptyInputs = require('../middlewares/formValidity/noEmptyInputs');
-const verifyPhoneNumber = require('../middlewares/formValidity/verifyPhoneNumber');
-const regexValidity = require('../middlewares/formValidity/regexValidity');
-const regexList = require('../utils/regexList');
+const bcrypt = require("bcrypt");
+const User = require("../models/users.model.js");
+const verifyPassword = require("../middlewares/formValidity/verifyPassword");
+const noEmptyInputs = require("../middlewares/formValidity/noEmptyInputs");
+const verifyPhoneNumber = require("../middlewares/formValidity/verifyPhoneNumber");
+const regexValidity = require("../middlewares/formValidity/regexValidity");
+const regexList = require("../utils/regexList");
 
 // Creer un nouvel utilisateur
 exports.create = function createUser(request, response) {
@@ -15,7 +15,7 @@ exports.create = function createUser(request, response) {
     password,
     passwordVerification,
     phone,
-    role
+    role,
   } = request.body;
 
   // Creer un utilisateur
@@ -25,7 +25,7 @@ exports.create = function createUser(request, response) {
     email: email || null,
     password: password || null,
     phone: phone || null,
-    role: role || null
+    role: role || null,
   });
 
   // Verification qu'aucune entrée obligatoire n'est vide
@@ -67,12 +67,12 @@ exports.create = function createUser(request, response) {
   // Entrée de vérification du mot de passe
   if (passwordVerification !== password) {
     return response.status(400).send({
-      type: 'INPUT',
-      inputs: ['password_verification'],
+      type: "INPUT",
+      inputs: ["password_verification"],
       alert: {
-        type: 'error',
-        text: "Passwords doesn't match"
-      }
+        type: "error",
+        text: "Passwords doesn't match",
+      },
     });
   }
 
@@ -83,16 +83,17 @@ exports.create = function createUser(request, response) {
   return User.create(user, (error, data) => {
     if (error) {
       return response.status(500).send({
-        message: error.message || 'Some error occurred while creating the user.'
+        message:
+          error.message || "Some error occurred while creating the user.",
       });
     }
     // Envoi de la réponse en status 201 soit (Created)
     return response.status(201).send({
       alert: {
-        type: 'success',
-        text: 'You are now registered'
+        type: "success",
+        text: "You are now registered",
       },
-      data
+      data,
     });
   });
 };
@@ -102,7 +103,7 @@ exports.findAll = (request, response) => {
   User.findAll((error, data) => {
     if (error) {
       response.status(500).send({
-        message: error.message || 'Some error occurred while retrieving users.'
+        message: error.message || "Some error occurred while retrieving users.",
       });
     }
     // Envoi de la réponse
@@ -114,13 +115,13 @@ exports.findAll = (request, response) => {
 exports.findById = (request, response) => {
   User.findById(request.params.userId, (error, dbResult) => {
     if (error) {
-      if (error.kind === 'not_found') {
+      if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found user with id ${request.params.userId}.`
+          message: `Not found user with id ${request.params.userId}.`,
         });
       } else {
         response.status(500).send({
-          message: `Error retrieving user with id ${request.params.userId}`
+          message: `Error retrieving user with id ${request.params.userId}`,
         });
       }
     }
@@ -133,13 +134,13 @@ exports.findById = (request, response) => {
 exports.update = (request, response) => {
   User.update(request.params.userId, new User(request.body), (error, data) => {
     if (error) {
-      if (error.kind === 'not_found') {
+      if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found user with id ${request.params.userId}.`
+          message: `Not found user with id ${request.params.userId}.`,
         });
       } else {
         response.status(500).send({
-          message: `Error updating user with id ${request.params.userId}`
+          message: `Error updating user with id ${request.params.userId}`,
         });
       }
     }
@@ -149,10 +150,10 @@ exports.update = (request, response) => {
 };
 
 // Save token in DB
-exports.newToken = function(request, response) {
+exports.newToken = function (request, response) {
   if (!request.body) {
     response.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
   }
 
@@ -163,11 +164,11 @@ exports.newToken = function(request, response) {
     if (error) {
       if (error.kind === "not_found") {
         response.status(404).send({
-          message: "Token can not be empty"
+          message: "Token can not be empty",
         });
       } else {
         response.status(500).send({
-          message: "Error givin the token to the user " + userId
+          message: "Error givin the token to the user " + userId,
         });
       }
     } else {
@@ -176,17 +177,44 @@ exports.newToken = function(request, response) {
   });
 };
 
-// Supprime un utilisateur
-exports.delete = (request, response) => {
-  User.delete(request.params.userId, error => {
+exports.verifyToken = function (request, response) {
+  if (!request.body) {
+    response.status(400).send({
+      message: "Content can not be empty!",
+    });
+  }
+
+  const { userId } = request.params;
+  const { token } = request.body;
+
+  User.verifyToken(userId, (error, dbResult) => {
     if (error) {
-      if (error.kind === 'not_found') {
+      if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found user with id ${request.params.userId}.`
+          message: "Token can not be empty",
         });
       } else {
         response.status(500).send({
-          message: `Could not delete user with id ${request.params.userId}`
+          message: "Error finding the token to the user " + userId,
+        });
+      }
+    } else {
+      return dbResult.token === token;
+    }
+  });
+};
+
+// Supprime un utilisateur
+exports.delete = (request, response) => {
+  User.delete(request.params.userId, (error) => {
+    if (error) {
+      if (error.kind === "not_found") {
+        response.status(404).send({
+          message: `Not found user with id ${request.params.userId}.`,
+        });
+      } else {
+        response.status(500).send({
+          message: `Could not delete user with id ${request.params.userId}`,
         });
       }
     }

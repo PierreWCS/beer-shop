@@ -20,6 +20,9 @@ router.delete('/:userId', user.delete);
 // Login token
 router.patch('/token/:userId', user.newToken);
 
+// Get user token
+router.post('/token/:userId', user.verifyToken);
+
 // Connect an user
 router.post('/login', login.connect);
 

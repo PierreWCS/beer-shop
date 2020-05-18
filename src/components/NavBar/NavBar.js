@@ -9,9 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faShoppingCart,
   faSortDown,
-  faWindowClose
+  faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
 import MyAccount from "./MyAccount";
+import Api from "../services/Api";
 
 const NavBar = () => {
   const [displayCart, setDisplayCart] = useState(false);
@@ -31,7 +32,7 @@ const NavBar = () => {
     if (stockCart && stockCart.length > 0) {
       let countPrice = 0;
       let countArticles = 0;
-      stockCart.filter(product => {
+      stockCart.filter((product) => {
         countPrice = countPrice + product.price * product.quantity;
         countArticles = countArticles + product.quantity;
         return 0;
@@ -51,6 +52,10 @@ const NavBar = () => {
 
   // If the user is connected with a visitor account
   else if (user) {
+    console.log(user);
+
+    Api.post(`users/token/${user.id}`, user).then((result) => console.log(result.data.token));
+
     return (
       <div className="navBarContainer">
         <Link to="/" className="logoAndNameNavBar">

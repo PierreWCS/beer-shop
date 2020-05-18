@@ -58,8 +58,6 @@ exports.connect = function userConnectToTheWebsite(request, response) {
       const samePassword = bcrypt.compareSync(password, data.password);
       if (!samePassword) return sendResponse(400, errorScheme);
 
-      console.log("Token content:", data);
-
       // JWT generation
       const token = jwt.sign({ data }, `${process.env.SECRET_KEY}`);
 

@@ -20,7 +20,7 @@ User.create = (newUser, result) => {
   });
 };
 
-User.findAll = result => {
+User.findAll = (result) => {
   db.query("SELECT * FROM users", (error, dbResult) => {
     if (error) {
       return result(error, null);
@@ -40,7 +40,7 @@ User.findById = (userId, result) => {
       return result(null, dbResult[0]);
     }
 
-    // Utilisateur non trouvé
+    // User not found
     return result({ kind: "not_found" }, null);
   });
 };
@@ -52,7 +52,7 @@ User.update = (id, user, result) => {
     }
 
     if (response.affectedRows === 0) {
-      // Utilisateur non trouvé
+      // User not found
       return result({ kind: "not_found" }, null);
     }
 
@@ -62,7 +62,8 @@ User.update = (id, user, result) => {
 
 User.newToken = (id, token, result) => {
   db.query(
-    `UPDATE users SET token = ? where id=?`, [token, id],
+    `UPDATE users SET token = ? where id=?`,
+    [token, id],
     (error, response) => {
       if (error) {
         return result(error, null);
@@ -75,6 +76,19 @@ User.newToken = (id, token, result) => {
   );
 };
 
+User.verifyToken = (id, result) => {
+  db.query("SELECT token from users where id = ?", [id], (error, dbResult) => {
+    if (error) {
+      return result(error, null);
+    }
+    if (dbResult.length) {
+      return result(null, dbResult[0]);
+    }
+    // Token not found
+    return result({ kind: "not_found" }, null);
+  });
+};
+
 User.delete = (id, result) => {
   db.query("DELETE FROM users WHERE id = ?", id, (error, dbResult) => {
     if (error) {
@@ -82,7 +96,7 @@ User.delete = (id, result) => {
     }
 
     if (dbResult.affectedRows === 0) {
-      // Utilisateur non trouvé
+      // User not found
       return result({ kind: "not_found" }, null);
     }
 
