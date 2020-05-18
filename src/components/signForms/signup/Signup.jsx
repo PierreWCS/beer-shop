@@ -7,7 +7,6 @@ import signUp from "../signUpFetch";
 import useGlobalState from "../../../hooks/useGlobalState";
 import "./Signup.css";
 import "../Sign.css";
-import Api from "../../services/Api";
 
 function Signup() {
   const [infoMessage, setInfoMessage] = useState(null);

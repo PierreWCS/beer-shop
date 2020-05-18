@@ -3,6 +3,20 @@
     width: 100%;
 }
 
+.logOutContainerAdmin {
+    border: solid 1px indianred;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+.logOutContainerAdmin:hover {
+    transform: scale(1.05);
+}
+.logOutContainerAdmin .disconnectMessage {
+    margin: 15px 5px;
+}
+
 .logOutContainer {
     display: flex;
     align-items: center;
@@ -13,6 +27,10 @@
     margin: 0 15% 0 10%;
     cursor: pointer;
     color: indianred;
+}
+
+.disconnectIconAdmin {
+    color: #1C2431;
 }
 
 .disconnectMessage {

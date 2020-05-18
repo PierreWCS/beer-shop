@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import LogOut from "./LogOut";
 
-const NavBarAdmin = ({ user }) => {
+const NavBarAdmin = () => {
 
   return (
     <div className="navBarContainer">

@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import "./MyOrders.css";
 import useGlobalState from "../../../hooks/useGlobalState";
 import Api from "../../services/Api";
+import MyOrderDetails from "./MyOrderDetails";
 
 const MyOrders = () => {
   const { user } = useGlobalState();
   const [orders, setOrders] = useState(null);
+  const [orderDetails, setOrderDetails] = useState(false);
 
   useEffect(() => {
     getOrders();
@@ -16,7 +18,6 @@ const MyOrders = () => {
     Api.getByUserId(`orders/${user.id}/orders`).then(response => {
       setOrders(response.data);
       console.log(response.data);
-      console.log(user);
     });
   };
 
@@ -39,8 +40,13 @@ const MyOrders = () => {
                   <p className="myOrdersTabCell">{order.total_price} €</p>
                   <p className="myOrdersTabCell">{order.order_status}</p>
                   <div className="myOrdersTabCell">
-                    <button className="buttonOrderDetails">Details</button>
+                    <button onClick={() => setOrderDetails(true)} className="buttonOrderDetails">Details</button>
                   </div>
+                  {/* Order details, displayed if the user clicks on details*/}
+                  {
+                    orderDetails ?
+                        <MyOrderDetails setDetails={setOrderDetails} order={order} /> : null
+                  }
                 </div>
               );
             } else return <p>You have no orders</p>;

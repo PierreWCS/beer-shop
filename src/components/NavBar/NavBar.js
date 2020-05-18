@@ -12,7 +12,6 @@ import {
   faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
 import MyAccount from "./MyAccount";
-import Api from "../services/Api";
 
 const NavBar = () => {
   const [displayCart, setDisplayCart] = useState(false);
@@ -28,7 +27,6 @@ const NavBar = () => {
 
   const getClientCart = () => {
     let stockCart = cart;
-    console.log("Client cart:", stockCart);
     if (stockCart && stockCart.length > 0) {
       let countPrice = 0;
       let countArticles = 0;
@@ -52,10 +50,6 @@ const NavBar = () => {
 
   // If the user is connected with a visitor account
   else if (user) {
-    console.log(user);
-
-    Api.post(`users/token/${user.id}`, user).then((result) => console.log(result.data.token));
-
     return (
       <div className="navBarContainer">
         <Link to="/" className="logoAndNameNavBar">

@@ -1,10 +1,11 @@
 const Product = require("../models/products.model");
+const User = require("../controllers/users.controller");
 
 // Create a new product
 exports.create = (request, response) => {
   if (!request.body) {
     return response.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
   }
 
@@ -15,7 +16,7 @@ exports.create = (request, response) => {
     price: request.body.price || null,
     description: request.body.description || null,
     alcohol: request.body.alcohol || null,
-    quantity: request.body.quantity || null
+    quantity: request.body.quantity || null,
   });
 
   // Save product in database
@@ -23,7 +24,7 @@ exports.create = (request, response) => {
     if (error) {
       return response.status(500).send({
         message:
-          error.message || "Some error occured while creating the Product."
+          error.message || "Some error occured while creating the Product.",
       });
     } else {
       return response.send(data);
@@ -37,7 +38,7 @@ exports.findAll = (request, response) => {
     if (error) {
       response.status(500).send({
         message:
-          error.message || "Some error occurred while retrieving products."
+          error.message || "Some error occurred while retrieving products.",
       });
     } else {
       response.send(dbResult);
@@ -46,10 +47,10 @@ exports.findAll = (request, response) => {
 };
 
 // Update product
-exports.update = function(request, response) {
+exports.update = function (request, response) {
   if (!request.body) {
     response.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
   }
 
@@ -59,11 +60,11 @@ exports.update = function(request, response) {
     if (error) {
       if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found product with id ${productId}.`
+          message: `Not found product with id ${productId}.`,
         });
       } else {
         response.status(500).send({
-          message: "Error updating product with id " + productId
+          message: "Error updating product with id " + productId,
         });
       }
     } else {
@@ -75,15 +76,16 @@ exports.update = function(request, response) {
 // Delete Product
 exports.delete = (request, response) => {
   const productId = request.params.productId.replace(":", "");
+
   Product.delete(productId, (error, dbResult) => {
     if (error) {
       if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found product with id ${productId}.`
+          message: `Not found product with id ${productId}.`,
         });
       } else {
         response.status(500).send({
-          message: "Could not delete product with id " + productId
+          message: "Could not delete product with id " + productId,
         });
       }
     } else {

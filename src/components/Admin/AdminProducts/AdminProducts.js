@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import NewProduct from "./NewProduct";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faEdit, faWindowClose} from "@fortawesome/free-solid-svg-icons";
 import Axios from "axios";
 import EditProduct from "./EditProduct";
 import "./AdminProducts.css";
@@ -21,8 +21,7 @@ const AdminProducts = () => {
     Axios.get("http://localhost:8000/api/products")
       .then(result => result.data)
       .then(data => {
-        let stockProducts = data;
-        setProducts([...stockProducts]);
+        setProducts([...(data)]);
       });
   };
 

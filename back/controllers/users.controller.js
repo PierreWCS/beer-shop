@@ -6,7 +6,6 @@ const verifyPhoneNumber = require("../middlewares/formValidity/verifyPhoneNumber
 const regexValidity = require("../middlewares/formValidity/regexValidity");
 const regexList = require("../utils/regexList");
 
-// Creer un nouvel utilisateur
 exports.create = function createUser(request, response) {
   const {
     lastname,
@@ -18,7 +17,7 @@ exports.create = function createUser(request, response) {
     role,
   } = request.body;
 
-  // Creer un utilisateur
+  // Create user
   const user = new User({
     lastname: lastname || null,
     firstname: firstname || null,
@@ -28,13 +27,12 @@ exports.create = function createUser(request, response) {
     role: role || null,
   });
 
-  // Verification qu'aucune entrée obligatoire n'est vide
+  // no empty inputs verification
   const emptyInputsErrorHandler = noEmptyInputs(user);
   if (emptyInputsErrorHandler) {
     return response.status(400).send(emptyInputsErrorHandler);
   }
 
-  // Verification que des entrées n'ont que des lettres
   const { onlyLetters } = regexList;
   const invalidCharactersErrorHandler = regexValidity(
     { lastname, firstname },
@@ -45,26 +43,23 @@ exports.create = function createUser(request, response) {
     return response.status(400).send(invalidCharactersErrorHandler);
   }
 
-  // Verification que des entrées n'ont que des lettres
   const { emailRegex } = regexList;
   const emailCharactersErrorHandler = regexValidity({ email }, emailRegex);
   if (emailCharactersErrorHandler) {
     return response.status(400).send(emailCharactersErrorHandler);
   }
 
-  // Verification que le numéro de téléphone soit correctement écrit
   const phoneErrorHandler = verifyPhoneNumber(phone, 10);
   if (phoneErrorHandler) {
     return response.status(400).send(phoneErrorHandler);
   }
 
-  // Verification mot de passe
+  // password verification
   const passwordErrorHandler = verifyPassword(password, 8, 12);
   if (passwordErrorHandler) {
     return response.status(400).send(passwordErrorHandler);
   }
 
-  // Entrée de vérification du mot de passe
   if (passwordVerification !== password) {
     return response.status(400).send({
       type: "INPUT",
@@ -76,10 +71,8 @@ exports.create = function createUser(request, response) {
     });
   }
 
-  // Encryptage du mot de passe
   user.password = bcrypt.hashSync(user.password, 10);
 
-  // Enregistre un utilisateur
   return User.create(user, (error, data) => {
     if (error) {
       return response.status(500).send({
@@ -87,7 +80,6 @@ exports.create = function createUser(request, response) {
           error.message || "Some error occurred while creating the user.",
       });
     }
-    // Envoi de la réponse en status 201 soit (Created)
     return response.status(201).send({
       alert: {
         type: "success",
@@ -98,7 +90,7 @@ exports.create = function createUser(request, response) {
   });
 };
 
-// Récuperez tout les utilisateurs
+// Get all the users
 exports.findAll = (request, response) => {
   User.findAll((error, data) => {
     if (error) {
@@ -106,12 +98,11 @@ exports.findAll = (request, response) => {
         message: error.message || "Some error occurred while retrieving users.",
       });
     }
-    // Envoi de la réponse
     return response.status(200).send(data);
   });
 };
 
-// Récuperer un utilisateur par son ID
+// Get user by ID
 exports.findById = (request, response) => {
   User.findById(request.params.userId, (error, dbResult) => {
     if (error) {
@@ -130,7 +121,7 @@ exports.findById = (request, response) => {
   });
 };
 
-// Modifie un utilisateur
+// Modify an user
 exports.update = (request, response) => {
   User.update(request.params.userId, new User(request.body), (error, data) => {
     if (error) {
@@ -204,7 +195,7 @@ exports.verifyToken = function (request, response) {
   });
 };
 
-// Supprime un utilisateur
+// Delete an user
 exports.delete = (request, response) => {
   User.delete(request.params.userId, (error) => {
     if (error) {

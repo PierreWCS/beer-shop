@@ -18,13 +18,6 @@ const MyAccount = ({ user }) => {
           />
           <p className="linkAccountMenu">My orders</p>
         </Link>
-        <Link to="my-orders" className="linkContainerAccountMenu">
-          <FontAwesomeIcon
-            icon={faHistory}
-            className="iconHistoricalOrders fa-2x"
-          />
-          <p className="linkAccountMenu">My historical</p>
-        </Link>
         <div className="linkContainerAccountMenu">
           <LogOut />
         </div>

@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Api from "../services/Api";
-import useGlobalState from "../../hooks/useGlobalState";
 
 const LandingPage = () => {
   const [products, setProducts] = useState(null);
