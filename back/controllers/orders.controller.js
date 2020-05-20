@@ -16,6 +16,7 @@ exports.create = (request, response) => {
     order_status: orderData.order_status || null,
     total_price: orderData.total_price || null,
     user_id: orderData.user_id || null,
+    address_id: orderData.address_id || null,
   });
 
   // Save order in DB
@@ -66,7 +67,7 @@ exports.createAddress = (request, response) => {
   }
 
   // Create address
-  const address = request.body;
+  const address = request.body.order_address;
   const orderAddress = new OrderAddress({
     id: null,
     street_number: address.street_number,
@@ -76,13 +77,13 @@ exports.createAddress = (request, response) => {
     country: address.country,
   });
 
-  Order.createAddress(orderAddress, (error, dbResult) => {
+  Order.createAddress(orderAddress, (error, newAddress) => {
     if (error) {
       response.status(500).send({
         message: "Some error occurred while creating the address",
       });
-      return response.status(200).send(orderAddress);
     }
+    return response.status(200).send(newAddress);
   });
 };
 

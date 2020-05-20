@@ -7,6 +7,11 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.shippingTitleAddress {
+  font-size: 22px;
+  text-shadow: none;
+}
+
 .formContainerOrderInfo {
   display: flex;
   flex-direction: column;

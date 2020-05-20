@@ -16,7 +16,7 @@ const OrderInfo = ({ totalCart }) => {
   const { user, userCart } = useGlobalState();
 
   let initialForm = {
-    streetNumber: null,
+    street_number: null,
     street: null,
     city: null,
     zipcode: null,
@@ -26,14 +26,14 @@ const OrderInfo = ({ totalCart }) => {
   const confirmOrder = function async(event) {
     event.preventDefault();
     initialForm = {
-      streetNumber: orderNumberStreet,
-      street: orderStreet,
-      zipcode: orderZipcode,
-      city: orderCity,
-      country: orderCountry,
+      order_address: {
+        street_number: orderNumberStreet,
+        street: orderStreet,
+        zipcode: orderZipcode,
+        city: orderCity,
+        country: orderCountry,
+      },
     };
-    setFormData(initialForm);
-    console.log(initialForm);
     if (
       orderNumberStreet &&
       orderStreet &&
@@ -42,12 +42,15 @@ const OrderInfo = ({ totalCart }) => {
       orderCountry
     ) {
       console.log("Saving the order");
-      Api.post("orders/address", formData).then((res) => console.log(res));
-      // payment();
+      let addressId = null;
+      Api.post("orders/address", initialForm).then((res) => {
+        addressId = res.data.id;
+        payment(addressId);
+      });
     } else alert("You must fill all the inputs");
   };
 
-  const payment = async () => {
+  const payment = async (addressId) => {
     // First request, send the order infos
     // Get the current date
     let today = new Date();
@@ -62,6 +65,7 @@ const OrderInfo = ({ totalCart }) => {
         order_status: "waiting",
         total_price: totalCart,
         user_id: user.id,
+        address_id: addressId,
       },
     };
     let newOrderId = 0;
@@ -107,14 +111,14 @@ const OrderInfo = ({ totalCart }) => {
 
   return (
     <div className="orderInfoPage">
-      <h3>Shipping address</h3>
+      <p className="shippingTitleAddress">Shipping address</p>
       <hr className="separatorCart" />
       <form className="formContainerOrderInfo" onSubmit={confirmOrder}>
         {/*     Street number and street      */}
         <div>
           <input
             required
-            type="text"
+            type="number"
             className="inputOrderInfo"
             onChange={(event) => setOrderNumberStreet(event.target.value)}
             placeholder="14..."
@@ -132,7 +136,7 @@ const OrderInfo = ({ totalCart }) => {
         <div>
           <input
             required
-            type="text"
+            type="number"
             className="inputOrderInfo"
             onChange={(event) => setOrderZipcode(event.target.value)}
             placeholder="35540..."

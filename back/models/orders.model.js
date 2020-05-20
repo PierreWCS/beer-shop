@@ -6,6 +6,7 @@ const Order = function (order) {
   this.order_status = order.order_status;
   this.total_price = order.total_price;
   this.user_id = order.user_id;
+  this.address_id = order.address_id;
 };
 
 const OrderItem = function (orderItem) {
@@ -17,7 +18,7 @@ const OrderItem = function (orderItem) {
 
 const OrderAddress = function (orderAddress) {
   this.id = orderAddress.id;
-  this.streetNumber = orderAddress.streetNumber;
+  this.street_number = orderAddress.street_number;
   this.street = orderAddress.street;
   this.zipcode = orderAddress.zipcode;
   this.city = orderAddress.city;
@@ -51,7 +52,8 @@ Order.createAddress = (newAddress, result) => {
     if (error) {
       return result(error, null);
     }
-    return result(null, { ...newAddress }, dbResult);
+    newAddress.id = dbResult.insertId;
+    return result(null, { ...newAddress });
   });
 };
 
@@ -116,4 +118,4 @@ Order.delete = (orderId, result) => {
   });
 };
 
-module.exports = { Order, OrderItem };
+module.exports = { Order, OrderItem, OrderAddress };
