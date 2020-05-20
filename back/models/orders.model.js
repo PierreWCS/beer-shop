@@ -67,8 +67,8 @@ Order.findAll = (result) => {
 
 Order.findByUserId = (userId, result) => {
   db.query(
-    "SELECT * from orders where user_id=?",
-    userId,
+    "SELECT orders.id, orders.order_date, orders.order_status, orders.total_price, orders.user_id, orders.address_id, addresses.street_number, addresses.street, addresses.zipcode, addresses.city, addresses.country FROM orders INNER JOIN addresses on addresses.id=address_id WHERE user_id=?",
+    [userId],
     (error, dbResult) => {
       if (error) return result(error, null);
       return result(null, dbResult);
@@ -79,8 +79,8 @@ Order.findByUserId = (userId, result) => {
 // Get all the customer orders
 Order.detailsByOrderId = (orderId, result) => {
   db.query(
-    "SELECT products.name, products.price, order_items.quantity, orders.order_date, orders.user_id, orders.order_status FROM order_items INNER JOIN orders on orders.id=order_items.orders_id INNER JOIN products on products.id=order_items.product_id where orders.user_id=?",
-    orderId,
+    "SELECT products.name, products.price, order_items.quantity, orders.order_date, orders.user_id, orders.order_status FROM order_items INNER JOIN orders on orders.id=order_items.orders_id INNER JOIN products on products.id=order_items.product_id INNER JOIN addresses on addresses.id=address_id where orders.id=?",
+    [orderId],
     (error, dbResult) => {
       if (error) return result(error, null);
       return result(null, dbResult);

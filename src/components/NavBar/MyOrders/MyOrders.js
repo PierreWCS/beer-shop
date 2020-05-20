@@ -8,6 +8,7 @@ const MyOrders = () => {
   const { user } = useGlobalState();
   const [orders, setOrders] = useState(null);
   const [orderDetails, setOrderDetails] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(false);
 
   useEffect(() => {
     getOrders();
@@ -15,7 +16,7 @@ const MyOrders = () => {
   }, []);
 
   const getOrders = () => {
-    Api.getByUserId(`orders/${user.id}/orders`).then(response => {
+    Api.getByUserId(`orders/${user.id}/orders`).then((response) => {
       setOrders(response.data);
       console.log(response.data);
     });
@@ -33,24 +34,37 @@ const MyOrders = () => {
         </div>
         {orders
           ? orders.map((order, key) => {
-            if(order.order_status === "waiting" || order.order_status === "treatment") {
-              return (
-                <div className="orderInfosMyOrders" key={key}>
-                  <p className="myOrdersTabCell">{order.order_date}</p>
-                  <p className="myOrdersTabCell">{order.total_price} €</p>
-                  <p className="myOrdersTabCell">{order.order_status}</p>
-                  <div className="myOrdersTabCell">
-                    <button onClick={() => setOrderDetails(true)} className="buttonOrderDetails">Details</button>
+              if (
+                order.order_status === "waiting" ||
+                order.order_status === "treatment"
+              ) {
+                return (
+                  <div className="orderInfosMyOrders" key={key}>
+                    <p className="myOrdersTabCell">{order.order_date}</p>
+                    <p className="myOrdersTabCell">{order.total_price} €</p>
+                    <p className="myOrdersTabCell">{order.order_status}</p>
+                    <div className="myOrdersTabCell">
+                      <button
+                        onClick={() => {
+                          setSelectedOrder(orders[key]);
+                          setOrderDetails(true);
+                        }}
+                        className="buttonOrderDetails"
+                      >
+                        More details
+                      </button>
+                    </div>
+                    {/* Order details, displayed if the user clicks on details*/}
+                    {orderDetails ? (
+                      <MyOrderDetails
+                        setDetails={setOrderDetails}
+                        order={selectedOrder}
+                      />
+                    ) : null}
                   </div>
-                  {/* Order details, displayed if the user clicks on details*/}
-                  {
-                    orderDetails ?
-                        <MyOrderDetails setDetails={setOrderDetails} order={order} /> : null
-                  }
-                </div>
-              );
-            } else return <p>You have no orders</p>;
-          })
+                );
+              } else return <p>You have no orders</p>;
+            })
           : null}
       </div>
     </div>

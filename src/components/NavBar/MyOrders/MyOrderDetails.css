@@ -9,6 +9,25 @@
     align-items: center;
 }
 
+.orderDetailsContainerMyOrder {
+    background-color: whitesmoke;
+    padding: 15px 55px;
+    margin: 15px;
+}
+
+.orderDetailsAddress {
+    margin: 5px;
+}
+
+.orderDateMyOrder {
+    margin: 25px 15px 45px 15px;
+}
+
+.orderDetailsMyOrderTitle {
+    font-weight: bold;
+    font-size: 18px;
+}
+
 .arrayContainerMyOrderDetails {
     width: 80%;
     background-color: #D4CFD3;
@@ -42,5 +61,19 @@
 }
 
 .myOrderButton {
-
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    border: none;
+    background-color: #cab381;
+    padding: 10px 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    border-radius: 5px;
+}
+.myOrderButton:hover {
+    transform: scale(1.05);
 }

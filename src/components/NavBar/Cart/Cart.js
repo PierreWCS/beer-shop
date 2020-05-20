@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
 import useGlobalState from "../../../hooks/useGlobalState";
-import Axios from "axios";
 import OrderInfo from "./OrderInfo";
 
 const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
@@ -136,7 +135,9 @@ const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
       ) : (
         <p>Your cart is empty</p>
       )}
-      {togglePayment ? <OrderInfo totalCart={totalCart} /> : null}
+      {togglePayment ? (
+        <OrderInfo setTogglePayment={setTogglePayment} totalCart={totalCart} />
+      ) : null}
     </div>
   );
 };

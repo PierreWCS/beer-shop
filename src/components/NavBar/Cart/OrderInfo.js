@@ -6,8 +6,7 @@ import Axios from "axios";
 import useGlobalState from "../../../hooks/useGlobalState";
 import Api from "../../services/Api";
 
-const OrderInfo = ({ totalCart }) => {
-  const [formData, setFormData] = useState(null);
+const OrderInfo = ({ totalCart, setTogglePayment }) => {
   const [orderNumberStreet, setOrderNumberStreet] = useState(null);
   const [orderStreet, setOrderStreet] = useState(null);
   const [orderZipcode, setOrderZipcode] = useState(null);
@@ -41,10 +40,8 @@ const OrderInfo = ({ totalCart }) => {
       orderCity &&
       orderCountry
     ) {
-      console.log("Saving the order");
-      let addressId = null;
       Api.post("orders/address", initialForm).then((res) => {
-        addressId = res.data.id;
+        let addressId = res.data.id;
         payment(addressId);
       });
     } else alert("You must fill all the inputs");
@@ -100,6 +97,7 @@ const OrderInfo = ({ totalCart }) => {
           });
         }
         alert("Your order has been sent");
+        setTogglePayment(false);
         userCart(null);
       } catch (e) {
         console.log(e);
