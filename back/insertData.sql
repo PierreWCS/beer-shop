@@ -17,6 +17,11 @@ ALTER TABLE order_items
     foreign key order_product(product_id) references products(id)
     ON DELETE CASCADE;
 
+ALTER TABLE orders
+    ADD CONSTRAINT FK_order_address
+    foreign key orders(address_id) references addresses(id)
+    ON DELETE CASCADE;
+
 insert into categories (name) values ('Pale lager');
 
 insert into categories (name) values ('Weissbier');

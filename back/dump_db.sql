@@ -20,7 +20,8 @@ CREATE TABLE orders (
     order_date VARCHAR(100),
     order_status VARCHAR(10),
     total_price FLOAT,
-    user_id INT NOT NULL
+    user_id INT NOT NULL,
+    address_id INT NOT NULL
 );
 
 CREATE TABLE order_items (
@@ -28,6 +29,15 @@ CREATE TABLE order_items (
     orders_id INT NOT NULL,
     product_id INT,
     quantity INT
+);
+
+CREATE TABLE addresses (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    street_number INT NOT NULL,
+    street VARCHAR(100) NOT NULL,
+    zipcode INT NOT NULL,
+    city VARCHAR(100) NOT NULL,
+    country VARCHAR(70) NOT NULL
 );
 
 CREATE TABLE categories (
