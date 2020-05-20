@@ -1,6 +1,6 @@
 const db = require("./database");
 
-const Order = function(order) {
+const Order = function (order) {
   this.id = order.id;
   this.order_date = order.order_date;
   this.order_status = order.order_status;
@@ -8,11 +8,20 @@ const Order = function(order) {
   this.user_id = order.user_id;
 };
 
-const OrderItem = function(orderItem) {
+const OrderItem = function (orderItem) {
   this.id = orderItem.id;
   this.orders_id = orderItem.orders_id;
   this.product_id = orderItem.product_id;
   this.quantity = orderItem.product_quantity;
+};
+
+const OrderAddress = function (orderAddress) {
+  this.id = orderAddress.id;
+  this.streetNumber = orderAddress.streetNumber;
+  this.street = orderAddress.street;
+  this.zipcode = orderAddress.zipcode;
+  this.city = orderAddress.city;
+  this.country = orderAddress.country;
 };
 
 // Create orders
@@ -36,8 +45,18 @@ Order.createItem = (newOrderItem, result) => {
   });
 };
 
+// Create addresse
+Order.createAddress = (newAddress, result) => {
+  db.query("INSERT INTO addresses SET ?", newAddress, (error, dbResult) => {
+    if (error) {
+      return result(error, null);
+    }
+    return result(null, { ...newAddress }, dbResult);
+  });
+};
+
 // Get all the orders (admin use)
-Order.findAll = result => {
+Order.findAll = (result) => {
   db.query("SELECT * FROM orders", (error, dbResult) => {
     if (error) return result(error, null);
     return result(null, dbResult);
@@ -47,11 +66,12 @@ Order.findAll = result => {
 Order.findByUserId = (userId, result) => {
   db.query(
     "SELECT * from orders where user_id=?",
-    userId, (error, dbResult) => {
+    userId,
+    (error, dbResult) => {
       if (error) return result(error, null);
       return result(null, dbResult);
     }
-  )
+  );
 };
 
 // Get all the customer orders

@@ -1,10 +1,10 @@
-const { Order, OrderItem } = require("../models/orders.model");
+const { Order, OrderItem, OrderAddress } = require("../models/orders.model");
 
 // Create a new order
 exports.create = (request, response) => {
   if (!request.body) {
     return response.status(400).send({
-      message: "Content can not be empty"
+      message: "Content can not be empty",
     });
   }
 
@@ -15,14 +15,14 @@ exports.create = (request, response) => {
     order_date: orderData.order_date || null,
     order_status: orderData.order_status || null,
     total_price: orderData.total_price || null,
-    user_id: orderData.user_id || null
+    user_id: orderData.user_id || null,
   });
 
   // Save order in DB
   Order.create(order, (error, data) => {
     if (error) {
       return response.status(500).send({
-        message: "An error occurred while creating the order."
+        message: "An error occurred while creating the order.",
       });
     }
     return response.status(200).send(data);
@@ -33,7 +33,7 @@ exports.create = (request, response) => {
 exports.createItemOrder = (request, response) => {
   if (!request.body) {
     return response.status(400).send({
-      message: "Content can not be empty"
+      message: "Content can not be empty",
     });
   }
 
@@ -44,17 +44,45 @@ exports.createItemOrder = (request, response) => {
     id: product.id || null,
     orders_id: product.orders_id,
     product_id: product.product_id,
-    product_quantity: product.product_quantity
+    product_quantity: product.product_quantity,
   });
 
   //  Save order item in DB
   Order.createItem(orderItem, (error, data) => {
     if (error) {
       return response.status(500).send({
-        message: "An error has occurred while creating the order item"
+        message: "An error has occurred while creating the order item",
       });
     }
     return response.status(200).send(data);
+  });
+};
+
+exports.createAddress = (request, response) => {
+  if (!request.body) {
+    return response.status(400).send({
+      message: "Content can not be empty",
+    });
+  }
+
+  // Create address
+  const address = request.body;
+  const orderAddress = new OrderAddress({
+    id: null,
+    street_number: address.street_number,
+    street: address.street,
+    zipcode: address.zipcode,
+    city: address.city,
+    country: address.country,
+  });
+
+  Order.createAddress(orderAddress, (error, dbResult) => {
+    if (error) {
+      response.status(500).send({
+        message: "Some error occurred while creating the address",
+      });
+      return response.status(200).send(orderAddress);
+    }
   });
 };
 
@@ -63,7 +91,8 @@ exports.findAll = (request, response) => {
   Order.findAll((error, dbResult) => {
     if (error) {
       response.status(500).send({
-        message: error.message || "Some error occurred while retrieving orders."
+        message:
+          error.message || "Some error occurred while retrieving orders.",
       });
     } else {
       response.send(dbResult);
@@ -73,16 +102,16 @@ exports.findAll = (request, response) => {
 
 // Find orders by customer ID
 exports.findByUserId = (request, response) => {
-  const {userId} = request.params;
+  const { userId } = request.params;
   Order.findByUserId(userId, (error, dbResult) => {
     if (error) {
       response.status(500).send({
-        message: "An error occurred while retrieving orders."
+        message: "An error occurred while retrieving orders.",
       });
     } else {
       response.send(dbResult);
     }
-  })
+  });
 };
 
 // Get the order details (admin use)
@@ -92,7 +121,7 @@ exports.detailsByOrderId = (request, response) => {
   Order.detailsByOrderId(orderId, (error, dbResult) => {
     if (error) {
       response.status(500).send({
-        message: "Some error occurred while retrieving order details."
+        message: "Some error occurred while retrieving order details.",
       });
     } else {
       response.send(dbResult);
@@ -101,10 +130,10 @@ exports.detailsByOrderId = (request, response) => {
 };
 
 // Update order status
-exports.updateStatus = function(request, response) {
+exports.updateStatus = function (request, response) {
   if (!request.body) {
     response.status(400).send({
-      message: "Content can not be empty!"
+      message: "Content can not be empty!",
     });
   }
 
@@ -114,11 +143,11 @@ exports.updateStatus = function(request, response) {
     if (error) {
       if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found order with id ${orderId}.`
+          message: `Not found order with id ${orderId}.`,
         });
       } else {
         response.status(500).send({
-          message: "Error updating order with id " + orderId
+          message: "Error updating order with id " + orderId,
         });
       }
     } else {
@@ -134,11 +163,11 @@ exports.delete = (request, response) => {
     if (error) {
       if (error.kind === "not_found") {
         response.status(404).send({
-          message: `Not found order with id ${orderId}.`
+          message: `Not found order with id ${orderId}.`,
         });
       } else {
         response.status(500).send({
-          message: "Could not delete order with id " + orderId
+          message: "Could not delete order with id " + orderId,
         });
       }
     } else {
