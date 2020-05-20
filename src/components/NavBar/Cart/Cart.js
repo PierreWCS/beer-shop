@@ -1,19 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
 import useGlobalState from "../../../hooks/useGlobalState";
 import Axios from "axios";
+import OrderInfo from "./OrderInfo";
 
-const Cart = ({
-  totalCart,
-  setTotalCart,
-  totalArticles,
-  setTotalArticles
-}) => {
-  const { user } = useGlobalState();
-  const { userCart, cart } = useGlobalState();
-  const minusQuantity = product => {
+const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
+  const { user, userCart, cart } = useGlobalState();
+  const [togglePayment, setTogglePayment] = useState(false);
+
+  const minusQuantity = (product) => {
     let stockCart = cart;
     stockCart.map((element, index) => {
       if (element.id === product.id) {
@@ -28,9 +25,9 @@ const Cart = ({
     });
   };
 
-  const plusQuantity = product => {
+  const plusQuantity = (product) => {
     let stockCart = cart;
-    stockCart.map(element => {
+    stockCart.map((element) => {
       if (element.id === product.id) {
         element.quantity += 1;
       }
@@ -41,16 +38,16 @@ const Cart = ({
     });
   };
 
-  const deleteProduct = product => {
-    let removedProduct = cart.filter(e => e.id !== product.id);
+  const deleteProduct = (product) => {
+    let removedProduct = cart.filter((e) => e.id !== product.id);
     userCart(removedProduct);
     let countPrice = 0;
-    removedProduct.filter(product => {
+    removedProduct.filter((product) => {
       return (countPrice = countPrice + product.price * product.quantity);
     });
     setTotalCart(countPrice.toFixed(2));
     let countArticles = 0;
-    removedProduct.filter(product => {
+    removedProduct.filter((product) => {
       return (countArticles = countArticles + product.quantity);
     });
     setTotalArticles(countArticles);
@@ -58,7 +55,7 @@ const Cart = ({
 
   const getTotalPrice = () => {
     let count = 0;
-    cart.filter(product => {
+    cart.filter((product) => {
       return (count = count + product.price * product.quantity);
     });
     setTotalCart(count.toFixed(2));
@@ -66,71 +63,10 @@ const Cart = ({
 
   const getTotalArticle = () => {
     let count = 0;
-    cart.filter(product => {
+    cart.filter((product) => {
       return (count = count + product.quantity);
     });
     setTotalArticles(count);
-  };
-
-  const payment = async () => {
-    if (user) {
-      // First request, send the order infos
-      // Get the current date
-      let today = new Date();
-      const dd = String(today.getDate()).padStart(2, "0");
-      const mm = String(today.getMonth() + 1).padStart(2, "0");
-      const yyyy = today.getFullYear();
-      today = mm + "/" + dd + "/" + yyyy;
-
-      const data = {
-        orderData: {
-          order_date: today,
-          order_status: "waiting",
-          total_price: totalCart,
-          user_id: user.id
-        }
-      };
-      let newOrderId = 0;
-      try {
-        await Axios({
-          url: "http://localhost:8000/api/orders/order",
-          method: "post",
-          data: data
-        }).then(res => {
-          console.log(res);
-          newOrderId = res.data.id;
-        });
-      } catch (e) {
-        console.log(e);
-      }
-      try {
-        //  Second request, send the customer cart content
-        const customerCart = JSON.parse(localStorage.getItem("clientCart"));
-        let products = [];
-        for (let i = 0; i < customerCart.length; i++) {
-          products.push({
-            orders_id: newOrderId,
-            product_id: customerCart[i].id,
-            product_quantity: customerCart[i].quantity
-          });
-        }
-        try {
-          for (let i = 0; i < products.length; i++) {
-            await Axios({
-              url: "http://localhost:8000/api/orders/item",
-              data: products[i],
-              method: "post"
-            });
-          }
-          alert("Your order has been sent");
-          userCart(null);
-        } catch (e) {
-          console.log(e);
-        }
-      } catch (e) {
-        console.log(e);
-      }
-    } else alert("You must be connected to proceed to make the purchase");
   };
 
   return (
@@ -185,13 +121,22 @@ const Cart = ({
             Total of articles:{" "}
             <span className="totalCounterNumberCart">{totalArticles}</span>
           </p>
-          <button onClick={payment} className="aboutUsButton navBarButtonCart">
+          <button
+            onClick={() => {
+              if (user) {
+                setTogglePayment(true);
+              } else alert("You must be connected to make the purchase");
+              // setDisplayCart(false);
+            }}
+            className="aboutUsButton navBarButtonCart"
+          >
             Payment
           </button>
         </div>
       ) : (
         <p>Your cart is empty</p>
       )}
+      {togglePayment ? <OrderInfo totalCart={totalCart} /> : null}
     </div>
   );
 };

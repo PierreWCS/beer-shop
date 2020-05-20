@@ -101,6 +101,7 @@ const NavBar = () => {
                 setTotalCart={setTotalCart}
                 totalArticles={totalArticles}
                 setTotalArticles={setTotalArticles}
+                setDisplayCart={setDisplayCart}
               />
             </div>
           ) : (

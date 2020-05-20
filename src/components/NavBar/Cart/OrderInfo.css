@@ -1,0 +1,43 @@
+.orderInfoPage {
+  position: absolute;
+  top: 15%;
+  background-color: #9e9e9e;
+  height: 85%;
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+}
+
+.formContainerOrderInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.inputOrderInfo {
+  margin: 15px;
+  font-family: "Montserrat", sans-serif;
+  height: 45px;
+}
+
+.validateAddressOrderInfo {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 25px;
+  width: 30%;
+  height: 45px;
+  background-color: #cab381;
+  border: none;
+  color: aliceblue;
+  font-weight: bold;
+  font-size: 18px;
+  font-family: "Montserrat", sans-serif;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px darkgrey;
+  cursor: pointer;
+}
+.validateAddressOrderInfo:hover {
+  transform: scale(1.05);
+}

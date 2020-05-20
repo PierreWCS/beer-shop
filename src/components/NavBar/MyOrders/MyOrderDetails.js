@@ -4,8 +4,10 @@ import Api from "../../services/Api";
 
 const MyOrderDetails = ({ order, setDetails }) => {
   const [orderDetails, setOrderDetails] = useState(null);
+
   useEffect(() => {
     getOrderDetails();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getOrderDetails = () => {
@@ -17,7 +19,10 @@ const MyOrderDetails = ({ order, setDetails }) => {
   return (
     <div className="myOrderDetailsContainer">
       {/*           Close details            */}
-      <button onClick={() => setDetails(false)} className="closeOrderDetailsButton myOrderButton">
+      <button
+        onClick={() => setDetails(false)}
+        className="closeOrderDetailsButton myOrderButton"
+      >
         Back to orders
       </button>
       <h4>Order passed the {order.order_date}</h4>
@@ -53,10 +58,10 @@ const MyOrderDetails = ({ order, setDetails }) => {
                 );
               })
             : null}
-            <div className="totalPriceOrderDetailsContainer">
-              <div className="emptyContentTotalPrice" />
-              <p className="totalPriceOrderDetails">{order.total_price} €</p>
-            </div>
+          <div className="totalPriceOrderDetailsContainer">
+            <div className="emptyContentTotalPrice" />
+            <p className="totalPriceOrderDetails">{order.total_price} €</p>
+          </div>
         </div>
       </div>
     </div>
