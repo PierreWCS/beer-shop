@@ -14,35 +14,65 @@ const OrderDetails = ({ order, setOrderDetails }) => {
   const getOrderDetails = () => {
     axios({
       method: "get",
-      url: `http://localhost:8000/api/orders/${order.user_id}`
+      url: `http://localhost:8000/api/orders/${order.id}`,
     })
-      .then(res => {
+      .then((res) => {
         setCurrentOrderDetails(res.data);
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   const updateStatus = () => {
-    let stockOrder = order;
-    stockOrder.order_status = newStatus;
-    Api.update(`orders/${order.id}`, stockOrder)
-      .then(() => {
-        alert("Order has been updated");
-        setOrderDetails(false);
-      })
-      .catch(error => console.log(error))
+    if (!newStatus) {
+      alert("You must select an option");
+    } else if (
+      window.confirm(
+        `Do you really want to change the order's status to: ${newStatus} ?`
+      )
+    ) {
+      order.order_status = newStatus;
+      Api.update(`orders/${order.id}`, order)
+        .then((res) => {
+          console.log(res);
+          alert("Order has been updated");
+          setOrderDetails(false);
+        })
+        .catch((error) => console.log(error));
+    }
   };
 
   return (
     <div className="orderDetailsContainer">
-      <button className="closeOrderDetailsButton" onClick={() => setOrderDetails(false)}>Close</button>
+      <button
+        className="closeOrderDetailsButton"
+        onClick={() => setOrderDetails(false)}
+      >
+        Close
+      </button>
       {currentOrderDetails ? (
         <div className="orderDetailsSecondContainer">
           {/*       Customer infos      */}
-          <div>
-            <p>Lastname: {currentOrderDetails[0].name}</p>
-            <p>Firstname: {currentOrderDetails[0].name}</p>
-            <p>Date: {order.order_date}</p>
+          <div className="customerDetailsContainer">
+            {/* Customer details  */}
+            <div className="nameAndEmailCustomerOrder">
+              <h4>Customer:</h4>
+              <p>
+                {order.lastname} {order.firstname}
+              </p>
+              <p>{order.email}</p>
+            </div>
+
+            {/* Address */}
+            <div className="addressOrderDetailsAdmin">
+              <h4>Address:</h4>
+              <p>
+                {order.street_number} {order.street}
+              </p>
+              <p>
+                {order.zipcode} {order.city}
+              </p>
+              <p>{order.country}</p>
+            </div>
           </div>
 
           {/*       Order details tab     */}
@@ -61,17 +91,24 @@ const OrderDetails = ({ order, setOrderDetails }) => {
                   <p className="orderDetailsContentCell">{product.name}</p>
                   <p className="orderDetailsContentCell">{product.quantity}</p>
                   <p className="orderDetailsContentCell">{product.price} €</p>
-                  <p className="orderDetailsContentCell">{(product.price * product.quantity).toFixed(2)} €</p>
+                  <p className="orderDetailsContentCell">
+                    {(product.price * product.quantity).toFixed(2)} €
+                  </p>
                 </div>
               );
             })}
             <div className="totalPriceOrderDetailsContainer">
               <div className="emptyContentTotalPrice" />
-              <p className="totalPriceOrderDetails">Total order: {order.total_price}</p>
+              <p className="totalPriceOrderDetails">
+                Total order: {order.total_price}
+              </p>
             </div>
           </div>
           <div className="modifyStatusContainerOrderDetails">
-            <p>Order status: {order.order_status}</p>
+            <div className="dateAndStatusOrderDetails">
+              <p>Order date: {order.order_date}</p>
+              <p>Order status: {order.order_status}</p>
+            </div>
             <div className="statusModifyOrderDetails">
               <h4>Modify the status:</h4>
               <select onChange={(event) => setNewStatus(event.target.value)}>
@@ -80,7 +117,7 @@ const OrderDetails = ({ order, setOrderDetails }) => {
                 <option value="treatment">Treatment</option>
                 <option value="completed">Completed</option>
               </select>
-              <button onClick={() => updateStatus()}>Confirm</button>
+              <button onClick={updateStatus}>Confirm</button>
             </div>
           </div>
         </div>

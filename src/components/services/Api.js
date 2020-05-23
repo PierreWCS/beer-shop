@@ -31,7 +31,7 @@ export default {
       .catch((error) => error);
   },
 
-  update(url, token, data) {
+  update(url, data) {
     return axios({
       method: "patch",
       url: apiUrl + url,

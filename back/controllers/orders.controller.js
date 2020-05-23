@@ -139,8 +139,9 @@ exports.updateStatus = function (request, response) {
   }
 
   const { orderId } = request.params;
+  const { order_status } = request.body;
 
-  Order.updateStatus(orderId, request.body, (error, data) => {
+  Order.updateStatus(orderId, order_status, (error, data) => {
     if (error) {
       if (error.kind === "not_found") {
         response.status(404).send({

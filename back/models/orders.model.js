@@ -59,10 +59,13 @@ Order.createAddress = (newAddress, result) => {
 
 // Get all the orders (admin use)
 Order.findAll = (result) => {
-  db.query("SELECT * FROM orders", (error, dbResult) => {
-    if (error) return result(error, null);
-    return result(null, dbResult);
-  });
+  db.query(
+    "SELECT orders.id, orders.order_date, orders.order_status, orders.total_price, orders.user_id, addresses.street_number, addresses.street, addresses.zipcode, addresses.city, addresses.country, users.lastname, users.firstname, users.email FROM orders INNER JOIN addresses on addresses.id=address_id INNER JOIN users on users.id=user_id",
+    (error, dbResult) => {
+      if (error) return result(error, null);
+      return result(null, dbResult);
+    }
+  );
 };
 
 Order.findByUserId = (userId, result) => {
@@ -88,10 +91,10 @@ Order.detailsByOrderId = (orderId, result) => {
   );
 };
 
-Order.updateStatus = (id, order, result) => {
+Order.updateStatus = (id, status, result) => {
   db.query(
-    "UPDATE orders SET ? WHERE id = ?",
-    [order, id],
+    "UPDATE orders SET order_status = ? WHERE id = ?",
+    [status, id],
     (error, response) => {
       if (error) {
         return result(error, null);
@@ -100,7 +103,7 @@ Order.updateStatus = (id, order, result) => {
         //  Not found product with the id
         return result({ kind: "not_found" }, null);
       }
-      return result(null, { id: Number(id), ...order });
+      return result(null, { id: Number(id), ...status });
     }
   );
 };

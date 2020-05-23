@@ -1,8 +1,11 @@
 import React from "react";
 import "./ManageMedia.css";
 
-const ManageMedia = ({ deleteImage, imageFullSize, setDisplayImageManagement }) => {
-  console.log(imageFullSize);
+const ManageMedia = ({
+  deleteImage,
+  imageFullSize,
+  setDisplayImageManagement,
+}) => {
   return (
     <div className="imageFullSizeContainer">
       <div className="imageContainerMediaManagement">
@@ -15,7 +18,12 @@ const ManageMedia = ({ deleteImage, imageFullSize, setDisplayImageManagement }) 
 
       <div className="manageImageOptionsContainer">
         <p>{imageFullSize.image}</p>
-        <button onClick={() => deleteImage(imageFullSize.image, imageFullSize.index)} className="deleteImageMediaFullSize">Delete this image</button>
+        <button
+          onClick={() => deleteImage(imageFullSize.image, imageFullSize.index)}
+          className="deleteImageMediaFullSize"
+        >
+          Delete this image
+        </button>
       </div>
       <button
         className="closeWindowManageMedia"

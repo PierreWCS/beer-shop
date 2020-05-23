@@ -30,7 +30,7 @@ const useGlobalState = () => {
       });
       cart.total_price = countPrice.toFixed(2);
 
-      //  Total articles number
+      //  Total number of articles
       let countArticles = 0;
       cart.filter((product) => {
         return (countArticles = countArticles + product.quantity);

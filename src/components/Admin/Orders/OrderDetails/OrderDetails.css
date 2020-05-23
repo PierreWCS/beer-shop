@@ -8,23 +8,15 @@
     display: flex;
 }
 
-.orderDetailsSecondContainer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 45px;
-    box-sizing: border-box;
-}
-
 .closeOrderDetailsButton {
     font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
     position: absolute;
-    top: 5%;
-    right: 5%;
-    border: solid 2px #282c34;
-    background-color: transparent;
-    color: #282c34;
+    top: 2%;
+    right: 1%;
+    border: none;
+    background-color: crimson;
+    color: whitesmoke;
     padding: 10px 20px;
     cursor: pointer;
 }
@@ -32,8 +24,38 @@
     transform: scale(1.1);
 }
 
+.orderDetailsSecondContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+.customerDetailsContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.nameAndEmailCustomerOrder {
+    text-align: start;
+    width: 40%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.addressOrderDetailsAdmin {
+    width: 50%;
+    text-align: end;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
 .orderDetailsTab {
-    width: 80%;
+    width: 90%;
 }
 
 .orderDetailsHead {
@@ -91,9 +113,18 @@
     align-items: center;
 }
 
+.dateAndStatusOrderDetails {
+    display: flex;
+    background-color: #d4cfd3;
+    width: 90%;
+    justify-content: space-around;
+    border-bottom: solid 2px #cab381;
+}
+
 .statusModifyOrderDetails {
     display: flex;
-    width: 50%;
+    width: 90%;
+    background-color: #d4cfd3;
     justify-content: space-around;
     align-items: center;
 }

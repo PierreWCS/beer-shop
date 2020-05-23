@@ -35,6 +35,8 @@
     justify-content: space-around;
     align-items: center;
     background-color: #dddddd;
+    border-bottom: solid 1px #1C2431;
+    box-sizing: border-box;
 }
 
 .ordersTabCell {
