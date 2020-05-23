@@ -5,20 +5,18 @@ import "./Cart.css";
 import useGlobalState from "../../../hooks/useGlobalState";
 import OrderInfo from "./OrderInfo";
 
-const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
+const Cart = () => {
   const { user, userCart, cart } = useGlobalState();
   const [togglePayment, setTogglePayment] = useState(false);
 
   const minusQuantity = (product) => {
     let stockCart = cart;
-    stockCart.map((element, index) => {
+    stockCart.map((element) => {
       if (element.id === product.id) {
         if (element.quantity > 1) {
           element.quantity -= 1;
         }
       }
-      getTotalPrice();
-      getTotalArticle();
       userCart(stockCart);
       return 0;
     });
@@ -30,8 +28,6 @@ const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
       if (element.id === product.id) {
         element.quantity += 1;
       }
-      getTotalPrice();
-      getTotalArticle();
       userCart(stockCart);
       return 0;
     });
@@ -40,32 +36,6 @@ const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
   const deleteProduct = (product) => {
     let removedProduct = cart.filter((e) => e.id !== product.id);
     userCart(removedProduct);
-    let countPrice = 0;
-    removedProduct.filter((product) => {
-      return (countPrice = countPrice + product.price * product.quantity);
-    });
-    setTotalCart(countPrice.toFixed(2));
-    let countArticles = 0;
-    removedProduct.filter((product) => {
-      return (countArticles = countArticles + product.quantity);
-    });
-    setTotalArticles(countArticles);
-  };
-
-  const getTotalPrice = () => {
-    let count = 0;
-    cart.filter((product) => {
-      return (count = count + product.price * product.quantity);
-    });
-    setTotalCart(count.toFixed(2));
-  };
-
-  const getTotalArticle = () => {
-    let count = 0;
-    cart.filter((product) => {
-      return (count = count + product.quantity);
-    });
-    setTotalArticles(count);
   };
 
   return (
@@ -114,11 +84,13 @@ const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
         <div>
           <p className="totalCartCounter">
             Total price:{" "}
-            <span className="totalCounterNumberCart">{totalCart}</span> €
+            <span className="totalCounterNumberCart">{cart.total_price}</span> €
           </p>
           <p className="totalCartCounter">
             Total of articles:{" "}
-            <span className="totalCounterNumberCart">{totalArticles}</span>
+            <span className="totalCounterNumberCart">
+              {cart.total_articles}
+            </span>
           </p>
           <button
             onClick={() => {
@@ -136,7 +108,10 @@ const Cart = ({ totalCart, setTotalCart, totalArticles, setTotalArticles }) => {
         <p>Your cart is empty</p>
       )}
       {togglePayment ? (
-        <OrderInfo setTogglePayment={setTogglePayment} totalCart={totalCart} />
+        <OrderInfo
+          setTogglePayment={setTogglePayment}
+          totalCart={cart.total_price}
+        />
       ) : null}
     </div>
   );

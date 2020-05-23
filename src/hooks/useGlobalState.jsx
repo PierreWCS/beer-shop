@@ -10,8 +10,8 @@ const useGlobalState = () => {
     dispatch({
       type: "USER_CONNECT",
       payload: {
-        user
-      }
+        user,
+      },
     });
   };
 
@@ -21,12 +21,28 @@ const useGlobalState = () => {
   };
 
   // Get the client Cart
-  const userCart = function(cart) {
+  const userCart = function (cart) {
+    if (cart) {
+      // Total cart price
+      let countPrice = 0;
+      cart.filter((product) => {
+        return (countPrice = countPrice + product.price * product.quantity);
+      });
+      cart.total_price = countPrice.toFixed(2);
+
+      //  Total articles number
+      let countArticles = 0;
+      cart.filter((product) => {
+        return (countArticles = countArticles + product.quantity);
+      });
+      cart.total_articles = countArticles;
+    }
+
     dispatch({
       type: "USER_MODIFY_CART",
       payload: {
-        cart
-      }
+        cart,
+      },
     });
     localStorage.setItem("clientCart", JSON.stringify(cart));
   };
@@ -36,7 +52,7 @@ const useGlobalState = () => {
     userStateDisconnect,
     user: state.user,
     userCart,
-    cart: state.cart
+    cart: state.cart,
   };
 };
 

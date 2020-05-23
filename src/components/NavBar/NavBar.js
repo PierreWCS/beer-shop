@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBar.css";
 import useGlobalState from "../../hooks/useGlobalState";
@@ -15,32 +15,8 @@ import MyAccount from "./MyAccount";
 
 const NavBar = () => {
   const [displayCart, setDisplayCart] = useState(false);
-  const [totalCart, setTotalCart] = useState(0);
-  const [totalArticles, setTotalArticles] = useState(0);
   const [toggleAccountMenu, setToggleAccountMenu] = useState(false);
   const { user, cart } = useGlobalState();
-
-  useEffect(() => {
-    getClientCart();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const getClientCart = () => {
-    let stockCart = cart;
-    if (stockCart && stockCart.length > 0) {
-      let countPrice = 0;
-      let countArticles = 0;
-      stockCart.filter((product) => {
-        countPrice = countPrice + product.price * product.quantity;
-        countArticles = countArticles + product.quantity;
-        return 0;
-      });
-      setTotalCart(countPrice.toFixed(2));
-      setTotalArticles(countArticles);
-    } else {
-      return 0;
-    }
-  };
 
   // If the user is an admin
 
@@ -96,13 +72,7 @@ const NavBar = () => {
                 className="closeCartIcon"
                 onClick={() => setDisplayCart(false)}
               />
-              <Cart
-                totalCart={totalCart}
-                setTotalCart={setTotalCart}
-                totalArticles={totalArticles}
-                setTotalArticles={setTotalArticles}
-                setDisplayCart={setDisplayCart}
-              />
+              <Cart setDisplayCart={setDisplayCart} />
             </div>
           ) : (
             <div
@@ -129,10 +99,6 @@ const NavBar = () => {
   else
     return (
       <DefaultNavBar
-        totalCart={totalCart}
-        setTotalCart={setTotalCart}
-        totalArticles={totalArticles}
-        setTotalArticles={setTotalArticles}
         displayCart={displayCart}
         setDisplayCart={setDisplayCart}
       />
