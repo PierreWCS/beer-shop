@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import "./ProductPage.css";
+import useGlobalState from "../../hooks/useGlobalState";
 
-const ProductPage = ({ product, setMoreDetails, products, index }) => {
+const ProductPage = ({ product, setMoreDetails }) => {
+  const [productQuantity, setProductQuantity] = useState(1);
+  const { userCart, cart } = useGlobalState();
+
   const addProductToCartPage = () => {
-    let stockCart = JSON.parse(localStorage.getItem("clientCart"));
+    let stockCart = cart;
     if (stockCart && stockCart.length > 0) {
-      const idStockCart = stockCart.map(product => product.id);
-      console.log(stockCart);
+      const idStockCart = stockCart.map((product) => product.id);
       if (idStockCart.includes(product.id)) {
         for (let i = 0; i < stockCart.length; i++) {
           if (stockCart[i].id === product.id) {
-            stockCart[i].quantity += 1;
+            stockCart[i].quantity = productQuantity;
           }
         }
       } else {
-        console.log(product);
-        product.quantity = 1;
+        product.quantity = productQuantity;
         stockCart.push(product);
       }
-      localStorage.setItem("clientCart", JSON.stringify(stockCart));
-      document.location.reload();
+      userCart(stockCart);
     } else {
       let cartInit = [];
       cartInit.push(product);
-      localStorage.setItem("clientCart", JSON.stringify(cartInit));
+      userCart(cartInit);
     }
   };
 
-  const [productQuantity, setProductQuantity] = useState(1);
   return (
     <div className="productPageMainContainer">
       <div className="productPageImagePriceContainer">
@@ -38,7 +38,9 @@ const ProductPage = ({ product, setMoreDetails, products, index }) => {
               src={`uploads/images/${product.image}`}
               alt="product"
             />
-          ) : <p>No image for this product</p>}
+          ) : (
+            <p>No image for this product</p>
+          )}
         </div>
         <div className="namePriceContainerProductPage">
           <h1 className="productNameProductPage">{product.name}</h1>

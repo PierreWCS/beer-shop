@@ -13,11 +13,15 @@ import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Api from "../services/Api";
+import useWindowDimensions from "../../components/services/useWindowDimensions";
 
 const LandingPage = () => {
+  const { width } = useWindowDimensions();
   const [products, setProducts] = useState(null);
+  const [mobileDisplay, setMobileDisplay] = useState(false);
 
   useEffect(() => {
+    setMobileDisplay(true);
     AOS.init({
       duration: 1200,
     });
@@ -69,14 +73,18 @@ const LandingPage = () => {
           {/*       Beer of the month       */}
 
           <div className="aboutUsContentContainer">
-            <h1 className="beerOfTheMonth" data-aos="fade" data-aos-delay="150">
+            <h1
+              className="beerOfTheMonth"
+              data-aos={mobileDisplay ? null : "fade"}
+              data-aos-delay="150"
+            >
               BEER OF THE MONTH
             </h1>
             <div className="containerAboutAroundTheBeer">
               <div className="firstColumnAbout">
                 <div
                   className="1stContainerAbout"
-                  data-aos="fade-up-right"
+                  data-aos={mobileDisplay ? null : "fade-up-right"}
                   data-aos-delay="200"
                 >
                   <h3 className="titleTextAbout leftText">
@@ -89,7 +97,7 @@ const LandingPage = () => {
                 </div>
                 <div
                   className="2ndContainerAbout"
-                  data-aos="fade-down-right"
+                  data-aos={mobileDisplay ? null : "fade-down-right"}
                   data-aos-delay="1400"
                 >
                   <h3 className="titleTextAbout leftText">
@@ -117,7 +125,7 @@ const LandingPage = () => {
               </div>
               <div
                 className="secondColumnAbout"
-                data-aos="fade-up-left"
+                data-aos={mobileDisplay ? null : "fade-up-left"}
                 data-aos-delay="800"
               >
                 <div className="3rdContainerAbout">
@@ -131,7 +139,7 @@ const LandingPage = () => {
                 </div>
                 <div
                   className="4thContainerAbout"
-                  data-aos="fade-down-left"
+                  data-aos={mobileDisplay ? null : "fade-down-left"}
                   data-aos-delay="2000"
                 >
                   <h3 className="titleTextAbout rightText">
@@ -157,7 +165,7 @@ const LandingPage = () => {
                   return (
                     <ProductCard
                       products={products}
-                      index={key}
+                      key={key}
                       product={product}
                     />
                   );

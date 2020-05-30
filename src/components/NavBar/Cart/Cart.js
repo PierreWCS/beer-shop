@@ -9,7 +9,7 @@ const Cart = () => {
   const { user, userCart, cart } = useGlobalState();
   const [togglePayment, setTogglePayment] = useState(false);
 
-  const minusQuantity = (product) => {
+  const minusQuantity = function (product) {
     let stockCart = cart;
     stockCart.map((element) => {
       if (element.id === product.id) {
@@ -18,18 +18,16 @@ const Cart = () => {
         }
       }
       userCart(stockCart);
-      return 0;
     });
   };
 
-  const plusQuantity = (product) => {
+  const plusQuantity = function (product) {
     let stockCart = cart;
     stockCart.map((element) => {
       if (element.id === product.id) {
         element.quantity += 1;
       }
       userCart(stockCart);
-      return 0;
     });
   };
 

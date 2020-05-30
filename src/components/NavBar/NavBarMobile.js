@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "./NavBarMobile.css";
 import useGlobalState from "../../hooks/useGlobalState";
+import LogOut from "./LogOut";
 
 const NavBarMobile = () => {
   const { user } = useGlobalState();
@@ -50,39 +51,39 @@ const NavBarMobile = () => {
             >
               Products
             </NavLink>
-            {
-              user && user.role === "admin" ?
-                <NavLink
-                  onClick={closeMenu}
-                  activeClassName="activeItemNavBar"
-                  className="itemNavBarMobile"
-                  to="/admin"
-                >
-                  Admin panel
-                </NavLink>
-                :
-                <NavLink
-                  onClick={closeMenu}
-                  activeClassName="activeItemNavBar"
-                  className="itemNavBarMobile"
-                  to="/cart"
-                >
-                  Cart
-                </NavLink>
-            }
-            {
-              user ?
-                <p>Log out</p>
-                :
-                <NavLink
-                  onClick={closeMenu}
-                  activeClassName="activeItemNavBar"
-                  className="itemNavBarMobile"
-                  to="/login"
-                >
-                  Login / Register
-                </NavLink>
-            }
+            {user && user.role === "admin" ? (
+              <NavLink
+                onClick={closeMenu}
+                activeClassName="activeItemNavBar"
+                className="itemNavBarMobile"
+                to="/admin"
+              >
+                Admin panel
+              </NavLink>
+            ) : (
+              <NavLink
+                onClick={closeMenu}
+                activeClassName="activeItemNavBar"
+                className="itemNavBarMobile"
+                to="/cart"
+              >
+                Cart
+              </NavLink>
+            )}
+            {user ? (
+              <div className="itemNavBarMobile">
+                <LogOut />
+              </div>
+            ) : (
+              <NavLink
+                onClick={closeMenu}
+                activeClassName="activeItemNavBar"
+                className="itemNavBarMobile"
+                to="/login"
+              >
+                Login / Register
+              </NavLink>
+            )}
           </div>
         ) : null}
       </div>

@@ -113,48 +113,73 @@ const OrderInfo = ({ totalCart, setTogglePayment }) => {
       <hr className="separatorCart" />
       <form className="formContainerOrderInfo" onSubmit={confirmOrder}>
         {/*     Street number and street      */}
-        <div>
-          <input
-            required
-            type="number"
-            className="inputOrderInfo"
-            onChange={(event) => setOrderNumberStreet(event.target.value)}
-            placeholder="14..."
-          />
-          <input
-            required
-            type="text"
-            className="inputOrderInfo"
-            onChange={(event) => setOrderStreet(event.target.value)}
-            placeholder="Alcohol street..."
-          />
+        <div className="numberAndStreetOrderInfo">
+          <label htmlFor="number" className="orderInfoLabel">
+            Street number
+            <input
+              id="number"
+              required
+              type="number"
+              className="inputOrderInfo"
+              onChange={(event) => setOrderNumberStreet(event.target.value)}
+              placeholder="51..."
+            />
+          </label>
+
+          <label htmlFor="street" className="orderInfoLabel">
+            Street
+            <input
+              id="street"
+              required
+              type="text"
+              className="inputOrderInfo"
+              onChange={(event) => setOrderStreet(event.target.value)}
+              placeholder="Alchol street..."
+            />
+          </label>
         </div>
 
         {/*     ZipCode and City      */}
-        <div>
-          <input
-            required
-            type="number"
-            className="inputOrderInfo"
-            onChange={(event) => setOrderZipcode(event.target.value)}
-            placeholder="35540..."
-          />
-          <input
-            required
-            type="text"
-            className="inputOrderInfo"
-            onChange={(event) => setOrderCity(event.target.value)}
-            placeholder="London..."
-          />
+        <div className="zipcodeAndCityOrderInfo">
+          <label htmlFor="zipcode" className="orderInfoLabel">
+            Zipcode
+            <input
+              id="zipcode"
+              required
+              type="number"
+              className="inputOrderInfo"
+              onChange={(event) => setOrderZipcode(event.target.value)}
+              placeholder="84000..."
+            />
+          </label>
+
+          <label htmlFor="city" className="orderInfoLabel">
+            City
+            <input
+              id="city"
+              required
+              type="text"
+              className="inputOrderInfo"
+              onChange={(event) => setOrderCity(event.target.value)}
+              placeholder="London..."
+            />
+          </label>
         </div>
 
-        <input
-          required
-          type="text"
-          className="inputOrderInfo"
-          onChange={(event) => setOrderCountry(event.target.value)}
-          placeholder="England..."
-        />
+        <div className="countryOrderInfo">
+          <label htmlFor="country" className="orderInfoLabel">
+            Country
+            <input
+              id="country"
+              required
+              type="text"
+              className="inputOrderInfo"
+              onChange={(event) => setOrderCountry(event.target.value)}
+              placeholder="England..."
+            />
+          </label>
+        </div>
+
         <button className="validateAddressOrderInfo">
           <FontAwesomeIcon icon={faShoppingCart} />
           Confirm order

@@ -13,12 +13,11 @@ const ProductsList = () => {
 
   const getProducts = () => {
     Axios.get("http://localhost:8000/api/products")
-      .then(result => result.data)
-      .then(data => {
-        let stockProducts = data;
-        setProducts(stockProducts);
+      .then((result) => result.data)
+      .then((data) => {
+        setProducts(data);
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // handle error
         console.log(error);
         const stockProducts = require("../fakeDb/fakeDb.json");

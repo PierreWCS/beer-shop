@@ -36,4 +36,5 @@
 .disconnectMessage {
     color: #282c34;
     font-size: 18px;
+    margin: 0;
 }

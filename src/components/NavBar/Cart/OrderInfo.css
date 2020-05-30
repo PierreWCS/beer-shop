@@ -1,7 +1,10 @@
 .orderInfoPage {
   position: absolute;
   top: 15%;
-  background-color: #9e9e9e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
   height: 85%;
   width: 100%;
   font-family: "Montserrat", sans-serif;
@@ -14,24 +17,61 @@
 
 .formContainerOrderInfo {
   display: flex;
+  width: 80%;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   padding: 15px;
   box-sizing: border-box;
 }
 
 .inputOrderInfo {
-  margin: 15px;
   font-family: "Montserrat", sans-serif;
   height: 45px;
+  background-color: transparent;
+  caret-color: #1C2431;
+  border: none;
+  color: #1C2431;
+  border-bottom: solid 1px #1C2431;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+.inputOrderInfo::placeholder {
+  color: #424242;
+  font-size: 0.8rem;
+}
+.inputOrderInfo:focus {
+  border-bottom: 2px solid #cab381;
+}
+
+.orderInfoLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5px;
+  margin: 10px;
+  text-shadow: none;
+  font-size: 1.3rem;
+}
+
+.numberAndStreetOrderInfo {
+  display: flex;
+}
+
+.zipcodeAndCityOrderInfo {
+  display: flex;
+}
+
+.countryOrderInfo {
+  display: flex;
 }
 
 .validateAddressOrderInfo {
+  align-self: center;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 25px;
-  width: 30%;
+  width: 35%;
   height: 45px;
   background-color: #cab381;
   border: none;
