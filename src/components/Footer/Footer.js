@@ -9,11 +9,11 @@ const Footer = () => {
   const [displayPopUp, setDisplayPopUp] = useState(false);
   const [popUpType, setPopUpType] = useState(null);
 
-  const handleChangeNewsletter = event => {
+  const handleChangeNewsletter = (event) => {
     setClientEmail(event.target.value);
   };
 
-  const validateClientEmail = e => {
+  const validateClientEmail = (e) => {
     e.preventDefault();
     let url = "http://localhost:8000/api/emails";
 
@@ -26,17 +26,17 @@ const Footer = () => {
         method: "post",
         url: url,
         data: {
-          mail: clientEmail
-        }
+          mail: clientEmail,
+        },
       })
-        .then(response => {
+        .then((response) => {
           console.log(response);
           setClientEmail(null);
           setPopUpType("success");
           setDisplayPopUp(true);
           document.body.style.overflow = "hidden";
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     } else {
@@ -101,20 +101,30 @@ const Footer = () => {
         popUpType === "success" ? (
           <PopUp
             setDisplay={setDisplayPopUp}
-            message="You are successfully subscribed to our newsletter !"
+            message="You successfully subscribed to our newsletter !"
             type="success"
             timeout="3000"
           />
         ) : (
           <PopUp
             setDisplay={setDisplayPopUp}
-            message="Your email is not correct"
+            message="Oops ! Your email is probably not correct"
             type="error"
             timeout="5000"
           />
         )
       ) : null}
-      <p className="madeWithLove">Made with &#9829; by Pierre LEGRAIN ! <a className="linkToGithub" rel="noopener noreferrer" href="https://github.com/PierreWCS/beer-shop" target="_blank">Code here</a></p>
+      <p className="madeWithLove">
+        Made with &#9829; by Pierre LEGRAIN !{" "}
+        <a
+          className="linkToGithub"
+          rel="noopener noreferrer"
+          href="https://github.com/PierreWCS/beer-shop"
+          target="_blank"
+        >
+          Code here
+        </a>
+      </p>
     </div>
   );
 };

@@ -10,8 +10,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import Api from "../services/Api";
 import useWindowDimensions from "../../components/services/useWindowDimensions";
 
@@ -21,10 +19,6 @@ const LandingPage = () => {
   const [mobileDisplay, setMobileDisplay] = useState(false);
 
   useEffect(() => {
-    setMobileDisplay(true);
-    AOS.init({
-      duration: 1200,
-    });
     getProducts();
   }, []);
 
@@ -73,20 +67,10 @@ const LandingPage = () => {
           {/*       Beer of the month       */}
 
           <div className="aboutUsContentContainer">
-            <h1
-              className="beerOfTheMonth"
-              data-aos={mobileDisplay ? null : "fade"}
-              data-aos-delay="150"
-            >
-              BEER OF THE MONTH
-            </h1>
+            <h1 className="beerOfTheMonth">BEER OF THE MONTH</h1>
             <div className="containerAboutAroundTheBeer">
               <div className="firstColumnAbout">
-                <div
-                  className="1stContainerAbout"
-                  data-aos={mobileDisplay ? null : "fade-up-right"}
-                  data-aos-delay="200"
-                >
+                <div className="1stContainerAbout">
                   <h3 className="titleTextAbout leftText">
                     CREAMY BUT NOT TOO MUCH
                   </h3>
@@ -95,11 +79,7 @@ const LandingPage = () => {
                     nulla in mourix
                   </p>
                 </div>
-                <div
-                  className="2ndContainerAbout"
-                  data-aos={mobileDisplay ? null : "fade-down-right"}
-                  data-aos-delay="1400"
-                >
+                <div className="2ndContainerAbout">
                   <h3 className="titleTextAbout leftText">
                     MELLOW ON THE BOOZE
                   </h3>
@@ -115,19 +95,9 @@ const LandingPage = () => {
                   src={require("../images/StoutBeer.png")}
                   alt="beer"
                 />
-                <h2
-                  className="beerNameAbout"
-                  data-aos="fade"
-                  data-aos-delay="3000"
-                >
-                  THE WOOFLE BEER
-                </h2>
+                <h2 className="beerNameAbout">THE WOOFLE BEER</h2>
               </div>
-              <div
-                className="secondColumnAbout"
-                data-aos={mobileDisplay ? null : "fade-up-left"}
-                data-aos-delay="800"
-              >
+              <div className="secondColumnAbout">
                 <div className="3rdContainerAbout">
                   <h3 className="titleTextAbout rightText">
                     HAS A DEEP WARMTH
@@ -137,11 +107,7 @@ const LandingPage = () => {
                     con sectur adiscing con sectur adiscing ipsum dolos sit amet
                   </p>
                 </div>
-                <div
-                  className="4thContainerAbout"
-                  data-aos={mobileDisplay ? null : "fade-down-left"}
-                  data-aos-delay="2000"
-                >
+                <div className="4thContainerAbout">
                   <h3 className="titleTextAbout rightText">
                     A CHOCOLATE SMOOTH
                   </h3>
@@ -159,7 +125,7 @@ const LandingPage = () => {
 
           <div className="ourProductsMainContainer">
             <h1 className="titleOurProducts">DISCOVER OUR BEST BEERS</h1>
-            <div className="ourProductCardContainer" data-aos="fade-down">
+            <div className="ourProductCardContainer">
               {products.map((product, key) => {
                 if (key < 3) {
                   return (
@@ -172,11 +138,7 @@ const LandingPage = () => {
                 } else return null;
               })}
             </div>
-            <Link
-              className="linkToProductsLandingPage"
-              to="/products"
-              data-aos="fade-up"
-            >
+            <Link className="linkToProductsLandingPage" to="/products">
               ALL PRODUCTS
             </Link>
           </div>
@@ -185,7 +147,7 @@ const LandingPage = () => {
 
           <div className="statsContainerLandingPage">
             <div className="statsLandingPageContentContainer">
-              <div className="statsSmallContainer" data-aos="flip-right">
+              <div className="statsSmallContainer">
                 <FontAwesomeIcon
                   icon={faWineBottle}
                   className="iconStatsLandingPage fa-4x"
@@ -194,7 +156,7 @@ const LandingPage = () => {
                 <hr className="separatorStatsLandingPage" />
                 <p className="textStatsLandingPage">FLAVOURS</p>
               </div>
-              <div className="statsSmallContainer" data-aos="flip-right">
+              <div className="statsSmallContainer">
                 <FontAwesomeIcon
                   icon={faBoxOpen}
                   className="iconStatsLandingPage fa-4x"
@@ -203,7 +165,7 @@ const LandingPage = () => {
                 <hr className="separatorStatsLandingPage" />
                 <p className="textStatsLandingPage">DELIVERIES</p>
               </div>
-              <div className="statsSmallContainer" data-aos="flip-right">
+              <div className="statsSmallContainer">
                 <FontAwesomeIcon
                   icon={faBirthdayCake}
                   className="iconStatsLandingPage fa-4x"
@@ -212,7 +174,7 @@ const LandingPage = () => {
                 <hr className="separatorStatsLandingPage" />
                 <p className="textStatsLandingPage">YEARS BREWING</p>
               </div>
-              <div className="statsSmallContainer" data-aos="flip-right">
+              <div className="statsSmallContainer">
                 <FontAwesomeIcon
                   icon={faFlask}
                   className="iconStatsLandingPage fa-4x"

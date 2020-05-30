@@ -1,14 +1,16 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import "./PopUp.css";
-// import { tada } from 'react-animations';
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { tada } from "react-animations";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheckCircle,
+  faExclamationCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 const PopUp = ({ type, message, setDisplay, timeout }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setDisplay(false);
-      console.log('End of the popup');
       document.body.style.overflow = "auto";
     }, timeout);
     return () => clearTimeout(timer);
@@ -18,13 +20,27 @@ const PopUp = ({ type, message, setDisplay, timeout }) => {
   if (type === "success") {
     return (
       <div className="popUpContainer">
-        <p>{message}</p>
+        <div className="popUpMessageContainer">
+          <FontAwesomeIcon
+            icon={faCheckCircle}
+            className="fa-4x"
+            color="#55efc4"
+          />
+          <p>{message}</p>
+        </div>
       </div>
     );
   } else if (type === "error") {
     return (
       <div className="popUpContainer">
-        <p>{message}</p>
+        <div className="popUpMessageContainer">
+          <FontAwesomeIcon
+            icon={faExclamationCircle}
+            className="fa-4x"
+            color="#d63031"
+          />
+          <p>{message}</p>
+        </div>
       </div>
     );
   } else {
