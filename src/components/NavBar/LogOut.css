@@ -5,8 +5,11 @@
 
 .logOutContainerAdmin {
     border: solid 1px indianred;
+    margin: 15px;
+    box-sizing: border-box;
     display: flex;
     justify-content: space-around;
+    border-radius: 15px;
     align-items: center;
     cursor: pointer;
 }
