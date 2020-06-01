@@ -11,12 +11,9 @@ import {
 import Footer from "../Footer/Footer";
 import { Link } from "react-router-dom";
 import Api from "../services/Api";
-import useWindowDimensions from "../../components/services/useWindowDimensions";
 
 const LandingPage = () => {
-  const { width } = useWindowDimensions();
   const [products, setProducts] = useState(null);
-  const [mobileDisplay, setMobileDisplay] = useState(false);
 
   useEffect(() => {
     getProducts();

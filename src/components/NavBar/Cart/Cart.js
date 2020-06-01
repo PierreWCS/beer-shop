@@ -18,6 +18,7 @@ const Cart = () => {
         }
       }
       userCart(stockCart);
+      return 0;
     });
   };
 
@@ -28,6 +29,7 @@ const Cart = () => {
         element.quantity += 1;
       }
       userCart(stockCart);
+      return 1;
     });
   };
 

@@ -18,7 +18,6 @@ const MyOrders = () => {
   const getOrders = () => {
     Api.getByUserId(`orders/${user.id}/orders`).then((response) => {
       setOrders(response.data);
-      console.log(response.data);
     });
   };
 

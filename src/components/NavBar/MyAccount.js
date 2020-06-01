@@ -2,7 +2,7 @@ import React from "react";
 import LogOut from "./LogOut";
 import { Link } from "react-router-dom";
 import "./MyAccount.css";
-import { faHistory, faShoppingBag } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const MyAccount = ({ user }) => {
