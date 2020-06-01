@@ -5,38 +5,25 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/*          Admin nav bar           */
-
-.adminNavBar {
+/*          admin page         */
+.adminPageContainer {
+    height: 100vh;
+    margin-left: 20%;
     display: flex;
     flex-direction: column;
-    background-color: white;
-    position: fixed;
-    top: 15%;
-    height: 85vh;
-    padding: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.itemNavBarAdmin {
-    background-color: white;
-    margin: 15px 0 15px 0;
-    padding: 15px 50px 15px 50px;
-    width: 100%;
-    box-sizing: border-box;
-    cursor: pointer;
+.graphContainerAdmin {
+    background-color: whitesmoke;
+    height: 450px;
+    width: 1080px;
+    border-radius: 15px;
 }
-.itemNavBarAdmin:hover {
-    background-color: lightgray;
-}
-
-.activeItemAdmin {
-    border-bottom: #CAB381 solid 5px;
-}
-
-/*          admin page         */
 
 .titleAdminPage {
-    padding: 190px 0 50px 25%;
+    padding: 50px;
     box-sizing: border-box;
     width: 100%;
     text-align: start;
@@ -55,26 +42,6 @@
 }
 
 @media (max-width: 1060px) {
-
-    .titleAdminPage {
-        padding: 150px 0 25px 0;
-    }
-    .fakeShopFormContainer {
-        padding-bottom: 150px;
-    }
-    .adminNavBar {
-        flex-direction: row;
-        height: auto;
-        top: 0;
-        z-index: 2;
-    }
-    .addAProductTitle {
-        text-align: center;
-    }
-
-    .logoBackToHome {
-        height: 150px;
-    }
     .backtoHomeAdminContainer {
         display: flex;
         flex-direction: column;
