@@ -13,27 +13,27 @@ const About = () => {
   const [messageDate, setMessageDate] = useState(null);
   const [redirection, setRedirection] = useState(false);
 
-  const handleChangeTitle = event => {
+  const handleChangeTitle = (event) => {
     setMessageTitle(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleChangeMail = event => {
+  const handleChangeMail = (event) => {
     setMessageMail(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleChangeName = event => {
+  const handleChangeName = (event) => {
     setMessageName(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleChangeFirstName = event => {
+  const handleChangeFirstName = (event) => {
     setMessageFirstName(event.target.value);
     console.log(event.target.value);
   };
 
-  const handleChangeBody = event => {
+  const handleChangeBody = (event) => {
     setMessageBody(event.target.value);
     console.log(event.target.value);
   };
@@ -67,11 +67,11 @@ const About = () => {
           name: messageName,
           firstname: messageFirstName,
           date: messageDate,
-          body: messageBody
-        }
+          body: messageBody,
+        },
       })
-        .then(response => console.log(response))
-        .catch(error => {
+        .then((response) => console.log(response))
+        .catch((error) => {
           console.log(error);
         });
       alert("Your message has been sent");
@@ -88,20 +88,20 @@ const About = () => {
       <div className="aboutUsContainerText">
         <img
           className="breweryAboutUs"
-          src={require("../images/aboutUsEmployee.jpg")}
+          src={"uploads/images/aboutUsEmployee-min.jpg"}
           alt=""
         />
         <div className="textAboutUsSmallContainer">
           <h1 className="titleAboutUsText">Wild Beers</h1>
           <h3 className="smallSubtitleAbout">Since 2019</h3>
           <p className="textHistoryAbout">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque
-            ut sollicitudin nunc, eu tempor augue. Aenean lobortis suscipit purus
-            fermentum hendrerit. Nunc posuere pellentesque libero eget mollis. Sed
-            diam ante, varius a pellentesque vel, auctor sit amet neque. Duis
-            facilisis lectus sit amet purus maximus, ut mattis magna fermentum.
-            Mauris ultrices justo dolor, in congue mi aliquam vel. Donec
-            pellentesque libero ut dolor ultricies auctor.{" "}
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque ut sollicitudin nunc, eu tempor augue. Aenean lobortis
+            suscipit purus fermentum hendrerit. Nunc posuere pellentesque libero
+            eget mollis. Sed diam ante, varius a pellentesque vel, auctor sit
+            amet neque. Duis facilisis lectus sit amet purus maximus, ut mattis
+            magna fermentum. Mauris ultrices justo dolor, in congue mi aliquam
+            vel. Donec pellentesque libero ut dolor ultricies auctor.{" "}
           </p>
         </div>
       </div>
@@ -160,7 +160,6 @@ const About = () => {
               required
               placeholder="message..."
               className="messageInputAbout inputAboutAll"
-              type="text"
               id="message"
             />
           </label>

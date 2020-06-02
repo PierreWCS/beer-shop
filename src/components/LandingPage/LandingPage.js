@@ -9,6 +9,7 @@ import {
   faWineBottle,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Footer/Footer";
+import MyMapComponent from "./MyMapComponent";
 import { Link } from "react-router-dom";
 import Api from "../services/Api";
 
@@ -179,6 +180,25 @@ const LandingPage = () => {
                 <p className="numberStatsLandingPage">65</p>
                 <hr className="separatorStatsLandingPage" />
                 <p className="textStatsLandingPage">HOURS UNTIL NEW ONE</p>
+              </div>
+            </div>
+          </div>
+
+          {/*     Store information      */}
+
+          <div className="storeInformationContainerLandingPage">
+            <h2 className="storeInfoTitle">Find us in our store</h2>
+            <div className="storeInformationContentContainer">
+              <div className="mapAndStoreInformationContainer">
+                <p>
+                  Wild Beers's team will be happy to meet you in our store in
+                  Genève !
+                </p>
+                <p style={{ margin: "5px" }}>1214 Alcohol ST</p>
+                <p style={{ margin: "5px" }}>Genève, Switzerland</p>
+                <div style={{ height: "450px", width: "350px" }}>
+                  <MyMapComponent isMarkerShown />
+                </div>
               </div>
             </div>
           </div>

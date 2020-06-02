@@ -20,7 +20,7 @@
 }
 
 .imageContainerLoginPage {
-  background-image: url("../images/loginPageBackground.jpg");
+  background-image: url("/uploads/images/loginPageBackground-min.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
