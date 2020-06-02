@@ -33,6 +33,7 @@
     background-color: #282c34;
     color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 .closeWindowEditContainer:hover {
     transform: scale(1.1);
@@ -55,6 +56,7 @@
     color: whitesmoke;
     width: 200px;
     cursor: pointer;
+    border-radius: 5px;
 }
 .saveContainerEdit:hover {
     transform: scale(1.1);
@@ -140,10 +142,11 @@
 .changeTheImageButton {
     padding: 10px 15px;
     width: 55%;
-    border-radius: 0;
     background-color: #999999;
     color: white;
     border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 .productEditChooseImage {

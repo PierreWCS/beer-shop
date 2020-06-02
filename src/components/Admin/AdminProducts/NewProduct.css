@@ -84,6 +84,7 @@
     border: none;
     height: 50px;
     cursor: pointer;
+    border-radius: 5px;
 }
 .addNewProductButton:hover {
     opacity: 0.9;
@@ -101,6 +102,7 @@
     z-index: 3;
     top: 5%;
     right: 25%;
+    border-radius: 5px;
 }
 .closeWindowNewProduct:hover {
     opacity: 0.9;

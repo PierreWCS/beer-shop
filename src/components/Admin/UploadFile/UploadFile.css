@@ -23,7 +23,7 @@
 }
 
 .labelInputMediaUpload {
-    color: white;
+    color: #1C2431;
     width: 220px;
     padding: 15px;
     display: flex;
@@ -31,7 +31,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: solid 1px currentColor;
+    background-color: whitesmoke;
+    border-radius: 15px;
     box-sizing: border-box;
 }
 .labelInputMediaUpload:hover {

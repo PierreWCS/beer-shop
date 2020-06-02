@@ -96,6 +96,7 @@
     background-color: indianred;
     width: 120px;
     cursor: pointer;
+    border-radius: 5px;
 }
 .deleteMessageAdminButton:hover {
     transform: scale(1.1);
@@ -112,6 +113,7 @@
     cursor: pointer;
     background-color: #282c34;
     color: whitesmoke;
+    border-radius: 5px;
 }
 .closeMessageButton:hover {
     transform: scale(1.1);

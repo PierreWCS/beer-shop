@@ -19,6 +19,7 @@
     color: whitesmoke;
     padding: 10px 20px;
     cursor: pointer;
+    border-radius: 5px;
 }
 .closeOrderDetailsButton:hover {
     transform: scale(1.1);
