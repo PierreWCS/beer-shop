@@ -13,28 +13,22 @@ const NewProduct = ({ setDisplay }) => {
 
   const addNewProduct = () => {
     let url = "http://localhost:8000/api/products";
-    if (
-      productName &&
-      productPrice &&
-      productDescription &&
-      productAlcohol
-    ) {
+    if (productName && productPrice && productDescription && productAlcohol) {
       const data = {
         name: productName,
         price: productPrice,
         description: productDescription,
         alcohol: productAlcohol,
-        quantity: productStock
+        quantity: productStock,
       };
       console.log(data);
-      Axios.post(url,data)
-        .then(response => {
+      Axios.post(url, data)
+        .then((response) => {
           console.log(response);
           alert("The product has been added");
           setDisplay(false);
-          // document.location.reload();
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
           alert("Something has failed during creation of the product");
         });

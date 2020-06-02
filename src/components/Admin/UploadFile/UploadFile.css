@@ -1,13 +1,21 @@
 .uploadImageContainer {
     display: flex;
     align-items: center;
-    justify-content: space-around;
     flex-direction: column;
     box-sizing: border-box;
-    border: solid 1px #dddddd;
+    border: dashed #dddddd;
+    border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
     width: 80%;
-    height: 65vh;
+    height: 50vh;
+}
+
+.inputMediaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .browseMediaUploadInput {
@@ -17,31 +25,40 @@
 .labelInputMediaUpload {
     color: white;
     width: 220px;
-    border: 2px solid currentColor;
-    background-color: #282c34;
+    padding: 15px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    border: solid 1px currentColor;
+    box-sizing: border-box;
 }
 .labelInputMediaUpload:hover {
     opacity: 0.6;
 }
 
-.uploadIconMedia {
-    width: 1em;
-    height: 1em;
-    fill: currentColor;
-    margin-right: 25px;
-    box-sizing: border-box;
+.previewContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: black;
+    width: 70%;
+    height: 100%;
+}
+
+.buttonsContainerMedia {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 60%;
 }
 
 .sendButton {
     background-color: #cab381;
     border: solid 2px grey;
-    margin: 0 0 0 75px;
-    font-size: 20px;
-    padding: 10px 25px;
+    padding: 10px 15px;
     color: #282c34;
     cursor: pointer;
 }
@@ -49,16 +66,20 @@
     opacity: 0.8;
 }
 
-.previewContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    width: 450px;
-    margin-top: 20px;
-    height: 250px;
+.cancelUploadButtonMedia {
+    background-color: firebrick;
+    color: #d4cfd3;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+.cancelUploadButtonMedia:hover {
+    opacity: 0.8;
 }
 
 .imagePreview {
-    max-height: 100%;
+    height: 250px;
+    padding: 5px;
+    background-color: #1C2431;
+    box-sizing: border-box;
 }

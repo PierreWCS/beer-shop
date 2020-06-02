@@ -19,7 +19,7 @@ const Medias = () => {
     if (window.confirm("Do you really want do delete this image ?")) {
       axios({
         method: "delete",
-        url: `${uploadsUrl}/${image}`
+        url: `${uploadsUrl}/${image}`,
       })
         .then(() => {
           alert("The image has been deleted");
@@ -28,7 +28,7 @@ const Medias = () => {
           setUploadedFiles([...stockFiles]);
           setDisplayImageManagement(false);
         })
-        .catch(err => {
+        .catch((err) => {
           alert(err);
         });
     }
@@ -37,29 +37,35 @@ const Medias = () => {
   const getUploadedImages = () => {
     axios({
       method: "get",
-      url: "http://localhost:8000/uploads"
-    }).then(res => {
+      url: "http://localhost:8000/uploads",
+    }).then((res) => {
       setUploadedFiles(res.data);
     });
   };
   return (
     <div className="productsAdmin adminMediasContainer">
       <NavBarAdmin />
-      <UploadFile />
-      <h2>Uploaded files</h2>
+      <UploadFile
+        uploadedFiles={uploadedFiles}
+        setUploadedFiles={setUploadedFiles}
+      />
+      <h2 className="titleUploadedFilesMedias">Uploaded files</h2>
       {uploadedFiles ? (
         <div className="mediasUploadedContainer">
           {uploadedFiles.map((file, key) => {
             return (
-              <div className="imageContainerMedias" key={key}>
+              <div
+                className="imageContainerMedias"
+                key={key}
+                onClick={() => {
+                  setImageFullSize({
+                    image: file,
+                    index: key,
+                  });
+                  setDisplayImageManagement(true);
+                }}
+              >
                 <img
-                  onClick={() => {
-                    setImageFullSize({
-                      image: file,
-                      index: key
-                    });
-                    setDisplayImageManagement(true);
-                  }}
                   className="imageUploadMedias"
                   src={`/uploads/images/${file}`}
                   alt={file}
