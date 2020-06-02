@@ -12,6 +12,7 @@
 /build
 /back/.env
 .idea
+.git-old/
 
 # misc
 .DS_Store
