@@ -322,6 +322,16 @@
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: 255px 215px;
+    box-shadow: 1px 1px 1px #424242;
+}
+
+.addressIconContainerStore {
+    display: flex;
+    align-items: flex-start;
+}
+
+.textAddressStore {
+    margin: 0 0 5px 15px;
 }
 
 @media (max-width: 1800px) {

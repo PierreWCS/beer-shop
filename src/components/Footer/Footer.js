@@ -3,6 +3,12 @@ import "./Footer.css";
 import { Link } from "react-router-dom";
 import Axios from "axios";
 import PopUp from "../Popups/PopUp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBirthdayCake,
+  faMapMarkerAlt,
+  faPhoneAlt,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   const [clientEmail, setClientEmail] = useState(null);
@@ -78,8 +84,30 @@ const Footer = () => {
           <h2 className="footerSubtitle">Find us</h2>
           <hr className="separatorFooter" />
           <p className="footerInformation">At our store:</p>
-          <p className="footerInformation">1214 Alcohol ST</p>
-          <p className="footerInformation">Genève, Switzerland</p>
+          <div className="addressIconContainerStore">
+            <FontAwesomeIcon icon={faMapMarkerAlt} color="whitesmoke" />
+            <div>
+              <p
+                className="footerInformation"
+                style={{ margin: "0 0 5px 15px", textAlign: "start" }}
+              >
+                1214 Alcohol ST
+              </p>
+              <p
+                className="footerInformation"
+                style={{ margin: "0 0 5px 15px" }}
+              >
+                Genève, Switzerland
+              </p>
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <FontAwesomeIcon icon={faPhoneAlt} color="whitesmoke" />
+            <p className="footerInformation" style={{ marginLeft: "15px" }}>
+              +7 920 914-58-87
+            </p>
+          </div>
+
           <h2 className="footerSubtitle">Stay aware</h2>
           <hr className="separatorFooter" />
           <p className="footerInformation">Receive special offers</p>

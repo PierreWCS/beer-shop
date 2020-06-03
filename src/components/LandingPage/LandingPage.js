@@ -6,6 +6,7 @@ import {
   faBirthdayCake,
   faBoxOpen,
   faFlask,
+  faMapMarkerAlt,
   faWineBottle,
 } from "@fortawesome/free-solid-svg-icons";
 import Footer from "../Footer/Footer";
@@ -194,8 +195,14 @@ const LandingPage = () => {
                   Wild Beers's team will be happy to meet you in our store in
                   Genève !
                 </p>
-                <p style={{ margin: "5px" }}>1214 Alcohol ST</p>
-                <p style={{ margin: "5px" }}>Genève, Switzerland</p>
+
+                <div className="addressIconContainerStore">
+                  <FontAwesomeIcon icon={faMapMarkerAlt} color="whitesmoke" />
+                  <div>
+                    <p className="textAddressStore">1214 Alcohol ST</p>
+                    <p className="textAddressStore">Genève, Switzerland</p>
+                  </div>
+                </div>
                 <div style={{ height: "450px", width: "350px" }}>
                   <MyMapComponent isMarkerShown />
                 </div>
