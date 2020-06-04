@@ -4,12 +4,13 @@
 }
 
 .logOutContainerAdmin {
-    border: solid 1px indianred;
-    margin: 15px;
+    background-color: indianred;
+    border: solid 2px #1C2431;
     box-sizing: border-box;
+    margin: 15px;
     display: flex;
     justify-content: space-around;
-    border-radius: 15px;
+    border-radius: 10px;
     align-items: center;
     cursor: pointer;
 }

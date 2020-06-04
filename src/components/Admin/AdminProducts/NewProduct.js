@@ -27,6 +27,8 @@ const NewProduct = ({ setDisplay }) => {
           console.log(response);
           alert("The product has been added");
           setDisplay(false);
+          document.body.style.overflow = "auto";
+          document.location.reload();
         })
         .catch((error) => {
           console.log(error);

@@ -50,15 +50,15 @@
 
 .buttonsContainerMedia {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: flex-start;
-    height: 60%;
+    width: 30%;
 }
 
 .sendButton {
     background-color: #cab381;
-    border: solid 2px grey;
+    border: none;
     padding: 10px 15px;
     color: #282c34;
     cursor: pointer;
