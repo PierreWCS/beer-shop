@@ -1,0 +1,146 @@
+.messagesMainContainerAdmin {
+    background-color: #7f8fa6;
+    padding-top: 7%;
+    box-sizing: border-box;
+    height: 100vh;
+}
+
+.adminMessagesContainer {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.manageAdminMessages {
+    text-align: start;
+    margin: 50px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+}
+
+.messagesContainerAdmin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: lightsalmon;
+    width: 90%;
+}
+
+.messagesAdminHeadContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: whitesmoke;
+    height: 70px;
+}
+
+.messagesAdminHeadCell {
+    width: 25%;
+}
+
+.messagesAdminContentContainer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #dddddd;
+    height: 50px;
+    cursor: pointer;
+    border-bottom: solid 1px #282c34;
+    box-sizing: border-box;
+}
+.messagesAdminContentContainer:hover {
+    background-color: #A1A1A1;
+}
+
+.messagesAdminContentCell {
+    width: 25%;
+}
+
+/*          Message details         */
+
+
+.selectedMessageContainer {
+    position: absolute;
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    height: 84%;
+    background-color: whitesmoke;
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+}
+
+.messageBodyContainer {
+    width: 75%;
+    box-sizing: border-box;
+    padding-top: 50px;
+}
+
+.deleteMessageAdminButton {
+    display: flex;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    color: white;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: indianred;
+    width: 120px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.deleteMessageAdminButton:hover {
+    transform: scale(1.1);
+}
+
+.closeMessageButton {
+    position: absolute;
+    right: 5%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 120px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #282c34;
+    color: whitesmoke;
+    border-radius: 5px;
+}
+.closeMessageButton:hover {
+    transform: scale(1.1);
+}
+
+.closeMessageIcon {
+    color: whitesmoke;
+}
+
+.nameAndFirstNameAdminMessages, .dateAdminMessagesContainer, .emailContainerAdminMessages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: solid 1px #282c34;
+}
+
+.fromAdminMessageDetails, .emailAdminMessages, .messageMessageAdminMessages, .dateAdminMessage {
+    margin-right: 25px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #282c34;
+}
+
+.bodyAdminMessages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    height: 60%;
+    text-align: start;
+}

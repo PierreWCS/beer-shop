@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "name": "Celebrator",
+    "price": 2.89,
+    "image": "celebrator.png",
+    "description": "Brown lager, very appreciated by the Professor",
+    "alcohol": 5.1,
+    "quantity": 1
+  },
+  {
+    "id": 2,
+    "name": "Duff",
+    "price": 3.79,
+    "image": "duff.png",
+    "description": "The very famous beer from The Simpsons! To share with a friend during a baseball match ! D'oh",
+    "alcohol": 6.5,
+    "quantity": 1
+  },
+  {
+    "id": 3,
+    "name": "Guinness",
+    "price": 1.25,
+    "image": "guinness.png",
+    "description": "The original Guinness, brewed in Ireland since 1729",
+    "alcohol": 8.1,
+    "quantity": 1
+  },
+  {
+    "id": 4,
+    "name": "Sapporo",
+    "price": 2.89,
+    "image": "sapporo.png",
+    "description": "Traditional japanese beer, small touch of gingember",
+    "alcohol": 4.7,
+    "quantity": 1
+  },
+  {
+    "id": 5,
+    "name": "Tuborg",
+    "price": 2.29,
+    "image": "tuborg.png",
+    "description": "Dark lager very appreciated in Finland",
+    "alcohol": 3.1,
+    "quantity": 1
+  },
+  {
+    "id": 6,
+    "name": "Kingfisher",
+    "price": 3.59,
+    "image": "kingfisher.png",
+    "description": "A sweet blond beer with a smooth taste of lime",
+    "alcohol": 3.1,
+    "quantity": 1
+  }
+]

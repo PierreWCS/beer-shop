@@ -1,0 +1,18 @@
+.cartIconNavBar:hover .defaultNumberCart {
+    display: none;
+}
+
+.cartIconAndNumberDefault {
+    box-sizing: border-box;
+}
+
+.cartIconAndNumberDefault:hover .defaultNumberCart {
+    display: none;
+}
+
+.defaultNumberCart {
+    position: absolute;
+    left: 82.3%;
+    background-color: #5a7b5e;
+    color: white;
+}

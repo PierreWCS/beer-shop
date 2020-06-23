@@ -1,0 +1,61 @@
+
+.ordersMainContainerAdmin {
+    width: 100%;
+    min-height: 79vh;
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.ordersTabContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 35px;
+    width: 90%;
+    background-color: whitesmoke;
+}
+
+.headOrdersTab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ordersTabHeadCell {
+    width: 10%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.ordersTabCellContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #dddddd;
+    border-bottom: solid 1px #1C2431;
+    box-sizing: border-box;
+}
+
+.ordersTabCell {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 35px;
+    width: 10%;
+}
+
+.moreDetailsOrders {
+    height: 35px;
+    border: solid 2px #282c34;
+    color: #282c34;
+    border-radius: 5px;
+    background-color: transparent;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.moreDetailsOrders:hover {
+    transform: scale(1.1);
+}

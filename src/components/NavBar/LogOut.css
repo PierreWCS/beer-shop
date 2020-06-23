@@ -1,0 +1,44 @@
+
+.logOutMainContainer {
+    width: 100%;
+}
+
+.logOutContainerAdmin {
+    background-color: indianred;
+    border: solid 2px #1C2431;
+    box-sizing: border-box;
+    margin: 15px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+.logOutContainerAdmin:hover {
+    transform: scale(1.05);
+}
+.logOutContainerAdmin .disconnectMessage {
+    margin: 15px 5px;
+}
+
+.logOutContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.disconnectIcon {
+    margin: 0 15% 0 10%;
+    cursor: pointer;
+    color: indianred;
+}
+
+.disconnectIconAdmin {
+    color: #1C2431;
+}
+
+.disconnectMessage {
+    color: #282c34;
+    font-size: 18px;
+    margin: 0;
+}

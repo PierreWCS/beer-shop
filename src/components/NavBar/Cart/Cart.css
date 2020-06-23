@@ -1,0 +1,112 @@
+.cartIconNavBar {
+    color: #CAB381;
+}
+
+.cartContainerNavBar {
+    position: absolute;
+    top: 15vh;
+    right: 5%;
+    width: 700px;
+    height: 720px;
+    background-color: rgba(230,230,230, 0.98);
+    box-sizing: border-box;
+    border-top: solid 3px #CAB381;
+    cursor: auto;
+}
+
+.productsContainerCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 390px;
+    overflow: auto;
+}
+
+.quantityContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+}
+
+.minusAndPlusCart {
+    display: flex;
+    user-select: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #CAB381;
+    box-sizing: border-box;
+    font-size: 26px;
+    margin: 0 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.plusCart {
+    color: white;
+}
+.plusCart:active {
+    transform: scale(0.95);
+}
+
+.minusCart {
+    background-color: transparent;
+    border: solid #CAB381 1px;
+}
+.minusCart:active {
+    transform: scale(0.95);
+}
+
+.disabledMinus {
+    cursor: not-allowed;
+    background-color: lightgray;
+}
+
+.closeAndPriceCart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.deleteItemFromCart {
+    color: indianred;
+    cursor: pointer;
+}
+.deleteItemFromCart:hover {
+    transform: scale(1.1);
+}
+
+.separatorCart {
+    width: 40%;
+    height: 3px;
+    margin: 0 auto 25px auto;
+    border: none;
+    background-color: #CAB381;
+}
+
+.cartProductCard {
+    padding: 10px 25px 10px 25px;
+    margin: 5px 10px 5px 10px;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: whitesmoke;
+    align-items: center;
+}
+
+.productPriceAndNameCart {
+    font-size: 18px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.navBarButtonCart {
+    margin: 15px;
+}
+
+.totalCounterNumberCart {
+    font-weight: bold;
+}

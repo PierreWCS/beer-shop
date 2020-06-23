@@ -1,0 +1,149 @@
+
+.footerMainContainer {
+    width: 100%;
+    height: 50vh;
+    position: relative;
+    background-color: #1C1D1F;
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+.footerContentContainer {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.footerSmallContainer {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.separatorFooter {
+    width: 100%;
+    color: #999999;
+}
+
+.footerBigTitle {
+    font-family: 'Abril Fatface', cursive;
+    color: #CAB381;
+    font-size: 36px;
+    margin: 15px 0 5px 0;
+}
+
+.footerBigTitleSubtitle {
+    font-family: Pacifico;
+    color: whitesmoke;
+    margin: 0 0 25px 0;
+}
+
+.footerSubtitle {
+    color: #cab381;
+    font-size: 28px;
+    margin: 25px 0 10px 0;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.linkFooter {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 15px 0 15px 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: transparent 2px solid;
+}
+.linkFooter:hover {
+    border-bottom: #CAB381 2px solid;
+}
+
+.footerInformation {
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+    margin: 7px 0 7px 0;
+}
+
+.newsletterContainerFooter {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.newsletterInputFooter {
+    border-radius: 0;
+    width: 200px;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.subscribeButtonFooter {
+    border: none;
+    height: 100%;
+    margin-left: 10px;
+    background-color: #cab381;
+}
+
+.madeWithLove {
+    position: absolute;
+    bottom: 0;
+    color: #cab381;
+}
+
+.linkToGithub {
+    color: whitesmoke;
+}
+
+@media (max-width: 1060px) {
+    .footerMainContainer {
+        height: auto;
+        padding: 25px 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footerContentContainer {
+        flex-direction: column;
+        padding: 5px 0 35px 0;
+        box-sizing: border-box;
+        width: 80%;
+    }
+
+    .footerSmallContainer {
+        width: 250px;
+    }
+    .footerInformation {
+        margin: 5px;
+    }
+
+    .footerBigTitle, .footerSubtitle {
+        text-align: start;
+    }
+
+    .footerSmallContainer {
+        height: auto;
+        width: auto;
+    }
+
+    .newsletterContainerFooter {
+        margin: 15px 0;
+    }
+
+    .newsletterInputFooter {
+        width: 70%;
+    }
+
+    .subscribeButtonFooter {
+        padding: 10px 10px;
+    }
+
+    .madeWithLove {
+        position: initial;
+    }
+}

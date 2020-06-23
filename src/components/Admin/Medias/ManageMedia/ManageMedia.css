@@ -1,0 +1,69 @@
+
+.imageFullSizeContainer {
+    font-family: 'Montserrat', sans-serif;
+    position: fixed;
+    background-color: #7f8fa6;
+    top: 15%;
+    left: 20%;
+    height: 85%;
+    width: 80%;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    padding: 15px;
+    flex-direction: row;
+}
+
+.closeWindowManageMedia {
+    cursor: pointer;
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    color: white;
+    background-color: #424242;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 25px;
+    border: none;
+}
+.closeWindowManageMedia:hover {
+    opacity: 0.8;
+}
+
+.imageContainerMediaManagement {
+    width: 80%;
+    height: 100%;
+    background-color: #282c34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manageImageOptionsContainer {
+    display: flex;
+    padding: 25px;
+    box-sizing: border-box;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    background-color: #999999;
+}
+
+.imageFullSizeManageMedia {
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.deleteImageMediaFullSize {
+    cursor: pointer;
+    color: white;
+    background-color: red;
+    border: none;
+    padding: 12px 25px;
+}
+.deleteImageMediaFullSize:hover {
+    opacity: 0.9;
+}

@@ -1,0 +1,58 @@
+.adminMainContainer {
+    width: 100%;
+    background-color: #7f8fa6;
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*          admin page         */
+.adminPageContainer {
+    height: 100vh;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphContainerAdmin {
+    background-color: whitesmoke;
+    height: 450px;
+    width: 1080px;
+    border-radius: 15px;
+}
+
+.titleAdminPage {
+    padding: 50px;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: start;
+    letter-spacing: 0.1em;
+    font-size: 36px;
+    margin: 0;
+    color: black;
+}
+
+.backtoHomeAdminContainer {
+    display: none;
+}
+
+.fakeShopFormContainer {
+    padding-bottom: 70px;
+}
+
+@media (max-width: 1060px) {
+    .backtoHomeAdminContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        text-decoration: none;
+        color: #CAB381;
+        border: solid 2px #CAB381;
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+    }
+}

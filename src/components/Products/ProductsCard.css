@@ -1,0 +1,62 @@
+/*          Style of the product card           */
+
+.itemProductCardContainer {
+    width: 300px;
+    height: 450px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;margin: 15px;
+    box-shadow: 2px 2px 2px #282c34;
+}
+
+.productNameProductCard {
+    font-family: Pacifico;
+    font-size: 28px;
+}
+
+.productDescriptionProductCard {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.productPriceProductCard {
+    color: #CAB381;
+    font-size: 24px;
+    font-family: 'Abril Fatface', cursive;
+    margin: 5px 0 5px 0;
+    text-shadow: 0 1px #282c34;
+}
+
+.productImageProductCard {
+    height: 150px;
+}
+
+.productCardButton {
+    color: #1C1D1F;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.linkToProductPage {
+    text-decoration: none;
+    border: solid 1px #CAB381;
+    background-color: white;
+    cursor: pointer;
+    padding: 15px;
+    color: #424242;
+    width: 250px;
+    box-sizing: border-box;
+    margin: 10px;
+    font-family: 'Montserrat', sans-serif;
+}
+.linkToProductPage:hover {
+    opacity: 0.6;
+}
+
+@media (max-width: 1060px) {
+    .itemProductCardContainer {
+        margin: 15px;
+    }
+}

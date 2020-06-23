@@ -1,0 +1,109 @@
+.fakeShopFormContainer {
+    position: fixed;
+    width: 100%;
+    top: 15%;
+    height: 85vh;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+    box-shadow: 0 5px 10px rgba(154,160,185,.05), 0 15px 40px rgba(166,173,201,.2);
+    animation: fade-in 0.6s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+.formFakeShop {
+    width: 85%;
+    text-align: start;
+}
+
+.labelNewProduct {
+    color: #424242;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.addAProductTitle {
+    color: black;
+    margin: 15px 0 45px 0;
+}
+
+.inputShopForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 22px;
+    align-items: center;
+    margin: 15px 5px;
+    border: solid lightgray 1px;
+    background-color: transparent;
+    border-radius: 5px;
+    color: #9E9E9E;
+    width: 50%;
+    height: 40px;
+}
+
+.descriptionTextArea {
+    height: 140px;
+}
+
+.imageUploadContainerProductsAdmin {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+}
+
+.addNewProductButton {
+    background-color: dodgerblue;
+    position: absolute;
+    z-index: 3;
+    right: 25%;
+    top: 80%;
+    color: white;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px;
+    border: none;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.addNewProductButton:hover {
+    opacity: 0.9;
+}
+
+.closeWindowNewProduct {
+    cursor: pointer;
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    background-color: #282c34;
+    color: white;
+    align-items: center;
+    width: 150px;
+    z-index: 3;
+    top: 5%;
+    right: 25%;
+    border-radius: 5px;
+}
+.closeWindowNewProduct:hover {
+    opacity: 0.9;
+}

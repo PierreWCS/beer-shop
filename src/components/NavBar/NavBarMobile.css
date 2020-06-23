@@ -1,0 +1,104 @@
+.listNavBar {
+    position: fixed;
+    padding: 25px;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    background-color: rgba(200,200,200,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border: solid 2px #282c34;
+    z-index: 3;
+    width: 75%;
+    height: 100%;
+}
+
+.closedMenuBurger {
+    position: fixed;
+    top: 8%;
+    right: 5%;
+    display: flex;
+    z-index: 3;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.listNavBarMobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.separatorNavBar {
+    width: 50%;
+    margin: 5px 0 5px 0;
+}
+
+.itemNavBarMobile {
+    color: #1C1D1F;
+    padding: 10px;
+    text-decoration: none;
+    width: 100%;
+    margin-top: 15px;
+    letter-spacing: 0.1em;
+    font-family: 'Abril Fatface', cursive;
+    background-color: rgba(255,255,255,0.8);
+}
+.itemNavBarMobile:active, .itemNavBarMobile:focus, .logoAndNameNavBar:active, .logoAndNameNavBar:focus {
+    outline: 0;
+    border: none;
+    -moz-outline-style: none;
+}
+
+.itemListNavBar:active, .itemListNavBar:focus {
+    outline: none;
+}
+
+.burgerMenu {
+    cursor: pointer;
+    top: 5%;
+    right: 2%;
+}
+
+.burgerMenuContainer {
+    padding: 5px;
+}
+
+.burgerMenu:hover .bar1 {
+    background-color: indianred;
+}
+
+.burgerMenu:hover .bar2 {
+    background-color: indianred;
+}
+
+.burgerMenu:hover .bar3 {
+    background-color: indianred;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0;
+    transition: 0.4s;
+    box-shadow: 1px 1px 1px grey;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+    transform: rotate(-45deg) translate(-9px, 6px);
+    margin: 0;
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-9px, -6px);
+    margin: 0;
+    transform: rotate(45deg) translate(-9px, -6px);
+}

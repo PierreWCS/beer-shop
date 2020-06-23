@@ -1,0 +1,131 @@
+
+.orderDetailsContainer {
+    position: fixed;
+    height: 78%;
+    width: 78%;
+    background-color: whitesmoke;
+    box-shadow: 2px 2px #282c34;
+    display: flex;
+}
+
+.closeOrderDetailsButton {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    position: absolute;
+    top: 2%;
+    right: 1%;
+    border: none;
+    background-color: crimson;
+    color: whitesmoke;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.closeOrderDetailsButton:hover {
+    transform: scale(1.1);
+}
+
+.orderDetailsSecondContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+}
+
+.customerDetailsContainer {
+    display: flex;
+    justify-content: space-around;
+    width: 90%;
+}
+
+.nameAndEmailCustomerOrder {
+    text-align: start;
+    width: 40%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.addressOrderDetailsAdmin {
+    width: 50%;
+    text-align: end;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.orderDetailsTab {
+    width: 90%;
+}
+
+.orderDetailsHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #999999;
+}
+
+.orderDetailsHeadCell {
+    width: 15%;
+    font-weight: bold;
+}
+
+.orderDetailsContentTabHead {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #dddddd;
+
+}
+
+.orderDetailsContentCell {
+    width: 15%;
+}
+
+.totalPriceOrderDetailsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emptyContentTotalPrice {
+    background-color: #cab381;
+    width: 75%;
+    height: 35px;
+}
+
+.totalPriceOrderDetails {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444444;
+    height: 35px;
+    margin: 0;
+    color: #dddddd;
+    font-size: 18px;
+}
+
+.modifyStatusContainerOrderDetails {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dateAndStatusOrderDetails {
+    display: flex;
+    background-color: #d4cfd3;
+    width: 90%;
+    justify-content: space-around;
+    border-bottom: solid 2px #cab381;
+}
+
+.statusModifyOrderDetails {
+    display: flex;
+    width: 90%;
+    background-color: #d4cfd3;
+    justify-content: space-around;
+    align-items: center;
+}

@@ -1,0 +1,107 @@
+/*          Style of the signin signup page         */
+
+.signupAndLoginMainContainer {
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.signupAndLoginContainer {
+  padding-top: 10vh;
+  width: 65%;
+  height: 95vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainerLoginPage {
+  background-image: url("/uploads/images/loginPageBackground-min.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: sepia(50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 65px;
+  box-sizing: border-box;
+  height: 85%;
+  width: 50%;
+  background-color: lightgray;
+}
+
+.titleLogin {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  text-shadow: 2px 2px black;
+  font-size: 76px;
+}
+
+.subTitleLogin {
+  font-family: Pacifico;
+  font-size: 32px;
+  text-shadow: 2px 2px black;
+  color: white;
+}
+
+.loginContainerLoginPage {
+  padding: 5px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 85%;
+  background-color: #1C1D1F;
+}
+
+.displaySelectorContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.registerButton,
+.signInButton {
+  margin: 15px;
+  font-size: 18px;
+  border: solid transparent 2px;
+  padding: 5px;
+  cursor: pointer;
+  color: #a1a1a1;
+}
+
+.activeButtonLogin {
+  border-bottom: solid 2px #cab381;
+  box-sizing: border-box;
+  font-size: 32px;
+  color: #cab381;
+}
+
+@media (max-width: 1060px) {
+  .signupAndLoginMainContainer {
+    height: 100%;
+  }
+  .imageContainerLoginPage {
+    display: none;
+  }
+  .loginContainerLoginPage {
+    width: 95%;
+    height: 85%;
+  }
+  .signupAndLoginContainer {
+    padding-top: 0;
+    width: 100%;
+  }
+  .activeButtonLogin {
+    font-size: 20px;
+  }
+
+}

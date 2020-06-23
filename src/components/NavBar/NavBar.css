@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap');
+
+.navBarContainer {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: rgba(230,230,230, 0.9);
+    width: 100%;
+    height: 15vh;
+    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    box-shadœow: 1px 1px 1px #282c34;
+}
+
+.logoNavBar {
+    width: 150px;
+    height: 150px;
+}
+
+.shopTitle {
+    font-size: 46px;
+    color: #1C1D1F;
+}
+
+.navLinkContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.itemNavBar {
+    color: #282c34;
+    font-size: 16px;
+    padding: 5px;
+    letter-spacing: 0.1em;
+    margin: 0 15px 0 15px;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: #CAB381 1px 1px;
+    border-bottom: solid 2px transparent;
+    box-sizing: border-box;
+}
+.itemNavBar:hover {
+    border-bottom: solid 2px #CAB381;
+}
+.itemNavBar:active, .itemNavBar:focus, .itemNavBarCart:active, .itemNavBarCart:focus {
+    outline: 0;
+    -moz-outline-style: none;
+}
+
+.itemNavBarCart {
+    color: #282c34;
+    font-size: 28px;
+    letter-spacing: 0.1em;
+    margin: 0 15px 0 15px;
+    text-decoration: none;
+    text-shadow: #CAB381 1px 1px;
+    border-bottom: none;
+}
+
+.activeItemNavBar {
+    border-bottom: solid 3px #CAB381;
+}
+
+.cartIconAndNumber:hover .numberCartNavBar {
+    display: none;
+}
+
+.accountAndIconContainer {
+    display: flex;
+}
+.accountAndIconContainer:hover .arrowAccountIcon {
+    transform: rotate(0.5turn);
+}
+
+.arrowAccountIcon {
+    margin-left: 10px;
+}
+
+.numberCartNavBar {
+    margin: 0;
+    position: absolute;
+    left: 83%;
+    top: 20%;
+    height: 30px;
+    width: 30px;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #96ac87;
+    border-radius: 50%;
+    box-sizing: border-box;
+    animation: fade-in 1s;
+}
+
+@keyframes fade-in {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 120%;
+    }
+}
+
+.closeCartIcon {
+    color: #CAB381;
+    cursor: pointer;
+}
+.closeCartIcon:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 1060px) {
+    .navBarContainer {
+        justify-content: start;
+        height: 15vh;
+        padding: 15px;
+        box-sizing: border-box;
+        width: 100%;
+    }
+    .logoAndNameNavBar {
+        width: auto;
+    }
+    .shopTitle {
+        display: none;
+    }
+
+    .logoNavBar {
+        height: 120px;
+        width: 120px;
+    }
+}

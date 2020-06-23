@@ -1,0 +1,58 @@
+.adminMediasContainer {
+    margin: 0;
+    padding-top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 78.5vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titleUploadedFilesMedias {
+    display: flex;
+    width: 95%;
+    justify-content: center;
+    background-color: #1C2431;
+    padding: 25px;
+    color: #d4cfd3;
+    margin-top: 35px;
+    box-sizing: border-box;
+}
+
+.mediasUploadedContainer {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    width: 85%;
+    align-items: center;
+}
+
+.imageContainerMedias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: transparent solid 1px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+}
+.imageContainerMedias:hover {
+    cursor: pointer;
+    filter: grayscale(50%);
+    border-color: #282c34;
+}
+
+.imageUploadMedias {
+    width: auto;
+    max-height: 100%;
+}
+
+.deleteImageMedias {
+    position: relative;
+    width: 25px;
+    left: 90%;
+    bottom: 40%;
+    background-color: red;
+    color: white;
+}

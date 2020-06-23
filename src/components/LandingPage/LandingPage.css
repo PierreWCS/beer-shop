@@ -1,0 +1,420 @@
+/*          Style of the landing page           */
+
+.landingPageMainContainer {
+    height: 100%;
+}
+
+.logoLoading {
+    height: 100px;
+    animation: spin infinite;
+    position: absolute;
+    top: 15%;
+}
+
+@keyframes spin {
+    from {
+        rotation: 0;
+    }
+    to {
+        rotation: 360deg;
+    }
+}
+
+/*          Slider          */
+
+.sliderLandingPage {
+    background-image: url('../images/beerHomePage.jpg');
+    background-size: 100%;
+    background-position: 10% 140%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 80vh;
+    width: 100%;
+}
+
+/*          About us            */
+
+.aboutUsMainContainer {
+    width: 100%;
+    height: 70vh;
+    background-color: #1C1D1F;
+}
+
+.aboutUsTextContainer {
+    position: relative;
+    top: 15%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    width: 550px;
+    height: 400px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.aboutButtonLandingPage {
+    text-decoration: none;
+    text-align: center;
+    box-shadow: 1px 1px 1px #282c34;
+}
+
+.imageContainerAboutUs {
+    position: relative;
+    bottom: 50%;
+    left: 60%;
+    width: 700px;
+    height: 450px;
+    background-image: url('../images/breweryBarrels.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    box-sizing: border-box;
+    border: double #CAB381 12px;
+}
+
+.smallSubtitleAbout {
+    font-family: Pacifico;
+    font-size: 36px;
+    color: #CAB381;
+    margin: 2px;
+}
+
+.aboutUsTitle {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 54px;
+    color: white;
+    letter-spacing: 0.1em;
+    margin: 0 0 5px 0;
+}
+
+.textAboutUs {
+    margin: 0 0 20px 0;
+    font-family: 'Montserrat', sans-serif;
+    color: whitesmoke;
+}
+
+.aboutUsButton {
+    background-color: #CAB381;
+    font-family: 'Abril Fatface', cursive;
+    letter-spacing: 0.2em;
+    border: solid 1px #1C1D1F;
+    color: #1C1D1F;
+    width: 250px;
+    padding: 15px;
+}
+
+.aboutUsButton:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+/*          Beer of the month           */
+
+.beerOfTheMonth {
+    font-size: 38px;
+    text-shadow: 1px 1px #1C1D1F;
+    color: #CAB381;
+    font-family: 'Abril Fatface', cursive;
+}
+
+.aboutUsContentContainer {
+    height: 80vh;
+    width: 100%;
+    background-color: #DCD9D0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.smallTextAbout {
+    color: grey;
+}
+
+.brownBeerAbout {
+    margin-top: 75px;
+    height: 350px;
+    background-image: url('../images/compass.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.containerAboutAroundTheBeer {
+    display: flex;
+    flex-direction: row;
+}
+
+.beerNameAbout {
+    color: #282c34;
+}
+
+.firstColumnAbout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 400px;
+}
+
+.secondColumnAbout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 500px;
+    width: 400px;
+}
+
+.titleTextAbout {
+    color: #282c34;
+}
+
+.leftText {
+    text-align: end;
+}
+
+.rightText {
+    text-align: start;
+}
+
+/*          Our products            */
+
+.ourProductsMainContainer {
+    width: 100%;
+    height: 95vh;
+    background-image: url('../images/background_bar_greyscale.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.titleOurProducts {
+    font-family: 'Abril Fatface', cursive;
+    text-shadow: 5px 3px #1C1D1F;
+    letter-spacing: 0.1em;
+    color: white;
+    margin: 0;
+    padding: 70px 0 45px 0;
+}
+
+.ourProductCardContainer {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.linkToProductsLandingPage {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 20px;
+    margin: 15px 0 25px 0;
+    border: solid 2px #424242;
+    cursor: pointer;
+    width: 180px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.linkToProductsLandingPage:hover {
+    opacity: 0.8;
+}
+
+.linkToProductsLandingPage:active {
+    transform: scale(0.95);
+}
+
+/*          Stats           */
+
+.statsContainerLandingPage {
+    background-color: #282c34;
+    width: 100%;
+    height: 40vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.statsLandingPageContentContainer {
+    display: flex;
+    flex-direction: row;
+    width: 70%;
+    justify-content: space-around;
+}
+
+.statsSmallContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconStatsLandingPage {
+    color: #CAB381;
+}
+
+.numberStatsLandingPage {
+    color: whitesmoke;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 46px;
+    margin: 10px 0 15px 0;
+}
+
+.separatorStatsLandingPage {
+    width: 35px;
+    color: #CAB381;
+    margin: 0 0 15px 0;
+}
+
+.textStatsLandingPage {
+    color: whitesmoke;
+    font-family: 'Abril Fatface', cursive;
+    font-size: 20px;
+    margin: 0;
+}
+
+/*          Store           */
+
+.storeInformationContainerLandingPage {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 55px;
+    box-sizing: border-box;
+    background-color: #100C0B;
+}
+
+.storeInfoTitle {
+    color: white;
+    font-family: 'Abril Fatface', cursive;
+    padding: 25px;
+    font-size: 36px;
+}
+
+.storeInformationContentContainer {
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    background-image: url("/uploads/images/backgroundStore.jpg");
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+    color: whitesmoke;
+    font-family: "Montserrat", sans-serif;
+}
+
+.mapAndStoreInformationContainer {
+    position: relative;
+    left: 13%;
+    padding: 25px;
+    box-sizing: border-box;
+    top: 5%;
+    height: 80%;
+    width: 30%;
+    display: flex;
+    text-align: start;
+    align-items: flex-start;
+    flex-direction: column;
+    background-color: #b3a575;
+    background-image: url("/uploads/images/houblonTurn.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 255px 215px;
+    box-shadow: 1px 1px 1px #424242;
+}
+
+.addressIconContainerStore {
+    display: flex;
+    align-items: flex-start;
+}
+
+.textAddressStore {
+    margin: 0 0 5px 15px;
+}
+
+@media (max-width: 1800px) {
+    .imageContainerAboutUs {
+        width: 450px;
+    }
+
+    .ourProductsMainContainer {
+        height: 100%;
+    }
+
+    .ourProductCardContainer {
+        align-items: center;
+    }
+}
+
+@media (max-width: 1060px) {
+    .sliderLandingPage {
+        background-position: initial;
+        height: 30vh;
+    }
+
+    .aboutUsMainContainer {
+        height: 110vh;
+    }
+
+    .aboutUsTextContainer {
+        position: initial;
+        height: 300px;
+        width: 100%;
+    }
+
+    .aboutUsTitle {
+        font-size: 38px;
+    }
+
+    .textAboutUs {
+        margin: 0 5px 15px 0;
+        width: 70%;
+    }
+
+    .imageContainerAboutUs {
+        position: initial;
+        width: 100%;
+        background-position: center;
+    }
+
+    .ourProductsMainContainer {
+        height: auto;
+        padding: 50px 0;
+        background-attachment: initial;
+    }
+
+    .statsContainerLandingPage {
+        height: 150vh;
+    }
+
+    .statsLandingPageContentContainer {
+        flex-direction: column;
+    }
+
+    /*    store     */
+
+    .storeInformationContentContainer {
+        flex-direction: column;
+        background-size: 150%;
+        background-position: top;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .mapAndStoreInformationContainer {
+        position: initial;
+        width: 80%;
+        height: 60%;
+        background-position: 100px 170px;
+        background-color: rgba(179, 165, 117, 0.7);
+    }
+
+    .mapStoreContainer {
+        display: none;
+    }
+}

@@ -1,0 +1,213 @@
+.editProductContainer {
+    position: fixed;
+    top: 15%;
+    height: 85vh;
+    width: 80%;
+    background-color: lightgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    animation: fade-in 0.8s;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 100%;
+    }
+}
+
+.closeWindowEditContainer {
+    position: absolute;
+    z-index: 5;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 120px;
+    background-color: #282c34;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.closeWindowEditContainer:hover {
+    transform: scale(1.1);
+}
+
+.closeWindowEditProduct {
+
+}
+
+.saveContainerEdit {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-color: dodgerblue;
+    height: 60px;
+    color: whitesmoke;
+    width: 200px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.saveContainerEdit:hover {
+    transform: scale(1.1);
+}
+
+.saveProductEdit {
+
+}
+
+.formContainerEditProduct {
+    background-color: lightgray;
+    padding-top: 100px;
+    width: 95%;
+    height: 95%;
+    display: flex;
+    flex-direction: row;
+}
+
+.productTitleEditProduct {
+    text-align: start;
+    max-width: 400px;
+}
+
+.productImageEdit {
+    width: auto;
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.nameAndDescriptionEdit {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 15px;
+}
+
+.priceAndAlcohol {
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.productNameEdit {
+    display: flex;
+    flex-direction: row;
+}
+
+.valueEditProduct {
+    font-weight: bold;
+    font-size: 18px;
+    width: 300px;
+}
+
+.inputEditProduct {
+    border: solid 1px #CAB381;
+    background-color: white;
+    height: 25px;
+    width: 450px;
+    padding: 15px;
+}
+
+.inputEditProductDescription {
+    border: solid 1px #CAB381;
+    background-color: white;
+    height: 250px;
+    width: 450px;
+    padding: 15px;
+}
+
+.imgContainerEdit {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 90%;
+    margin-right: 25px;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.changeTheImageButton {
+    padding: 10px 15px;
+    width: 55%;
+    background-color: #999999;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.productEditChooseImage {
+    position: absolute;
+    overflow: scroll;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #7f8fa6;
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selectTheImageTitle {
+    margin: 35px;
+}
+
+.uploadedImagesContainerEditProduct {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 80%;
+}
+
+.uploadedImagesCardEditProduct {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    align-items: center;
+    width: 200px;
+    height: 150px;
+    margin: 5px;
+    border: sandybrown solid 1px;
+    box-sizing: border-box;
+}
+.uploadedImagesCardEditProduct:hover {
+    background-color: #424242;
+}
+
+.uploadedImageEditProduct {
+    width: auto;
+    max-width: 95%;
+    max-height: 95%;
+}
+
+.disableImageChoiceEditProduct {
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    border: none;
+    color: white;
+    background-color: #282c34;
+    padding: 15px 35px;
+    margin-right: 65px;
+    cursor: pointer;
+    font-size: 20px;
+}
+.disableImageChoiceEditProduct:hover {
+    opacity: 0.9;
+}
