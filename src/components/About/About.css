@@ -142,7 +142,8 @@
 @media (max-width: 1060px) {
     .aboutUsContainerText {
         flex-direction: column;
-        height: 120vh;
+        height: auto;
+        padding: 50px 0;
         width: 100%;
     }
 
@@ -152,10 +153,11 @@
 
     .breweryAboutUs {
         width: 80%;
+        margin: 25px 0;
     }
     .formSectionAbout {
-        height: 85vh;
-        padding: 15px 0 25px 0;
+        height: auto;
+        padding: 25px 0;
     }
 
     .firstColumnAbout, .secondColumnAbout {
@@ -169,13 +171,29 @@
 
     .formContainerAbout {
         height: 550px;
+        justify-content: center;
+    }
+
+    .formContainerAbout input {
+        width: 100%;
+        margin: 10px 0;
     }
 
     .nameFirstNameContainer {
+        width: 100%;
         justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
     .nameAndFirstNameInput {
-        width: 150px;
+        width: 80%;
+    }
+    .nameFirstNameContainer label {
+        margin: 5px 0;
+    }
+
+    .nameFirstNameContainer input {
+        margin: 0;
     }
 
     .titleInput {
@@ -183,11 +201,15 @@
     }
 
     .messageInputAbout {
-        width: 350px;
+        width: 100%;
     }
 
     .mailInputAbout {
         width: 350px;
+    }
+
+    .messageLabelAbout {
+        width: 100%;
     }
 
     .formButton {

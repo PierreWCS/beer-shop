@@ -154,7 +154,7 @@ const About = () => {
               id="email"
             />
           </label>
-          <label htmlFor="message">
+          <label htmlFor="message" className="messageLabelAbout">
             <textarea
               onChange={handleChangeBody}
               required
