@@ -171,6 +171,7 @@
 
     .formContainerAbout {
         height: 550px;
+        width: 90%;
         justify-content: center;
     }
 
