@@ -167,7 +167,12 @@
 
     .namePriceContainerProductPage {
         margin: 5px 0;
+        align-items: center;
         padding: 5px;
+    }
+
+    .descriptionProductPage {
+        text-align: center;
     }
 
     .addToCartButtonProductPage {
