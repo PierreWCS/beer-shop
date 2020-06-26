@@ -139,6 +139,12 @@
     margin: 0 0 25px 0;
 }
 
+@media (max-width: 1400px) {
+    .breweryAboutUs {
+        width: 500px;
+    }
+}
+
 @media (max-width: 1060px) {
     .aboutUsContainerText {
         flex-direction: column;

@@ -351,6 +351,12 @@
     }
 }
 
+@media (max-width: 1400px) {
+    .imageContainerAboutUs {
+        height: 350px;
+    }
+}
+
 @media (max-width: 1060px) {
     .sliderLandingPage {
         background-position: initial;

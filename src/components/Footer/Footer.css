@@ -100,6 +100,12 @@
     color: whitesmoke;
 }
 
+@media (max-width: 1400px) {
+    .footerMainContainer {
+        height: 60vh;
+    }
+}
+
 @media (max-width: 1060px) {
     .footerMainContainer {
         height: auto;
